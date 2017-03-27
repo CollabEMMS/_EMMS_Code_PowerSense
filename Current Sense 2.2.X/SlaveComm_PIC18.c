@@ -181,7 +181,7 @@ void resetCommunications( struct buffer * send_buffer )
 {
     SSP2CON1bits.SSPEN = 0; //disable SPI
     SSP2CON1bits.SSPEN = 1; //enable SPI
-
+    
     SSP2CON1bits.WCOL = 0;
     SPI_transmit_wait = false;
 
