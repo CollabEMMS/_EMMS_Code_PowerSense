@@ -146,35 +146,11 @@ void communications( bool firstTime )
 
 	no_more_to_send = send_data( &send_buffer );
 
-//	communications_watchdog_counter++;
-//
-//	if ( SPIWatchdogTimerCheck(5))
-//	{
-//	    
-//	    
-//    TMR0H = 0;
-//    TMR0L = 0;
-//	    if(   LEDGreen == 1 )
-//	 {
-//	     LEDGreen = 0;
-//	 }
-//	 else
-//	 {
-//	     LEDGreen = 1;
-//	 }
-//	}
-//	
-//	
-//	if( communications_watchdog_counter >= COMMUNICATIONS_WATCHDOG_COUNT_LIMIT )
-//	{
-//	    resetCommunications( &send_buffer );
-//	    communications_watchdog_counter = 0;
-//	}
 	
 	static bool last_state_active = false;
 	if( PORTBbits.SS2 == 0b1 )
 	{
-	    LEDSET = 1;
+	    LEDSET = 0;
 	    last_state_active = false;
 
 	    if ( last_state_active == true)
@@ -185,12 +161,12 @@ void communications( bool firstTime )
 	}
 	else
 	{
-	    LEDSET = 0;
+	    LEDSET = 1;
 	    if( last_state_active == false)
 	    {
 //		SPISlaveInit();
 		resetCommunications( &send_buffer );
-		RESET();
+//		RESET();
 	    }
 
 	    last_state_active = true;
@@ -203,9 +179,8 @@ void communications( bool firstTime )
 
 void resetCommunications( struct buffer * send_buffer )
 {
-    //SSP2CON1bits.SSPEN = 0; //disable SPI
-    //SSP2CON1bits.SSPEN = 1; //enable SPI
- SPISlaveInit(  );
+    SSP2CON1bits.SSPEN = 0; //disable SPI
+    SSP2CON1bits.SSPEN = 1; //enable SPI
 
     SSP2CON1bits.WCOL = 0;
     SPI_transmit_wait = false;

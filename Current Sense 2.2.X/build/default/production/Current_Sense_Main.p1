@@ -6,87 +6,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SPISlaveInit `(v ~T0 @X0 0 ef ]
 "21
 [v _communications `(v ~T0 @X0 0 ef1`uc ]
-"6264 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18lf25k22.h
-[s S402 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S402 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"6274
-[s S403 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S403 . AN0 AN1 AN2 AN3 . AN4 ]
-"6282
-[s S404 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S404 . C12IN0M C12IN1M C2INP C1INP C1OUT C2OUT ]
-"6290
-[s S405 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S405 . C12IN0N C12IN1N VREFM VREFP T0CKI SS ]
-"6298
-[s S406 :5 `uc 1 :1 `uc 1 ]
-[n S406 . . NOT_SS ]
-"6302
-[s S407 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S407 . . VREFN . SRQ nSS ]
-"6309
-[s S408 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S408 . . CVREF . CCP5 LVDIN ]
-"6316
-[s S409 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S409 . . DACOUT . HLVDIN ]
-"6322
-[s S410 :5 `uc 1 :1 `uc 1 ]
-[n S410 . . SS1 ]
-"6326
-[s S411 :5 `uc 1 :1 `uc 1 ]
-[n S411 . . NOT_SS1 ]
-"6330
-[s S412 :5 `uc 1 :1 `uc 1 ]
-[n S412 . . nSS1 ]
-"6334
-[s S413 :5 `uc 1 :1 `uc 1 ]
-[n S413 . . SRNQ ]
-"6338
-[s S414 :7 `uc 1 :1 `uc 1 ]
-[n S414 . . RJPU ]
-"6342
-[s S415 :1 `uc 1 ]
-[n S415 . ULPWUIN ]
-"6263
-[u S401 `S402 1 `S403 1 `S404 1 `S405 1 `S406 1 `S407 1 `S408 1 `S409 1 `S410 1 `S411 1 `S412 1 `S413 1 `S414 1 `S415 1 ]
-[n S401 . . . . . . . . . . . . . . . ]
-"6346
-[v _PORTAbits `VS401 ~T0 @X0 0 e@3968 ]
-"7530
-[s S469 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S469 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
-"7540
-[s S470 :1 `uc 1 ]
-[n S470 . LA0 ]
-"7543
-[s S471 :1 `uc 1 :1 `uc 1 ]
-[n S471 . . LA1 ]
-"7547
-[s S472 :2 `uc 1 :1 `uc 1 ]
-[n S472 . . LA2 ]
-"7551
-[s S473 :3 `uc 1 :1 `uc 1 ]
-[n S473 . . LA3 ]
-"7555
-[s S474 :4 `uc 1 :1 `uc 1 ]
-[n S474 . . LA4 ]
-"7559
-[s S475 :5 `uc 1 :1 `uc 1 ]
-[n S475 . . LA5 ]
-"7563
-[s S476 :6 `uc 1 :1 `uc 1 ]
-[n S476 . . LA6 ]
-"7567
-[s S477 :7 `uc 1 :1 `uc 1 ]
-[n S477 . . LA7 ]
-"7529
-[u S468 `S469 1 `S470 1 `S471 1 `S472 1 `S473 1 `S474 1 `S475 1 `S476 1 `S477 1 ]
-[n S468 . . . . . . . . . . ]
-"7572
-[v _LATAbits `VS468 ~T0 @X0 0 e@3977 ]
-"146 Current_Sense_Main.c
-[v _delayMS `(v ~T0 @X0 0 ef1`ui ]
 "7931 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18lf25k22.h
 [s S499 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S499 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
@@ -192,6 +111,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S478 . . . . . . . . . . ]
 "7704
 [v _LATBbits `VS478 ~T0 @X0 0 e@3978 ]
+"146 Current_Sense_Main.c
+[v _delayMS `(v ~T0 @X0 0 ef1`ui ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
 [; ;stdio.h: 10: typedef unsigned short wchar_t;
@@ -7513,60 +7434,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Current_Sense_Main.c: 189: communications( 0 );
 "189
 [e ( _communications (1 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 191: if(PORTAbits.RA1 == 1) {
-"191
-[e $ ! == -> . . _PORTAbits 0 1 `i -> 1 `i 1114  ]
-{
-[; ;Current_Sense_Main.c: 192: LATAbits.LATA0 = 0b1;
-"192
-[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
-"194
-}
-[; ;Current_Sense_Main.c: 194: }
-[e $U 1115  ]
-"195
-[e :U 1114 ]
-[; ;Current_Sense_Main.c: 195: else {
-{
-[; ;Current_Sense_Main.c: 196: LATAbits.LATA0 = 0b0;
-"196
-[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 199: if (togglePulse == 0) {
-"199
-[e $ ! == _togglePulse -> -> 0 `i `ui 1116  ]
-{
-[; ;Current_Sense_Main.c: 201: togglePulse = 1;
-"201
-[e = _togglePulse -> -> 1 `i `ui ]
-[; ;Current_Sense_Main.c: 202: delayMS(100);
-"202
-[e ( _delayMS (1 -> -> 100 `i `ui ]
-"203
-}
-[; ;Current_Sense_Main.c: 203: } else {
-[e $U 1117  ]
-[e :U 1116 ]
-{
-[; ;Current_Sense_Main.c: 205: togglePulse = 0;
-"205
-[e = _togglePulse -> -> 0 `i `ui ]
-[; ;Current_Sense_Main.c: 206: delayMS(100);
-"206
-[e ( _delayMS (1 -> -> 100 `i `ui ]
-"207
-}
-[e :U 1117 ]
-"208
-}
-[e :U 1115 ]
 "209
 }
 [e :U 1111 ]
 "188
 [e $U 1112  ]
 [e :U 1113 ]
-[; ;Current_Sense_Main.c: 207: }
-[; ;Current_Sense_Main.c: 208: }
 [; ;Current_Sense_Main.c: 209: }
 [; ;Current_Sense_Main.c: 210: return;
 "210
@@ -7624,9 +7497,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "231
 {
 [e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 5 `i `ui 1119  ]
-[e $U 1120  ]
-[e :U 1119 ]
+[e $ < _i -> -> 5 `i `ui 1115  ]
+[e $U 1116  ]
+[e :U 1115 ]
 {
 [; ;Current_Sense_Main.c: 232: LATBbits.LATB4 = 1;
 "232
@@ -7644,14 +7517,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "231
 [e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 5 `i `ui 1119  ]
-[e :U 1120 ]
+[e $ < _i -> -> 5 `i `ui 1115  ]
+[e :U 1116 ]
 "236
 }
 [; ;Current_Sense_Main.c: 236: }
 [; ;Current_Sense_Main.c: 238: }
 "238
-[e :UE 1118 ]
+[e :UE 1114 ]
 }
 "240
 [v _delayMS `(v ~T0 @X0 1 ef1`ui ]
@@ -7668,27 +7541,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 "243
 {
 [e = _i -> -> 0 `i `ui ]
-[e $U 1126  ]
+[e $U 1122  ]
 "244
-[e :U 1123 ]
+[e :U 1119 ]
 [; ;Current_Sense_Main.c: 244: for (j = 0; j < 100; j++);
 {
 [e = _j -> -> 0 `i `ui ]
-[e $ < _j -> -> 100 `i `ui 1127  ]
-[e $U 1128  ]
-[e :U 1127 ]
+[e $ < _j -> -> 100 `i `ui 1123  ]
+[e $U 1124  ]
+[e :U 1123 ]
 [e ++ _j -> -> 1 `i `ui ]
-[e $ < _j -> -> 100 `i `ui 1127  ]
-[e :U 1128 ]
+[e $ < _j -> -> 100 `i `ui 1123  ]
+[e :U 1124 ]
 }
 "243
 [e ++ _i -> -> 1 `i `ui ]
-[e :U 1126 ]
-[e $ < _i _a 1123  ]
-[e :U 1124 ]
+[e :U 1122 ]
+[e $ < _i _a 1119  ]
+[e :U 1120 ]
 "244
 }
 [; ;Current_Sense_Main.c: 245: }
 "245
-[e :UE 1122 ]
+[e :UE 1118 ]
 }

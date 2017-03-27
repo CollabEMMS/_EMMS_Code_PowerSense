@@ -188,24 +188,24 @@ void main(void) {
     while(1) {
 	communications( false );
 	
-        if(PORTAbits.RA1 == 1) {
-            pulseOut = 0b1;
-            //LATBbits.LATB4 = 0;
-        }
-        else {
-            pulseOut = 0b0;
-
-            // for testing purposes only
-            if (togglePulse == 0) {
-                //LED = 1; // turn on the LED
-                togglePulse = 1;
-                delayMS(100);
-            } else {
-                //LED = 0; // turn off the LED
-                togglePulse = 0;
-                delayMS(100);
-            }
-        }
+//        if(PORTAbits.RA1 == 1) {
+//            pulseOut = 0b1;
+//            //LATBbits.LATB4 = 0;
+//        }
+//        else {
+//            pulseOut = 0b0;
+//
+//            // for testing purposes only
+//            if (togglePulse == 0) {
+//                //LED = 1; // turn on the LED
+//                togglePulse = 1;
+//                delayMS(100);
+//            } else {
+//                //LED = 0; // turn off the LED
+//                togglePulse = 0;
+//                delayMS(100);
+//            }
+//        }
     }
     return;// (EXIT_SUCCESS);
 }

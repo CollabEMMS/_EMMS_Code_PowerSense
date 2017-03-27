@@ -9036,11 +9036,11 @@ end_of_transmission_received = 0;
 
 no_more_to_send = send_data( &send_buffer );
 
-# 174
+
 static bool last_state_active = 0;
 if( PORTBbits.SS2 == 0b1 )
 {
-LATBbits.LATB4 = 1;
+LATBbits.LATB4 = 0;
 last_state_active = 0;
 
 if ( last_state_active == 1)
@@ -9051,12 +9051,12 @@ last_state_active = 0;
 }
 else
 {
-LATBbits.LATB4 = 0;
+LATBbits.LATB4 = 1;
 if( last_state_active == 0)
 {
 
 resetCommunications( &send_buffer );
-asm(" reset");
+
 }
 
 last_state_active = 1;
@@ -9069,9 +9069,10 @@ return;
 
 void resetCommunications( struct buffer * send_buffer )
 {
+SSP2CON1bits.SSPEN = 0;
+delayMS(10);
+SSP2CON1bits.SSPEN = 1;
 
-
-SPISlaveInit( );
 
 SSP2CON1bits.WCOL = 0;
 SPI_transmit_wait = 0;
@@ -9147,7 +9148,7 @@ void process_data_parameterize( char parameters[5][10], struct buffer * buffer_t
 unsigned char parameter_position = 0;
 unsigned char parameter_index = 0;
 
-# 291
+# 268
 for( int inx = 0; inx < 5; inx++ )
 {
 parameters[inx][0] = '\0';
@@ -9199,7 +9200,7 @@ bool process_data_parameters( char parameters[5][10], struct buffer * send_buffe
 {
 bool end_of_transmission_received = 0;
 
-# 350
+# 327
 if( strmatch( parameters[0], "END" ) == 1 )
 {
 end_of_transmission_received = 1;
@@ -9262,7 +9263,7 @@ send_end_of_transmission( send_buffer );
 }
 }
 
-# 416
+# 393
 return end_of_transmission_received;
 }
 
@@ -9479,7 +9480,7 @@ void com_command_testLED( struct buffer * send_buffer )
 {
 command_builder2( send_buffer, "Read", "LEDB" );
 
-# 641
+# 618
 return;
 }
 
@@ -9500,7 +9501,7 @@ LATCbits.LATC3 = 1;
 LATCbits.LATC5 = 1;
 LATCbits.LATC7 = 1;
 
-# 674
+# 651
 SSP2CON1bits.SSPEN = 0;
 
 ANSELBbits.ANSB0 = 0b0;
