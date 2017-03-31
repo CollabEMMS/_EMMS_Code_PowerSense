@@ -89,7 +89,6 @@ void com_command_testLED( struct buffer * send_buffer );
 //bool SPIWatchdogTimerCheck( unsigned char timer );
 //void SPIWatchdogTimerReset( void );
 
-
 /***********************
  main code body
  */
@@ -104,11 +103,11 @@ void communications( bool firstTime )
 
     static enum receive_status receive_current_state;
 
-//    static unsigned long communications_watchdog_counter = 0;
-    
+    //    static unsigned long communications_watchdog_counter = 0;
+
     if( firstTime == true )
     {
-//	communications_watchdog_counter = 0;
+	//	communications_watchdog_counter = 0;
 	send_buffer.write_position = 0;
 	send_buffer.read_position = 0;
 	resetCommunications( &send_buffer );
@@ -131,7 +130,7 @@ void communications( bool firstTime )
 	    {
 		end_of_transmission_received = true;
 	    }
-//	    communications_watchdog_counter = 0;
+	    //	    communications_watchdog_counter = 0;
 	    break;
 	}
 
@@ -140,33 +139,33 @@ void communications( bool firstTime )
 	    // we reset the SPI port here BEFORE starting a new command
 	    // if a character is placed in the buffer, it is lost when the reset happens
 	    //resetCommunications( &send_buffer );
-//	    communications_watchdog_counter = 0;
+	    //	    communications_watchdog_counter = 0;
 	    end_of_transmission_received = false;
 	}
 
 	no_more_to_send = send_data( &send_buffer );
 
-	
+
 	static bool last_state_active = false;
 	if( PORTBbits.SS2 == 0b1 )
 	{
-	    LEDSET = 0;
+	    //	    LEDSET = 0;
 	    last_state_active = false;
 
-	    if ( last_state_active == true)
+	    if( last_state_active == true )
 	    {
-	//	resetCommunications( &send_buffer );
+		//	resetCommunications( &send_buffer );
 		last_state_active = false;
 	    }
 	}
 	else
 	{
-	    LEDSET = 1;
-	    if( last_state_active == false)
+	    //	    LEDSET = 1;
+	    if( last_state_active == false )
 	    {
-//		SPISlaveInit();
+		//		SPISlaveInit();
 		resetCommunications( &send_buffer );
-//		RESET();
+		//		RESET();
 	    }
 
 	    last_state_active = true;
@@ -181,7 +180,7 @@ void resetCommunications( struct buffer * send_buffer )
 {
     SSP2CON1bits.SSPEN = 0; //disable SPI
     SSP2CON1bits.SSPEN = 1; //enable SPI
-    
+
     SSP2CON1bits.WCOL = 0;
     SPI_transmit_wait = false;
 
@@ -190,7 +189,7 @@ void resetCommunications( struct buffer * send_buffer )
 
     // we can change this to whatever needs to happen
     com_command_testLED( send_buffer );
-           
+
     return;
 }
 
@@ -324,6 +323,15 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 
     if( strmatch( parameters[0], "END" ) == true )
     {
+
+	if( LEDSET == 1 )
+	{
+	    LEDSET = 0;
+	}
+	else
+	{
+	    LEDSET = 1;
+	}
 	end_of_transmission_received = true;
     }
     else if( strmatch( parameters[0], "Set" ) == true )
@@ -378,8 +386,10 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
     }
     else if( strmatch( parameters[0], "Conf" ) == true )
     {
+
 	if( strmatch( parameters[1], "LEDB" ) == true )
 	{
+
 	    send_end_of_transmission( send_buffer );
 	}
     }
@@ -393,8 +403,8 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 
 void command_builder1( struct buffer *send_buffer, char* data1 )
 {
-    command_builder_add_char( send_buffer,COMMAND_SEND_RECEIVE_PRIMER_CHAR );
-    command_builder_add_char( send_buffer,COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
     command_builder_add_char( send_buffer, COMMAND_START_CHAR );
     command_builder_add_string( send_buffer, data1 );
     command_builder_add_char( send_buffer, COMMAND_END_CHAR );
@@ -404,12 +414,12 @@ void command_builder1( struct buffer *send_buffer, char* data1 )
 
 void command_builder2( struct buffer *send_buffer, char* data1, char* data2 )
 {
-    command_builder_add_char( send_buffer,COMMAND_SEND_RECEIVE_PRIMER_CHAR );
-    command_builder_add_char( send_buffer,COMMAND_SEND_RECEIVE_PRIMER_CHAR );
-    command_builder_add_char( send_buffer,COMMAND_SEND_RECEIVE_PRIMER_CHAR );
-    command_builder_add_char( send_buffer,COMMAND_SEND_RECEIVE_PRIMER_CHAR );
-    command_builder_add_char( send_buffer,COMMAND_SEND_RECEIVE_PRIMER_CHAR );
-    command_builder_add_char( send_buffer,COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
     command_builder_add_char( send_buffer, COMMAND_START_CHAR );
     command_builder_add_string( send_buffer, data1 );
     command_builder_add_char( send_buffer, COMMAND_DELIMETER );
@@ -421,8 +431,8 @@ void command_builder2( struct buffer *send_buffer, char* data1, char* data2 )
 
 void command_builder3( struct buffer *send_buffer, char* data1, char* data2, char* data3 )
 {
-    command_builder_add_char( send_buffer,COMMAND_SEND_RECEIVE_PRIMER_CHAR );
-    command_builder_add_char( send_buffer,COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
     command_builder_add_char( send_buffer, COMMAND_START_CHAR );
     command_builder_add_string( send_buffer, data1 );
     command_builder_add_char( send_buffer, COMMAND_DELIMETER );
@@ -436,8 +446,8 @@ void command_builder3( struct buffer *send_buffer, char* data1, char* data2, cha
 
 void command_builder4( struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4 )
 {
-    command_builder_add_char( send_buffer,COMMAND_SEND_RECEIVE_PRIMER_CHAR );
-    command_builder_add_char( send_buffer,COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
     command_builder_add_char( send_buffer, COMMAND_START_CHAR );
     command_builder_add_string( send_buffer, data1 );
     command_builder_add_char( send_buffer, COMMAND_DELIMETER );
@@ -536,19 +546,19 @@ int strcmp2( char* a, char* b )
 
 	inx++;
     }
-  
-    
-    if (( a[inx] == CHAR_NULL) && (b[inx] != CHAR_NULL ))
+
+
+    if( ( a[inx] == CHAR_NULL ) && ( b[inx] != CHAR_NULL ) )
     {
-            match = -1;
+	match = -1;
     }
-    else if (( a[inx] != CHAR_NULL) && (b[inx] == CHAR_NULL ))
+    else if( ( a[inx] != CHAR_NULL ) && ( b[inx] == CHAR_NULL ) )
     {
-            match = 1;
+	match = 1;
     }
-    
+
     return match;
-    
+
 }
 
 bool SPI_receive_data( char *data )
@@ -575,12 +585,12 @@ bool SPI_receive_data( char *data )
 bool SPI_send_data( char data )
 {
     bool sendGood = false;
-   
+
     if( SPI_transmit_wait == false )
     {
 	SSP2BUF = data;
 	SPI_transmit_wait = true;
-	    sendGood = true;
+	sendGood = true;
     }
     else
     {
@@ -605,14 +615,14 @@ void com_command_testLED( struct buffer * send_buffer )
     command_builder2( send_buffer, "Read", "LEDB" );
 
     // we need to change this into a comm primer function
-    
+
     // how do we drive the communications from here
     // send data
     //  voltage
     //  current
     //  power
     // do we need to ask for any new calibration parameters?
-    
+
     return;
 }
 
@@ -632,20 +642,20 @@ void SPISlaveInit( void )
     LATCbits.LATC3 = 1; // set pin 14 to a 1 to set freq. control F2 for pulse
     LATCbits.LATC5 = 1; // set pin 16 to a 1 to set freq. control F1 for pulse
     LATCbits.LATC7 = 1; // set pin 18 to a 1 to set freq. control F0 for pulse
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     SSP2CON1bits.SSPEN = 0; //Synchronous Serial Port Enable bit
 
     ANSELBbits.ANSB0 = 0b0;
@@ -673,8 +683,8 @@ void SPISlaveInit( void )
 
     SSP2CON1bits.SSPEN = 1; //Synchronous Serial Port Enable bit
 
-//    SPIWatchdogTimerInit(); 
-    
+    //    SPIWatchdogTimerInit(); 
+
     return;
 }
 
