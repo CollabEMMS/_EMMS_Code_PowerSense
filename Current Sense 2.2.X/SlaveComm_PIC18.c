@@ -24,14 +24,6 @@
 #define LEDDIR TRISBbits.RB4
 #define LEDREAD PORTBbits.RB4
 
-//#define COMMUNICATIONS_WATCHDOG_COUNT_LIMIT 10000
-// this watchdog needs to be changed to time based - it is not the number of characters sent, it is the number of times the program has looped.
-// depending on the CPU clock, this can be really fast or it can be slow.
-// should mimic the delay_ms that is on the PIC 8
-
-
-//#define SPI_SS PORTBbits.RB0
-
 bool SPI_transmit_wait;
 
 enum receive_status
@@ -47,12 +39,6 @@ struct buffer
     unsigned char write_position;
     unsigned char read_position;
 };
-
-
-//#define LEDGreen LATAbits.LATA2
-
-//#define LEDRed LATAbits.LATA3
-
 
 
 extern void delayMS( unsigned int );
@@ -82,12 +68,11 @@ void resetCommunications( struct buffer * receive_buffer );
 
 void send_end_of_transmission( struct buffer *send_buffer );
 void com_command_testLED( struct buffer * send_buffer );
-
-
-// alternative watchdog timer by using a timer
-//void SPIWatchdogTimerInit( void );
-//bool SPIWatchdogTimerCheck( unsigned char timer );
-//void SPIWatchdogTimerReset( void );
+void com_command_setPower( struct buffer * send_buffer );
+void com_command_setVolts( struct buffer * send_buffer );
+void com_command_setAmps( struct buffer * send_buffer );
+void com_command_readCalibration( struct buffer * send_buffer );
+void com_command_setVersion( struct buffer * send_buffer );
 
 /***********************
  main code body
@@ -103,11 +88,9 @@ void communications( bool firstTime )
 
     static enum receive_status receive_current_state;
 
-    //    static unsigned long communications_watchdog_counter = 0;
 
     if( firstTime == true )
     {
-	//	communications_watchdog_counter = 0;
 	send_buffer.write_position = 0;
 	send_buffer.read_position = 0;
 	resetCommunications( &send_buffer );
@@ -130,17 +113,8 @@ void communications( bool firstTime )
 	    {
 		end_of_transmission_received = true;
 	    }
-	    //	    communications_watchdog_counter = 0;
-	    break;
-	}
 
-	if( end_of_transmission_received == true )
-	{
-	    // we reset the SPI port here BEFORE starting a new command
-	    // if a character is placed in the buffer, it is lost when the reset happens
-	    //resetCommunications( &send_buffer );
-	    //	    communications_watchdog_counter = 0;
-	    end_of_transmission_received = false;
+	    break;
 	}
 
 	no_more_to_send = send_data( &send_buffer );
@@ -149,23 +123,13 @@ void communications( bool firstTime )
 	static bool last_state_active = false;
 	if( PORTBbits.SS2 == 0b1 )
 	{
-	    //	    LEDSET = 0;
 	    last_state_active = false;
-
-	    if( last_state_active == true )
-	    {
-		//	resetCommunications( &send_buffer );
-		last_state_active = false;
-	    }
 	}
 	else
 	{
-	    //	    LEDSET = 1;
 	    if( last_state_active == false )
 	    {
-		//		SPISlaveInit();
 		resetCommunications( &send_buffer );
-		//		RESET();
 	    }
 
 	    last_state_active = true;
@@ -178,7 +142,12 @@ void communications( bool firstTime )
 
 void resetCommunications( struct buffer * send_buffer )
 {
+
+    static int commState = 0;
+
+
     SSP2CON1bits.SSPEN = 0; //disable SPI
+    delayMS( 1 );
     SSP2CON1bits.SSPEN = 1; //enable SPI
 
     SSP2CON1bits.WCOL = 0;
@@ -187,9 +156,34 @@ void resetCommunications( struct buffer * send_buffer )
     send_buffer->read_position = 0;
     send_buffer->write_position = 0;
 
-    // we can change this to whatever needs to happen
-    com_command_testLED( send_buffer );
 
+    // set up command state machine
+    // do we repeat a command if we did not hit END command?
+    commState++;
+    switch( commState )
+    {
+    case 1:
+	com_command_setVersion( send_buffer );
+	break;
+    case 2:
+	com_command_setPower( send_buffer );
+	break;
+    case 3:
+	com_command_setVolts( send_buffer );
+	break;
+    case 4:
+	com_command_setAmps( send_buffer );
+	break;
+    case 5:
+	com_command_readCalibration( send_buffer );
+	break;
+    case 6:
+	com_command_testLED( send_buffer );
+	break;
+    default:
+	commState = 0;
+	break;
+    }
     return;
 }
 
@@ -238,7 +232,7 @@ bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer )
     bool end_of_transmission_received;
 
     // if we are here then the receive buffer must have good data with start and end command characters
-    // the characters are not included as they were not added
+    // the characters are not included as they were stripped from the incoming data
 
     char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH];
 
@@ -313,17 +307,9 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 {
     bool end_of_transmission_received = false;
 
-    // the 'commands' shown here are for example only
-    // make them whatever is needed
-
-    // ideally, any new commands are set in a separate function called from one of these tests
-    // it's not very clean to call the command builder functions from here
-    // especially if there is some processing to do, like setting a clock or something
-
 
     if( strmatch( parameters[0], "END" ) == true )
     {
-
 	if( LEDSET == 1 )
 	{
 	    LEDSET = 0;
@@ -332,43 +318,20 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 	{
 	    LEDSET = 1;
 	}
+
 	end_of_transmission_received = true;
     }
     else if( strmatch( parameters[0], "Set" ) == true )
     {
-	if( strmatch( parameters[1], "Power" ) == true )
+	if( strmatch( parameters[1], "Calibration" ) == true )
 	{
-	    //set_power( parameters[3]);
-	    // send reply?
-	}
-	else if( strmatch( parameters[1], "Volts" ) == true )
-	{
-	    //set_volts( parameters[2]);
-	    // send reply?
-	}
-	else if( strmatch( parameters[1], "Current" ) == true )
-	{
-	    //set_current( parameters[3]);
-	    // send reply?
+	    // set the calibration value for the current sense, if required
 	}
 
     }
     else if( strmatch( parameters[0], "Read" ) == true )
     {
-
-	if( strmatch( parameters[1], "Power" ) == true )
-	{
-	    // send command power
-	}
-	else if( strmatch( parameters[1], "Volts" ) == true )
-	{
-	    // send command volts
-	}
-	else if( strmatch( parameters[1], "Current" ) == true )
-	{
-	    // send command current
-	}
-
+	// nothing to read ight now
     }
     else if( strmatch( parameters[0], "Data" ) == true )
     {
@@ -386,10 +349,24 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
     }
     else if( strmatch( parameters[0], "Conf" ) == true )
     {
-
 	if( strmatch( parameters[1], "LEDB" ) == true )
 	{
-
+	    send_end_of_transmission( send_buffer );
+	}
+	else if( strmatch( parameters[1], "Watts" ) == true )
+	{
+	    send_end_of_transmission( send_buffer );
+	}
+	else if( strmatch( parameters[1], "Volts" ) == true )
+	{
+	    send_end_of_transmission( send_buffer );
+	}
+	else if( strmatch( parameters[1], "Amps" ) == true )
+	{
+	    send_end_of_transmission( send_buffer );
+	}
+	else if( strmatch( parameters[1], "PSVersion" ) == true )
+	{
 	    send_end_of_transmission( send_buffer );
 	}
     }
@@ -414,10 +391,6 @@ void command_builder1( struct buffer *send_buffer, char* data1 )
 
 void command_builder2( struct buffer *send_buffer, char* data1, char* data2 )
 {
-    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
-    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
-    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
-    command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
     command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
     command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
     command_builder_add_char( send_buffer, COMMAND_START_CHAR );
@@ -614,16 +587,41 @@ void com_command_testLED( struct buffer * send_buffer )
 {
     command_builder2( send_buffer, "Read", "LEDB" );
 
-    // we need to change this into a comm primer function
+    return;
+}
 
-    // how do we drive the communications from here
-    // send data
-    //  voltage
-    //  current
-    //  power
-    // do we need to ask for any new calibration parameters?
+void com_command_setPower( struct buffer * send_buffer )
+{
+    command_builder3( send_buffer, "Set", "Watts", "111" );
 
     return;
+}
+
+void com_command_setVolts( struct buffer * send_buffer )
+{
+    command_builder3( send_buffer, "Set", "Volts", "222" );
+
+    return;
+}
+
+void com_command_setAmps( struct buffer * send_buffer )
+{
+    command_builder3( send_buffer, "Set", "Amps", "333" );
+
+    return;
+}
+
+void com_command_readCalibration( struct buffer * send_buffer )
+{
+    command_builder2( send_buffer, "Read", "Calibration" );
+
+    return;
+}
+
+void com_command_setVersion( struct buffer * send_buffer )
+{
+    command_builder3( send_buffer, "Set", "PSVersion", "444" );
+
 }
 
 void SPISlaveInit( void )
@@ -642,18 +640,6 @@ void SPISlaveInit( void )
     LATCbits.LATC3 = 1; // set pin 14 to a 1 to set freq. control F2 for pulse
     LATCbits.LATC5 = 1; // set pin 16 to a 1 to set freq. control F1 for pulse
     LATCbits.LATC7 = 1; // set pin 18 to a 1 to set freq. control F0 for pulse
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     SSP2CON1bits.SSPEN = 0; //Synchronous Serial Port Enable bit
@@ -687,46 +673,3 @@ void SPISlaveInit( void )
 
     return;
 }
-
-//void SPIWatchdogTimerInit( )
-//{
-//    T0CONbits.T08BIT = 0;;
-//    T0CONbits.T0CS = 0;
-//    T0CONbits.T0SE = 0;
-//    T0CONbits.PSA = 0;
-//    T0CONbits.T0PS = 0b111;
-//    
-//    TMR0H = 0;
-//    TMR0L = 0;
-//
-//    T0CONbits.TMR0ON = 1;
-//    
-//    return;
-//}
-//
-//bool SPIWatchdogTimerCheck( unsigned char timer )
-//{
-//    bool time_past;
-//    
-//    // must read low byte first to cause high byte to be loaded
-//    if ((TMR0L >= 0 )  && (TMR0H >= timer))
-//    {
-//	time_past = true;
-//    }
-//    else
-//    {
-//	time_past = false;
-//    }
-//
-//    return time_past;
-//    
-//}
-//
-//void SPIWatchdogTimerReset()
-//{
-//    // the order is important - setting the Low byte causes the high byte to be stored as well
-//    // just storing the high byte does nothing
-//    TMR0H = 0;
-//    TMR0L = 0;
-//    
-//}

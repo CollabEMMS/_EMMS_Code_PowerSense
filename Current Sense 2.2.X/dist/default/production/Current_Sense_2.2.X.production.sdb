@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18LF25K22 ]
 [d frameptr 4065 ]
-"104 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"89 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [e E7493 receive_status `uc
 receive_waiting 0
 receive_in_command 1
@@ -137,45 +137,55 @@ receive_end_command 2
 [v _init init `(v  1 e 0 0 ]
 "240
 [v _delayMS delayMS `(v  1 e 0 0 ]
-"96 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"81 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _communications communications `(v  1 e 0 0 ]
-"179
+"143
 [v _resetCommunications resetCommunications `(v  1 e 0 0 ]
-"196
+"190
 [v _receive_data receive_data `(E7493  1 e 1 0 ]
-"236
+"230
 [v _process_data process_data `(uc  1 e 1 0 ]
-"253
+"247
 [v _process_data_parameterize process_data_parameterize `(v  1 e 0 0 ]
-"312
+"306
 [v _process_data_parameters process_data_parameters `(uc  1 e 1 0 ]
-"404
+"381
 [v _command_builder1 command_builder1 `(v  1 e 0 0 ]
-"415
+"392
 [v _command_builder2 command_builder2 `(v  1 e 0 0 ]
-"432
+"405
 [v _command_builder3 command_builder3 `(v  1 e 0 0 ]
-"447
+"420
 [v _command_builder4 command_builder4 `(v  1 e 0 0 ]
-"464
+"437
 [v _command_builder_add_char command_builder_add_char `(v  1 e 0 0 ]
-"477
+"450
 [v _command_builder_add_string command_builder_add_string `(v  1 e 0 0 ]
-"487
+"460
 [v _send_data send_data `(uc  1 e 1 0 ]
-"515
+"488
 [v _strmatch strmatch `(uc  1 e 1 0 ]
-"527
+"500
 [v _strcmp2 strcmp2 `(i  1 e 2 0 ]
-"564
+"537
 [v _SPI_receive_data SPI_receive_data `(uc  1 e 1 0 ]
-"585
+"558
 [v _SPI_send_data SPI_send_data `(uc  1 e 1 0 ]
-"606
+"579
 [v _send_end_of_transmission send_end_of_transmission `(v  1 e 0 0 ]
-"613
+"586
 [v _com_command_testLED com_command_testLED `(v  1 e 0 0 ]
-"629
+"593
+[v _com_command_setPower com_command_setPower `(v  1 e 0 0 ]
+"600
+[v _com_command_setVolts com_command_setVolts `(v  1 e 0 0 ]
+"607
+[v _com_command_setAmps com_command_setAmps `(v  1 e 0 0 ]
+"614
+[v _com_command_readCalibration com_command_readCalibration `(v  1 e 0 0 ]
+"621
+[v _com_command_setVersion com_command_setVersion `(v  1 e 0 0 ]
+"627
 [v _SPISlaveInit SPISlaveInit `(v  1 e 0 0 ]
 [s S154 . 1 `uc 1 ANSA0 1 0 :1:0 
 `uc 1 ANSA1 1 0 :1:1 
@@ -191,7 +201,7 @@ receive_end_command 2
 [v _ANSELBbits ANSELBbits `VES161  1 e 1 @3897 ]
 "3285
 [v _SSP2CON3 SSP2CON3 `VEuc  1 e 1 @3945 ]
-[s S1160 . 1 `uc 1 DHEN 1 0 :1:0 
+[s S1186 . 1 `uc 1 DHEN 1 0 :1:0 
 `uc 1 AHEN 1 0 :1:1 
 `uc 1 SBCDE 1 0 :1:2 
 `uc 1 SDAHT 1 0 :1:3 
@@ -201,8 +211,8 @@ receive_end_command 2
 `uc 1 ACKTIM 1 0 :1:7 
 ]
 "3302
-[u S1169 . 1 `S1160 1 . 1 0 ]
-[v _SSP2CON3bits SSP2CON3bits `VES1169  1 e 1 @3945 ]
+[u S1195 . 1 `S1186 1 . 1 0 ]
+[v _SSP2CON3bits SSP2CON3bits `VES1195  1 e 1 @3945 ]
 [s S563 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
@@ -240,14 +250,14 @@ receive_end_command 2
 ]
 [u S597 . 1 `S563 1 . 1 0 `S569 1 . 1 0 `S574 1 . 1 0 `S577 1 . 1 0 `S580 1 . 1 0 `S582 1 . 1 0 `S585 1 . 1 0 `S588 1 . 1 0 `S591 1 . 1 0 `S594 1 . 1 0 ]
 [v _SSP2CON1bits SSP2CON1bits `VES597  1 e 1 @3948 ]
-[s S752 . 1 `uc 1 . 1 0 :2:0 
+[s S778 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "3882
-[s S755 . 1 `uc 1 . 1 0 :5:0 
+[s S781 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S758 . 1 `uc 1 BF 1 0 :1:0 
+[s S784 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -256,110 +266,110 @@ receive_end_command 2
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S767 . 1 `uc 1 . 1 0 :2:0 
+[s S793 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S772 . 1 `uc 1 . 1 0 :2:0 
+[s S798 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 A 1 0 :1:5 
 ]
-[s S777 . 1 `uc 1 . 1 0 :2:0 
+[s S803 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S782 . 1 `uc 1 . 1 0 :2:0 
+[s S808 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S787 . 1 `uc 1 . 1 0 :2:0 
+[s S813 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S790 . 1 `uc 1 . 1 0 :5:0 
+[s S816 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S793 . 1 `uc 1 . 1 0 :2:0 
+[s S819 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S798 . 1 `uc 1 BF2 1 0 :1:0 
+[s S824 . 1 `uc 1 BF2 1 0 :1:0 
 ]
-[s S800 . 1 `uc 1 . 1 0 :6:0 
+[s S826 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CKE2 1 0 :1:6 
 ]
-[s S803 . 1 `uc 1 . 1 0 :5:0 
+[s S829 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 DA2 1 0 :1:5 
 ]
-[s S806 . 1 `uc 1 . 1 0 :5:0 
+[s S832 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 DATA_ADDRESS2 1 0 :1:5 
 ]
-[s S809 . 1 `uc 1 . 1 0 :5:0 
+[s S835 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_A2 1 0 :1:5 
 ]
-[s S812 . 1 `uc 1 . 1 0 :5:0 
+[s S838 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_nA2 1 0 :1:5 
 ]
-[s S815 . 1 `uc 1 . 1 0 :5:0 
+[s S841 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 I2C_DAT2 1 0 :1:5 
 ]
-[s S818 . 1 `uc 1 . 1 0 :2:0 
+[s S844 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ2 1 0 :1:2 
 ]
-[s S821 . 1 `uc 1 . 1 0 :3:0 
+[s S847 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 I2C_START2 1 0 :1:3 
 ]
-[s S824 . 1 `uc 1 . 1 0 :4:0 
+[s S850 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 I2C_STOP2 1 0 :1:4 
 ]
-[s S827 . 1 `uc 1 . 1 0 :4:0 
+[s S853 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 P2 1 0 :1:4 
 ]
-[s S830 . 1 `uc 1 . 1 0 :2:0 
+[s S856 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE2 1 0 :1:2 
 ]
-[s S833 . 1 `uc 1 . 1 0 :2:0 
+[s S859 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW2 1 0 :1:2 
 ]
-[s S836 . 1 `uc 1 . 1 0 :2:0 
+[s S862 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W2 1 0 :1:2 
 ]
-[s S839 . 1 `uc 1 . 1 0 :2:0 
+[s S865 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_nW2 1 0 :1:2 
 ]
-[s S842 . 1 `uc 1 . 1 0 :3:0 
+[s S868 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 S2 1 0 :1:3 
 ]
-[s S845 . 1 `uc 1 . 1 0 :7:0 
+[s S871 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SMP2 1 0 :1:7 
 ]
-[s S848 . 1 `uc 1 . 1 0 :3:0 
+[s S874 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 START2 1 0 :1:3 
 ]
-[s S851 . 1 `uc 1 . 1 0 :4:0 
+[s S877 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 STOP2 1 0 :1:4 
 ]
-[s S854 . 1 `uc 1 . 1 0 :1:0 
+[s S880 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 UA2 1 0 :1:1 
 ]
-[s S857 . 1 `uc 1 . 1 0 :5:0 
+[s S883 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 nA2 1 0 :1:5 
 ]
-[s S860 . 1 `uc 1 . 1 0 :5:0 
+[s S886 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 nADDRESS2 1 0 :1:5 
 ]
-[s S863 . 1 `uc 1 . 1 0 :2:0 
+[s S889 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW2 1 0 :1:2 
 ]
-[s S866 . 1 `uc 1 . 1 0 :2:0 
+[s S892 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE2 1 0 :1:2 
 ]
-[u S869 . 1 `S752 1 . 1 0 `S755 1 . 1 0 `S758 1 . 1 0 `S767 1 . 1 0 `S772 1 . 1 0 `S777 1 . 1 0 `S782 1 . 1 0 `S787 1 . 1 0 `S790 1 . 1 0 `S793 1 . 1 0 `S798 1 . 1 0 `S800 1 . 1 0 `S803 1 . 1 0 `S806 1 . 1 0 `S809 1 . 1 0 `S812 1 . 1 0 `S815 1 . 1 0 `S818 1 . 1 0 `S821 1 . 1 0 `S824 1 . 1 0 `S827 1 . 1 0 `S830 1 . 1 0 `S833 1 . 1 0 `S836 1 . 1 0 `S839 1 . 1 0 `S842 1 . 1 0 `S845 1 . 1 0 `S848 1 . 1 0 `S851 1 . 1 0 `S854 1 . 1 0 `S857 1 . 1 0 `S860 1 . 1 0 `S863 1 . 1 0 `S866 1 . 1 0 ]
-[v _SSP2STATbits SSP2STATbits `VES869  1 e 1 @3949 ]
+[u S895 . 1 `S778 1 . 1 0 `S781 1 . 1 0 `S784 1 . 1 0 `S793 1 . 1 0 `S798 1 . 1 0 `S803 1 . 1 0 `S808 1 . 1 0 `S813 1 . 1 0 `S816 1 . 1 0 `S819 1 . 1 0 `S824 1 . 1 0 `S826 1 . 1 0 `S829 1 . 1 0 `S832 1 . 1 0 `S835 1 . 1 0 `S838 1 . 1 0 `S841 1 . 1 0 `S844 1 . 1 0 `S847 1 . 1 0 `S850 1 . 1 0 `S853 1 . 1 0 `S856 1 . 1 0 `S859 1 . 1 0 `S862 1 . 1 0 `S865 1 . 1 0 `S868 1 . 1 0 `S871 1 . 1 0 `S874 1 . 1 0 `S877 1 . 1 0 `S880 1 . 1 0 `S883 1 . 1 0 `S886 1 . 1 0 `S889 1 . 1 0 `S892 1 . 1 0 ]
+[v _SSP2STATbits SSP2STATbits `VES895  1 e 1 @3949 ]
 "4206
 [v _SSP2BUF SSP2BUF `VEuc  1 e 1 @3951 ]
 [s S83 . 1 `uc 1 RB0 1 0 :1:0 
@@ -498,7 +508,7 @@ receive_end_command 2
 [v _TRISBbits TRISBbits `VES52  1 e 1 @3987 ]
 "8394
 [v _TRISCbits TRISCbits `VES52  1 e 1 @3988 ]
-"35 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"27 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _SPI_transmit_wait SPI_transmit_wait `uc  1 e 1 0 ]
 "157 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
 [v _main main `(v  1 e 0 0 ]
@@ -514,7 +524,61 @@ receive_end_command 2
 [v init@i i `ui  1 a 2 6 ]
 "238
 } 0
-"240
+"81 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+[v _communications communications `(v  1 e 0 0 ]
+{
+[v communications@firstTime firstTime `uc  1 a 1 wreg ]
+"87
+[v communications@no_more_to_send no_more_to_send `uc  1 a 1 82 ]
+"81
+[v communications@firstTime firstTime `uc  1 a 1 wreg ]
+[s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+"83
+[v communications@receive_buffer receive_buffer `S380  1 s 42 receive_buffer ]
+"84
+[v communications@send_buffer send_buffer `S380  1 s 42 send_buffer ]
+"86
+[v communications@end_of_transmission_received end_of_transmission_received `uc  1 s 1 end_of_transmission_received ]
+"89
+[v communications@receive_current_state receive_current_state `E7493  1 s 1 receive_current_state ]
+"123
+[v communications@last_state_active last_state_active `uc  1 s 1 last_state_active ]
+"92
+[v communications@firstTime firstTime `uc  1 a 1 83 ]
+"141
+} 0
+"460
+[v _send_data send_data `(uc  1 e 1 0 ]
+{
+"462
+[v send_data@send_end send_end `uc  1 a 1 6 ]
+[s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+"460
+[v send_data@send_buffer send_buffer `*.39S380  1 p 2 2 ]
+"486
+} 0
+"558
+[v _SPI_send_data SPI_send_data `(uc  1 e 1 0 ]
+{
+[v SPI_send_data@data data `uc  1 a 1 wreg ]
+"560
+[v SPI_send_data@sendGood sendGood `uc  1 a 1 1 ]
+"558
+[v SPI_send_data@data data `uc  1 a 1 wreg ]
+"560
+[v SPI_send_data@data data `uc  1 a 1 0 ]
+"574
+} 0
+"143
+[v _resetCommunications resetCommunications `(v  1 e 0 0 ]
+{
+[s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v resetCommunications@send_buffer send_buffer `*.39S380  1 p 2 22 ]
+"146
+[v resetCommunications@commState commState `i  1 s 2 commState ]
+"188
+} 0
+"240 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
 [v _delayMS delayMS `(v  1 e 0 0 ]
 {
 "241
@@ -524,159 +588,142 @@ receive_end_command 2
 [v delayMS@a a `ui  1 p 2 0 ]
 "245
 } 0
-"96 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
-[v _communications communications `(v  1 e 0 0 ]
-{
-[v communications@firstTime firstTime `uc  1 a 1 wreg ]
-"102
-[v communications@no_more_to_send no_more_to_send `uc  1 a 1 82 ]
-"96
-[v communications@firstTime firstTime `uc  1 a 1 wreg ]
-[s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-"98
-[v communications@receive_buffer receive_buffer `S380  1 s 42 receive_buffer ]
-"99
-[v communications@send_buffer send_buffer `S380  1 s 42 send_buffer ]
-"101
-[v communications@end_of_transmission_received end_of_transmission_received `uc  1 s 1 end_of_transmission_received ]
-"104
-[v communications@receive_current_state receive_current_state `E7493  1 s 1 receive_current_state ]
-"149
-[v communications@last_state_active last_state_active `uc  1 s 1 last_state_active ]
-"108
-[v communications@firstTime firstTime `uc  1 a 1 83 ]
-"177
-} 0
-"487
-[v _send_data send_data `(uc  1 e 1 0 ]
-{
-"489
-[v send_data@send_end send_end `uc  1 a 1 6 ]
-[s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-"487
-[v send_data@send_buffer send_buffer `*.39S380  1 p 2 2 ]
-"513
-} 0
-"585
-[v _SPI_send_data SPI_send_data `(uc  1 e 1 0 ]
-{
-[v SPI_send_data@data data `uc  1 a 1 wreg ]
-"587
-[v SPI_send_data@sendGood sendGood `uc  1 a 1 1 ]
-"585
-[v SPI_send_data@data data `uc  1 a 1 wreg ]
-"587
-[v SPI_send_data@data data `uc  1 a 1 0 ]
-"601
-} 0
-"179
-[v _resetCommunications resetCommunications `(v  1 e 0 0 ]
-{
-[s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-[v resetCommunications@send_buffer send_buffer `*.39S380  1 p 2 20 ]
-"194
-} 0
-"613
+"586 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _com_command_testLED com_command_testLED `(v  1 e 0 0 ]
 {
 [s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 [v com_command_testLED@send_buffer send_buffer `*.39S380  1 p 2 18 ]
-"627
+"591
 } 0
-"415
+"600
+[v _com_command_setVolts com_command_setVolts `(v  1 e 0 0 ]
+{
+[s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v com_command_setVolts@send_buffer send_buffer `*.39S380  1 p 2 20 ]
+"605
+} 0
+"621
+[v _com_command_setVersion com_command_setVersion `(v  1 e 0 0 ]
+{
+[s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v com_command_setVersion@send_buffer send_buffer `*.39S380  1 p 2 20 ]
+"625
+} 0
+"593
+[v _com_command_setPower com_command_setPower `(v  1 e 0 0 ]
+{
+[s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v com_command_setPower@send_buffer send_buffer `*.39S380  1 p 2 20 ]
+"598
+} 0
+"607
+[v _com_command_setAmps com_command_setAmps `(v  1 e 0 0 ]
+{
+[s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v com_command_setAmps@send_buffer send_buffer `*.39S380  1 p 2 20 ]
+"612
+} 0
+"614
+[v _com_command_readCalibration com_command_readCalibration `(v  1 e 0 0 ]
+{
+[s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v com_command_readCalibration@send_buffer send_buffer `*.39S380  1 p 2 18 ]
+"619
+} 0
+"392
 [v _command_builder2 command_builder2 `(v  1 e 0 0 ]
 {
 [s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 [v command_builder2@send_buffer send_buffer `*.39S380  1 p 2 12 ]
 [v command_builder2@data1 data1 `*.25uc  1 p 2 14 ]
 [v command_builder2@data2 data2 `*.25uc  1 p 2 16 ]
-"430
+"403
 } 0
-"196
+"190
 [v _receive_data receive_data `(E7493  1 e 1 0 ]
 {
-"198
+"192
 [v receive_data@data data `uc  1 a 1 6 ]
 [s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-"196
+"190
 [v receive_data@receive_buffer receive_buffer `*.39S380  1 p 2 3 ]
-"200
+"194
 [v receive_data@my_status my_status `E7493  1 s 1 my_status ]
-"234
+"228
 } 0
-"564
+"537
 [v _SPI_receive_data SPI_receive_data `(uc  1 e 1 0 ]
 {
-"567
+"540
 [v SPI_receive_data@recvGood recvGood `uc  1 a 1 2 ]
-"564
+"537
 [v SPI_receive_data@data data `*.39uc  1 p 2 0 ]
-"583
+"556
 } 0
-"236
+"230
 [v _process_data process_data `(uc  1 e 1 0 ]
 {
-"243
+"237
 [v process_data@parameters parameters `[5][10]uc  1 a 50 30 ]
-"238
+"232
 [v process_data@end_of_transmission_received end_of_transmission_received `uc  1 a 1 80 ]
 [s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-"236
+"230
 [v process_data@receive_buffer receive_buffer `*.39S380  1 p 2 26 ]
 [v process_data@send_buffer send_buffer `*.39S380  1 p 2 28 ]
-"251
+"245
 } 0
-"312
+"306
 [v _process_data_parameters process_data_parameters `(uc  1 e 1 0 ]
 {
-"314
+"308
 [v process_data_parameters@end_of_transmission_received end_of_transmission_received `uc  1 a 1 25 ]
-"312
+"306
 [v process_data_parameters@parameters parameters `*.39[10]uc  1 p 2 20 ]
 [s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 [v process_data_parameters@send_buffer send_buffer `*.39S380  1 p 2 22 ]
-"402
+"379
 } 0
-"515
+"488
 [v _strmatch strmatch `(uc  1 e 1 0 ]
 {
-"517
+"490
 [v strmatch@result result `i  1 a 2 15 ]
-"518
+"491
 [v strmatch@match match `uc  1 a 1 17 ]
-"515
+"488
 [v strmatch@a a `*.39uc  1 p 2 11 ]
 [v strmatch@b b `*.25uc  1 p 2 13 ]
-"525
+"498
 } 0
-"527
+"500
 [v _strcmp2 strcmp2 `(i  1 e 2 0 ]
 {
-"529
+"502
 [v strcmp2@inx inx `i  1 a 2 9 ]
-"530
+"503
 [v strcmp2@match match `i  1 a 2 7 ]
-"527
+"500
 [v strcmp2@a a `*.39uc  1 p 2 0 ]
 [v strcmp2@b b `*.25uc  1 p 2 2 ]
-"562
+"535
 } 0
-"606
+"579
 [v _send_end_of_transmission send_end_of_transmission `(v  1 e 0 0 ]
 {
 [s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 [v send_end_of_transmission@send_buffer send_buffer `*.39S380  1 p 2 16 ]
-"611
+"584
 } 0
-"404
+"381
 [v _command_builder1 command_builder1 `(v  1 e 0 0 ]
 {
 [s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 [v command_builder1@send_buffer send_buffer `*.39S380  1 p 2 12 ]
 [v command_builder1@data1 data1 `*.25uc  1 p 2 14 ]
-"413
+"390
 } 0
-"432
+"405
 [v _command_builder3 command_builder3 `(v  1 e 0 0 ]
 {
 [s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
@@ -684,41 +731,41 @@ receive_end_command 2
 [v command_builder3@data1 data1 `*.25uc  1 p 2 14 ]
 [v command_builder3@data2 data2 `*.25uc  1 p 2 16 ]
 [v command_builder3@data3 data3 `*.25uc  1 p 2 18 ]
-"445
+"418
 } 0
-"477
+"450
 [v _command_builder_add_string command_builder_add_string `(v  1 e 0 0 ]
 {
-"479
+"452
 [v command_builder_add_string@inx inx `i  1 a 2 10 ]
 [s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-"477
+"450
 [v command_builder_add_string@send_buffer send_buffer `*.39S380  1 p 2 4 ]
 [v command_builder_add_string@data_string data_string `*.25uc  1 p 2 6 ]
-"485
+"458
 } 0
-"464
+"437
 [v _command_builder_add_char command_builder_add_char `(v  1 e 0 0 ]
 {
 [s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 [v command_builder_add_char@send_buffer send_buffer `*.39S380  1 p 2 0 ]
 [v command_builder_add_char@data data `uc  1 p 1 2 ]
-"475
+"448
 } 0
-"253
+"247
 [v _process_data_parameterize process_data_parameterize `(v  1 e 0 0 ]
 {
-"265
+"259
 [v process_data_parameterize@inx inx `i  1 a 2 13 ]
-"255
+"249
 [v process_data_parameterize@parameter_position parameter_position `uc  1 a 1 16 ]
-"256
+"250
 [v process_data_parameterize@parameter_index parameter_index `uc  1 a 1 15 ]
-"253
+"247
 [v process_data_parameterize@parameters parameters `*.39[10]uc  1 p 2 6 ]
 [s S380 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 [v process_data_parameterize@buffer_to_parameterize buffer_to_parameterize `*.39S380  1 p 2 8 ]
-"310
+"304
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -730,8 +777,8 @@ receive_end_command 2
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
-"629 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"627 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\2017-03-02_GitHub_Mod_Testing\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _SPISlaveInit SPISlaveInit `(v  1 e 0 0 ]
 {
-"689
+"675
 } 0
