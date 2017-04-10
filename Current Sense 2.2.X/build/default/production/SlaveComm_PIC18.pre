@@ -9494,7 +9494,7 @@ return;
 
 void com_command_setPower( struct buffer * send_buffer )
 {
-command_builder3( send_buffer, "Set", "Watts", "111" );
+command_builder3( send_buffer, "Set", "Watts", "54" );
 
 return;
 }

@@ -8988,7 +8988,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _send_buffer `*S1105 ~T0 @X0 1 r1 ]
 "594
 [f ]
-[; ;SlaveComm_PIC18.c: 595: command_builder3( send_buffer, "Set", "Watts", "111" );
+[; ;SlaveComm_PIC18.c: 595: command_builder3( send_buffer, "Set", "Watts", "54" );
 "595
 [e ( _command_builder3 (4 , , , _send_buffer -> :s 24C `*uc -> :s 25C `*uc -> :s 26C `*uc ]
 [; ;SlaveComm_PIC18.c: 597: return;
@@ -9220,7 +9220,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 13C 76 69 68 66 0 ]
 [a 16C 76 69 68 66 0 ]
 [a 23C 76 69 68 66 0 ]
+[a 26C 53 52 0 ]
 [a 37C 52 52 52 0 ]
 [a 32C 51 51 51 0 ]
 [a 29C 50 50 50 0 ]
-[a 26C 49 49 49 0 ]

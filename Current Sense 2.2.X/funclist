@@ -6,7 +6,7 @@ _com_command_setVersion: CODE, 4572 0 38
 _communications: CODE, 3322 0 174
 _resetCommunications: CODE, 2918 0 210
 _process_data: CODE, 4448 0 46
-__stringdata: SMALLCONST, 1537 0 90
+__stringdata: SMALLCONST, 1537 0 89
 _SPISlaveInit: CODE, 4184 0 82
 _command_builder_add_char: CODE, 4098 0 86
 _send_data: CODE, 3654 0 144
@@ -28,4 +28,4 @@ _strcmp2: CODE, 2594 0 324
 ___wmul: CODE, 4686 0 38
 _send_end_of_transmission: CODE, 4878 0 22
 _com_command_readCalibration: CODE, 4848 0 30
-Total: 3352
+Total: 3351

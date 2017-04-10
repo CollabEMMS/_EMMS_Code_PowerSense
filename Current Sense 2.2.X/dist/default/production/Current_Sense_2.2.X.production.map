@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.33\dat\en_msgs.txt -cs \
   -h+dist/default/production\Current_Sense_2.2.X.production.sym \
   --cmf=dist/default/production\Current_Sense_2.2.X.production.cmf -z \
-  -Q18LF25K22 -oC:\Users\austin\AppData\Local\Temp\s9io.6 \
+  -Q18LF25K22 -oC:\Users\austin\AppData\Local\Temp\s80k.6 \
   -Mdist/default/production/Current_Sense_2.2.X.production.map -E1 -ver=XC8 \
   -ASTACK=0B4h-05ffh -pstack=STACK -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
   -ASMALLCONST=0600h-06FFhx122 -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-05Fh \
@@ -22,7 +22,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
-  C:\Users\austin\AppData\Local\Temp\s9io.obj \
+  C:\Users\austin\AppData\Local\Temp\s80k.obj \
   dist/default/production\Current_Sense_2.2.X.production.obj 
 
 Object code version is 3.11
@@ -35,7 +35,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\austin\AppData\Local\Temp\s9io.obj
+C:\Users\austin\AppData\Local\Temp\s80k.obj
                 end_init                              0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
@@ -442,7 +442,7 @@ __end_of_SPI_receive_data                            text15       0011B6
 __end_of_SPI_send_data                               text4        0012D2
 __end_of___wmul                                      text26       001274
 __end_of__initialization                             cinit        00128C
-__end_of__stringdata                                 smallconst   00065B
+__end_of__stringdata                                 smallconst   00065A
 __end_of_com_command_readCalibration                 text12       00130E
 __end_of_com_command_setAmps                         text11       00124E
 __end_of_com_command_setPower                        text10       001228
@@ -1359,7 +1359,7 @@ Total ram usage:        4 bytes
 		 -> STR_36(10), STR_31(5), STR_28(6), STR_25(6), 
 		 -> STR_13(5), STR_9(5), 
   data3           2   18[COMRAM] PTR unsigned char 
-		 -> STR_37(4), STR_32(4), STR_29(4), STR_26(4), 
+		 -> STR_37(4), STR_32(4), STR_29(4), STR_26(3), 
 		 -> STR_14(3), STR_10(4), 
  Auto vars:     Size  Location     Type
 		None
@@ -1400,7 +1400,7 @@ Total ram usage:        8 bytes
   data_string     2    6[COMRAM] PTR unsigned char 
 		 -> STR_37(4), STR_36(10), STR_35(4), STR_34(12), 
 		 -> STR_33(5), STR_32(4), STR_31(5), STR_30(4), 
-		 -> STR_29(4), STR_28(6), STR_27(4), STR_26(4), 
+		 -> STR_29(4), STR_28(6), STR_27(4), STR_26(3), 
 		 -> STR_25(6), STR_24(4), STR_23(5), STR_22(5), 
 		 -> STR_21(4), STR_14(3), STR_13(5), STR_12(4), 
 		 -> STR_10(4), STR_9(5), STR_8(4), 
@@ -1578,10 +1578,10 @@ Current_Sense_Main.c
 Current_Sense_Main.c estimated size: 164
 
 shared
-		__stringdata   		SMALLCONST     	0601	0000	90
+		__stringdata   		SMALLCONST     	0601	0000	89
 		__initializatio		CODE           	1274	0000	24
 
-shared estimated size: 114
+shared estimated size: 113
 
 SlaveComm_PIC18.c
 		_com_command_te		CODE           	12D2	0000	30
