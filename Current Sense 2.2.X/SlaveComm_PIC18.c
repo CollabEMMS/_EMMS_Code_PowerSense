@@ -1,10 +1,10 @@
-// UPDATED 2016-03-19
-
 #include <xc.h>
 #include <p18cxxx.h>
 
 #include "Communications.h"
 #include <stdbool.h>
+#include <stdlib.h>
+
 //#include <pic18f25k22.h>
 
 #define BUFFER_LENGTH 40  // max size is positive signed character size
@@ -592,8 +592,18 @@ void com_command_testLED( struct buffer * send_buffer )
 
 void com_command_setPower( struct buffer * send_buffer )
 {
-    command_builder3( send_buffer, "Set", "Watts", "54" );
 
+    char temp[7];
+
+    static unsigned int power = 0;
+    
+    char newPowerAllocated[7];
+    utoa(temp, power, 10);
+    
+    command_builder3( send_buffer, "Set", "Watts", temp );
+
+    power++;
+    
     return;
 }
 

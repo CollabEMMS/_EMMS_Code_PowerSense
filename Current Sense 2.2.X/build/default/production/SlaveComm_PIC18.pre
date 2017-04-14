@@ -8937,7 +8937,83 @@ typedef unsigned char bool;
 void communications(bool);
 void SPISlaveInit(void);
 
-# 27 "SlaveComm_PIC18.c"
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdlib.h"
+typedef int ptrdiff_t;
+typedef unsigned size_t;
+typedef unsigned short wchar_t;
+
+# 16
+extern int errno;
+
+# 27
+typedef struct {
+int rem;
+int quot;
+} div_t;
+typedef struct {
+unsigned rem;
+unsigned quot;
+} udiv_t;
+typedef struct {
+long quot;
+long rem;
+} ldiv_t;
+typedef struct {
+unsigned long quot;
+unsigned long rem;
+} uldiv_t;
+
+# 65
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+
+extern void abort(void);
+extern void exit(int);
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+
+# 29 "SlaveComm_PIC18.c"
 bool SPI_transmit_wait;
 
 enum receive_status
@@ -8988,7 +9064,7 @@ void com_command_setAmps( struct buffer * send_buffer );
 void com_command_readCalibration( struct buffer * send_buffer );
 void com_command_setVersion( struct buffer * send_buffer );
 
-# 81
+# 83
 void communications( bool firstTime )
 {
 static struct buffer receive_buffer;
@@ -9160,7 +9236,7 @@ void process_data_parameterize( char parameters[5][10], struct buffer * buffer_t
 unsigned char parameter_position = 0;
 unsigned char parameter_index = 0;
 
-# 259
+# 261
 for( int inx = 0; inx < 5; inx++ )
 {
 parameters[inx][0] = '\0';
@@ -9276,7 +9352,7 @@ send_end_of_transmission( send_buffer );
 }
 }
 
-# 378
+# 380
 return end_of_transmission_received;
 }
 
@@ -9494,7 +9570,17 @@ return;
 
 void com_command_setPower( struct buffer * send_buffer )
 {
-command_builder3( send_buffer, "Set", "Watts", "54" );
+
+char temp[7];
+
+static unsigned int power = 0;
+
+char newPowerAllocated[7];
+utoa(temp, power, 10);
+
+command_builder3( send_buffer, "Set", "Watts", temp );
+
+power++;
 
 return;
 }
