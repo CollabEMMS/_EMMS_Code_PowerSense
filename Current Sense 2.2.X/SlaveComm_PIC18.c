@@ -1,6 +1,9 @@
 #include <xc.h>
-#include <p18cxxx.h>
+//#include <p18cxxx.h>
+#include <p18f25k22.h>
 
+
+#include "config.h"
 #include "Communications.h"
 #include <stdbool.h>
 #include <stdlib.h>
@@ -41,7 +44,7 @@ struct buffer
 };
 
 
-extern void delayMS( unsigned int );
+//extern void delayMS( unsigned int );
 
 bool SPI_receive_data( char* data );
 void set_current_port( unsigned char * );
@@ -147,7 +150,7 @@ void resetCommunications( struct buffer * send_buffer )
 
 
     SSP2CON1bits.SSPEN = 0; //disable SPI
-    delayMS( 1 );
+    __delay_ms( 1 );
     SSP2CON1bits.SSPEN = 1; //enable SPI
 
     SSP2CON1bits.WCOL = 0;

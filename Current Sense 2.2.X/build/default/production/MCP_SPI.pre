@@ -1,5 +1,71 @@
 
-# 1 "SlaveComm_PIC18.c"
+# 1 "MCP_SPI.c"
+
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\__size_t.h"
+typedef unsigned size_t;
+
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 25 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\errno.h"
+extern int errno;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdbool.h"
+typedef unsigned char bool;
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8936,730 +9002,62 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdbool.h"
-typedef unsigned char bool;
-
-# 21 "Communications.h"
-void communications(bool);
-void SPISlaveInit(void);
-
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\__size_t.h"
-typedef unsigned size_t;
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdlib.h"
-typedef unsigned short wchar_t;
-
-# 15
-typedef struct {
-int rem;
-int quot;
-} div_t;
-typedef struct {
-unsigned rem;
-unsigned quot;
-} udiv_t;
-typedef struct {
-long quot;
-long rem;
-} ldiv_t;
-typedef struct {
-unsigned long quot;
-unsigned long rem;
-} uldiv_t;
-
-# 53
-extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-extern long strtol(const char *, char **, int);
-
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
-
-
-
-
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
-
-# 86
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
-
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-
-
-
-
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
-
-extern char * ftoa(float f, int * status);
-
-# 30 "SlaveComm_PIC18.c"
-bool SPI_transmit_wait;
-
-enum receive_status
-{
-receive_waiting,
-receive_in_command,
-receive_end_command
-};
-
-struct buffer
-{
-char data_buffer[ 40];
-unsigned char write_position;
-unsigned char read_position;
-};
-
-
-
-
-bool SPI_receive_data( char* data );
-void set_current_port( unsigned char * );
-enum receive_status receive_data( struct buffer * );
-bool process_data( struct buffer *receive_buffer, struct buffer *send_buffer );
-void process_data_parameterize( char parameters[5][10], struct buffer *buffer_to_parameterize );
-bool process_data_parameters( char parameters[5][10], struct buffer *send_buffer );
-
-void command_builder1( struct buffer *send_buffer, char* data1 );
-void command_builder2( struct buffer *send_buffer, char* data1, char* data2 );
-void command_builder3( struct buffer *send_buffer, char* data1, char* data2, char* data3 );
-void command_builder4( struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4 );
-void command_builder_add_char( struct buffer *send_buffer, char data );
-void command_builder_add_string( struct buffer *send_buffer, char *data );
-
-bool send_data( struct buffer *send_buffer );
-bool SPI_send_data( char data );
-
-bool strmatch( char* a, char* b );
-int strcmp2( char* a, char* b );
-void strcpy2( char* rcv, char* source );
-
-void resetCommunications( struct buffer * receive_buffer );
-
-void send_end_of_transmission( struct buffer *send_buffer );
-void com_command_testLED( struct buffer * send_buffer );
-void com_command_setPower( struct buffer * send_buffer );
-void com_command_setVolts( struct buffer * send_buffer );
-void com_command_setAmps( struct buffer * send_buffer );
-void com_command_readCalibration( struct buffer * send_buffer );
-void com_command_setVersion( struct buffer * send_buffer );
-
-# 84
-void communications( bool firstTime )
-{
-static struct buffer receive_buffer;
-static struct buffer send_buffer;
-
-static bool end_of_transmission_received = 0;
-bool no_more_to_send;
-
-static enum receive_status receive_current_state;
-
-
-if( firstTime == 1 )
-{
-send_buffer.write_position = 0;
-send_buffer.read_position = 0;
-resetCommunications( &send_buffer );
-}
-else
-{
-receive_current_state = receive_data( &receive_buffer );
-
-switch( receive_current_state )
-{
-case receive_waiting:
-
-break;
-case receive_in_command:
-
-break;
-case receive_end_command:
-
-if( process_data( &receive_buffer, &send_buffer ) == 1 )
-{
-end_of_transmission_received = 1;
-}
-
-break;
-}
-
-no_more_to_send = send_data( &send_buffer );
-
-
-static bool last_state_active = 0;
-if( PORTBbits.SS2 == 0b1 )
-{
-last_state_active = 0;
-}
-else
-{
-if( last_state_active == 0 )
-{
-resetCommunications( &send_buffer );
-}
-
-last_state_active = 1;
-}
-
-}
-
-return;
-}
-
-void resetCommunications( struct buffer * send_buffer )
-{
-
-static int commState = 0;
-
-
-SSP2CON1bits.SSPEN = 0;
-_delay((unsigned long)((1)*(16000000/4000.0)));
-SSP2CON1bits.SSPEN = 1;
-
-SSP2CON1bits.WCOL = 0;
-SPI_transmit_wait = 0;
-
-send_buffer->read_position = 0;
-send_buffer->write_position = 0;
-
-
-
-
-commState++;
-switch( commState )
-{
-case 1:
-com_command_setVersion( send_buffer );
-break;
-case 2:
-com_command_setPower( send_buffer );
-break;
-case 3:
-com_command_setVolts( send_buffer );
-break;
-case 4:
-com_command_setAmps( send_buffer );
-break;
-case 5:
-com_command_readCalibration( send_buffer );
-break;
-case 6:
-com_command_testLED( send_buffer );
-break;
-default:
-commState = 0;
-break;
-}
-return;
-}
-
-enum receive_status receive_data( struct buffer * receive_buffer )
-{
-char data;
-
-static enum receive_status my_status = receive_waiting;
-
-if( my_status == receive_end_command )
-{
-my_status = receive_waiting;
-}
-
-if( SPI_receive_data( &data ) == 1 )
-{
-if( ( data == '!' ) && ( my_status != receive_in_command ) )
-{
-my_status = receive_in_command;
-receive_buffer->read_position = 0;
-receive_buffer->write_position = 0;
-}
-
-if( my_status == receive_in_command )
-{
-receive_buffer->data_buffer[ receive_buffer->write_position] = data;
-
-receive_buffer->write_position++;
-if( receive_buffer->write_position >= 40 )
-{
-receive_buffer->write_position = ( 40 - 1 );
-}
-}
-
-if( ( my_status == receive_in_command ) && ( data == '*' ) )
-{
-my_status = receive_end_command;
-}
-}
-
-return my_status;
-}
-
-bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer )
-{
-bool end_of_transmission_received;
-
-
-
-
-char parameters[5][10];
-
-process_data_parameterize( parameters, receive_buffer );
-
-end_of_transmission_received = process_data_parameters( parameters, send_buffer );
-
-return end_of_transmission_received;
-
-}
-
-void process_data_parameterize( char parameters[5][10], struct buffer * buffer_to_parameterize )
-{
-unsigned char parameter_position = 0;
-unsigned char parameter_index = 0;
-
-# 262
-for( int inx = 0; inx < 5; inx++ )
-{
-parameters[inx][0] = '\0';
-}
-
-while( ( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != '*' ) && ( buffer_to_parameterize->read_position < 40 ) && ( buffer_to_parameterize->read_position != buffer_to_parameterize->write_position ) )
-{
-switch( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position] )
-{
-case '!':
-
-break;
-case ';':
-
-parameter_position = 0;
-parameter_index++;
-
-if( parameter_index >= 5 )
-{
-
-
-parameter_index = ( 5 - 1 );
-}
-
-break;
-default:
-
-parameters[parameter_index][parameter_position] = buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position];
-parameter_position++;
-if( parameter_position >= 10 )
-{
-
-
-parameter_position = ( 10 - 1 );
-}
-
-
-parameters[parameter_index][parameter_position] = '\0';
-break;
-}
-
-buffer_to_parameterize->read_position++;
-}
-
-return;
-}
-
-bool process_data_parameters( char parameters[5][10], struct buffer * send_buffer )
-{
-bool end_of_transmission_received = 0;
-
-
-if( strmatch( parameters[0], "END" ) == 1 )
+# 18 "MCP_SPI.c"
+void mcp_start( void )
 {
-if( LATBbits.LATB4 == 1 )
-{
-LATBbits.LATB4 = 0;
-}
-else
-{
-LATBbits.LATB4 = 1;
-}
-
-end_of_transmission_received = 1;
-}
-else if( strmatch( parameters[0], "Set" ) == 1 )
-{
-if( strmatch( parameters[1], "Calibration" ) == 1 )
-{
-
-}
-
-}
-else if( strmatch( parameters[0], "Read" ) == 1 )
-{
-
-}
-else if( strmatch( parameters[0], "Data" ) == 1 )
-{
-if( strmatch( parameters[1], "LEDB" ) == 1 )
-{
-if( strmatch( parameters[2], "On" ) == 1 )
-{
-command_builder3( send_buffer, "Set", "LEDB", "Off" );
-}
-else if( strmatch( parameters[2], "Off" ) == 1 )
-{
-command_builder3( send_buffer, "Set", "LEDB", "On" );
-}
-}
-}
-else if( strmatch( parameters[0], "Conf" ) == 1 )
-{
-if( strmatch( parameters[1], "LEDB" ) == 1 )
-{
-send_end_of_transmission( send_buffer );
-}
-else if( strmatch( parameters[1], "Watts" ) == 1 )
-{
-send_end_of_transmission( send_buffer );
-}
-else if( strmatch( parameters[1], "Volts" ) == 1 )
-{
-send_end_of_transmission( send_buffer );
-}
-else if( strmatch( parameters[1], "Amps" ) == 1 )
-{
-send_end_of_transmission( send_buffer );
-}
-else if( strmatch( parameters[1], "PSVersion" ) == 1 )
-{
-send_end_of_transmission( send_buffer );
-}
-}
-
-# 381
-return end_of_transmission_received;
-}
-
-void command_builder1( struct buffer *send_buffer, char* data1 )
-{
-command_builder_add_char( send_buffer, '#' );
-command_builder_add_char( send_buffer, '#' );
-command_builder_add_char( send_buffer, '!' );
-command_builder_add_string( send_buffer, data1 );
-command_builder_add_char( send_buffer, '*' );
-
-return;
-}
-
-void command_builder2( struct buffer *send_buffer, char* data1, char* data2 )
-{
-command_builder_add_char( send_buffer, '#' );
-command_builder_add_char( send_buffer, '#' );
-command_builder_add_char( send_buffer, '!' );
-command_builder_add_string( send_buffer, data1 );
-command_builder_add_char( send_buffer, ';' );
-command_builder_add_string( send_buffer, data2 );
-command_builder_add_char( send_buffer, '*' );
-
-return;
-}
-
-void command_builder3( struct buffer *send_buffer, char* data1, char* data2, char* data3 )
-{
-command_builder_add_char( send_buffer, '#' );
-command_builder_add_char( send_buffer, '#' );
-command_builder_add_char( send_buffer, '!' );
-command_builder_add_string( send_buffer, data1 );
-command_builder_add_char( send_buffer, ';' );
-command_builder_add_string( send_buffer, data2 );
-command_builder_add_char( send_buffer, ';' );
-command_builder_add_string( send_buffer, data3 );
-command_builder_add_char( send_buffer, '*' );
-
-return;
-}
-
-void command_builder4( struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4 )
-{
-command_builder_add_char( send_buffer, '#' );
-command_builder_add_char( send_buffer, '#' );
-command_builder_add_char( send_buffer, '!' );
-command_builder_add_string( send_buffer, data1 );
-command_builder_add_char( send_buffer, ';' );
-command_builder_add_string( send_buffer, data2 );
-command_builder_add_char( send_buffer, ';' );
-command_builder_add_string( send_buffer, data3 );
-command_builder_add_char( send_buffer, ';' );
-command_builder_add_string( send_buffer, data4 );
-command_builder_add_char( send_buffer, '*' );
-
-return;
-}
-
-void command_builder_add_char( struct buffer *send_buffer, char data )
-{
-send_buffer->data_buffer[send_buffer->write_position] = data;
-
-send_buffer->write_position++;
-if( send_buffer->write_position >= 40 )
-{
-send_buffer->write_position = 0;
-}
-
-return;
-}
-
-void command_builder_add_string( struct buffer *send_buffer, char *data_string )
-{
-for( int inx = 0; data_string[inx] != '\0'; inx++ )
-{
-command_builder_add_char( send_buffer, data_string[inx] );
-}
-
-return;
-}
-
-bool send_data( struct buffer * send_buffer )
-{
-bool send_end;
-
-if( send_buffer->read_position == send_buffer->write_position )
-{
-send_end = 1;
-SPI_send_data( '\0' );
-}
-else
-{
-send_end = 0;
-
-
-if( SPI_send_data( send_buffer->data_buffer[send_buffer->read_position] ) == 1 )
-{
-
-send_buffer->read_position++;
-if( send_buffer->read_position >= 40 )
-{
-send_buffer->read_position = 0;
-}
-}
-}
-
-return send_end;
-}
-
-bool strmatch( char* a, char* b )
-{
-int result;
-bool match;
-
-result = strcmp2( a, b );
-
-match = ( result == 0 ) ? 1 : 0;
-
-return match;
-}
-
-int strcmp2( char* a, char* b )
-{
-int inx = 0;
-int match = 0;
-
-while( ( a[inx] != '\0' ) && ( b[inx] != '\0' ) && ( match == 0 ) )
-{
-if( a[inx] > b[inx] )
-{
-match = 1;
-}
-else if( a[inx] < b[inx] )
-{
-match = -1;
-}
-else if( a[inx] == b[inx] )
-{
-
-}
-
-inx++;
-}
-
-
-if( ( a[inx] == '\0' ) && ( b[inx] != '\0' ) )
-{
-match = -1;
-}
-else if( ( a[inx] != '\0' ) && ( b[inx] == '\0' ) )
-{
-match = 1;
-}
-
-return match;
-
-}
-
-bool SPI_receive_data( char *data )
-{
-
-bool recvGood = 0;
-
-if( SSP2STATbits.BF == 1 )
-{
-*data = SSP2BUF;
-recvGood = 1;
-SSP2CON1bits.WCOL = 0;
-SPI_transmit_wait = 0;
-}
-else
-{
-recvGood = 0;
-}
-
-return recvGood;
-
-}
-
-bool SPI_send_data( char data )
-{
-bool sendGood = 0;
-
-if( SPI_transmit_wait == 0 )
-{
-SSP2BUF = data;
-SPI_transmit_wait = 1;
-sendGood = 1;
-}
-else
-{
-sendGood = 0;
-}
-
-return sendGood;
-}
-
-
-
-
-void send_end_of_transmission( struct buffer * send_buffer )
-{
-command_builder1( send_buffer, "END" );
-
-return;
-}
-
-void com_command_testLED( struct buffer * send_buffer )
-{
-command_builder2( send_buffer, "Read", "LEDB" );
-
-return;
-}
-
-void com_command_setPower( struct buffer * send_buffer )
-{
-
-char temp[7];
-
-static unsigned int power = 0;
-
-char newPowerAllocated[7];
-utoa(temp, power, 10);
-
-command_builder3( send_buffer, "Set", "Watts", temp );
-
-power++;
-
-return;
-}
-
-void com_command_setVolts( struct buffer * send_buffer )
-{
-command_builder3( send_buffer, "Set", "Volts", "222" );
-
-return;
-}
-
-void com_command_setAmps( struct buffer * send_buffer )
-{
-command_builder3( send_buffer, "Set", "Amps", "333" );
-
-return;
-}
-
-void com_command_readCalibration( struct buffer * send_buffer )
-{
-command_builder2( send_buffer, "Read", "Calibration" );
-
-return;
-}
-
-void com_command_setVersion( struct buffer * send_buffer )
-{
-command_builder3( send_buffer, "Set", "PSVersion", "444" );
-
-}
-
-void SPISlaveInit( void )
-{
-
-TRISAbits.TRISA0 = 0;
-TRISAbits.TRISA1 = 1;
-TRISBbits.RB4 = 0;
-TRISCbits.TRISC3 = 0;
-TRISCbits.TRISC5 = 0;
-TRISCbits.TRISC6 = 0;
-TRISCbits.TRISC7 = 0;
-ANSELAbits.ANSA1 = 0b0;
 
+LATCbits.LATC6 = 0;
+_delay((unsigned long)((100)*(16000000/4000000.0)));
 LATCbits.LATC6 = 1;
-LATCbits.LATC3 = 1;
-LATCbits.LATC5 = 1;
-LATCbits.LATC7 = 1;
 
 
-SSP2CON1bits.SSPEN = 0;
-
-ANSELBbits.ANSB0 = 0b0;
-ANSELBbits.ANSB1 = 0b0;
-ANSELBbits.ANSB2 = 0b0;
-ANSELBbits.ANSB3 = 0b0;
-
-TRISBbits.RB0 = 0b1;
-TRISBbits.RB1 = 0b1;
-TRISBbits.RB2 = 0b1;
-TRISBbits.RB3 = 0b0;
-
-SSP2STATbits.SMP = 0;
-SSP2STATbits.CKE = 1;
-
-SSP2CON1bits.WCOL = 0;
-SSP2CON1bits.SSPOV = 0;
-SSP2CON1bits.SSPEN = 0;
-SSP2CON1bits.CKP = 1;
-SSP2CON1bits.SSPM = 0b0100;
 
 
-SSP2CON3 = 0x00;
-SSP2CON3bits.BOEN = 0b0;
+SSP1BUF = 0b10100001;
+while ( SSP1STATbits.BF == 0)
+{
 
-SSP2CON1bits.SSPEN = 1;
+}
+
+# 39
+}
+
+void mcp_spi_init( void )
+{
 
 
+TRISCbits.TRISC5 = 0;
+TRISCbits.TRISC4 = 1;
+TRISCbits.TRISC3 = 0;
+TRISCbits.TRISC7 = 0;
+TRISCbits.TRISC6 = 0;
+
+ANSELCbits.ANSC3 = 0;
+ANSELCbits.ANSC4 = 0;
+ANSELCbits.ANSC5 = 0;
+ANSELCbits.ANSC6 = 0;
+ANSELCbits.ANSC7 = 0;
+
+SSP1CON1bits.SSPEN = 0;
+SSP1CON1bits.WCOL = 0;
+SSP1CON1bits.SSPOV = 0;
+
+SSP1CON1bits.CKP = 0;
+SSP1CON1bits.SSPM = 0b0000;
+
+SSP1CON2 = 0b00000000;
+
+SSP1STAT = 0b00000000;
+SSP1STATbits.SMP = 1;
+SSP1STATbits.CKE = 0;
+
+SSP1CON3 = 0b00000000;
+SSP1MSK = 0b00000000;
+SSP1ADD = 0b00000000;
+
+SSP1CON1bits.SSPEN = 1;
 
 return;
+
 }
+

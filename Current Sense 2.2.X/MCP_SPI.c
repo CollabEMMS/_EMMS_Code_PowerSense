@@ -1,66 +1,205 @@
 /************************
  MCP-3909 Communication Module
  Read values from MCP using SPI
-  */
+ */
 #include <stdio.h>
 #include <stdbool.h>
+#include "config.h"
 
 #include <xc.h>
-#include <p18cxxx.h>
+//#include <p18cxxx.h>
+#include <p18f25k22.h>
+
+//extern void delayMS( unsigned int );
 
 
-voi mcp_spi_init( void)
+#define MCP_MCLR LATCbits.LATC6
+
+void mcp_start( void )
 {
-    / use SPI 1
+    mcp_spi_init( );
 
-	    
+    SSP1CON1bits.SSPEN = 1;
+
+    MCP_MCLR = 0;
+    __delay_us( 100 );
+    MCP_MCLR = 1;
+    __delay_us( 1 );
+
+    SSP1BUF = 0b10100001;
+    while ( SSP1STATbits.BF == 0 )
+    {
+	// wait until it is clocked out
+    }
+
+    SSP1CON1bits.SSPEN = 0;
+
+
+}
+
+void mcp_spi_init( void )
+{
+    // use SPI 1
+
+    TRISCbits.TRISC5 = 0;
+    TRISCbits.TRISC4 = 1;
+    TRISCbits.TRISC3 = 0;
+    TRISCbits.TRISC7 = 0;
+    TRISCbits.TRISC6 = 0;
+
+    ANSELCbits.ANSC3 = 0;
+    ANSELCbits.ANSC4 = 0;
+    ANSELCbits.ANSC5 = 0;
+    ANSELCbits.ANSC6 = 0;
+    ANSELCbits.ANSC7 = 0;
+
+    SSP1CON1bits.SSPEN = 0;
+    SSP1CON1bits.WCOL = 0;
+    SSP1CON1bits.SSPOV = 0;
+
+    SSP1CON1bits.CKP = 0;
+    SSP1CON1bits.SSPM = 0b0001;
+
+    SSP1CON2 = 0b00000000;
+
+    SSP1STAT = 0b00000000;
+    SSP1STATbits.SMP = 1;
+    SSP1STATbits.CKE = 0;
+
+    SSP1CON3 = 0b00000000;
+    SSP1MSK = 0b00000000;
+    SSP1ADD = 0b00000000;
+
+    // set up interrupt
+
+    INTCONbits.GIE = 0;
+    INTCONbits.PEIE = 0;
+    INTCONbits.TMR0IE = 0;
+    INTCONbits.INT0IE = 0;
+    INTCONbits.RBIE = 0;
+    INTCONbits.TMR0IF = 0;
+    INTCONbits.INT0IF = 0;
+    INTCONbits.RBIF = 0;
+
+    INTCON2bits.RBPU = 1;
+    INTCON2bits.INTEDG0 = 0;
+    INTCON2bits.INTEDG1 = 0;
+    INTCON2bits.INTEDG2 = 0;
+    INTCON2bits.TMR0IP = 0;
+    INTCON2bits.RBIP = 1;
+
+    INTCON3bits.INT2IP = 0;
+    INTCON3bits.INT1IP = 0;
+    INTCON3bits.INT2IE = 0;
+    INTCON3bits.INT1IE = 0;
+    INTCON3bits.INT2IF = 0;
+    INTCON3bits.INT1IF = 0;
+
+    PIR1bits.ADIF = 0;
+    PIR1bits.SSP1IF = 0;
+    PIR1bits.CCP1IF = 0;
+    PIR1bits.TMR2IF = 0;
+    PIR1bits.TMR1IF = 0;
+    PIR2bits. OSCFIF = 0;
+    PIR2bits.C1IF = 0;
+    PIR2bits.C2IF = 0;
+    PIR2bits.EEIF = 0;
+    PIR2bits.BCL1IF = 0;
+    PIR2bits.HLVDIF = 0;
+    PIR2bits.TMR3IF = 0;
+    PIR2bits.CCP2IF = 0;
+
+    PIR3bits.SSP2IF = 0;
+    PIR3bits.BCL2IF = 0;
+    PIR3bits.RC2IF = 0;
+    PIR3bits.TX2IF = 0;
+    PIR3bits.CTMUIF = 0;
+    PIR3bits.TMR5GIF = 0;
+    PIR3bits.TMR3GIF = 0;
+    PIR3bits.TMR1GIF = 0;
+
+    PIR4bits.CCP3IF = 0;
+    PIR4bits.CCP4IF = 0;
+    PIR4bits.CCP5IF = 0;
+
+    PIR5bits.TMR4IF = 0;
+    PIR5bits.TMR5IF = 0;
+    PIR5bits.TMR6IF = 0;
+
+    PIE1bits.ADIE = 0;
+    PIE1bits.RC1IE = 0;
+    PIE1bits.TX1IE = 0;
+    PIE1bits.SSP1IE = 0;
+    PIE1bits.CCP1IE = 0;
+    PIE1bits.TMR2IE = 0;
+    PIE1bits.TMR1IE = 0;
+
+    PIE2bits.OSCFIE = 0;
+    PIE2bits.C1IE = 0;
+    PIE2bits.C2IE = 0;
+    PIE2bits.EEIE = 0;
+    PIE2bits.BCL1IE = 0;
+    PIE2bits.HLVDIE = 0;
+    PIE2bits.TMR3IE = 0;
+    PIE2bits.CCP2IE = 0;
+
+    PIE3bits.SSP2IE = 0;
+    PIE3bits.BCL2IE = 0;
+    PIE3bits.RC2IE = 0;
+    PIE3bits.TX2IE = 0;
+    PIE3bits.CTMUIE = 0;
+    PIE3bits.TMR5GIE = 0;
+    PIE3bits.TMR3GIE = 0;
+    PIE3bits.TMR1GIE = 0;
+
+    PIE4bits.CCP3IE = 0;
+    PIE4bits.CCP4IE = 0;
+    PIE4bits.CCP5IE = 0;
+
+    PIE5bits.TMR4IE = 0;
+    PIE5bits.TMR5IE = 0;
+    PIE5bits.TMR6IE = 0;
+
+    IPR1bits.ADIP = 0;
+    IPR1bits.RC1IP = 0;
+    IPR1bits.TX1IP = 0;
+    IPR1bits.SSP1IP = 0;
+    IPR1bits.CCP1IP = 0;
+    IPR1bits.TMR2IP = 0;
+    IPR1bits.TMR1IP = 0;
+
+    IPR2bits.OSCFIP = 0;
+    IPR2bits.C1IP = 0;
+    IPR2bits.C2IP = 0;
+    IPR2bits.EEIP = 0;
+    IPR2bits.BCL1IP = 0;
+    IPR2bits.HLVDIP = 0;
+    IPR2bits.TMR3IP = 0;
+    IPR2bits.CCP2IP = 0;
+
+    IPR3bits.SSP2IP = 0;
+    IPR3bits.BCL2IP = 0;
+    IPR3bits.RC2IP = 0;
+    IPR3bits.TX2IP = 0;
+    IPR3bits.CTMUIP = 0;
+    IPR3bits.TMR5GIP = 0;
+    IPR3bits.TMR3GIP = 0;
+    IPR3bits.TMR1GIP = 0;
+
+    IPR4bits.CC3IP = 0;
+    IPR4bits.CCP4IP = 0;
+    IPR4bits.CCP5IP = 0;
+
+    IPR5bits.TMR4IP = 0;
+    IPR5bits.TMR5IP = 0;
+    IPR5bits.TMR6IP = 0;
     
-        TRISAbits.TRISA0 = 0; // pin 2 connected as an output for pulse
-    TRISAbits.TRISA1 = 1; // pin 3 connected as an input for pulse
-    LEDDIR = 0; // pin 25 connected as an output for LED
-    TRISCbits.TRISC3 = 0; // pin 14 connected as an output for pulse freq.
-    TRISCbits.TRISC5 = 0; // pin 16 connected as an output for pulse freq.
-    TRISCbits.TRISC6 = 0; // set pin 17 as an output for MCLR
-    TRISCbits.TRISC7 = 0; // set pin 18 as an output for pulse freq.
-    ANSELAbits.ANSA1 = 0b0; // turn off analog to digital conversion
-
-    LATCbits.LATC6 = 1; // set the MCLR of the MCP high
-    LATCbits.LATC3 = 1; // set pin 14 to a 1 to set freq. control F2 for pulse
-    LATCbits.LATC5 = 1; // set pin 16 to a 1 to set freq. control F1 for pulse
-    LATCbits.LATC7 = 1; // set pin 18 to a 1 to set freq. control F0 for pulse
+	    
 
 
-    SSP2CON1bits.SSPEN = 0; //Synchronous Serial Port Enable bit
 
-
-    TRISBbits.RB0 = 0b1;
-    TRISBbits.RB1 = 0b1;
-    TRISBbits.RB2 = 0b1;
-    TRISBbits.RB3 = 0b0;
-
-    SSP2STATbits.SMP = 0;
-    SSP2STATbits.CKE = 1;
-
-    SSP2CON1bits.WCOL = 0; //Write Collision Detect bit
-    SSP2CON1bits.SSPOV = 0; //Receive Overflow Indicator bit
-    SSP2CON1bits.SSPEN = 0; //Synchronous Serial Port Enable bit
-    SSP2CON1bits.CKP = 1; //Clock Polarity Select bit
-    SSP2CON1bits.SSPM = 0b0100; //Synchronous Serial Port Mode Select bits
-
-
-    SSP2CON3 = 0x00;
-    SSP2CON3bits.BOEN = 0b0; //Buffer Overwrite Enable bit
-
-    SSP2CON1bits.SSPEN = 1; //Synchronous Serial Port Enable bit
-
-    //    SPIWatchdogTimerInit(); 
 
     return;
 
-    
-    
-    
-    
-    
 }
 
