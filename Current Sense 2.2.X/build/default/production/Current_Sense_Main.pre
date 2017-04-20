@@ -218,10 +218,6 @@ extern char * ftoa(float f, int * status);
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\stdbool.h"
 typedef unsigned char bool;
 
-# 21 "Communications.h"
-void communications(bool);
-void SPISlaveInit(void);
-
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.35\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
@@ -9152,46 +9148,182 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 44 "Current_Sense_Main.c"
-void init(void);
+# 21 "Communications.h"
+void communications(bool);
+
+# 48 "Current_Sense_Main.c"
+void init( void );
+void initOSC( void );
+void initIO( void );
+void initInterruptsClear( void );
+void initMCPFout( void );
+void initTimer( void );
+void pulseFoutPassThru( void );
+void powerPulseCheck( void );
+
+
+
+
 void delayMS10( int count );
 
+int meterWatts = 0;
+int meterEnergyUsed = 0;
 
-void main(void) {
-unsigned int togglePulse = 0;
-init();
+volatile unsigned long timerCountHF = 0;
+volatile unsigned long timerCountLF = 0;
 
-SPISlaveInit( );
+# 79
+void main( void )
+{
+init( );
 
-for( int inx = 0; inx < 10; inx++)
+for ( int inx = 0; inx < 10; inx++ )
 {
 LATBbits.LATB4 = 1;
-delayMS10( 10);
+delayMS10( 10 );
 LATBbits.LATB4 = 0;
-delayMS10( 10);
+delayMS10( 10 );
 }
 
-# 85
+initTimer( );
+
+# 119
 communications( 1 );
 
-
-while(1) {
+# 128
+while ( 1 )
+{
 communications( 0 );
+pulseFoutPassThru( );
+powerPulseCheck( );
 
-# 109
+# 165
 }
 return;
 }
 
+void pulseFoutPassThru( void )
+{
+
+
+if ( PORTAbits.RA1 == 1 )
+{
+LATAbits.LATA0 = 1;
+
+# 184
+}
+else
+{
+LATAbits.LATA0 = 0;
+}
+
+return;
+}
+
+void interrupt Timer0_ISR( void )
+{
+
+INTCONbits.TMR0IF = 0;
+
+TMR0H = ((unsigned char)(((( 65536 - 1000 ))>>8)&0xFF));
+TMR0L = ((unsigned char)((( 65536 - 1000 ))&0xFF));
+
+timerCountHF++;
+timerCountLF++;
+
+return;
+}
+
+void powerPulseCheck( void )
+{
+
+# 222
+int meterWattsHF = 0;
+int meterWattsLF = 0;
+
+static bool mcpHFoutLast = 0;
+static bool mcpLFoutLast = 0;
+bool checkWattsHFvsLF = 0;
+
+if ( PORTCbits.RC2 == 1 )
+{
+if ( mcpHFoutLast == 0 )
+{
+mcpHFoutLast = 1;
+
+
+
+
+meterWattsHF = 1 / timerCountHF;
+checkWattsHFvsLF = 1;
+timerCountHF = 0;
+}
+}
+else
+{
+mcpHFoutLast = 0;
+}
+
+
+if ( PORTAbits.RA1 == 1 )
+{
+if ( mcpLFoutLast == 0 )
+{
+mcpLFoutLast = 1;
+
+
+
+
+meterWattsLF = 5 / timerCountLF;
+
+meterEnergyUsed += 5;
+
+checkWattsHFvsLF = 1;
+timerCountLF = 0;
+}
+}
+
+# 272
+if ( checkWattsHFvsLF == 1 )
+{
+if ( meterWattsHF <= -1 )
+{
+meterWatts = meterWattsHF;
+}
+else
+{
+meterWatts = meterWattsLF;
+}
+}
+
+
+
+
+return;
+
+}
+
 void delayMS10( int count )
 {
-for( int inx = 0; inx< count; inx++)
+for ( int inx = 0; inx < count; inx++ )
 {
+
 _delay((unsigned long)((10)*(16000000/4000.0)));
 }
 }
 
-void init() {
+void init( )
+{
+initOSC( );
+initIO( );
+initInterruptsClear( );
+initMCPFout( );
+
+return;
+}
+
+void initOSC( void )
+{
 
 OSCCONbits.IDLEN = 0;
 OSCCONbits.IRCF = 0b111;
@@ -9204,18 +9336,91 @@ OSCCON2bits.PRISD = 0;
 OSCTUNEbits.INTSRC = 1;
 OSCTUNEbits.PLLEN = 0;
 
+return;
+}
 
-TRISAbits.TRISA0 = 0;
+void initIO( void )
+{
+ADCON0bits.ADON = 0;
+ANSELA = 0b00000000;
+ANSELB = 0b00000000;
+ANSELC = 0b00000000;
+
+TRISBbits.TRISB4 = 0;
+LATBbits.LATB4 = 0;
+
+TRISCbits.TRISC2 = 1;
 TRISAbits.TRISA1 = 1;
-TRISBbits.RB4 = 0;
-
+TRISAbits.TRISA0 = 0;
+LATAbits.LATA0 = 0;
 
 TRISCbits.TRISC6 = 0;
 
-ANSELAbits.ANSA1 = 0b0;
+return;
+}
 
+void initInterruptsClear( void )
+{
+
+INTCON = 0b00000000;
+INTCON2 = 0b00000000;
+INTCON3 = 0b00000000;
+
+RCONbits.IPEN = 0;
+
+PIR1 = 0b00000000;
+PIR2 = 0b00000000;
+PIR3 = 0b00000000;
+PIR4 = 0b00000000;
+PIR5 = 0b00000000;
+
+PIE1 = 0b00000000;
+PIE2 = 0b00000000;
+PIE3 = 0b00000000;
+PIE4 = 0b00000000;
+PIE5 = 0b00000000;
+
+IPR1 = 0b00000000;
+IPR2 = 0b00000000;
+IPR3 = 0b00000000;
+IPR4 = 0b00000000;
+IPR5 = 0b00000000;
+
+}
+
+void initTimer( void )
+{
+
+T0CONbits.TMR0ON = 0;
+T0CONbits.T08BIT = 0;
+T0CONbits.T0CS = 0;
+T0CONbits.PSA = 0;
+T0CONbits.T0PS = 0b001;
+
+INTCONbits.TMR0IE = 1;
+INTCONbits.GIE = 1;
+T0CONbits.TMR0ON = 1;
+
+
+
+}
+
+void initMCPFout( void )
+{
+
+
+
+LATCbits.LATC6 = 0;
+_delay((unsigned long)((1)*(16000000/4000.0)));
+
+LATCbits.LATC7 = 1;
+LATCbits.LATC5 = 1;
+LATCbits.LATC3 = 1;
+
+_delay((unsigned long)((1)*(16000000/4000.0)));
 LATCbits.LATC6 = 1;
+delayMS10( 10 );
 
-# 159
+return;
 }
 

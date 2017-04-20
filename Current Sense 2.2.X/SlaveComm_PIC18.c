@@ -23,9 +23,9 @@
 #define COMMAND_DELIMETER ';'
 
 
-#define LEDSET LATBbits.LATB4
-#define LEDDIR TRISBbits.RB4
-#define LEDREAD PORTBbits.RB4
+//#define LEDSET LATBbits.LATB4
+//#define LEDDIR TRISBbits.RB4
+//#define LEDREAD PORTBbits.RB4
 
 bool SPI_transmit_wait;
 
@@ -43,8 +43,10 @@ struct buffer
     unsigned char read_position;
 };
 
+extern int meterWatts;
+extern int meterEnergyUsed;
 
-//extern void delayMS( unsigned int );
+
 
 bool SPI_receive_data( char* data );
 void set_current_port( unsigned char * );
@@ -68,10 +70,13 @@ int strcmp2( char* a, char* b );
 void strcpy2( char* rcv, char* source );
 
 void resetCommunications( struct buffer * receive_buffer );
+void SPISlaveInit( void );
+
 
 void send_end_of_transmission( struct buffer *send_buffer );
 void com_command_testLED( struct buffer * send_buffer );
 void com_command_setPower( struct buffer * send_buffer );
+void com_command_setEnergyUsed( struct buffer * send_buffer );
 void com_command_setVolts( struct buffer * send_buffer );
 void com_command_setAmps( struct buffer * send_buffer );
 void com_command_readCalibration( struct buffer * send_buffer );
@@ -94,6 +99,7 @@ void communications( bool firstTime )
 
     if( firstTime == true )
     {
+	SPISlaveInit( );
 	send_buffer.write_position = 0;
 	send_buffer.read_position = 0;
 	resetCommunications( &send_buffer );
@@ -172,17 +178,17 @@ void resetCommunications( struct buffer * send_buffer )
 	com_command_setPower( send_buffer );
 	break;
     case 3:
-	com_command_setVolts( send_buffer );
-	break;
-    case 4:
-	com_command_setAmps( send_buffer );
-	break;
-    case 5:
-	com_command_readCalibration( send_buffer );
-	break;
-    case 6:
-	com_command_testLED( send_buffer );
-	break;
+	com_command_setEnergyUsed( send_buffer );
+//	break;
+//    case 4:
+//	com_command_setAmps( send_buffer );
+//	break;
+//    case 5:
+//	com_command_readCalibration( send_buffer );
+//	break;
+//    case 6:
+//	com_command_testLED( send_buffer );
+//	break;
     default:
 	commState = 0;
 	break;
@@ -313,14 +319,14 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 
     if( strmatch( parameters[0], "END" ) == true )
     {
-	if( LEDSET == 1 )
-	{
-	    LEDSET = 0;
-	}
-	else
-	{
-	    LEDSET = 1;
-	}
+//	if( LEDSET == 1 )
+//	{
+//	    LEDSET = 0;
+//	}
+//	else
+//	{
+//	    LEDSET = 1;
+//	}
 
 	end_of_transmission_received = true;
     }
@@ -357,6 +363,10 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 	    send_end_of_transmission( send_buffer );
 	}
 	else if( strmatch( parameters[1], "Watts" ) == true )
+	{
+	    send_end_of_transmission( send_buffer );
+	}
+	else if( strmatch( parameters[1], "EnUsed" ) == true )
 	{
 	    send_end_of_transmission( send_buffer );
 	}
@@ -597,17 +607,28 @@ void com_command_setPower( struct buffer * send_buffer )
 {
 
     char temp[7];
-
-    static unsigned int power = 0;
     
     char newPowerAllocated[7];
-    utoa(temp, power, 10);
+    utoa(temp, meterWatts, 10);
     
     command_builder3( send_buffer, "Set", "Watts", temp );
 
-    power++;
-    
     return;
+}
+
+
+void com_command_setEnergyUsed( struct buffer * send_buffer )
+{
+    char temp[7];
+    
+    char newPowerAllocated[7];
+    utoa(temp, meterEnergyUsed, 10);
+    
+    command_builder3( send_buffer, "Set", "EnUsed", temp );
+
+    return;
+    
+    
 }
 
 void com_command_setVolts( struct buffer * send_buffer )
@@ -642,7 +663,7 @@ void SPISlaveInit( void )
 
     TRISAbits.TRISA0 = 0; // pin 2 connected as an output for pulse
     TRISAbits.TRISA1 = 1; // pin 3 connected as an input for pulse
-    LEDDIR = 0; // pin 25 connected as an output for LED
+//    LEDDIR = 0; // pin 25 connected as an output for LED
     TRISCbits.TRISC3 = 0; // pin 14 connected as an output for pulse freq.
     TRISCbits.TRISC5 = 0; // pin 16 connected as an output for pulse freq.
     TRISCbits.TRISC6 = 0; // set pin 17 as an output for MCLR
