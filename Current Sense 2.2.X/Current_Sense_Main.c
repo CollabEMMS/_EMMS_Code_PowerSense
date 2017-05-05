@@ -60,7 +60,7 @@ void powerPulseCheck( void );
 void delayMS10( int count );
 
 int meterWatts = 0;
-int meterEnergyUsed = 0;
+long meterEnergyUsed = 0;
 
 volatile unsigned long timerCountHF = 0;
 volatile unsigned long timerCountLF = 0;
@@ -80,7 +80,7 @@ void main( void )
 {
     init( );
 
-    for ( int inx = 0; inx < 10; inx++ )
+    for( int inx = 0; inx < 10; inx++ )
     {
 	LED_SET = 1;
 	delayMS10( 10 );
@@ -125,7 +125,7 @@ void main( void )
 
 
 
-    while ( 1 )
+    while( 1 )
     {
 	communications( false );
 	pulseFoutPassThru( );
@@ -169,22 +169,28 @@ void main( void )
 void pulseFoutPassThru( void )
 {
     // mimic the pulse from the MCP Fout pins
+    static bool runonce = false;
 
-    if ( MCP_LFOUT_READ == 1 )
+    if( MCP_LFOUT_READ == 1 )
     {
 	MCP_LFOUT_PASS_SET = 1;
-	//	if ( LED_READ == 1 )
-	//	{
-	//	    //	    LED_SET = 0;
-	//	}
-	//	else
-	//	{
-	//	    //	    LED_SET = 1;
-	//	}
+	if( runonce == false )
+	{
+	    runonce = true;
+	    if( LED_READ == 1 )
+	    {
+		LED_SET = 0;
+	    }
+	    else
+	    {
+		LED_SET = 1;
+	    }
+	}
     }
     else
     {
 	MCP_LFOUT_PASS_SET = 0;
+	runonce = false;
     }
 
     return;
@@ -210,9 +216,9 @@ void powerPulseCheck( void )
     // here we check if a pulse has some in from both the HF and the LF pulses
     // the timerCounters are in milli-seconds
     // if the timer prescaler or countdown is changed this will change the meaning of the timerCounters
-    
+
     // using the HF pulse is controlled by the end of this function. See note near line 272
-    
+
 
 
 #define ENERGY_PER_PULSE_HF 1  // Whr per pulse - this needs changed to be the amount of energy in each pulse
@@ -226,9 +232,9 @@ void powerPulseCheck( void )
     static bool mcpLFoutLast = false; // this is so we run a calc only once each time the pulse comes
     bool checkWattsHFvsLF = false; // did we make a new calculation - then check which we use - HF or LF
 
-    if ( MCP_HFOUT_READ == 1 )
+    if( MCP_HFOUT_READ == 1 )
     {
-	if ( mcpHFoutLast == 0 )
+	if( mcpHFoutLast == 0 )
 	{
 	    mcpHFoutLast = 1;
 
@@ -246,9 +252,9 @@ void powerPulseCheck( void )
     }
 
 
-    if ( MCP_LFOUT_READ == 1 )
+    if( MCP_LFOUT_READ == 1 )
     {
-	if ( mcpLFoutLast == 0 )
+	if( mcpLFoutLast == 0 )
 	{
 	    mcpLFoutLast = 1;
 
@@ -269,9 +275,9 @@ void powerPulseCheck( void )
     // since we are checking both HF and LF we need to check which one to use
     // if power is above a threshold for HF, then it is pulsing very fast and LF is pulsing a bit faster
     // we should switch to passing on LF power 
-    if ( checkWattsHFvsLF == true )
+    if( checkWattsHFvsLF == true )
     {
-	if ( meterWattsHF <= -1 ) // -1 will always make it use the LF value. Change this to use the HF value
+	if( meterWattsHF <= -1 ) // -1 will always make it use the LF value. Change this to use the HF value
 	{
 	    meterWatts = meterWattsHF;
 	}
@@ -282,15 +288,15 @@ void powerPulseCheck( void )
     }
 
     // these hardcoded values is to test if the messages are making it to the display
-//    meterEnergyUsed = 240;
-//    meterWatts = 64;
+    //    meterEnergyUsed = 240;
+    //    meterWatts = 64;
     return;
 
 }
 
 void delayMS10( int count )
 {
-    for ( int inx = 0; inx < count; inx++ )
+    for( int inx = 0; inx < count; inx++ )
     {
 
 	__delay_ms( 10 );

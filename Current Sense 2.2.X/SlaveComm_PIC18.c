@@ -44,7 +44,7 @@ struct buffer
 };
 
 extern int meterWatts;
-extern int meterEnergyUsed;
+extern long meterEnergyUsed;
 
 
 
@@ -336,11 +336,23 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 	{
 	    // set the calibration value for the current sense, if required
 	}
+	else if( strmatch( parameters[1], "EnUsed" ) == true )
+	{
+	    // set the Energy used
+	    // this likely means that the command board had a stored power used greater than we have here.
+	    // this happens when the power is lost - current sense starts at 0, command board stores in EEPROM
+	    
+	    meterEnergyUsed = atol( parameters[2] );
+	    com_command_setEnergyUsed( send_buffer );
+	}
+	
+	
+	//meterEnergyUsed
 
     }
     else if( strmatch( parameters[0], "Read" ) == true )
     {
-	// nothing to read ight now
+	// nothing to read right now
     }
     else if( strmatch( parameters[0], "Data" ) == true )
     {
@@ -606,10 +618,9 @@ void com_command_testLED( struct buffer * send_buffer )
 void com_command_setPower( struct buffer * send_buffer )
 {
 
-    char temp[7];
+    char temp[12];
     
-    char newPowerAllocated[7];
-    utoa(temp, meterWatts, 10);
+    ultoa(temp, meterWatts, 10);
     
     command_builder3( send_buffer, "Set", "Watts", temp );
 
