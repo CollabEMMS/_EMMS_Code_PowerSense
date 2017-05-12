@@ -43,8 +43,8 @@ struct buffer
     unsigned char read_position;
 };
 
-extern int meterWatts;
-extern long meterEnergyUsed;
+extern unsigned int meterWatts;
+extern unsigned long meterEnergyUsed;
 
 
 
@@ -618,9 +618,9 @@ void com_command_testLED( struct buffer * send_buffer )
 void com_command_setPower( struct buffer * send_buffer )
 {
 
-    char temp[12];
+    char temp[7];
     
-    ultoa(temp, meterWatts, 10);
+    utoa(temp, meterWatts, 10);
     
     command_builder3( send_buffer, "Set", "Watts", temp );
 
@@ -632,8 +632,8 @@ void com_command_setEnergyUsed( struct buffer * send_buffer )
 {
     char temp[7];
     
-    char newPowerAllocated[7];
-    utoa(temp, meterEnergyUsed, 10);
+    char newPowerAllocated[12];
+    ultoa(temp, meterEnergyUsed, 10);
     
     command_builder3( send_buffer, "Set", "EnUsed", temp );
 

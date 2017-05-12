@@ -151,19 +151,19 @@ receive_end_command 2
 [v _Timer0_ISR Timer0_ISR `II(v  1 e 0 0 ]
 "213
 [v _powerPulseCheck powerPulseCheck `(v  1 e 0 0 ]
-"297
+"309
 [v _delayMS10 delayMS10 `(v  1 e 0 0 ]
-"306
+"318
 [v _init init `(v  1 e 0 0 ]
-"316
+"328
 [v _initOSC initOSC `(v  1 e 0 0 ]
-"333
+"345
 [v _initIO initIO `(v  1 e 0 0 ]
-"353
+"365
 [v _initInterruptsClear initInterruptsClear `(v  1 e 0 0 ]
-"382
+"394
 [v _initTimer initTimer `(v  1 e 0 0 ]
-"399
+"411
 [v _initMCPFout initMCPFout `(v  1 e 0 0 ]
 "89 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _communications communications `(v  1 e 0 0 ]
@@ -855,9 +855,9 @@ receive_end_command 2
 [u S536 . 1 `S501 1 . 1 0 `S510 1 . 1 0 `S519 1 . 1 0 `S510 1 . 1 0 `S519 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES536  1 e 1 @4082 ]
 "62 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
-[v _meterWatts meterWatts `i  1 e 2 0 ]
+[v _meterWatts meterWatts `ui  1 e 2 0 ]
 "63
-[v _meterEnergyUsed meterEnergyUsed `l  1 e 4 0 ]
+[v _meterEnergyUsed meterEnergyUsed `ul  1 e 4 0 ]
 "65
 [v _timerCountHF timerCountHF `VEul  1 e 4 0 ]
 "66
@@ -868,7 +868,7 @@ receive_end_command 2
 [v _main main `(v  1 e 0 0 ]
 {
 "83
-[v main@inx inx `i  1 a 2 51 ]
+[v main@inx inx `i  1 a 2 61 ]
 "167
 } 0
 "169
@@ -891,53 +891,53 @@ receive_end_command 2
 [v powerPulseCheck@mcpHFoutLast mcpHFoutLast `uc  1 s 1 mcpHFoutLast ]
 "232
 [v powerPulseCheck@mcpLFoutLast mcpLFoutLast `uc  1 s 1 mcpLFoutLast ]
-"295
+"307
 } 0
-"382
+"394
 [v _initTimer initTimer `(v  1 e 0 0 ]
 {
-"397
+"409
 } 0
-"306
+"318
 [v _init init `(v  1 e 0 0 ]
 {
-"314
+"326
 } 0
-"316
+"328
 [v _initOSC initOSC `(v  1 e 0 0 ]
 {
-"331
+"343
 } 0
-"399
+"411
 [v _initMCPFout initMCPFout `(v  1 e 0 0 ]
 {
-"416
+"428
 } 0
-"297
+"309
 [v _delayMS10 delayMS10 `(v  1 e 0 0 ]
 {
-"299
+"311
 [v delayMS10@inx inx `i  1 a 2 17 ]
-"297
+"309
 [v delayMS10@count count `i  1 p 2 14 ]
-"304
+"316
 } 0
-"353
+"365
 [v _initInterruptsClear initInterruptsClear `(v  1 e 0 0 ]
 {
-"380
+"392
 } 0
-"333
+"345
 [v _initIO initIO `(v  1 e 0 0 ]
 {
-"351
+"363
 } 0
 "89 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _communications communications `(v  1 e 0 0 ]
 {
 [v communications@firstTime firstTime `uc  1 a 1 wreg ]
 "95
-[v communications@no_more_to_send no_more_to_send `uc  1 a 1 55 ]
+[v communications@no_more_to_send no_more_to_send `uc  1 a 1 59 ]
 "89
 [v communications@firstTime firstTime `uc  1 a 1 wreg ]
 [s S1352 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
@@ -952,7 +952,7 @@ receive_end_command 2
 "132
 [v communications@last_state_active last_state_active `uc  1 s 1 last_state_active ]
 "100
-[v communications@firstTime firstTime `uc  1 a 1 56 ]
+[v communications@firstTime firstTime `uc  1 a 1 60 ]
 "150
 } 0
 "485
@@ -981,7 +981,7 @@ receive_end_command 2
 [v _resetCommunications resetCommunications `(v  1 e 0 0 ]
 {
 [s S1352 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-[v resetCommunications@send_buffer send_buffer `*.39S1352  1 p 2 46 ]
+[v resetCommunications@send_buffer send_buffer `*.39S1352  1 p 2 53 ]
 "155
 [v resetCommunications@commState commState `i  1 s 2 commState ]
 "197
@@ -997,45 +997,45 @@ receive_end_command 2
 [v _com_command_setPower com_command_setPower `(v  1 e 0 0 ]
 {
 "621
-[v com_command_setPower@temp temp `[12]uc  1 a 12 0 ]
+[v com_command_setPower@temp temp `[7]uc  1 a 7 36 ]
 [s S1352 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 "618
-[v com_command_setPower@send_buffer send_buffer `*.39S1352  1 p 2 44 ]
+[v com_command_setPower@send_buffer send_buffer `*.39S1352  1 p 2 34 ]
 "628
 } 0
-"32 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ltoa.c
-[v _ultoa ultoa `(*.39uc  1 e 2 0 ]
+"17 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\itoa.c
+[v _utoa utoa `(*.39uc  1 e 2 0 ]
 {
-"35
-[v ultoa@v v `ul  1 a 4 39 ]
-"36
-[v ultoa@c c `uc  1 a 1 43 ]
-"32
-[v ultoa@buf buf `*.39uc  1 p 2 27 ]
-[v ultoa@val val `ul  1 p 4 29 ]
-[v ultoa@base base `i  1 p 2 33 ]
-"53
+"19
+[v utoa@v v `ui  1 a 2 27 ]
+"20
+[v utoa@c c `uc  1 a 1 29 ]
+"17
+[v utoa@buf buf `*.39uc  1 p 2 21 ]
+[v utoa@val val `ui  1 p 2 23 ]
+[v utoa@base base `i  1 p 2 25 ]
+"37
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c
-[v ___llmod __llmod `(ul  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
 {
 "11
-[v ___llmod@counter counter `uc  1 a 1 22 ]
+[v ___lwmod@counter counter `uc  1 a 1 18 ]
 "8
-[v ___llmod@dividend dividend `ul  1 p 4 14 ]
-[v ___llmod@divisor divisor `ul  1 p 4 18 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 14 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 16 ]
 "26
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
-[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "11
-[v ___lldiv@quotient quotient `ul  1 a 4 22 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 19 ]
 "12
-[v ___lldiv@counter counter `uc  1 a 1 26 ]
+[v ___lwdiv@counter counter `uc  1 a 1 18 ]
 "8
-[v ___lldiv@dividend dividend `ul  1 p 4 14 ]
-[v ___lldiv@divisor divisor `ul  1 p 4 18 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 14 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 16 ]
 "31
 } 0
 "199 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
@@ -1063,24 +1063,24 @@ receive_end_command 2
 [v _process_data process_data `(uc  1 e 1 0 ]
 {
 "246
-[v process_data@parameters parameters `[5][10]uc  1 a 50 0 ]
+[v process_data@parameters parameters `[5][10]uc  1 a 50 7 ]
 "241
-[v process_data@end_of_transmission_received end_of_transmission_received `uc  1 a 1 50 ]
+[v process_data@end_of_transmission_received end_of_transmission_received `uc  1 a 1 57 ]
 [s S1352 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 "239
-[v process_data@receive_buffer receive_buffer `*.39S1352  1 p 2 50 ]
-[v process_data@send_buffer send_buffer `*.39S1352  1 p 2 52 ]
+[v process_data@receive_buffer receive_buffer `*.39S1352  1 p 2 3 ]
+[v process_data@send_buffer send_buffer `*.39S1352  1 p 2 5 ]
 "254
 } 0
 "315
 [v _process_data_parameters process_data_parameters `(uc  1 e 1 0 ]
 {
 "317
-[v process_data_parameters@end_of_transmission_received end_of_transmission_received `uc  1 a 1 49 ]
+[v process_data_parameters@end_of_transmission_received end_of_transmission_received `uc  1 a 1 2 ]
 "315
-[v process_data_parameters@parameters parameters `*.39[10]uc  1 p 2 43 ]
+[v process_data_parameters@parameters parameters `*.39[10]uc  1 p 2 53 ]
 [s S1352 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-[v process_data_parameters@send_buffer send_buffer `*.39S1352  1 p 2 45 ]
+[v process_data_parameters@send_buffer send_buffer `*.39S1352  1 p 2 55 ]
 "404
 } 0
 "513
@@ -1126,45 +1126,45 @@ receive_end_command 2
 [v _com_command_setEnergyUsed com_command_setEnergyUsed `(v  1 e 0 0 ]
 {
 "633
-[v com_command_setEnergyUsed@temp temp `[7]uc  1 a 7 36 ]
+[v com_command_setEnergyUsed@temp temp `[7]uc  1 a 7 46 ]
 [s S1352 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 "631
-[v com_command_setEnergyUsed@send_buffer send_buffer `*.39S1352  1 p 2 34 ]
+[v com_command_setEnergyUsed@send_buffer send_buffer `*.39S1352  1 p 2 44 ]
 "643
 } 0
-"17 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\itoa.c
-[v _utoa utoa `(*.39uc  1 e 2 0 ]
+"32 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ltoa.c
+[v _ultoa ultoa `(*.39uc  1 e 2 0 ]
 {
-"19
-[v utoa@v v `ui  1 a 2 27 ]
-"20
-[v utoa@c c `uc  1 a 1 29 ]
-"17
-[v utoa@buf buf `*.39uc  1 p 2 21 ]
-[v utoa@val val `ui  1 p 2 23 ]
-[v utoa@base base `i  1 p 2 25 ]
-"37
+"35
+[v ultoa@v v `ul  1 a 4 39 ]
+"36
+[v ultoa@c c `uc  1 a 1 43 ]
+"32
+[v ultoa@buf buf `*.39uc  1 p 2 27 ]
+[v ultoa@val val `ul  1 p 4 29 ]
+[v ultoa@base base `i  1 p 2 33 ]
+"53
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
 {
 "11
-[v ___lwmod@counter counter `uc  1 a 1 18 ]
+[v ___llmod@counter counter `uc  1 a 1 22 ]
 "8
-[v ___lwmod@dividend dividend `ui  1 p 2 14 ]
-[v ___lwmod@divisor divisor `ui  1 p 2 16 ]
+[v ___llmod@dividend dividend `ul  1 p 4 14 ]
+[v ___llmod@divisor divisor `ul  1 p 4 18 ]
 "26
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "11
-[v ___lwdiv@quotient quotient `ui  1 a 2 19 ]
+[v ___lldiv@quotient quotient `ul  1 a 4 22 ]
 "12
-[v ___lwdiv@counter counter `uc  1 a 1 18 ]
+[v ___lldiv@counter counter `uc  1 a 1 26 ]
 "8
-[v ___lwdiv@dividend dividend `ui  1 p 2 14 ]
-[v ___lwdiv@divisor divisor `ui  1 p 2 16 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 14 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 18 ]
 "31
 } 0
 "430 D:\My_Documents\Tom\MessiahCollaboratory\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c

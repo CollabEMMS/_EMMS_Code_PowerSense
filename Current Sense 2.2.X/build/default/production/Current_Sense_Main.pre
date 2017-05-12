@@ -9164,8 +9164,8 @@ void powerPulseCheck( void );
 
 void delayMS10( int count );
 
-int meterWatts = 0;
-long meterEnergyUsed = 0;
+unsigned int meterWatts = 0;
+unsigned long meterEnergyUsed = 0;
 
 volatile unsigned long timerCountHF = 0;
 volatile unsigned long timerCountLF = 0;
@@ -9255,7 +9255,7 @@ static bool mcpHFoutLast = 0;
 static bool mcpLFoutLast = 0;
 bool checkWattsHFvsLF = 0;
 
-if( PORTCbits.RC2 == 1 )
+if( PORTCbits.RC2 == 0 )
 {
 if( mcpHFoutLast == 0 )
 {
@@ -9275,7 +9275,7 @@ mcpHFoutLast = 0;
 }
 
 
-if( PORTAbits.RA1 == 1 )
+if( PORTAbits.RA1 == 0 )
 {
 if( mcpLFoutLast == 0 )
 {
@@ -9306,9 +9306,14 @@ meterWatts = meterWattsLF;
 }
 }
 
+# 298
+if( timerCountLF > 10000)
+{
+meterEnergyUsed++;
+timerCountLF = 0;
+}
 
-
-
+meterWatts = 64;
 return;
 
 }

@@ -106,7 +106,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "68
 [v _strmatch `(uc ~T0 @X0 0 ef2`*uc`*uc ]
 "47
-[v _meterEnergyUsed `l ~T0 @X0 0 e ]
+[v _meterEnergyUsed `ul ~T0 @X0 0 e ]
 "69 C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdlib.h
 [v _atol `(l ~T0 @X0 0 ef1`*Cuc ]
 "60 SlaveComm_PIC18.c
@@ -230,12 +230,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SSP2STATbits `VS204 ~T0 @X0 0 e@3949 ]
 "4206
 [v _SSP2BUF `Vuc ~T0 @X0 0 e@3951 ]
-"110 C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdlib.h
-[v _ultoa `(*uc ~T0 @X0 0 ef3`*uc`ul`i ]
-"46 SlaveComm_PIC18.c
-[v _meterWatts `i ~T0 @X0 0 e ]
 "104 C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdlib.h
 [v _utoa `(*uc ~T0 @X0 0 ef3`*uc`ui`i ]
+"46 SlaveComm_PIC18.c
+[v _meterWatts `ui ~T0 @X0 0 e ]
+"110 C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdlib.h
+[v _ultoa `(*uc ~T0 @X0 0 ef3`*uc`ul`i ]
 "7931 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18lf25k22.h
 [s S494 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S494 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
@@ -7527,8 +7527,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 42: unsigned char write_position;
 [; ;SlaveComm_PIC18.c: 43: unsigned char read_position;
 [; ;SlaveComm_PIC18.c: 44: };
-[; ;SlaveComm_PIC18.c: 46: extern int meterWatts;
-[; ;SlaveComm_PIC18.c: 47: extern long meterEnergyUsed;
+[; ;SlaveComm_PIC18.c: 46: extern unsigned int meterWatts;
+[; ;SlaveComm_PIC18.c: 47: extern unsigned long meterEnergyUsed;
 [; ;SlaveComm_PIC18.c: 51: bool SPI_receive_data( char* data );
 [; ;SlaveComm_PIC18.c: 52: void set_current_port( unsigned char * );
 [; ;SlaveComm_PIC18.c: 53: enum receive_status receive_data( struct buffer * );
@@ -8168,7 +8168,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;SlaveComm_PIC18.c: 345: meterEnergyUsed = atol( parameters[2] );
 "345
-[e = _meterEnergyUsed ( _atol (1 -> &U *U + _parameters * -> -> 2 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x `*Cuc ]
+[e = _meterEnergyUsed -> ( _atol (1 -> &U *U + _parameters * -> -> 2 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x `*Cuc `ul ]
 [; ;SlaveComm_PIC18.c: 346: com_command_setEnergyUsed( send_buffer );
 "346
 [e ( _com_command_setEnergyUsed (1 _send_buffer ]
@@ -8999,11 +8999,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "619
 [f ]
 "621
-[v _temp `uc ~T0 @X0 -> 12 `i a ]
-[; ;SlaveComm_PIC18.c: 621: char temp[12];
-[; ;SlaveComm_PIC18.c: 623: ultoa(temp, meterWatts, 10);
+[v _temp `uc ~T0 @X0 -> 7 `i a ]
+[; ;SlaveComm_PIC18.c: 621: char temp[7];
+[; ;SlaveComm_PIC18.c: 623: utoa(temp, meterWatts, 10);
 "623
-[e ( _ultoa (3 , , &U _temp -> -> _meterWatts `l `ul -> 10 `i ]
+[e ( _utoa (3 , , &U _temp _meterWatts -> 10 `i ]
 [; ;SlaveComm_PIC18.c: 625: command_builder3( send_buffer, "Set", "Watts", temp );
 "625
 [e ( _command_builder3 (4 , , , _send_buffer -> :s 26C `*uc -> :s 27C `*uc &U _temp ]
@@ -9028,12 +9028,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "633
 [v _temp `uc ~T0 @X0 -> 7 `i a ]
 "635
-[v _newPowerAllocated `uc ~T0 @X0 -> 7 `i a ]
+[v _newPowerAllocated `uc ~T0 @X0 -> 12 `i a ]
 [; ;SlaveComm_PIC18.c: 633: char temp[7];
-[; ;SlaveComm_PIC18.c: 635: char newPowerAllocated[7];
-[; ;SlaveComm_PIC18.c: 636: utoa(temp, meterEnergyUsed, 10);
+[; ;SlaveComm_PIC18.c: 635: char newPowerAllocated[12];
+[; ;SlaveComm_PIC18.c: 636: ultoa(temp, meterEnergyUsed, 10);
 "636
-[e ( _utoa (3 , , &U _temp -> _meterEnergyUsed `ui -> 10 `i ]
+[e ( _ultoa (3 , , &U _temp _meterEnergyUsed -> 10 `i ]
 [; ;SlaveComm_PIC18.c: 638: command_builder3( send_buffer, "Set", "EnUsed", temp );
 "638
 [e ( _command_builder3 (4 , , , _send_buffer -> :s 28C `*uc -> :s 29C `*uc &U _temp ]

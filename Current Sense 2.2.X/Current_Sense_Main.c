@@ -59,8 +59,8 @@ void powerPulseCheck( void );
 
 void delayMS10( int count );
 
-int meterWatts = 0;
-long meterEnergyUsed = 0;
+unsigned int meterWatts = 0;
+unsigned long meterEnergyUsed = 0;
 
 volatile unsigned long timerCountHF = 0;
 volatile unsigned long timerCountLF = 0;
@@ -232,7 +232,7 @@ void powerPulseCheck( void )
     static bool mcpLFoutLast = false; // this is so we run a calc only once each time the pulse comes
     bool checkWattsHFvsLF = false; // did we make a new calculation - then check which we use - HF or LF
 
-    if( MCP_HFOUT_READ == 1 )
+    if( MCP_HFOUT_READ == 0 )
     {
 	if( mcpHFoutLast == 0 )
 	{
@@ -252,7 +252,7 @@ void powerPulseCheck( void )
     }
 
 
-    if( MCP_LFOUT_READ == 1 )
+    if( MCP_LFOUT_READ == 0 )
     {
 	if( mcpLFoutLast == 0 )
 	{
@@ -287,9 +287,21 @@ void powerPulseCheck( void )
 	}
     }
 
+    
+    
+    /*******************
+    test values
+    ***********************/    
     // these hardcoded values is to test if the messages are making it to the display
     //    meterEnergyUsed = 240;
-    //    meterWatts = 64;
+
+    if( timerCountLF > 10000)
+    {
+	meterEnergyUsed++;
+	timerCountLF = 0;
+    }
+    
+    meterWatts = 64;
     return;
 
 }

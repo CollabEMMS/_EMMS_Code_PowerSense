@@ -7734,17 +7734,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Current_Sense_Main.c: 55: void powerPulseCheck( void );
 [; ;Current_Sense_Main.c: 60: void delayMS10( int count );
 "62 Current_Sense_Main.c
-[v _meterWatts `i ~T0 @X0 1 e ]
+[v _meterWatts `ui ~T0 @X0 1 e ]
 [i _meterWatts
--> 0 `i
+-> -> 0 `i `ui
 ]
-[; ;Current_Sense_Main.c: 62: int meterWatts = 0;
+[; ;Current_Sense_Main.c: 62: unsigned int meterWatts = 0;
 "63
-[v _meterEnergyUsed `l ~T0 @X0 1 e ]
+[v _meterEnergyUsed `ul ~T0 @X0 1 e ]
 [i _meterEnergyUsed
--> -> 0 `i `l
+-> -> -> 0 `i `l `ul
 ]
-[; ;Current_Sense_Main.c: 63: long meterEnergyUsed = 0;
+[; ;Current_Sense_Main.c: 63: unsigned long meterEnergyUsed = 0;
 "65
 [v _timerCountHF `Vul ~T0 @X0 1 e ]
 [i _timerCountHF
@@ -7987,9 +7987,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Current_Sense_Main.c: 232: static bool mcpLFoutLast = 0;
 [; ;Current_Sense_Main.c: 233: bool checkWattsHFvsLF = 0;
 [e = _checkWattsHFvsLF -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 235: if( PORTCbits.RC2 == 1 )
+[; ;Current_Sense_Main.c: 235: if( PORTCbits.RC2 == 0 )
 "235
-[e $ ! == -> . . _PORTCbits 0 2 `i -> 1 `i 1125  ]
+[e $ ! == -> . . _PORTCbits 0 2 `i -> 0 `i 1125  ]
 [; ;Current_Sense_Main.c: 236: {
 "236
 {
@@ -8032,9 +8032,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 1127 ]
 [; ;Current_Sense_Main.c: 252: }
-[; ;Current_Sense_Main.c: 255: if( PORTAbits.RA1 == 1 )
+[; ;Current_Sense_Main.c: 255: if( PORTAbits.RA1 == 0 )
 "255
-[e $ ! == -> . . _PORTAbits 0 1 `i -> 1 `i 1128  ]
+[e $ ! == -> . . _PORTAbits 0 1 `i -> 0 `i 1128  ]
 [; ;Current_Sense_Main.c: 256: {
 "256
 {
@@ -8052,7 +8052,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _meterWattsLF -> / -> -> -> 5 `i `l `ul _timerCountLF `i ]
 [; ;Current_Sense_Main.c: 266: meterEnergyUsed += 5;
 "266
-[e =+ _meterEnergyUsed -> -> 5 `i `l ]
+[e =+ _meterEnergyUsed -> -> -> 5 `i `l `ul ]
 [; ;Current_Sense_Main.c: 268: checkWattsHFvsLF = 1;
 "268
 [e = _checkWattsHFvsLF -> -> 1 `i `uc ]
@@ -8081,7 +8081,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;Current_Sense_Main.c: 282: meterWatts = meterWattsHF;
 "282
-[e = _meterWatts _meterWattsHF ]
+[e = _meterWatts -> _meterWattsHF `ui ]
 "283
 }
 [; ;Current_Sense_Main.c: 283: }
@@ -8094,7 +8094,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;Current_Sense_Main.c: 286: meterWatts = meterWattsLF;
 "286
-[e = _meterWatts _meterWattsLF ]
+[e = _meterWatts -> _meterWattsLF `ui ]
 "287
 }
 [e :U 1132 ]
@@ -8103,306 +8103,325 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1130 ]
 [; ;Current_Sense_Main.c: 287: }
 [; ;Current_Sense_Main.c: 288: }
-[; ;Current_Sense_Main.c: 293: return;
-"293
+[; ;Current_Sense_Main.c: 298: if( timerCountLF > 10000)
+"298
+[e $ ! > _timerCountLF -> -> -> 10000 `i `l `ul 1133  ]
+[; ;Current_Sense_Main.c: 299: {
+"299
+{
+[; ;Current_Sense_Main.c: 300: meterEnergyUsed++;
+"300
+[e ++ _meterEnergyUsed -> -> -> 1 `i `l `ul ]
+[; ;Current_Sense_Main.c: 301: timerCountLF = 0;
+"301
+[e = _timerCountLF -> -> -> 0 `i `l `ul ]
+"302
+}
+[e :U 1133 ]
+[; ;Current_Sense_Main.c: 302: }
+[; ;Current_Sense_Main.c: 304: meterWatts = 64;
+"304
+[e = _meterWatts -> -> 64 `i `ui ]
+[; ;Current_Sense_Main.c: 305: return;
+"305
 [e $UE 1124  ]
-[; ;Current_Sense_Main.c: 295: }
-"295
+[; ;Current_Sense_Main.c: 307: }
+"307
 [e :UE 1124 ]
 }
-"297
+"309
 [v _delayMS10 `(v ~T0 @X0 1 ef1`i ]
-"298
+"310
 {
-[; ;Current_Sense_Main.c: 297: void delayMS10( int count )
-[; ;Current_Sense_Main.c: 298: {
+[; ;Current_Sense_Main.c: 309: void delayMS10( int count )
+[; ;Current_Sense_Main.c: 310: {
 [e :U _delayMS10 ]
-"297
+"309
 [v _count `i ~T0 @X0 1 r1 ]
-"298
+"310
 [f ]
-[; ;Current_Sense_Main.c: 299: for( int inx = 0; inx < count; inx++ )
-"299
+[; ;Current_Sense_Main.c: 311: for( int inx = 0; inx < count; inx++ )
+"311
 {
 [v _inx `i ~T0 @X0 1 a ]
 [e = _inx -> 0 `i ]
-[e $U 1137  ]
-"300
-[e :U 1134 ]
-[; ;Current_Sense_Main.c: 300: {
-{
-[; ;Current_Sense_Main.c: 302: _delay((unsigned long)((10)*(16000000/4000.0)));
-"302
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"303
-}
-"299
-[e ++ _inx -> 1 `i ]
-[e :U 1137 ]
-[e $ < _inx _count 1134  ]
+[e $U 1138  ]
+"312
 [e :U 1135 ]
-"303
-}
-[; ;Current_Sense_Main.c: 303: }
-[; ;Current_Sense_Main.c: 304: }
-"304
-[e :UE 1133 ]
-}
-"306
-[v _init `(v ~T0 @X0 1 ef ]
-"307
+[; ;Current_Sense_Main.c: 312: {
 {
-[; ;Current_Sense_Main.c: 306: void init( )
-[; ;Current_Sense_Main.c: 307: {
+[; ;Current_Sense_Main.c: 314: _delay((unsigned long)((10)*(16000000/4000.0)));
+"314
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"315
+}
+"311
+[e ++ _inx -> 1 `i ]
+[e :U 1138 ]
+[e $ < _inx _count 1135  ]
+[e :U 1136 ]
+"315
+}
+[; ;Current_Sense_Main.c: 315: }
+[; ;Current_Sense_Main.c: 316: }
+"316
+[e :UE 1134 ]
+}
+"318
+[v _init `(v ~T0 @X0 1 ef ]
+"319
+{
+[; ;Current_Sense_Main.c: 318: void init( )
+[; ;Current_Sense_Main.c: 319: {
 [e :U _init ]
 [f ]
-[; ;Current_Sense_Main.c: 308: initOSC( );
-"308
-[e ( _initOSC ..  ]
-[; ;Current_Sense_Main.c: 309: initIO( );
-"309
-[e ( _initIO ..  ]
-[; ;Current_Sense_Main.c: 310: initInterruptsClear( );
-"310
-[e ( _initInterruptsClear ..  ]
-[; ;Current_Sense_Main.c: 311: initMCPFout( );
-"311
-[e ( _initMCPFout ..  ]
-[; ;Current_Sense_Main.c: 313: return;
-"313
-[e $UE 1138  ]
-[; ;Current_Sense_Main.c: 314: }
-"314
-[e :UE 1138 ]
-}
-"316
-[v _initOSC `(v ~T0 @X0 1 ef ]
-"317
-{
-[; ;Current_Sense_Main.c: 316: void initOSC( void )
-[; ;Current_Sense_Main.c: 317: {
-[e :U _initOSC ]
-[f ]
-[; ;Current_Sense_Main.c: 319: OSCCONbits.IDLEN = 0;
-"319
-[e = . . _OSCCONbits 0 4 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 320: OSCCONbits.IRCF = 0b111;
+[; ;Current_Sense_Main.c: 320: initOSC( );
 "320
-[e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
-[; ;Current_Sense_Main.c: 321: OSCCONbits.SCS = 0b11;
+[e ( _initOSC ..  ]
+[; ;Current_Sense_Main.c: 321: initIO( );
 "321
-[e = . . _OSCCONbits 0 0 -> -> 3 `i `uc ]
-[; ;Current_Sense_Main.c: 323: OSCCON2bits.MFIOSEL = 0;
+[e ( _initIO ..  ]
+[; ;Current_Sense_Main.c: 322: initInterruptsClear( );
+"322
+[e ( _initInterruptsClear ..  ]
+[; ;Current_Sense_Main.c: 323: initMCPFout( );
 "323
-[e = . . _OSCCON2bits 0 4 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 324: OSCCON2bits.SOSCGO = 0;
-"324
-[e = . . _OSCCON2bits 0 3 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 325: OSCCON2bits.PRISD = 0;
+[e ( _initMCPFout ..  ]
+[; ;Current_Sense_Main.c: 325: return;
 "325
-[e = . . _OSCCON2bits 0 2 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 327: OSCTUNEbits.INTSRC = 1;
-"327
-[e = . . _OSCTUNEbits 0 2 -> -> 1 `i `uc ]
-[; ;Current_Sense_Main.c: 328: OSCTUNEbits.PLLEN = 0;
-"328
-[e = . . _OSCTUNEbits 0 1 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 330: return;
-"330
 [e $UE 1139  ]
-[; ;Current_Sense_Main.c: 331: }
-"331
+[; ;Current_Sense_Main.c: 326: }
+"326
 [e :UE 1139 ]
 }
-"333
-[v _initIO `(v ~T0 @X0 1 ef ]
-"334
+"328
+[v _initOSC `(v ~T0 @X0 1 ef ]
+"329
 {
-[; ;Current_Sense_Main.c: 333: void initIO( void )
-[; ;Current_Sense_Main.c: 334: {
-[e :U _initIO ]
+[; ;Current_Sense_Main.c: 328: void initOSC( void )
+[; ;Current_Sense_Main.c: 329: {
+[e :U _initOSC ]
 [f ]
-[; ;Current_Sense_Main.c: 335: ADCON0bits.ADON = 0;
+[; ;Current_Sense_Main.c: 331: OSCCONbits.IDLEN = 0;
+"331
+[e = . . _OSCCONbits 0 4 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 332: OSCCONbits.IRCF = 0b111;
+"332
+[e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
+[; ;Current_Sense_Main.c: 333: OSCCONbits.SCS = 0b11;
+"333
+[e = . . _OSCCONbits 0 0 -> -> 3 `i `uc ]
+[; ;Current_Sense_Main.c: 335: OSCCON2bits.MFIOSEL = 0;
 "335
-[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 336: ANSELA = 0b00000000;
+[e = . . _OSCCON2bits 0 4 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 336: OSCCON2bits.SOSCGO = 0;
 "336
-[e = _ANSELA -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 337: ANSELB = 0b00000000;
+[e = . . _OSCCON2bits 0 3 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 337: OSCCON2bits.PRISD = 0;
 "337
-[e = _ANSELB -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 338: ANSELC = 0b00000000;
-"338
-[e = _ANSELC -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 340: TRISBbits.TRISB4 = 0;
+[e = . . _OSCCON2bits 0 2 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 339: OSCTUNEbits.INTSRC = 1;
+"339
+[e = . . _OSCTUNEbits 0 2 -> -> 1 `i `uc ]
+[; ;Current_Sense_Main.c: 340: OSCTUNEbits.PLLEN = 0;
 "340
-[e = . . _TRISBbits 0 4 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 341: LATBbits.LATB4 = 0;
-"341
-[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 343: TRISCbits.TRISC2 = 1;
-"343
-[e = . . _TRISCbits 0 2 -> -> 1 `i `uc ]
-[; ;Current_Sense_Main.c: 344: TRISAbits.TRISA1 = 1;
-"344
-[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
-[; ;Current_Sense_Main.c: 345: TRISAbits.TRISA0 = 0;
-"345
-[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 346: LATAbits.LATA0 = 0;
-"346
-[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 348: TRISCbits.TRISC6 = 0;
-"348
-[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 350: return;
-"350
+[e = . . _OSCTUNEbits 0 1 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 342: return;
+"342
 [e $UE 1140  ]
-[; ;Current_Sense_Main.c: 351: }
-"351
+[; ;Current_Sense_Main.c: 343: }
+"343
 [e :UE 1140 ]
 }
-"353
-[v _initInterruptsClear `(v ~T0 @X0 1 ef ]
-"354
+"345
+[v _initIO `(v ~T0 @X0 1 ef ]
+"346
 {
-[; ;Current_Sense_Main.c: 353: void initInterruptsClear( void )
-[; ;Current_Sense_Main.c: 354: {
-[e :U _initInterruptsClear ]
+[; ;Current_Sense_Main.c: 345: void initIO( void )
+[; ;Current_Sense_Main.c: 346: {
+[e :U _initIO ]
 [f ]
-[; ;Current_Sense_Main.c: 356: INTCON = 0b00000000;
+[; ;Current_Sense_Main.c: 347: ADCON0bits.ADON = 0;
+"347
+[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 348: ANSELA = 0b00000000;
+"348
+[e = _ANSELA -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 349: ANSELB = 0b00000000;
+"349
+[e = _ANSELB -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 350: ANSELC = 0b00000000;
+"350
+[e = _ANSELC -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 352: TRISBbits.TRISB4 = 0;
+"352
+[e = . . _TRISBbits 0 4 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 353: LATBbits.LATB4 = 0;
+"353
+[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 355: TRISCbits.TRISC2 = 1;
+"355
+[e = . . _TRISCbits 0 2 -> -> 1 `i `uc ]
+[; ;Current_Sense_Main.c: 356: TRISAbits.TRISA1 = 1;
 "356
-[e = _INTCON -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 357: INTCON2 = 0b00000000;
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;Current_Sense_Main.c: 357: TRISAbits.TRISA0 = 0;
 "357
-[e = _INTCON2 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 358: INTCON3 = 0b00000000;
+[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 358: LATAbits.LATA0 = 0;
 "358
-[e = _INTCON3 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 360: RCONbits.IPEN = 0;
+[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 360: TRISCbits.TRISC6 = 0;
 "360
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 362: PIR1 = 0b00000000;
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 362: return;
 "362
-[e = _PIR1 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 363: PIR2 = 0b00000000;
+[e $UE 1141  ]
+[; ;Current_Sense_Main.c: 363: }
 "363
-[e = _PIR2 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 364: PIR3 = 0b00000000;
-"364
-[e = _PIR3 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 365: PIR4 = 0b00000000;
-"365
-[e = _PIR4 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 366: PIR5 = 0b00000000;
-"366
-[e = _PIR5 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 368: PIE1 = 0b00000000;
-"368
-[e = _PIE1 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 369: PIE2 = 0b00000000;
-"369
-[e = _PIE2 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 370: PIE3 = 0b00000000;
-"370
-[e = _PIE3 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 371: PIE4 = 0b00000000;
-"371
-[e = _PIE4 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 372: PIE5 = 0b00000000;
-"372
-[e = _PIE5 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 374: IPR1 = 0b00000000;
-"374
-[e = _IPR1 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 375: IPR2 = 0b00000000;
-"375
-[e = _IPR2 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 376: IPR3 = 0b00000000;
-"376
-[e = _IPR3 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 377: IPR4 = 0b00000000;
-"377
-[e = _IPR4 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 378: IPR5 = 0b00000000;
-"378
-[e = _IPR5 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 380: }
-"380
 [e :UE 1141 ]
 }
-"382
-[v _initTimer `(v ~T0 @X0 1 ef ]
-"383
+"365
+[v _initInterruptsClear `(v ~T0 @X0 1 ef ]
+"366
 {
-[; ;Current_Sense_Main.c: 382: void initTimer( void )
-[; ;Current_Sense_Main.c: 383: {
-[e :U _initTimer ]
+[; ;Current_Sense_Main.c: 365: void initInterruptsClear( void )
+[; ;Current_Sense_Main.c: 366: {
+[e :U _initInterruptsClear ]
 [f ]
-[; ;Current_Sense_Main.c: 385: T0CONbits.TMR0ON = 0;
-"385
-[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 386: T0CONbits.T08BIT = 0;
+[; ;Current_Sense_Main.c: 368: INTCON = 0b00000000;
+"368
+[e = _INTCON -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 369: INTCON2 = 0b00000000;
+"369
+[e = _INTCON2 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 370: INTCON3 = 0b00000000;
+"370
+[e = _INTCON3 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 372: RCONbits.IPEN = 0;
+"372
+[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 374: PIR1 = 0b00000000;
+"374
+[e = _PIR1 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 375: PIR2 = 0b00000000;
+"375
+[e = _PIR2 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 376: PIR3 = 0b00000000;
+"376
+[e = _PIR3 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 377: PIR4 = 0b00000000;
+"377
+[e = _PIR4 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 378: PIR5 = 0b00000000;
+"378
+[e = _PIR5 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 380: PIE1 = 0b00000000;
+"380
+[e = _PIE1 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 381: PIE2 = 0b00000000;
+"381
+[e = _PIE2 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 382: PIE3 = 0b00000000;
+"382
+[e = _PIE3 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 383: PIE4 = 0b00000000;
+"383
+[e = _PIE4 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 384: PIE5 = 0b00000000;
+"384
+[e = _PIE5 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 386: IPR1 = 0b00000000;
 "386
-[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 387: T0CONbits.T0CS = 0;
+[e = _IPR1 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 387: IPR2 = 0b00000000;
 "387
-[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 388: T0CONbits.PSA = 0;
+[e = _IPR2 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 388: IPR3 = 0b00000000;
 "388
-[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 389: T0CONbits.T0PS = 0b001;
+[e = _IPR3 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 389: IPR4 = 0b00000000;
 "389
-[e = . . _T0CONbits 0 0 -> -> 1 `i `uc ]
-[; ;Current_Sense_Main.c: 391: INTCONbits.TMR0IE = 1;
-"391
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-[; ;Current_Sense_Main.c: 392: INTCONbits.GIE = 1;
+[e = _IPR4 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 390: IPR5 = 0b00000000;
+"390
+[e = _IPR5 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 392: }
 "392
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;Current_Sense_Main.c: 393: T0CONbits.TMR0ON = 1;
-"393
-[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-[; ;Current_Sense_Main.c: 397: }
-"397
 [e :UE 1142 ]
 }
-"399
-[v _initMCPFout `(v ~T0 @X0 1 ef ]
-"400
+"394
+[v _initTimer `(v ~T0 @X0 1 ef ]
+"395
 {
-[; ;Current_Sense_Main.c: 399: void initMCPFout( void )
-[; ;Current_Sense_Main.c: 400: {
+[; ;Current_Sense_Main.c: 394: void initTimer( void )
+[; ;Current_Sense_Main.c: 395: {
+[e :U _initTimer ]
+[f ]
+[; ;Current_Sense_Main.c: 397: T0CONbits.TMR0ON = 0;
+"397
+[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 398: T0CONbits.T08BIT = 0;
+"398
+[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 399: T0CONbits.T0CS = 0;
+"399
+[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 400: T0CONbits.PSA = 0;
+"400
+[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 401: T0CONbits.T0PS = 0b001;
+"401
+[e = . . _T0CONbits 0 0 -> -> 1 `i `uc ]
+[; ;Current_Sense_Main.c: 403: INTCONbits.TMR0IE = 1;
+"403
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+[; ;Current_Sense_Main.c: 404: INTCONbits.GIE = 1;
+"404
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;Current_Sense_Main.c: 405: T0CONbits.TMR0ON = 1;
+"405
+[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
+[; ;Current_Sense_Main.c: 409: }
+"409
+[e :UE 1143 ]
+}
+"411
+[v _initMCPFout `(v ~T0 @X0 1 ef ]
+"412
+{
+[; ;Current_Sense_Main.c: 411: void initMCPFout( void )
+[; ;Current_Sense_Main.c: 412: {
 [e :U _initMCPFout ]
 [f ]
-[; ;Current_Sense_Main.c: 404: LATCbits.LATC6 = 0;
-"404
-[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
-[; ;Current_Sense_Main.c: 405: _delay((unsigned long)((1)*(16000000/4000.0)));
-"405
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[; ;Current_Sense_Main.c: 407: LATCbits.LATC7 = 1;
-"407
-[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
-[; ;Current_Sense_Main.c: 408: LATCbits.LATC5 = 1;
-"408
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-[; ;Current_Sense_Main.c: 409: LATCbits.LATC3 = 1;
-"409
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;Current_Sense_Main.c: 411: _delay((unsigned long)((1)*(16000000/4000.0)));
-"411
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[; ;Current_Sense_Main.c: 412: LATCbits.LATC6 = 1;
-"412
-[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;Current_Sense_Main.c: 413: delayMS10( 10 );
-"413
-[e ( _delayMS10 (1 -> 10 `i ]
-[; ;Current_Sense_Main.c: 415: return;
-"415
-[e $UE 1143  ]
-[; ;Current_Sense_Main.c: 416: }
+[; ;Current_Sense_Main.c: 416: LATCbits.LATC6 = 0;
 "416
-[e :UE 1143 ]
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[; ;Current_Sense_Main.c: 417: _delay((unsigned long)((1)*(16000000/4000.0)));
+"417
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;Current_Sense_Main.c: 419: LATCbits.LATC7 = 1;
+"419
+[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
+[; ;Current_Sense_Main.c: 420: LATCbits.LATC5 = 1;
+"420
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;Current_Sense_Main.c: 421: LATCbits.LATC3 = 1;
+"421
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+[; ;Current_Sense_Main.c: 423: _delay((unsigned long)((1)*(16000000/4000.0)));
+"423
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;Current_Sense_Main.c: 424: LATCbits.LATC6 = 1;
+"424
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
+[; ;Current_Sense_Main.c: 425: delayMS10( 10 );
+"425
+[e ( _delayMS10 (1 -> 10 `i ]
+[; ;Current_Sense_Main.c: 427: return;
+"427
+[e $UE 1144  ]
+[; ;Current_Sense_Main.c: 428: }
+"428
+[e :UE 1144 ]
 }
