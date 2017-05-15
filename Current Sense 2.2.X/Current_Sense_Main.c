@@ -264,6 +264,7 @@ void powerPulseCheck( void )
 	    meterWattsLF = ENERGY_PER_PULSE_LF / timerCountLF;
 
 	    meterEnergyUsed += ENERGY_PER_PULSE_LF; // this is the total power used by the meter
+	    // likely need to track MW in a s variable and add to this when MW >= 1000
 
 	    checkWattsHFvsLF = true;
 	    timerCountLF = 0;

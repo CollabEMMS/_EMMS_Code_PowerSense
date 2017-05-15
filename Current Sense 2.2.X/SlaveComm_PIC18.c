@@ -341,12 +341,12 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 	    // set the Energy used
 	    // this likely means that the command board had a stored power used greater than we have here.
 	    // this happens when the power is lost - current sense starts at 0, command board stores in EEPROM
-	    
+
 	    meterEnergyUsed = atol( parameters[2] );
 	    com_command_setEnergyUsed( send_buffer );
 	}
-	
-	
+
+
 	//meterEnergyUsed
 
     }
@@ -619,9 +619,9 @@ void com_command_setPower( struct buffer * send_buffer )
 {
 
     char temp[7];
-    
+
     utoa(temp, meterWatts, 10);
-    
+
     command_builder3( send_buffer, "Set", "Watts", temp );
 
     return;
@@ -630,16 +630,15 @@ void com_command_setPower( struct buffer * send_buffer )
 
 void com_command_setEnergyUsed( struct buffer * send_buffer )
 {
-    char temp[7];
-    
-    char newPowerAllocated[12];
+    char temp[12];
+
     ultoa(temp, meterEnergyUsed, 10);
-    
+
     command_builder3( send_buffer, "Set", "EnUsed", temp );
 
     return;
-    
-    
+
+
 }
 
 void com_command_setVolts( struct buffer * send_buffer )
@@ -714,7 +713,7 @@ void SPISlaveInit( void )
 
     SSP2CON1bits.SSPEN = 1; //Synchronous Serial Port Enable bit
 
-    //    SPIWatchdogTimerInit(); 
+    //    SPIWatchdogTimerInit();
 
     return;
 }
