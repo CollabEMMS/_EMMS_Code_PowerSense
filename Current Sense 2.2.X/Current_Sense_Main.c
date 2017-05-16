@@ -41,23 +41,23 @@
 #define MCP_FREQ_F1_SET LATCbits.LATC5
 
 // MCP F2 Frequency Config
-#define MCP_FREQ_F2_DIR TRSICbits.TRISC3
+#define MCP_FREQ_F2_DIR TRISCbits.TRISC3
 #define MCP_FREQ_F2_SET LATCbits.LATC3
 
 
-void init( void );
-void initOSC( void );
-void initIO( void );
-void initInterruptsClear( void );
-void initMCPFout( void );
-void initTimer( void );
-void pulseFoutPassThru( void );
-void powerPulseCheck( void );
+void init(void);
+void initOSC(void);
+void initIO(void);
+void initInterruptsClear(void);
+void initMCPFout(void);
+void initTimer(void);
+void pulseFoutPassThru(void);
+void powerPulseCheck(void);
 
 //void mcpSPIInit( void );
 //void mcpSPIStart( void );
 
-void delayMS10( int count );
+void delayMS10(int count);
 
 unsigned int meterWatts = 0;
 unsigned long meterEnergyUsed = 0;
@@ -76,19 +76,19 @@ volatile unsigned long timerCountLF = 0;
 #define TIMER_PRESET_LOW LOW_BYTE( TIMER_PRESET )
 #define TIMER_PRESET_HIGH HIGH_BYTE( TIMER_PRESET)
 
-void main( void )
+void main(void)
 {
-    init( );
+    init();
 
-    for( int inx = 0; inx < 10; inx++ )
+    for (int inx = 0; inx < 10; inx++)
     {
-	LED_SET = 1;
-	delayMS10( 10 );
-	LED_SET = 0;
-	delayMS10( 10 );
+        LED_SET = 1;
+        delayMS10(10);
+        LED_SET = 0;
+        delayMS10(10);
     }
 
-    initTimer( );
+    initTimer();
 
     //SPISlaveInit( );    // this is now done in the first communications call
 
@@ -101,22 +101,22 @@ void main( void )
      * logic 1 (5v) and drop down to zero quickly, and then stay up at logic
      * 1 again.
     while(1) {
-	delayMS(250);
-	for(;;) {
-	    pulseOut = 1;
-	    LED = 1;
-	    delayMS(10000);
+    delayMS(250);
+    for(;;) {
+        pulseOut = 1;
+        LED = 1;
+        delayMS(10000);
 
-	    pulseOut = 0;
-	    LED = 0;
-	    delayMS(5);
-	}
+        pulseOut = 0;
+        LED = 0;
+        delayMS(5);
+    }
     }
      */
 
     // Take the pulse and send it out to the command board
 
-    communications( true ); // to init SPI communications everything
+    communications(true); // to init SPI communications everything
 
     // need to set up a counter to time the LED    
     // counting at 16Mhz is crazy
@@ -125,78 +125,78 @@ void main( void )
 
 
 
-    while( 1 )
+    while (1)
     {
-	communications( false );
-	pulseFoutPassThru( );
-	powerPulseCheck( );
-	//	if ( timerHFcount >= 1000 )
-	//	{
-	//	    count = 0;
-	//	    if ( LED_READ == 1 )
-	//	    {
-	//		LED_SET = 0;
-	//	    }
-	//	    else
-	//	    {
-	//		LED_SET = 1;
-	//
-	//	    }
-	//	}
+        communications(false);
+        pulseFoutPassThru();
+        powerPulseCheck();
+        //	if ( timerHFcount >= 1000 )
+        //	{
+        //	    count = 0;
+        //	    if ( LED_READ == 1 )
+        //	    {
+        //		LED_SET = 0;
+        //	    }
+        //	    else
+        //	    {
+        //		LED_SET = 1;
+        //
+        //	    }
+        //	}
 
-	//        if(PORTAbits.RA1 == 1) {
-	//            pulseOut = 0b1;
-	//            //LATBbits.LATB4 = 0;
-	//        }
-	//        else {
-	//            pulseOut = 0b0;
-	//
-	//            // for testing purposes only
-	//            if (togglePulse == 0) {
-	//                //LED = 1; // turn on the LED
-	//                togglePulse = 1;
-	//                delayMS(100);
-	//            } else {
-	//                //LED = 0; // turn off the LED
-	//                togglePulse = 0;
-	//                delayMS(100);
-	//            }
-	//        }
+        //        if(PORTAbits.RA1 == 1) {
+        //            pulseOut = 0b1;
+        //            //LATBbits.LATB4 = 0;
+        //        }
+        //        else {
+        //            pulseOut = 0b0;
+        //
+        //            // for testing purposes only
+        //            if (togglePulse == 0) {
+        //                //LED = 1; // turn on the LED
+        //                togglePulse = 1;
+        //                delayMS(100);
+        //            } else {
+        //                //LED = 0; // turn off the LED
+        //                togglePulse = 0;
+        //                delayMS(100);
+        //            }
+        //        }
     }
     return;
 }
 
-void pulseFoutPassThru( void )
+void pulseFoutPassThru(void)
 {
     // mimic the pulse from the MCP Fout pins
     static bool runonce = false;
 
-    if( MCP_LFOUT_READ == 1 )
+    if (MCP_LFOUT_READ == 0)
     {
-	MCP_LFOUT_PASS_SET = 1;
-	if( runonce == false )
-	{
-	    runonce = true;
-	    if( LED_READ == 1 )
-	    {
-		LED_SET = 0;
-	    }
-	    else
-	    {
-		LED_SET = 1;
-	    }
-	}
+        MCP_LFOUT_PASS_SET = 1;
+        if (runonce == false)
+        {
+            runonce = true;
+            if (LED_READ == 1)
+            {
+                LED_SET = 0;
+            }
+            else
+            {
+                LED_SET = 1;
+            }
+        }
     }
     else
     {
-	MCP_LFOUT_PASS_SET = 0;
-	runonce = false;
+        MCP_LFOUT_PASS_SET = 0;
+        runonce = false;
     }
 
     return;
 }
 
-void interrupt Timer0_ISR( void )
+void interrupt Timer0_ISR(void)
 {
 
     INTCONbits.TMR0IF = 0;
@@ -210,7 +210,7 @@ void interrupt Timer0_ISR( void )
     return;
 }
 
-void powerPulseCheck( void )
+void powerPulseCheck(void)
 {
 
     // here we check if a pulse has some in from both the HF and the LF pulses
@@ -232,43 +232,43 @@ void powerPulseCheck( void )
     static bool mcpLFoutLast = false; // this is so we run a calc only once each time the pulse comes
     bool checkWattsHFvsLF = false; // did we make a new calculation - then check which we use - HF or LF
 
-    if( MCP_HFOUT_READ == 0 )
+    if (MCP_HFOUT_READ == 0)
     {
-	if( mcpHFoutLast == 0 )
-	{
-	    mcpHFoutLast = 1;
+        if (mcpHFoutLast == 0)
+        {
+            mcpHFoutLast = 1;
 
-	    // here is the math for calculating the power given the time per pulse
-	    // this equation must be modified
-	    // it is likely this response is non-linear so this can be any equation(s) it needs to be
-	    meterWattsHF = ENERGY_PER_PULSE_HF / timerCountHF;
-	    checkWattsHFvsLF = true;
-	    timerCountHF = 0;
-	}
+            // here is the math for calculating the power given the time per pulse
+            // this equation must be modified
+            // it is likely this response is non-linear so this can be any equation(s) it needs to be
+            meterWattsHF = ENERGY_PER_PULSE_HF / timerCountHF;
+            checkWattsHFvsLF = true;
+            timerCountHF = 0;
+        }
     }
     else
     {
-	mcpHFoutLast = 0;
+        mcpHFoutLast = 0;
     }
 
 
-    if( MCP_LFOUT_READ == 0 )
+    if (MCP_LFOUT_READ == 0)
     {
-	if( mcpLFoutLast == 0 )
-	{
-	    mcpLFoutLast = 1;
+        if (mcpLFoutLast == 0)
+        {
+            mcpLFoutLast = 1;
 
-	    // here is the math for calculating the power given the time per pulse
-	    // this equation must be modified
-	    // it is likely this response is non-linear so this can be any equation(s) it needs to be
-	    meterWattsLF = ENERGY_PER_PULSE_LF / timerCountLF;
+            // here is the math for calculating the power given the time per pulse
+            // this equation must be modified
+            // it is likely this response is non-linear so this can be any equation(s) it needs to be
+            meterWattsLF = ENERGY_PER_PULSE_LF / timerCountLF;
 
-	    meterEnergyUsed += ENERGY_PER_PULSE_LF; // this is the total power used by the meter
-	    // likely need to track MW in a s variable and add to this when MW >= 1000
+            meterEnergyUsed += ENERGY_PER_PULSE_LF; // this is the total power used by the meter
+            // likely need to track MW in a s variable and add to this when MW >= 1000
 
-	    checkWattsHFvsLF = true;
-	    timerCountLF = 0;
-	}
+            checkWattsHFvsLF = true;
+            timerCountLF = 0;
+        }
     }
 
 
@@ -276,57 +276,57 @@ void powerPulseCheck( void )
     // since we are checking both HF and LF we need to check which one to use
     // if power is above a threshold for HF, then it is pulsing very fast and LF is pulsing a bit faster
     // we should switch to passing on LF power 
-    if( checkWattsHFvsLF == true )
+    if (checkWattsHFvsLF == true)
     {
-	if( meterWattsHF <= -1 ) // -1 will always make it use the LF value. Change this to use the HF value
-	{
-	    meterWatts = meterWattsHF;
-	}
-	else
-	{
-	    meterWatts = meterWattsLF;
-	}
+        if (meterWattsHF <= -1) // -1 will always make it use the LF value. Change this to use the HF value
+        {
+            meterWatts = meterWattsHF;
+        }
+        else
+        {
+            meterWatts = meterWattsLF;
+        }
     }
 
-    
-    
+
+
     /*******************
     test values
-    ***********************/    
+     ***********************/
     // these hardcoded values is to test if the messages are making it to the display
     //    meterEnergyUsed = 240;
 
-    if( timerCountLF > 10000)
+    if (timerCountLF > 10000)
     {
-	meterEnergyUsed++;
-	timerCountLF = 0;
+        meterEnergyUsed++;
+        timerCountLF = 0;
     }
-    
+
     meterWatts = 64;
     return;
 
 }
 
-void delayMS10( int count )
+void delayMS10(int count)
 {
-    for( int inx = 0; inx < count; inx++ )
+    for (int inx = 0; inx < count; inx++)
     {
 
-	__delay_ms( 10 );
+        __delay_ms(10);
     }
 }
 
-void init( )
+void init()
 {
-    initOSC( );
-    initIO( );
-    initInterruptsClear( );
-    initMCPFout( );
+    initOSC();
+    initIO();
+//    initInterruptsClear();
+    initMCPFout();
 
     return;
 }
 
-void initOSC( void )
+void initOSC(void)
 {
     // 16 Mhz internal
     OSCCONbits.IDLEN = 0;
@@ -343,7 +343,7 @@ void initOSC( void )
     return;
 }
 
-void initIO( void )
+void initIO(void)
 {
     ADCON0bits.ADON = 0;
     ANSELA = 0b00000000;
@@ -358,12 +358,10 @@ void initIO( void )
     MCP_LFOUT_PASS_DIR = 0;
     MCP_LFOUT_PASS_SET = 0;
 
-    MCP_MCLR_DIR = 0;
-
     return;
 }
 
-void initInterruptsClear( void )
+void initInterruptsClear(void)
 {
 
     INTCON = 0b00000000;
@@ -392,7 +390,7 @@ void initInterruptsClear( void )
 
 }
 
-void initTimer( void )
+void initTimer(void)
 {
 
     T0CONbits.TMR0ON = 0; // turn off while configuring
@@ -409,79 +407,39 @@ void initTimer( void )
 
 }
 
-void initMCPFout( void )
+void initMCPFout(void)
 {
     // reset the MCP
     // wait until SPI timeout is reached before continuing
 
+    MCP_MCLR_DIR = 0;
+    MCP_FREQ_F0_DIR = 0;
+    MCP_FREQ_F1_DIR = 0;
+    MCP_FREQ_F2_DIR = 0;
+   
+    
+    MCP_FREQ_F0_SET = 0;
+    MCP_FREQ_F1_SET = 0;
+    MCP_FREQ_F2_SET = 0;
+
+    __delay_ms(5);
     MCP_MCLR_SET = 0;
-    __delay_ms( 1 );
+    __delay_ms(5);
+
+    MCP_FREQ_F0_SET = 0;
+    MCP_FREQ_F1_SET = 0;
+    MCP_FREQ_F2_SET = 0;
+
+    __delay_ms(5);
 
     MCP_FREQ_F0_SET = 1;
     MCP_FREQ_F1_SET = 1;
     MCP_FREQ_F2_SET = 1;
 
-    __delay_ms( 1 );
+    __delay_ms(5);
     MCP_MCLR_SET = 1;
-    delayMS10( 10 );
+    delayMS10(10);
 
     return;
 }
 
-
-//void mcpSPIStart( void )
-//{
-//    mcp_spi_init( );
-//
-//    MCP_SPI_CS_SET = 0;
-//
-//    SSP1CON1bits.SSPEN = 1;
-//
-//    MCP_MCLR_SET = 0;
-//    __delay_us( 100 );
-//    MCP_MCLR_SET = 1;
-//    __delay_us( 1 );
-//
-//    MCP_SPI_CS_SET = 1;
-//
-//    // set multiplier mode output with F2=0, F0=1
-//    SSP1BUF = 0b10100001;
-//    while ( SSP1STATbits.BF == 0 )
-//    {
-//	NOP( );
-//	// wait until it is clocked out
-//    }
-//    SSP1CON1bits.SSPEN = 0;
-//
-//    return;
-//}
-//
-//void mcpSPIInit( void )
-//{
-//    // use SPI 1
-//
-//    MCP_SPI_MSDO_DIR = 0;
-//    MCP_SPI_MSDI_DIR = 1;
-//    MCP_SPI_MSCK_DIR = 0;
-//    MCP_SPI_CS_DIR = 0;
-//    MCP_SPI_CS_SET = 0;
-//
-//    SSP1CON1bits.SSPEN = 0;
-//    SSP1CON1bits.WCOL = 0;
-//    SSP1CON1bits.SSPOV = 0;
-//    SSP1CON1bits.CKP = 0;
-//    SSP1CON1bits.SSPM = 0b0001;
-//
-//    SSP1CON2 = 0b00000000;
-//
-//    SSP1STAT = 0b00000000;
-//    SSP1STATbits.SMP = 1;
-//    SSP1STATbits.CKE = 0;
-//
-//    SSP1CON3 = 0b00000000;
-//    SSP1MSK = 0b00000000;
-//    SSP1ADD = 0b00000000;
-//
-//    return;
-//
-//}
