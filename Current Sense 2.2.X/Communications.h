@@ -19,4 +19,4 @@
 #endif
 
 void communications(bool);
-void SPISlaveInit(void);
+//void SPISlaveInit(void); // this is now called during the first communications init call
