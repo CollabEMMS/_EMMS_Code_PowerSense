@@ -14,6 +14,7 @@
 #include "config.h"
 #include "Communications.h"
 
+
 // HFout pulse input pin 13
 #define MCP_HFOUT_DIR TRISCbits.TRISC2
 #define MCP_HFOUT_READ PORTCbits.RC2
@@ -59,7 +60,7 @@ void powerPulseCheck(void);
 
 void delayMS10(int count);
 
-unsigned int meterWatts = 0;
+unsigned long meterWatts = 0;
 unsigned long meterEnergyUsed = 0;
 
 volatile unsigned long timerCountHF = 0;
@@ -123,13 +124,34 @@ void main(void)
     // figure out good prescaler
     // determine if this needs to be cascading    
 
-
+    bool initDone = false;
 
     while (1)
     {
         communications(false);
         pulseFoutPassThru();
         powerPulseCheck();
+
+        // reset MCP after 1 second
+        if (initDone == false)
+        {
+            if (timerCountLF > 1000)
+            {
+                initMCPFout();
+                initDone = true;
+
+                for (int inx = 0; inx < 10; inx++)
+                {
+                    LED_SET = 1;
+                    delayMS10(3);
+                    LED_SET = 0;
+                    delayMS10(5);
+                }
+
+
+            }
+        }
+
         //	if ( timerHFcount >= 1000 )
         //	{
         //	    count = 0;
@@ -171,7 +193,7 @@ void pulseFoutPassThru(void)
     // mimic the pulse from the MCP Fout pins
     static bool runonce = false;
 
-    if (MCP_LFOUT_READ == 0)
+    if (MCP_HFOUT_READ == 0)
     {
         MCP_LFOUT_PASS_SET = 1;
         if (runonce == false)
@@ -217,92 +239,94 @@ void powerPulseCheck(void)
     // the timerCounters are in milli-seconds
     // if the timer prescaler or countdown is changed this will change the meaning of the timerCounters
 
-    // using the HF pulse is controlled by the end of this function. See note near line 272
 
 
+#define ENERGY_PER_PULSE 27000 //(221.24 mWh per pulse)
+#define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh    
 
-#define ENERGY_PER_PULSE_HF 1  // Whr per pulse - this needs changed to be the amount of energy in each pulse
-#define ENERGY_PER_PULSE_LF 5  // Whr per pulse - this needs changed to be the amount of energy in each pulse
+    static unsigned long meterEnergyUsedPart = 0;
+    static unsigned long timerCountHFLast = 2147483647;
+    static unsigned int timerCountHFCheck = 1;
+    static bool firstPulse = true;
 
-
-    int meterWattsHF = 0;
-    int meterWattsLF = 0;
 
     static bool mcpHFoutLast = false; // this is so we run a calc only once each time the pulse comes
     static bool mcpLFoutLast = false; // this is so we run a calc only once each time the pulse comes
-    bool checkWattsHFvsLF = false; // did we make a new calculation - then check which we use - HF or LF
 
+    
+    // HF output is for calculating watts
     if (MCP_HFOUT_READ == 0)
     {
-        if (mcpHFoutLast == 0)
+        if (mcpHFoutLast == false)
         {
-            mcpHFoutLast = 1;
+            mcpHFoutLast = true;
+            firstPulse = false;
 
-            // here is the math for calculating the power given the time per pulse
-            // this equation must be modified
-            // it is likely this response is non-linear so this can be any equation(s) it needs to be
-            meterWattsHF = ENERGY_PER_PULSE_HF / timerCountHF;
-            checkWattsHFvsLF = true;
+            timerCountHFLast = timerCountHF;
             timerCountHF = 0;
+            meterWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
+//            meterWatts = timerCountHFLast;
+            
+
+            timerCountHFCheck = 1; //reset the periodic power reduction
         }
     }
     else
     {
-        mcpHFoutLast = 0;
+        mcpHFoutLast = false;
     }
 
+    
+    // if there is no power then no pulses
+    // if our pulse time is greater than the last measurement we know we are at a lower power.
+    // go ahead and calculate 
+#define POWER_REDUCTION_INTERVAL 1000  //ms (1000 = 1 second ))
 
+    if ((firstPulse == false) && (timerCountHF > timerCountHFLast))
+    {
+        if (timerCountHF > ((unsigned long) POWER_REDUCTION_INTERVAL * (unsigned long) timerCountHFCheck))
+        {
+            if (timerCountHFCheck < 90)
+            {
+                timerCountHFCheck++;
+                meterWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHF;
+            }
+            else
+            {
+                meterWatts = 0;
+            }
+            //          checkWattsHFvsLF = true;
+        }
+    }
+
+    if (firstPulse == true)
+    {
+        meterWatts = 0;
+    }
+
+    
+    // LF out is for calculating Watt-Hour (not watts)
     if (MCP_LFOUT_READ == 0)
     {
-        if (mcpLFoutLast == 0)
+        if (mcpLFoutLast == false)
         {
-            mcpLFoutLast = 1;
+            mcpLFoutLast = true;
 
-            // here is the math for calculating the power given the time per pulse
-            // this equation must be modified
-            // it is likely this response is non-linear so this can be any equation(s) it needs to be
-            meterWattsLF = ENERGY_PER_PULSE_LF / timerCountLF;
+            meterEnergyUsedPart += ENERGY_PER_PULSE * (unsigned long) 16;
+            while (meterEnergyUsedPart > ENERGY_PER_PULSE_UNIT)
+            {
+                meterEnergyUsed++;
+                meterEnergyUsedPart -= ENERGY_PER_PULSE_UNIT;
+            }
 
-            meterEnergyUsed += ENERGY_PER_PULSE_LF; // this is the total power used by the meter
-            // likely need to track MW in a s variable and add to this when MW >= 1000
-
-            checkWattsHFvsLF = true;
             timerCountLF = 0;
         }
     }
-
-
-
-    // since we are checking both HF and LF we need to check which one to use
-    // if power is above a threshold for HF, then it is pulsing very fast and LF is pulsing a bit faster
-    // we should switch to passing on LF power 
-    if (checkWattsHFvsLF == true)
+    else
     {
-        if (meterWattsHF <= -1) // -1 will always make it use the LF value. Change this to use the HF value
-        {
-            meterWatts = meterWattsHF;
-        }
-        else
-        {
-            meterWatts = meterWattsLF;
-        }
+        mcpLFoutLast = false;
     }
 
-
-
-    /*******************
-    test values
-     ***********************/
-    // these hardcoded values is to test if the messages are making it to the display
-    //    meterEnergyUsed = 240;
-
-    if (timerCountLF > 10000)
-    {
-        meterEnergyUsed++;
-        timerCountLF = 0;
-    }
-
-    meterWatts = 64;
     return;
 
 }
@@ -320,7 +344,7 @@ void init()
 {
     initOSC();
     initIO();
-//    initInterruptsClear();
+    initInterruptsClear();
     initMCPFout();
 
     return;
@@ -416,8 +440,8 @@ void initMCPFout(void)
     MCP_FREQ_F0_DIR = 0;
     MCP_FREQ_F1_DIR = 0;
     MCP_FREQ_F2_DIR = 0;
-   
-    
+
+
     MCP_FREQ_F0_SET = 0;
     MCP_FREQ_F1_SET = 0;
     MCP_FREQ_F2_SET = 0;

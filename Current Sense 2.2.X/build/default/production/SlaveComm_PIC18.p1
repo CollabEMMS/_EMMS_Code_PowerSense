@@ -176,12 +176,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SSP2STATbits `VS169 ~T0 @X0 0 e@3949 ]
 "4101
 [v _SSP2BUF `Vuc ~T0 @X0 0 e@3951 ]
-"96 C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdlib.h
-[v _utoa `(*uc ~T0 @X0 0 ef3`*uc`ui`i ]
-"46 SlaveComm_PIC18.c
-[v _meterWatts `ui ~T0 @X0 0 e ]
 "102 C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdlib.h
 [v _ultoa `(*uc ~T0 @X0 0 ef3`*uc`ul`i ]
+"46 SlaveComm_PIC18.c
+[v _meterWatts `ul ~T0 @X0 0 e ]
 "7506 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18lf25k22.h
 [s S375 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S375 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
@@ -6593,40 +6591,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 42: unsigned char write_position;
 [; ;SlaveComm_PIC18.c: 43: unsigned char read_position;
 [; ;SlaveComm_PIC18.c: 44: };
-[; ;SlaveComm_PIC18.c: 46: extern unsigned int meterWatts;
+[; ;SlaveComm_PIC18.c: 46: extern unsigned long meterWatts;
 [; ;SlaveComm_PIC18.c: 47: extern unsigned long meterEnergyUsed;
-[; ;SlaveComm_PIC18.c: 51: bool SPI_receive_data( char* data );
-[; ;SlaveComm_PIC18.c: 52: void set_current_port( unsigned char * );
-[; ;SlaveComm_PIC18.c: 53: enum receive_status receive_data( struct buffer * );
-[; ;SlaveComm_PIC18.c: 54: bool process_data( struct buffer *receive_buffer, struct buffer *send_buffer );
-[; ;SlaveComm_PIC18.c: 55: void process_data_parameterize( char parameters[5][10], struct buffer *buffer_to_parameterize );
-[; ;SlaveComm_PIC18.c: 56: bool process_data_parameters( char parameters[5][10], struct buffer *send_buffer );
-[; ;SlaveComm_PIC18.c: 58: void command_builder1( struct buffer *send_buffer, char* data1 );
-[; ;SlaveComm_PIC18.c: 59: void command_builder2( struct buffer *send_buffer, char* data1, char* data2 );
-[; ;SlaveComm_PIC18.c: 60: void command_builder3( struct buffer *send_buffer, char* data1, char* data2, char* data3 );
-[; ;SlaveComm_PIC18.c: 61: void command_builder4( struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4 );
-[; ;SlaveComm_PIC18.c: 62: void command_builder_add_char( struct buffer *send_buffer, char data );
-[; ;SlaveComm_PIC18.c: 63: void command_builder_add_string( struct buffer *send_buffer, char *data );
-[; ;SlaveComm_PIC18.c: 65: bool send_data( struct buffer *send_buffer );
-[; ;SlaveComm_PIC18.c: 66: bool SPI_send_data( char data );
-[; ;SlaveComm_PIC18.c: 68: bool strmatch( char* a, char* b );
-[; ;SlaveComm_PIC18.c: 69: int strcmp2( char* a, char* b );
-[; ;SlaveComm_PIC18.c: 70: void strcpy2( char* rcv, char* source );
-[; ;SlaveComm_PIC18.c: 72: void resetCommunications( struct buffer * receive_buffer );
-[; ;SlaveComm_PIC18.c: 73: void SPISlaveInit( void );
-[; ;SlaveComm_PIC18.c: 76: void send_end_of_transmission( struct buffer *send_buffer );
-[; ;SlaveComm_PIC18.c: 77: void com_command_testLED( struct buffer * send_buffer );
-[; ;SlaveComm_PIC18.c: 78: void com_command_setPower( struct buffer * send_buffer );
-[; ;SlaveComm_PIC18.c: 79: void com_command_setEnergyUsed( struct buffer * send_buffer );
-[; ;SlaveComm_PIC18.c: 80: void com_command_setVolts( struct buffer * send_buffer );
-[; ;SlaveComm_PIC18.c: 81: void com_command_setAmps( struct buffer * send_buffer );
-[; ;SlaveComm_PIC18.c: 82: void com_command_readCalibration( struct buffer * send_buffer );
-[; ;SlaveComm_PIC18.c: 83: void com_command_setVersion( struct buffer * send_buffer );
+[; ;SlaveComm_PIC18.c: 51: bool SPI_receive_data(char* data);
+[; ;SlaveComm_PIC18.c: 52: void set_current_port(unsigned char *);
+[; ;SlaveComm_PIC18.c: 53: enum receive_status receive_data(struct buffer *);
+[; ;SlaveComm_PIC18.c: 54: bool process_data(struct buffer *receive_buffer, struct buffer *send_buffer);
+[; ;SlaveComm_PIC18.c: 55: void process_data_parameterize(char parameters[5][10], struct buffer *buffer_to_parameterize);
+[; ;SlaveComm_PIC18.c: 56: bool process_data_parameters(char parameters[5][10], struct buffer *send_buffer);
+[; ;SlaveComm_PIC18.c: 58: void command_builder1(struct buffer *send_buffer, char* data1);
+[; ;SlaveComm_PIC18.c: 59: void command_builder2(struct buffer *send_buffer, char* data1, char* data2);
+[; ;SlaveComm_PIC18.c: 60: void command_builder3(struct buffer *send_buffer, char* data1, char* data2, char* data3);
+[; ;SlaveComm_PIC18.c: 61: void command_builder4(struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4);
+[; ;SlaveComm_PIC18.c: 62: void command_builder_add_char(struct buffer *send_buffer, char data);
+[; ;SlaveComm_PIC18.c: 63: void command_builder_add_string(struct buffer *send_buffer, char *data);
+[; ;SlaveComm_PIC18.c: 65: bool send_data(struct buffer *send_buffer);
+[; ;SlaveComm_PIC18.c: 66: bool SPI_send_data(char data);
+[; ;SlaveComm_PIC18.c: 68: bool strmatch(char* a, char* b);
+[; ;SlaveComm_PIC18.c: 69: int strcmp2(char* a, char* b);
+[; ;SlaveComm_PIC18.c: 70: void strcpy2(char* rcv, char* source);
+[; ;SlaveComm_PIC18.c: 72: void resetCommunications(struct buffer * receive_buffer);
+[; ;SlaveComm_PIC18.c: 73: void SPISlaveInit(void);
+[; ;SlaveComm_PIC18.c: 76: void send_end_of_transmission(struct buffer *send_buffer);
+[; ;SlaveComm_PIC18.c: 77: void com_command_testLED(struct buffer * send_buffer);
+[; ;SlaveComm_PIC18.c: 78: void com_command_setPower(struct buffer * send_buffer);
+[; ;SlaveComm_PIC18.c: 79: void com_command_setEnergyUsed(struct buffer * send_buffer);
+[; ;SlaveComm_PIC18.c: 80: void com_command_setVolts(struct buffer * send_buffer);
+[; ;SlaveComm_PIC18.c: 81: void com_command_setAmps(struct buffer * send_buffer);
+[; ;SlaveComm_PIC18.c: 82: void com_command_readCalibration(struct buffer * send_buffer);
+[; ;SlaveComm_PIC18.c: 83: void com_command_setVersion(struct buffer * send_buffer);
 "89
 [v _communications `(v ~T0 @X0 1 ef1`uc ]
 "90
 {
-[; ;SlaveComm_PIC18.c: 89: void communications( bool firstTime )
+[; ;SlaveComm_PIC18.c: 89: void communications(bool firstTime)
 [; ;SlaveComm_PIC18.c: 90: {
 [e :U _communications ]
 "89
@@ -6651,13 +6649,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 94: static bool end_of_transmission_received = 0;
 [; ;SlaveComm_PIC18.c: 95: bool no_more_to_send;
 [; ;SlaveComm_PIC18.c: 97: static enum receive_status receive_current_state;
-[; ;SlaveComm_PIC18.c: 100: if( firstTime == 1 )
+[; ;SlaveComm_PIC18.c: 100: if (firstTime == 1)
 "100
 [e $ ! == -> _firstTime `i -> 1 `i 827  ]
 [; ;SlaveComm_PIC18.c: 101: {
 "101
 {
-[; ;SlaveComm_PIC18.c: 102: SPISlaveInit( );
+[; ;SlaveComm_PIC18.c: 102: SPISlaveInit();
 "102
 [e ( _SPISlaveInit ..  ]
 [; ;SlaveComm_PIC18.c: 103: send_buffer.write_position = 0;
@@ -6666,7 +6664,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 104: send_buffer.read_position = 0;
 "104
 [e = . F6833 2 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 105: resetCommunications( &send_buffer );
+[; ;SlaveComm_PIC18.c: 105: resetCommunications(&send_buffer);
 "105
 [e ( _resetCommunications (1 &U F6833 ]
 "106
@@ -6679,10 +6677,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 108: {
 "108
 {
-[; ;SlaveComm_PIC18.c: 109: receive_current_state = receive_data( &receive_buffer );
+[; ;SlaveComm_PIC18.c: 109: receive_current_state = receive_data(&receive_buffer);
 "109
 [e = F6836 ( _receive_data (1 &U F6832 ]
-[; ;SlaveComm_PIC18.c: 111: switch( receive_current_state )
+[; ;SlaveComm_PIC18.c: 111: switch (receive_current_state)
 "111
 [e $U 830  ]
 [; ;SlaveComm_PIC18.c: 112: {
@@ -6703,7 +6701,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 119: case receive_end_command:
 "119
 [e :U 833 ]
-[; ;SlaveComm_PIC18.c: 121: if( process_data( &receive_buffer, &send_buffer ) == 1 )
+[; ;SlaveComm_PIC18.c: 121: if (process_data(&receive_buffer, &send_buffer) == 1)
 "121
 [e $ ! == -> ( _process_data (2 , &U F6832 &U F6833 `i -> 1 `i 834  ]
 [; ;SlaveComm_PIC18.c: 122: {
@@ -6731,7 +6729,7 @@ Version 3.2 HI-TECH Software Intermediate Code
  829 ]
 "127
 [e :U 829 ]
-[; ;SlaveComm_PIC18.c: 129: no_more_to_send = send_data( &send_buffer );
+[; ;SlaveComm_PIC18.c: 129: no_more_to_send = send_data(&send_buffer);
 "129
 [e = _no_more_to_send ( _send_data (1 &U F6833 ]
 "132
@@ -6740,7 +6738,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;SlaveComm_PIC18.c: 132: static bool last_state_active = 0;
-[; ;SlaveComm_PIC18.c: 133: if( PORTBbits.SS2 == 0b1 )
+[; ;SlaveComm_PIC18.c: 133: if (PORTBbits.SS2 == 0b1)
 "133
 [e $ ! == -> . . _PORTBbits 6 0 `i -> 1 `i 835  ]
 [; ;SlaveComm_PIC18.c: 134: {
@@ -6759,13 +6757,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 138: {
 "138
 {
-[; ;SlaveComm_PIC18.c: 139: if( last_state_active == 0 )
+[; ;SlaveComm_PIC18.c: 139: if (last_state_active == 0)
 "139
 [e $ ! == -> F6837 `i -> 0 `i 837  ]
 [; ;SlaveComm_PIC18.c: 140: {
 "140
 {
-[; ;SlaveComm_PIC18.c: 141: resetCommunications( &send_buffer );
+[; ;SlaveComm_PIC18.c: 141: resetCommunications(&send_buffer);
 "141
 [e ( _resetCommunications (1 &U F6833 ]
 "142
@@ -6794,7 +6792,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _resetCommunications `(v ~T0 @X0 1 ef1`*S825 ]
 "153
 {
-[; ;SlaveComm_PIC18.c: 152: void resetCommunications( struct buffer * send_buffer )
+[; ;SlaveComm_PIC18.c: 152: void resetCommunications(struct buffer * send_buffer)
 [; ;SlaveComm_PIC18.c: 153: {
 [e :U _resetCommunications ]
 "152
@@ -6831,7 +6829,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 171: commState++;
 "171
 [e ++ F6839 -> 1 `i ]
-[; ;SlaveComm_PIC18.c: 172: switch( commState )
+[; ;SlaveComm_PIC18.c: 172: switch (commState)
 "172
 [e $U 840  ]
 [; ;SlaveComm_PIC18.c: 173: {
@@ -6840,7 +6838,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 174: case 1:
 "174
 [e :U 841 ]
-[; ;SlaveComm_PIC18.c: 175: com_command_setVersion( send_buffer );
+[; ;SlaveComm_PIC18.c: 175: com_command_setVersion(send_buffer);
 "175
 [e ( _com_command_setVersion (1 _send_buffer ]
 [; ;SlaveComm_PIC18.c: 176: break;
@@ -6849,7 +6847,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 177: case 2:
 "177
 [e :U 842 ]
-[; ;SlaveComm_PIC18.c: 178: com_command_setPower( send_buffer );
+[; ;SlaveComm_PIC18.c: 178: com_command_setPower(send_buffer);
 "178
 [e ( _com_command_setPower (1 _send_buffer ]
 [; ;SlaveComm_PIC18.c: 179: break;
@@ -6858,7 +6856,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 180: case 3:
 "180
 [e :U 843 ]
-[; ;SlaveComm_PIC18.c: 181: com_command_setEnergyUsed( send_buffer );
+[; ;SlaveComm_PIC18.c: 181: com_command_setEnergyUsed(send_buffer);
 "181
 [e ( _com_command_setEnergyUsed (1 _send_buffer ]
 [; ;SlaveComm_PIC18.c: 192: default:
@@ -6893,7 +6891,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _receive_data `(E6747 ~T0 @X0 1 ef1`*S825 ]
 "200
 {
-[; ;SlaveComm_PIC18.c: 199: enum receive_status receive_data( struct buffer * receive_buffer )
+[; ;SlaveComm_PIC18.c: 199: enum receive_status receive_data(struct buffer * receive_buffer)
 [; ;SlaveComm_PIC18.c: 200: {
 [e :U _receive_data ]
 "199
@@ -6909,7 +6907,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;SlaveComm_PIC18.c: 201: char data;
 [; ;SlaveComm_PIC18.c: 203: static enum receive_status my_status = receive_waiting;
-[; ;SlaveComm_PIC18.c: 205: if( my_status == receive_end_command )
+[; ;SlaveComm_PIC18.c: 205: if (my_status == receive_end_command)
 "205
 [e $ ! == -> F6843 `i -> . `E6747 2 `i 846  ]
 [; ;SlaveComm_PIC18.c: 206: {
@@ -6922,13 +6920,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 846 ]
 [; ;SlaveComm_PIC18.c: 208: }
-[; ;SlaveComm_PIC18.c: 210: if( SPI_receive_data( &data ) == 1 )
+[; ;SlaveComm_PIC18.c: 210: if (SPI_receive_data(&data) == 1)
 "210
 [e $ ! == -> ( _SPI_receive_data (1 &U _data `i -> 1 `i 847  ]
 [; ;SlaveComm_PIC18.c: 211: {
 "211
 {
-[; ;SlaveComm_PIC18.c: 212: if( ( data == '!' ) && ( my_status != receive_in_command ) )
+[; ;SlaveComm_PIC18.c: 212: if ((data == '!') && (my_status != receive_in_command))
 "212
 [e $ ! && == -> _data `ui -> 33 `ui != -> F6843 `i -> . `E6747 1 `i 848  ]
 [; ;SlaveComm_PIC18.c: 213: {
@@ -6947,7 +6945,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 848 ]
 [; ;SlaveComm_PIC18.c: 217: }
-[; ;SlaveComm_PIC18.c: 219: if( my_status == receive_in_command )
+[; ;SlaveComm_PIC18.c: 219: if (my_status == receive_in_command)
 "219
 [e $ ! == -> F6843 `i -> . `E6747 1 `i 849  ]
 [; ;SlaveComm_PIC18.c: 220: {
@@ -6959,13 +6957,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 223: receive_buffer->write_position++;
 "223
 [e ++ . *U _receive_buffer 1 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 224: if( receive_buffer->write_position >= 40 )
+[; ;SlaveComm_PIC18.c: 224: if (receive_buffer->write_position >= 40)
 "224
 [e $ ! >= -> . *U _receive_buffer 1 `i -> 40 `i 850  ]
 [; ;SlaveComm_PIC18.c: 225: {
 "225
 {
-[; ;SlaveComm_PIC18.c: 226: receive_buffer->write_position = ( 40 - 1 );
+[; ;SlaveComm_PIC18.c: 226: receive_buffer->write_position = (40 - 1);
 "226
 [e = . *U _receive_buffer 1 -> - -> 40 `i -> 1 `i `uc ]
 "227
@@ -6976,7 +6974,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 849 ]
 [; ;SlaveComm_PIC18.c: 227: }
 [; ;SlaveComm_PIC18.c: 228: }
-[; ;SlaveComm_PIC18.c: 230: if( ( my_status == receive_in_command ) && ( data == '*' ) )
+[; ;SlaveComm_PIC18.c: 230: if ((my_status == receive_in_command) && (data == '*'))
 "230
 [e $ ! && == -> F6843 `i -> . `E6747 1 `i == -> _data `ui -> 42 `ui 851  ]
 [; ;SlaveComm_PIC18.c: 231: {
@@ -7005,7 +7003,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _process_data `(uc ~T0 @X0 1 ef2`*S825`*S825 ]
 "240
 {
-[; ;SlaveComm_PIC18.c: 239: bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer )
+[; ;SlaveComm_PIC18.c: 239: bool process_data(struct buffer *receive_buffer, struct buffer * send_buffer)
 [; ;SlaveComm_PIC18.c: 240: {
 [e :U _process_data ]
 "239
@@ -7020,10 +7018,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _parameters `F6848 ~T0 @X0 -> 5 `i a ]
 [; ;SlaveComm_PIC18.c: 241: bool end_of_transmission_received;
 [; ;SlaveComm_PIC18.c: 246: char parameters[5][10];
-[; ;SlaveComm_PIC18.c: 248: process_data_parameterize( parameters, receive_buffer );
+[; ;SlaveComm_PIC18.c: 248: process_data_parameterize(parameters, receive_buffer);
 "248
 [e ( _process_data_parameterize (2 , &U _parameters _receive_buffer ]
-[; ;SlaveComm_PIC18.c: 250: end_of_transmission_received = process_data_parameters( parameters, send_buffer );
+[; ;SlaveComm_PIC18.c: 250: end_of_transmission_received = process_data_parameters(parameters, send_buffer);
 "250
 [e = _end_of_transmission_received ( _process_data_parameters (2 , &U _parameters _send_buffer ]
 [; ;SlaveComm_PIC18.c: 252: return end_of_transmission_received;
@@ -7038,7 +7036,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _process_data_parameterize `(v ~T0 @X0 1 ef2`*F6768`*S825 ]
 "257
 {
-[; ;SlaveComm_PIC18.c: 256: void process_data_parameterize( char parameters[5][10], struct buffer * buffer_to_parameterize )
+[; ;SlaveComm_PIC18.c: 256: void process_data_parameterize(char parameters[5][10], struct buffer * buffer_to_parameterize)
 [; ;SlaveComm_PIC18.c: 257: {
 [e :U _process_data_parameterize ]
 [v F6850 `uc ~T0 @X0 -> 10 `i t ]
@@ -7055,7 +7053,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _parameter_index `uc ~T0 @X0 1 a ]
 [; ;SlaveComm_PIC18.c: 259: unsigned char parameter_index = 0;
 [e = _parameter_index -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 268: for( int inx = 0; inx < 5; inx++ )
+[; ;SlaveComm_PIC18.c: 268: for (int inx = 0; inx < 5; inx++)
 "268
 {
 [v _inx `i ~T0 @X0 1 a ]
@@ -7078,14 +7076,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 "271
 }
 [; ;SlaveComm_PIC18.c: 271: }
-[; ;SlaveComm_PIC18.c: 273: while( ( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != '*' ) && ( buffer_to_parameterize->read_position < 40 ) && ( buffer_to_parameterize->read_position != buffer_to_parameterize->write_position ) )
+[; ;SlaveComm_PIC18.c: 273: while ((buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != '*') && (buffer_to_parameterize->read_position < 40) && (buffer_to_parameterize->read_position != buffer_to_parameterize->write_position))
 "273
 [e $U 857  ]
 [e :U 858 ]
 [; ;SlaveComm_PIC18.c: 274: {
 "274
 {
-[; ;SlaveComm_PIC18.c: 275: switch( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position] )
+[; ;SlaveComm_PIC18.c: 275: switch (buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position])
 "275
 [e $U 861  ]
 [; ;SlaveComm_PIC18.c: 276: {
@@ -7106,13 +7104,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 283: parameter_index++;
 "283
 [e ++ _parameter_index -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 285: if( parameter_index >= 5 )
+[; ;SlaveComm_PIC18.c: 285: if (parameter_index >= 5)
 "285
 [e $ ! >= -> _parameter_index `i -> 5 `i 864  ]
 [; ;SlaveComm_PIC18.c: 286: {
 "286
 {
-[; ;SlaveComm_PIC18.c: 289: parameter_index = ( 5 - 1 );
+[; ;SlaveComm_PIC18.c: 289: parameter_index = (5 - 1);
 "289
 [e = _parameter_index -> - -> 5 `i -> 1 `i `uc ]
 "290
@@ -7131,13 +7129,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 296: parameter_position++;
 "296
 [e ++ _parameter_position -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 297: if( parameter_position >= 10 )
+[; ;SlaveComm_PIC18.c: 297: if (parameter_position >= 10)
 "297
 [e $ ! >= -> _parameter_position `i -> 10 `i 866  ]
 [; ;SlaveComm_PIC18.c: 298: {
 "298
 {
-[; ;SlaveComm_PIC18.c: 301: parameter_position = ( 10 - 1 );
+[; ;SlaveComm_PIC18.c: 301: parameter_position = (10 - 1);
 "301
 [e = _parameter_position -> - -> 10 `i -> 1 `i `uc ]
 "302
@@ -7182,7 +7180,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _process_data_parameters `(uc ~T0 @X0 1 ef2`*F6772`*S825 ]
 "316
 {
-[; ;SlaveComm_PIC18.c: 315: bool process_data_parameters( char parameters[5][10], struct buffer * send_buffer )
+[; ;SlaveComm_PIC18.c: 315: bool process_data_parameters(char parameters[5][10], struct buffer * send_buffer)
 [; ;SlaveComm_PIC18.c: 316: {
 [e :U _process_data_parameters ]
 [v F6856 `uc ~T0 @X0 -> 10 `i t ]
@@ -7195,7 +7193,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _end_of_transmission_received `uc ~T0 @X0 1 a ]
 [; ;SlaveComm_PIC18.c: 317: bool end_of_transmission_received = 0;
 [e = _end_of_transmission_received -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 320: if( strmatch( parameters[0], "END" ) == 1 )
+[; ;SlaveComm_PIC18.c: 320: if (strmatch(parameters[0], "END") == 1)
 "320
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 1C `*uc `i -> 1 `i 868  ]
 [; ;SlaveComm_PIC18.c: 321: {
@@ -7210,12 +7208,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 869  ]
 "333
 [e :U 868 ]
-[; ;SlaveComm_PIC18.c: 333: else if( strmatch( parameters[0], "Set" ) == 1 )
+[; ;SlaveComm_PIC18.c: 333: else if (strmatch(parameters[0], "Set") == 1)
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 2C `*uc `i -> 1 `i 870  ]
 [; ;SlaveComm_PIC18.c: 334: {
 "334
 {
-[; ;SlaveComm_PIC18.c: 335: if( strmatch( parameters[1], "Calibration" ) == 1 )
+[; ;SlaveComm_PIC18.c: 335: if (strmatch(parameters[1], "Calibration") == 1)
 "335
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 3C `*uc `i -> 1 `i 871  ]
 [; ;SlaveComm_PIC18.c: 336: {
@@ -7227,15 +7225,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 872  ]
 "339
 [e :U 871 ]
-[; ;SlaveComm_PIC18.c: 339: else if( strmatch( parameters[1], "EnUsed" ) == 1 )
+[; ;SlaveComm_PIC18.c: 339: else if (strmatch(parameters[1], "EnUsed") == 1)
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 4C `*uc `i -> 1 `i 873  ]
 [; ;SlaveComm_PIC18.c: 340: {
 "340
 {
-[; ;SlaveComm_PIC18.c: 345: meterEnergyUsed = atol( parameters[2] );
+[; ;SlaveComm_PIC18.c: 345: meterEnergyUsed = atol(parameters[2]);
 "345
 [e = _meterEnergyUsed -> ( _atol (1 -> &U *U + _parameters * -> -> 2 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x `*Cuc `ul ]
-[; ;SlaveComm_PIC18.c: 346: com_command_setEnergyUsed( send_buffer );
+[; ;SlaveComm_PIC18.c: 346: com_command_setEnergyUsed(send_buffer);
 "346
 [e ( _com_command_setEnergyUsed (1 _send_buffer ]
 "347
@@ -7249,7 +7247,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 874  ]
 "353
 [e :U 870 ]
-[; ;SlaveComm_PIC18.c: 353: else if( strmatch( parameters[0], "Read" ) == 1 )
+[; ;SlaveComm_PIC18.c: 353: else if (strmatch(parameters[0], "Read") == 1)
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 5C `*uc `i -> 1 `i 875  ]
 [; ;SlaveComm_PIC18.c: 354: {
 "354
@@ -7260,24 +7258,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 876  ]
 "357
 [e :U 875 ]
-[; ;SlaveComm_PIC18.c: 357: else if( strmatch( parameters[0], "Data" ) == 1 )
+[; ;SlaveComm_PIC18.c: 357: else if (strmatch(parameters[0], "Data") == 1)
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 6C `*uc `i -> 1 `i 877  ]
 [; ;SlaveComm_PIC18.c: 358: {
 "358
 {
-[; ;SlaveComm_PIC18.c: 359: if( strmatch( parameters[1], "LEDB" ) == 1 )
+[; ;SlaveComm_PIC18.c: 359: if (strmatch(parameters[1], "LEDB") == 1)
 "359
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 7C `*uc `i -> 1 `i 878  ]
 [; ;SlaveComm_PIC18.c: 360: {
 "360
 {
-[; ;SlaveComm_PIC18.c: 361: if( strmatch( parameters[2], "On" ) == 1 )
+[; ;SlaveComm_PIC18.c: 361: if (strmatch(parameters[2], "On") == 1)
 "361
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 2 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 8C `*uc `i -> 1 `i 879  ]
 [; ;SlaveComm_PIC18.c: 362: {
 "362
 {
-[; ;SlaveComm_PIC18.c: 363: command_builder3( send_buffer, "Set", "LEDB", "Off" );
+[; ;SlaveComm_PIC18.c: 363: command_builder3(send_buffer, "Set", "LEDB", "Off");
 "363
 [e ( _command_builder3 (4 , , , _send_buffer -> :s 9C `*uc -> :s 10C `*uc -> :s 11C `*uc ]
 "364
@@ -7286,12 +7284,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 880  ]
 "365
 [e :U 879 ]
-[; ;SlaveComm_PIC18.c: 365: else if( strmatch( parameters[2], "Off" ) == 1 )
+[; ;SlaveComm_PIC18.c: 365: else if (strmatch(parameters[2], "Off") == 1)
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 2 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 12C `*uc `i -> 1 `i 881  ]
 [; ;SlaveComm_PIC18.c: 366: {
 "366
 {
-[; ;SlaveComm_PIC18.c: 367: command_builder3( send_buffer, "Set", "LEDB", "On" );
+[; ;SlaveComm_PIC18.c: 367: command_builder3(send_buffer, "Set", "LEDB", "On");
 "367
 [e ( _command_builder3 (4 , , , _send_buffer -> :s 13C `*uc -> :s 14C `*uc -> :s 15C `*uc ]
 "368
@@ -7309,18 +7307,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 882  ]
 "371
 [e :U 877 ]
-[; ;SlaveComm_PIC18.c: 371: else if( strmatch( parameters[0], "Conf" ) == 1 )
+[; ;SlaveComm_PIC18.c: 371: else if (strmatch(parameters[0], "Conf") == 1)
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 16C `*uc `i -> 1 `i 883  ]
 [; ;SlaveComm_PIC18.c: 372: {
 "372
 {
-[; ;SlaveComm_PIC18.c: 373: if( strmatch( parameters[1], "LEDB" ) == 1 )
+[; ;SlaveComm_PIC18.c: 373: if (strmatch(parameters[1], "LEDB") == 1)
 "373
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 17C `*uc `i -> 1 `i 884  ]
 [; ;SlaveComm_PIC18.c: 374: {
 "374
 {
-[; ;SlaveComm_PIC18.c: 375: send_end_of_transmission( send_buffer );
+[; ;SlaveComm_PIC18.c: 375: send_end_of_transmission(send_buffer);
 "375
 [e ( _send_end_of_transmission (1 _send_buffer ]
 "376
@@ -7329,12 +7327,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 885  ]
 "377
 [e :U 884 ]
-[; ;SlaveComm_PIC18.c: 377: else if( strmatch( parameters[1], "Watts" ) == 1 )
+[; ;SlaveComm_PIC18.c: 377: else if (strmatch(parameters[1], "Watts") == 1)
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 18C `*uc `i -> 1 `i 886  ]
 [; ;SlaveComm_PIC18.c: 378: {
 "378
 {
-[; ;SlaveComm_PIC18.c: 379: send_end_of_transmission( send_buffer );
+[; ;SlaveComm_PIC18.c: 379: send_end_of_transmission(send_buffer);
 "379
 [e ( _send_end_of_transmission (1 _send_buffer ]
 "380
@@ -7343,12 +7341,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 887  ]
 "381
 [e :U 886 ]
-[; ;SlaveComm_PIC18.c: 381: else if( strmatch( parameters[1], "EnUsed" ) == 1 )
+[; ;SlaveComm_PIC18.c: 381: else if (strmatch(parameters[1], "EnUsed") == 1)
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 19C `*uc `i -> 1 `i 888  ]
 [; ;SlaveComm_PIC18.c: 382: {
 "382
 {
-[; ;SlaveComm_PIC18.c: 383: send_end_of_transmission( send_buffer );
+[; ;SlaveComm_PIC18.c: 383: send_end_of_transmission(send_buffer);
 "383
 [e ( _send_end_of_transmission (1 _send_buffer ]
 "384
@@ -7357,12 +7355,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 889  ]
 "385
 [e :U 888 ]
-[; ;SlaveComm_PIC18.c: 385: else if( strmatch( parameters[1], "Volts" ) == 1 )
+[; ;SlaveComm_PIC18.c: 385: else if (strmatch(parameters[1], "Volts") == 1)
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 20C `*uc `i -> 1 `i 890  ]
 [; ;SlaveComm_PIC18.c: 386: {
 "386
 {
-[; ;SlaveComm_PIC18.c: 387: send_end_of_transmission( send_buffer );
+[; ;SlaveComm_PIC18.c: 387: send_end_of_transmission(send_buffer);
 "387
 [e ( _send_end_of_transmission (1 _send_buffer ]
 "388
@@ -7371,12 +7369,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 891  ]
 "389
 [e :U 890 ]
-[; ;SlaveComm_PIC18.c: 389: else if( strmatch( parameters[1], "Amps" ) == 1 )
+[; ;SlaveComm_PIC18.c: 389: else if (strmatch(parameters[1], "Amps") == 1)
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 21C `*uc `i -> 1 `i 892  ]
 [; ;SlaveComm_PIC18.c: 390: {
 "390
 {
-[; ;SlaveComm_PIC18.c: 391: send_end_of_transmission( send_buffer );
+[; ;SlaveComm_PIC18.c: 391: send_end_of_transmission(send_buffer);
 "391
 [e ( _send_end_of_transmission (1 _send_buffer ]
 "392
@@ -7385,12 +7383,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 893  ]
 "393
 [e :U 892 ]
-[; ;SlaveComm_PIC18.c: 393: else if( strmatch( parameters[1], "PSVersion" ) == 1 )
+[; ;SlaveComm_PIC18.c: 393: else if (strmatch(parameters[1], "PSVersion") == 1)
 [e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 22C `*uc `i -> 1 `i 894  ]
 [; ;SlaveComm_PIC18.c: 394: {
 "394
 {
-[; ;SlaveComm_PIC18.c: 395: send_end_of_transmission( send_buffer );
+[; ;SlaveComm_PIC18.c: 395: send_end_of_transmission(send_buffer);
 "395
 [e ( _send_end_of_transmission (1 _send_buffer ]
 "396
@@ -7422,7 +7420,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _command_builder1 `(v ~T0 @X0 1 ef2`*S825`*uc ]
 "407
 {
-[; ;SlaveComm_PIC18.c: 406: void command_builder1( struct buffer *send_buffer, char* data1 )
+[; ;SlaveComm_PIC18.c: 406: void command_builder1(struct buffer *send_buffer, char* data1)
 [; ;SlaveComm_PIC18.c: 407: {
 [e :U _command_builder1 ]
 "406
@@ -7430,19 +7428,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _data1 `*uc ~T0 @X0 1 r2 ]
 "407
 [f ]
-[; ;SlaveComm_PIC18.c: 408: command_builder_add_char( send_buffer, '#' );
+[; ;SlaveComm_PIC18.c: 408: command_builder_add_char(send_buffer, '#');
 "408
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 35 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 409: command_builder_add_char( send_buffer, '#' );
+[; ;SlaveComm_PIC18.c: 409: command_builder_add_char(send_buffer, '#');
 "409
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 35 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 410: command_builder_add_char( send_buffer, '!' );
+[; ;SlaveComm_PIC18.c: 410: command_builder_add_char(send_buffer, '!');
 "410
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 33 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 411: command_builder_add_string( send_buffer, data1 );
+[; ;SlaveComm_PIC18.c: 411: command_builder_add_string(send_buffer, data1);
 "411
 [e ( _command_builder_add_string (2 , _send_buffer _data1 ]
-[; ;SlaveComm_PIC18.c: 412: command_builder_add_char( send_buffer, '*' );
+[; ;SlaveComm_PIC18.c: 412: command_builder_add_char(send_buffer, '*');
 "412
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 42 `ui `uc ]
 [; ;SlaveComm_PIC18.c: 414: return;
@@ -7456,7 +7454,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _command_builder2 `(v ~T0 @X0 1 ef3`*S825`*uc`*uc ]
 "418
 {
-[; ;SlaveComm_PIC18.c: 417: void command_builder2( struct buffer *send_buffer, char* data1, char* data2 )
+[; ;SlaveComm_PIC18.c: 417: void command_builder2(struct buffer *send_buffer, char* data1, char* data2)
 [; ;SlaveComm_PIC18.c: 418: {
 [e :U _command_builder2 ]
 "417
@@ -7465,25 +7463,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _data2 `*uc ~T0 @X0 1 r3 ]
 "418
 [f ]
-[; ;SlaveComm_PIC18.c: 419: command_builder_add_char( send_buffer, '#' );
+[; ;SlaveComm_PIC18.c: 419: command_builder_add_char(send_buffer, '#');
 "419
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 35 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 420: command_builder_add_char( send_buffer, '#' );
+[; ;SlaveComm_PIC18.c: 420: command_builder_add_char(send_buffer, '#');
 "420
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 35 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 421: command_builder_add_char( send_buffer, '!' );
+[; ;SlaveComm_PIC18.c: 421: command_builder_add_char(send_buffer, '!');
 "421
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 33 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 422: command_builder_add_string( send_buffer, data1 );
+[; ;SlaveComm_PIC18.c: 422: command_builder_add_string(send_buffer, data1);
 "422
 [e ( _command_builder_add_string (2 , _send_buffer _data1 ]
-[; ;SlaveComm_PIC18.c: 423: command_builder_add_char( send_buffer, ';' );
+[; ;SlaveComm_PIC18.c: 423: command_builder_add_char(send_buffer, ';');
 "423
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 424: command_builder_add_string( send_buffer, data2 );
+[; ;SlaveComm_PIC18.c: 424: command_builder_add_string(send_buffer, data2);
 "424
 [e ( _command_builder_add_string (2 , _send_buffer _data2 ]
-[; ;SlaveComm_PIC18.c: 425: command_builder_add_char( send_buffer, '*' );
+[; ;SlaveComm_PIC18.c: 425: command_builder_add_char(send_buffer, '*');
 "425
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 42 `ui `uc ]
 [; ;SlaveComm_PIC18.c: 427: return;
@@ -7497,7 +7495,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _command_builder3 `(v ~T0 @X0 1 ef4`*S825`*uc`*uc`*uc ]
 "431
 {
-[; ;SlaveComm_PIC18.c: 430: void command_builder3( struct buffer *send_buffer, char* data1, char* data2, char* data3 )
+[; ;SlaveComm_PIC18.c: 430: void command_builder3(struct buffer *send_buffer, char* data1, char* data2, char* data3)
 [; ;SlaveComm_PIC18.c: 431: {
 [e :U _command_builder3 ]
 "430
@@ -7507,31 +7505,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _data3 `*uc ~T0 @X0 1 r4 ]
 "431
 [f ]
-[; ;SlaveComm_PIC18.c: 432: command_builder_add_char( send_buffer, '#' );
+[; ;SlaveComm_PIC18.c: 432: command_builder_add_char(send_buffer, '#');
 "432
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 35 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 433: command_builder_add_char( send_buffer, '#' );
+[; ;SlaveComm_PIC18.c: 433: command_builder_add_char(send_buffer, '#');
 "433
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 35 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 434: command_builder_add_char( send_buffer, '!' );
+[; ;SlaveComm_PIC18.c: 434: command_builder_add_char(send_buffer, '!');
 "434
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 33 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 435: command_builder_add_string( send_buffer, data1 );
+[; ;SlaveComm_PIC18.c: 435: command_builder_add_string(send_buffer, data1);
 "435
 [e ( _command_builder_add_string (2 , _send_buffer _data1 ]
-[; ;SlaveComm_PIC18.c: 436: command_builder_add_char( send_buffer, ';' );
+[; ;SlaveComm_PIC18.c: 436: command_builder_add_char(send_buffer, ';');
 "436
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 437: command_builder_add_string( send_buffer, data2 );
+[; ;SlaveComm_PIC18.c: 437: command_builder_add_string(send_buffer, data2);
 "437
 [e ( _command_builder_add_string (2 , _send_buffer _data2 ]
-[; ;SlaveComm_PIC18.c: 438: command_builder_add_char( send_buffer, ';' );
+[; ;SlaveComm_PIC18.c: 438: command_builder_add_char(send_buffer, ';');
 "438
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 439: command_builder_add_string( send_buffer, data3 );
+[; ;SlaveComm_PIC18.c: 439: command_builder_add_string(send_buffer, data3);
 "439
 [e ( _command_builder_add_string (2 , _send_buffer _data3 ]
-[; ;SlaveComm_PIC18.c: 440: command_builder_add_char( send_buffer, '*' );
+[; ;SlaveComm_PIC18.c: 440: command_builder_add_char(send_buffer, '*');
 "440
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 42 `ui `uc ]
 [; ;SlaveComm_PIC18.c: 442: return;
@@ -7545,7 +7543,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _command_builder4 `(v ~T0 @X0 1 ef5`*S825`*uc`*uc`*uc`*uc ]
 "446
 {
-[; ;SlaveComm_PIC18.c: 445: void command_builder4( struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4 )
+[; ;SlaveComm_PIC18.c: 445: void command_builder4(struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4)
 [; ;SlaveComm_PIC18.c: 446: {
 [e :U _command_builder4 ]
 "445
@@ -7556,37 +7554,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _data4 `*uc ~T0 @X0 1 r5 ]
 "446
 [f ]
-[; ;SlaveComm_PIC18.c: 447: command_builder_add_char( send_buffer, '#' );
+[; ;SlaveComm_PIC18.c: 447: command_builder_add_char(send_buffer, '#');
 "447
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 35 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 448: command_builder_add_char( send_buffer, '#' );
+[; ;SlaveComm_PIC18.c: 448: command_builder_add_char(send_buffer, '#');
 "448
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 35 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 449: command_builder_add_char( send_buffer, '!' );
+[; ;SlaveComm_PIC18.c: 449: command_builder_add_char(send_buffer, '!');
 "449
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 33 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 450: command_builder_add_string( send_buffer, data1 );
+[; ;SlaveComm_PIC18.c: 450: command_builder_add_string(send_buffer, data1);
 "450
 [e ( _command_builder_add_string (2 , _send_buffer _data1 ]
-[; ;SlaveComm_PIC18.c: 451: command_builder_add_char( send_buffer, ';' );
+[; ;SlaveComm_PIC18.c: 451: command_builder_add_char(send_buffer, ';');
 "451
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 452: command_builder_add_string( send_buffer, data2 );
+[; ;SlaveComm_PIC18.c: 452: command_builder_add_string(send_buffer, data2);
 "452
 [e ( _command_builder_add_string (2 , _send_buffer _data2 ]
-[; ;SlaveComm_PIC18.c: 453: command_builder_add_char( send_buffer, ';' );
+[; ;SlaveComm_PIC18.c: 453: command_builder_add_char(send_buffer, ';');
 "453
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 454: command_builder_add_string( send_buffer, data3 );
+[; ;SlaveComm_PIC18.c: 454: command_builder_add_string(send_buffer, data3);
 "454
 [e ( _command_builder_add_string (2 , _send_buffer _data3 ]
-[; ;SlaveComm_PIC18.c: 455: command_builder_add_char( send_buffer, ';' );
+[; ;SlaveComm_PIC18.c: 455: command_builder_add_char(send_buffer, ';');
 "455
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm_PIC18.c: 456: command_builder_add_string( send_buffer, data4 );
+[; ;SlaveComm_PIC18.c: 456: command_builder_add_string(send_buffer, data4);
 "456
 [e ( _command_builder_add_string (2 , _send_buffer _data4 ]
-[; ;SlaveComm_PIC18.c: 457: command_builder_add_char( send_buffer, '*' );
+[; ;SlaveComm_PIC18.c: 457: command_builder_add_char(send_buffer, '*');
 "457
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 42 `ui `uc ]
 [; ;SlaveComm_PIC18.c: 459: return;
@@ -7600,7 +7598,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _command_builder_add_char `(v ~T0 @X0 1 ef2`*S825`uc ]
 "463
 {
-[; ;SlaveComm_PIC18.c: 462: void command_builder_add_char( struct buffer *send_buffer, char data )
+[; ;SlaveComm_PIC18.c: 462: void command_builder_add_char(struct buffer *send_buffer, char data)
 [; ;SlaveComm_PIC18.c: 463: {
 [e :U _command_builder_add_char ]
 "462
@@ -7614,7 +7612,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 466: send_buffer->write_position++;
 "466
 [e ++ . *U _send_buffer 1 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 467: if( send_buffer->write_position >= 40 )
+[; ;SlaveComm_PIC18.c: 467: if (send_buffer->write_position >= 40)
 "467
 [e $ ! >= -> . *U _send_buffer 1 `i -> 40 `i 900  ]
 [; ;SlaveComm_PIC18.c: 468: {
@@ -7638,7 +7636,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _command_builder_add_string `(v ~T0 @X0 1 ef2`*S825`*uc ]
 "476
 {
-[; ;SlaveComm_PIC18.c: 475: void command_builder_add_string( struct buffer *send_buffer, char *data_string )
+[; ;SlaveComm_PIC18.c: 475: void command_builder_add_string(struct buffer *send_buffer, char *data_string)
 [; ;SlaveComm_PIC18.c: 476: {
 [e :U _command_builder_add_string ]
 "475
@@ -7646,7 +7644,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _data_string `*uc ~T0 @X0 1 r2 ]
 "476
 [f ]
-[; ;SlaveComm_PIC18.c: 477: for( int inx = 0; data_string[inx] != '\0'; inx++ )
+[; ;SlaveComm_PIC18.c: 477: for (int inx = 0; data_string[inx] != '\0'; inx++)
 "477
 {
 [v _inx `i ~T0 @X0 1 a ]
@@ -7656,7 +7654,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 902 ]
 [; ;SlaveComm_PIC18.c: 478: {
 {
-[; ;SlaveComm_PIC18.c: 479: command_builder_add_char( send_buffer, data_string[inx] );
+[; ;SlaveComm_PIC18.c: 479: command_builder_add_char(send_buffer, data_string[inx]);
 "479
 [e ( _command_builder_add_char (2 , _send_buffer *U + _data_string * -> _inx `x -> -> # *U _data_string `i `x ]
 "480
@@ -7680,7 +7678,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _send_data `(uc ~T0 @X0 1 ef1`*S825 ]
 "486
 {
-[; ;SlaveComm_PIC18.c: 485: bool send_data( struct buffer * send_buffer )
+[; ;SlaveComm_PIC18.c: 485: bool send_data(struct buffer * send_buffer)
 [; ;SlaveComm_PIC18.c: 486: {
 [e :U _send_data ]
 "485
@@ -7690,7 +7688,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "487
 [v _send_end `uc ~T0 @X0 1 a ]
 [; ;SlaveComm_PIC18.c: 487: bool send_end;
-[; ;SlaveComm_PIC18.c: 489: if( send_buffer->read_position == send_buffer->write_position )
+[; ;SlaveComm_PIC18.c: 489: if (send_buffer->read_position == send_buffer->write_position)
 "489
 [e $ ! == -> . *U _send_buffer 2 `i -> . *U _send_buffer 1 `i 907  ]
 [; ;SlaveComm_PIC18.c: 490: {
@@ -7699,7 +7697,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 491: send_end = 1;
 "491
 [e = _send_end -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 492: SPI_send_data( '\0' );
+[; ;SlaveComm_PIC18.c: 492: SPI_send_data('\0');
 "492
 [e ( _SPI_send_data (1 -> -> 0 `ui `uc ]
 "493
@@ -7715,7 +7713,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 496: send_end = 0;
 "496
 [e = _send_end -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 499: if( SPI_send_data( send_buffer->data_buffer[send_buffer->read_position] ) == 1 )
+[; ;SlaveComm_PIC18.c: 499: if (SPI_send_data(send_buffer->data_buffer[send_buffer->read_position]) == 1)
 "499
 [e $ ! == -> ( _SPI_send_data (1 *U + &U . *U _send_buffer 0 * -> . *U _send_buffer 2 `ux -> -> # *U &U . *U _send_buffer 0 `ui `ux `i -> 1 `i 909  ]
 [; ;SlaveComm_PIC18.c: 500: {
@@ -7724,7 +7722,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm_PIC18.c: 502: send_buffer->read_position++;
 "502
 [e ++ . *U _send_buffer 2 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 503: if( send_buffer->read_position >= 40 )
+[; ;SlaveComm_PIC18.c: 503: if (send_buffer->read_position >= 40)
 "503
 [e $ ! >= -> . *U _send_buffer 2 `i -> 40 `i 910  ]
 [; ;SlaveComm_PIC18.c: 504: {
@@ -7757,7 +7755,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _strmatch `(uc ~T0 @X0 1 ef2`*uc`*uc ]
 "514
 {
-[; ;SlaveComm_PIC18.c: 513: bool strmatch( char* a, char* b )
+[; ;SlaveComm_PIC18.c: 513: bool strmatch(char* a, char* b)
 [; ;SlaveComm_PIC18.c: 514: {
 [e :U _strmatch ]
 "513
@@ -7771,10 +7769,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _match `uc ~T0 @X0 1 a ]
 [; ;SlaveComm_PIC18.c: 515: int result;
 [; ;SlaveComm_PIC18.c: 516: bool match;
-[; ;SlaveComm_PIC18.c: 518: result = strcmp2( a, b );
+[; ;SlaveComm_PIC18.c: 518: result = strcmp2(a, b);
 "518
 [e = _result ( _strcmp2 (2 , _a _b ]
-[; ;SlaveComm_PIC18.c: 520: match = ( result == 0 ) ? 1 : 0;
+[; ;SlaveComm_PIC18.c: 520: match = (result == 0) ? 1 : 0;
 "520
 [e = _match -> ? == _result -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [; ;SlaveComm_PIC18.c: 522: return match;
@@ -7789,7 +7787,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _strcmp2 `(i ~T0 @X0 1 ef2`*uc`*uc ]
 "526
 {
-[; ;SlaveComm_PIC18.c: 525: int strcmp2( char* a, char* b )
+[; ;SlaveComm_PIC18.c: 525: int strcmp2(char* a, char* b)
 [; ;SlaveComm_PIC18.c: 526: {
 [e :U _strcmp2 ]
 "525
@@ -7805,14 +7803,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _match `i ~T0 @X0 1 a ]
 [; ;SlaveComm_PIC18.c: 528: int match = 0;
 [e = _match -> 0 `i ]
-[; ;SlaveComm_PIC18.c: 530: while( ( a[inx] != '\0' ) && ( b[inx] != '\0' ) && ( match == 0 ) )
+[; ;SlaveComm_PIC18.c: 530: while ((a[inx] != '\0') && (b[inx] != '\0') && (match == 0))
 "530
 [e $U 913  ]
 [e :U 914 ]
 [; ;SlaveComm_PIC18.c: 531: {
 "531
 {
-[; ;SlaveComm_PIC18.c: 532: if( a[inx] > b[inx] )
+[; ;SlaveComm_PIC18.c: 532: if (a[inx] > b[inx])
 "532
 [e $ ! > -> *U + _a * -> _inx `x -> -> # *U _a `i `x `i -> *U + _b * -> _inx `x -> -> # *U _b `i `x `i 916  ]
 [; ;SlaveComm_PIC18.c: 533: {
@@ -7827,7 +7825,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 917  ]
 "536
 [e :U 916 ]
-[; ;SlaveComm_PIC18.c: 536: else if( a[inx] < b[inx] )
+[; ;SlaveComm_PIC18.c: 536: else if (a[inx] < b[inx])
 [e $ ! < -> *U + _a * -> _inx `x -> -> # *U _a `i `x `i -> *U + _b * -> _inx `x -> -> # *U _b `i `x `i 918  ]
 [; ;SlaveComm_PIC18.c: 537: {
 "537
@@ -7841,7 +7839,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 919  ]
 "540
 [e :U 918 ]
-[; ;SlaveComm_PIC18.c: 540: else if( a[inx] == b[inx] )
+[; ;SlaveComm_PIC18.c: 540: else if (a[inx] == b[inx])
 [e $ ! == -> *U + _a * -> _inx `x -> -> # *U _a `i `x `i -> *U + _b * -> _inx `x -> -> # *U _b `i `x `i 920  ]
 [; ;SlaveComm_PIC18.c: 541: {
 "541
@@ -7862,7 +7860,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ && && != -> *U + _a * -> _inx `x -> -> # *U _a `i `x `ui -> 0 `ui != -> *U + _b * -> _inx `x -> -> # *U _b `i `x `ui -> 0 `ui == _match -> 0 `i 914  ]
 [e :U 915 ]
 [; ;SlaveComm_PIC18.c: 546: }
-[; ;SlaveComm_PIC18.c: 549: if( ( a[inx] == '\0' ) && ( b[inx] != '\0' ) )
+[; ;SlaveComm_PIC18.c: 549: if ((a[inx] == '\0') && (b[inx] != '\0'))
 "549
 [e $ ! && == -> *U + _a * -> _inx `x -> -> # *U _a `i `x `ui -> 0 `ui != -> *U + _b * -> _inx `x -> -> # *U _b `i `x `ui -> 0 `ui 921  ]
 [; ;SlaveComm_PIC18.c: 550: {
@@ -7877,7 +7875,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 922  ]
 "553
 [e :U 921 ]
-[; ;SlaveComm_PIC18.c: 553: else if( ( a[inx] != '\0' ) && ( b[inx] == '\0' ) )
+[; ;SlaveComm_PIC18.c: 553: else if ((a[inx] != '\0') && (b[inx] == '\0'))
 [e $ ! && != -> *U + _a * -> _inx `x -> -> # *U _a `i `x `ui -> 0 `ui == -> *U + _b * -> _inx `x -> -> # *U _b `i `x `ui -> 0 `ui 923  ]
 [; ;SlaveComm_PIC18.c: 554: {
 "554
@@ -7902,7 +7900,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SPI_receive_data `(uc ~T0 @X0 1 ef1`*uc ]
 "563
 {
-[; ;SlaveComm_PIC18.c: 562: bool SPI_receive_data( char *data )
+[; ;SlaveComm_PIC18.c: 562: bool SPI_receive_data(char *data)
 [; ;SlaveComm_PIC18.c: 563: {
 [e :U _SPI_receive_data ]
 "562
@@ -7913,7 +7911,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _recvGood `uc ~T0 @X0 1 a ]
 [; ;SlaveComm_PIC18.c: 565: bool recvGood = 0;
 [e = _recvGood -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 567: if( SSP2STATbits.BF == 1 )
+[; ;SlaveComm_PIC18.c: 567: if (SSP2STATbits.BF == 1)
 "567
 [e $ ! == -> . . _SSP2STATbits 2 0 `i -> 1 `i 925  ]
 [; ;SlaveComm_PIC18.c: 568: {
@@ -7960,7 +7958,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SPI_send_data `(uc ~T0 @X0 1 ef1`uc ]
 "584
 {
-[; ;SlaveComm_PIC18.c: 583: bool SPI_send_data( char data )
+[; ;SlaveComm_PIC18.c: 583: bool SPI_send_data(char data)
 [; ;SlaveComm_PIC18.c: 584: {
 [e :U _SPI_send_data ]
 "583
@@ -7971,7 +7969,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _sendGood `uc ~T0 @X0 1 a ]
 [; ;SlaveComm_PIC18.c: 585: bool sendGood = 0;
 [e = _sendGood -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 587: if( SPI_transmit_wait == 0 )
+[; ;SlaveComm_PIC18.c: 587: if (SPI_transmit_wait == 0)
 "587
 [e $ ! == -> _SPI_transmit_wait `i -> 0 `i 928  ]
 [; ;SlaveComm_PIC18.c: 588: {
@@ -8015,14 +8013,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _send_end_of_transmission `(v ~T0 @X0 1 ef1`*S825 ]
 "605
 {
-[; ;SlaveComm_PIC18.c: 604: void send_end_of_transmission( struct buffer * send_buffer )
+[; ;SlaveComm_PIC18.c: 604: void send_end_of_transmission(struct buffer * send_buffer)
 [; ;SlaveComm_PIC18.c: 605: {
 [e :U _send_end_of_transmission ]
 "604
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
 "605
 [f ]
-[; ;SlaveComm_PIC18.c: 606: command_builder1( send_buffer, "END" );
+[; ;SlaveComm_PIC18.c: 606: command_builder1(send_buffer, "END");
 "606
 [e ( _command_builder1 (2 , _send_buffer -> :s 23C `*uc ]
 [; ;SlaveComm_PIC18.c: 608: return;
@@ -8036,14 +8034,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _com_command_testLED `(v ~T0 @X0 1 ef1`*S825 ]
 "612
 {
-[; ;SlaveComm_PIC18.c: 611: void com_command_testLED( struct buffer * send_buffer )
+[; ;SlaveComm_PIC18.c: 611: void com_command_testLED(struct buffer * send_buffer)
 [; ;SlaveComm_PIC18.c: 612: {
 [e :U _com_command_testLED ]
 "611
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
 "612
 [f ]
-[; ;SlaveComm_PIC18.c: 613: command_builder2( send_buffer, "Read", "LEDB" );
+[; ;SlaveComm_PIC18.c: 613: command_builder2(send_buffer, "Read", "LEDB");
 "613
 [e ( _command_builder2 (3 , , _send_buffer -> :s 24C `*uc -> :s 25C `*uc ]
 [; ;SlaveComm_PIC18.c: 615: return;
@@ -8057,7 +8055,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _com_command_setPower `(v ~T0 @X0 1 ef1`*S825 ]
 "619
 {
-[; ;SlaveComm_PIC18.c: 618: void com_command_setPower( struct buffer * send_buffer )
+[; ;SlaveComm_PIC18.c: 618: void com_command_setPower(struct buffer * send_buffer)
 [; ;SlaveComm_PIC18.c: 619: {
 [e :U _com_command_setPower ]
 "618
@@ -8065,232 +8063,232 @@ Version 3.2 HI-TECH Software Intermediate Code
 "619
 [f ]
 "621
-[v _temp `uc ~T0 @X0 -> 7 `i a ]
-[; ;SlaveComm_PIC18.c: 621: char temp[7];
-[; ;SlaveComm_PIC18.c: 623: utoa(temp, meterWatts, 10);
+[v _temp `uc ~T0 @X0 -> 12 `i a ]
+[; ;SlaveComm_PIC18.c: 621: char temp[12];
+[; ;SlaveComm_PIC18.c: 623: ultoa(temp, meterWatts, 10);
 "623
-[e ( _utoa (3 , , &U _temp _meterWatts -> 10 `i ]
-[; ;SlaveComm_PIC18.c: 625: command_builder3( send_buffer, "Set", "Watts", temp );
-"625
+[e ( _ultoa (3 , , &U _temp _meterWatts -> 10 `i ]
+[; ;SlaveComm_PIC18.c: 624: command_builder3(send_buffer, "Set", "Watts", temp);
+"624
 [e ( _command_builder3 (4 , , , _send_buffer -> :s 26C `*uc -> :s 27C `*uc &U _temp ]
-[; ;SlaveComm_PIC18.c: 627: return;
-"627
+[; ;SlaveComm_PIC18.c: 626: return;
+"626
 [e $UE 932  ]
-[; ;SlaveComm_PIC18.c: 628: }
-"628
+[; ;SlaveComm_PIC18.c: 627: }
+"627
 [e :UE 932 ]
 }
-"631
+"629
 [v _com_command_setEnergyUsed `(v ~T0 @X0 1 ef1`*S825 ]
-"632
+"630
 {
-[; ;SlaveComm_PIC18.c: 631: void com_command_setEnergyUsed( struct buffer * send_buffer )
-[; ;SlaveComm_PIC18.c: 632: {
+[; ;SlaveComm_PIC18.c: 629: void com_command_setEnergyUsed(struct buffer * send_buffer)
+[; ;SlaveComm_PIC18.c: 630: {
 [e :U _com_command_setEnergyUsed ]
-"631
+"629
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"632
+"630
 [f ]
-"633
+"631
 [v _temp `uc ~T0 @X0 -> 12 `i a ]
-[; ;SlaveComm_PIC18.c: 633: char temp[12];
-[; ;SlaveComm_PIC18.c: 635: ultoa(temp, meterEnergyUsed, 10);
-"635
+[; ;SlaveComm_PIC18.c: 631: char temp[12];
+[; ;SlaveComm_PIC18.c: 633: ultoa(temp, meterEnergyUsed, 10);
+"633
 [e ( _ultoa (3 , , &U _temp _meterEnergyUsed -> 10 `i ]
-[; ;SlaveComm_PIC18.c: 637: command_builder3( send_buffer, "Set", "EnUsed", temp );
-"637
+[; ;SlaveComm_PIC18.c: 635: command_builder3(send_buffer, "Set", "EnUsed", temp);
+"635
 [e ( _command_builder3 (4 , , , _send_buffer -> :s 28C `*uc -> :s 29C `*uc &U _temp ]
-[; ;SlaveComm_PIC18.c: 639: return;
-"639
+[; ;SlaveComm_PIC18.c: 637: return;
+"637
 [e $UE 933  ]
-[; ;SlaveComm_PIC18.c: 642: }
-"642
+[; ;SlaveComm_PIC18.c: 640: }
+"640
 [e :UE 933 ]
 }
-"644
+"642
 [v _com_command_setVolts `(v ~T0 @X0 1 ef1`*S825 ]
-"645
+"643
 {
-[; ;SlaveComm_PIC18.c: 644: void com_command_setVolts( struct buffer * send_buffer )
-[; ;SlaveComm_PIC18.c: 645: {
+[; ;SlaveComm_PIC18.c: 642: void com_command_setVolts(struct buffer * send_buffer)
+[; ;SlaveComm_PIC18.c: 643: {
 [e :U _com_command_setVolts ]
-"644
+"642
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"645
+"643
 [f ]
-[; ;SlaveComm_PIC18.c: 646: command_builder3( send_buffer, "Set", "Volts", "222" );
-"646
+[; ;SlaveComm_PIC18.c: 644: command_builder3(send_buffer, "Set", "Volts", "222");
+"644
 [e ( _command_builder3 (4 , , , _send_buffer -> :s 30C `*uc -> :s 31C `*uc -> :s 32C `*uc ]
-[; ;SlaveComm_PIC18.c: 648: return;
-"648
+[; ;SlaveComm_PIC18.c: 646: return;
+"646
 [e $UE 934  ]
-[; ;SlaveComm_PIC18.c: 649: }
-"649
+[; ;SlaveComm_PIC18.c: 647: }
+"647
 [e :UE 934 ]
 }
-"651
+"649
 [v _com_command_setAmps `(v ~T0 @X0 1 ef1`*S825 ]
-"652
+"650
 {
-[; ;SlaveComm_PIC18.c: 651: void com_command_setAmps( struct buffer * send_buffer )
-[; ;SlaveComm_PIC18.c: 652: {
+[; ;SlaveComm_PIC18.c: 649: void com_command_setAmps(struct buffer * send_buffer)
+[; ;SlaveComm_PIC18.c: 650: {
 [e :U _com_command_setAmps ]
-"651
+"649
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"652
+"650
 [f ]
-[; ;SlaveComm_PIC18.c: 653: command_builder3( send_buffer, "Set", "Amps", "333" );
-"653
+[; ;SlaveComm_PIC18.c: 651: command_builder3(send_buffer, "Set", "Amps", "333");
+"651
 [e ( _command_builder3 (4 , , , _send_buffer -> :s 33C `*uc -> :s 34C `*uc -> :s 35C `*uc ]
-[; ;SlaveComm_PIC18.c: 655: return;
-"655
+[; ;SlaveComm_PIC18.c: 653: return;
+"653
 [e $UE 935  ]
-[; ;SlaveComm_PIC18.c: 656: }
-"656
+[; ;SlaveComm_PIC18.c: 654: }
+"654
 [e :UE 935 ]
 }
-"658
+"656
 [v _com_command_readCalibration `(v ~T0 @X0 1 ef1`*S825 ]
-"659
+"657
 {
-[; ;SlaveComm_PIC18.c: 658: void com_command_readCalibration( struct buffer * send_buffer )
-[; ;SlaveComm_PIC18.c: 659: {
+[; ;SlaveComm_PIC18.c: 656: void com_command_readCalibration(struct buffer * send_buffer)
+[; ;SlaveComm_PIC18.c: 657: {
 [e :U _com_command_readCalibration ]
-"658
+"656
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"659
+"657
 [f ]
-[; ;SlaveComm_PIC18.c: 660: command_builder2( send_buffer, "Read", "Calibration" );
-"660
+[; ;SlaveComm_PIC18.c: 658: command_builder2(send_buffer, "Read", "Calibration");
+"658
 [e ( _command_builder2 (3 , , _send_buffer -> :s 36C `*uc -> :s 37C `*uc ]
-[; ;SlaveComm_PIC18.c: 662: return;
-"662
+[; ;SlaveComm_PIC18.c: 660: return;
+"660
 [e $UE 936  ]
-[; ;SlaveComm_PIC18.c: 663: }
-"663
+[; ;SlaveComm_PIC18.c: 661: }
+"661
 [e :UE 936 ]
 }
-"665
+"663
 [v _com_command_setVersion `(v ~T0 @X0 1 ef1`*S825 ]
-"666
+"664
 {
-[; ;SlaveComm_PIC18.c: 665: void com_command_setVersion( struct buffer * send_buffer )
-[; ;SlaveComm_PIC18.c: 666: {
+[; ;SlaveComm_PIC18.c: 663: void com_command_setVersion(struct buffer * send_buffer)
+[; ;SlaveComm_PIC18.c: 664: {
 [e :U _com_command_setVersion ]
-"665
+"663
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"666
+"664
 [f ]
-[; ;SlaveComm_PIC18.c: 667: command_builder3( send_buffer, "Set", "PSVersion", "444" );
-"667
+[; ;SlaveComm_PIC18.c: 665: command_builder3(send_buffer, "Set", "PSVersion", "444");
+"665
 [e ( _command_builder3 (4 , , , _send_buffer -> :s 38C `*uc -> :s 39C `*uc -> :s 40C `*uc ]
-[; ;SlaveComm_PIC18.c: 669: }
-"669
+[; ;SlaveComm_PIC18.c: 667: }
+"667
 [e :UE 937 ]
 }
-"671
+"669
 [v _SPISlaveInit `(v ~T0 @X0 1 ef ]
-"672
+"670
 {
-[; ;SlaveComm_PIC18.c: 671: void SPISlaveInit( void )
-[; ;SlaveComm_PIC18.c: 672: {
+[; ;SlaveComm_PIC18.c: 669: void SPISlaveInit(void)
+[; ;SlaveComm_PIC18.c: 670: {
 [e :U _SPISlaveInit ]
 [f ]
-[; ;SlaveComm_PIC18.c: 674: TRISAbits.TRISA0 = 0;
-"674
+[; ;SlaveComm_PIC18.c: 672: TRISAbits.TRISA0 = 0;
+"672
 [e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 675: TRISAbits.TRISA1 = 1;
-"675
+[; ;SlaveComm_PIC18.c: 673: TRISAbits.TRISA1 = 1;
+"673
 [e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 677: TRISCbits.TRISC3 = 0;
-"677
+[; ;SlaveComm_PIC18.c: 675: TRISCbits.TRISC3 = 0;
+"675
 [e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 678: TRISCbits.TRISC5 = 0;
-"678
+[; ;SlaveComm_PIC18.c: 676: TRISCbits.TRISC5 = 0;
+"676
 [e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 679: TRISCbits.TRISC6 = 0;
-"679
+[; ;SlaveComm_PIC18.c: 677: TRISCbits.TRISC6 = 0;
+"677
 [e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 680: TRISCbits.TRISC7 = 0;
-"680
+[; ;SlaveComm_PIC18.c: 678: TRISCbits.TRISC7 = 0;
+"678
 [e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 681: ANSELAbits.ANSA1 = 0b0;
-"681
+[; ;SlaveComm_PIC18.c: 679: ANSELAbits.ANSA1 = 0b0;
+"679
 [e = . . _ANSELAbits 0 1 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 683: LATCbits.LATC6 = 1;
-"683
+[; ;SlaveComm_PIC18.c: 681: LATCbits.LATC6 = 1;
+"681
 [e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 684: LATCbits.LATC3 = 1;
-"684
+[; ;SlaveComm_PIC18.c: 682: LATCbits.LATC3 = 1;
+"682
 [e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 685: LATCbits.LATC5 = 1;
-"685
+[; ;SlaveComm_PIC18.c: 683: LATCbits.LATC5 = 1;
+"683
 [e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 686: LATCbits.LATC7 = 1;
-"686
+[; ;SlaveComm_PIC18.c: 684: LATCbits.LATC7 = 1;
+"684
 [e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 689: SSP2CON1bits.SSPEN = 0;
+[; ;SlaveComm_PIC18.c: 687: SSP2CON1bits.SSPEN = 0;
+"687
+[e = . . _SSP2CON1bits 0 2 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 689: ANSELBbits.ANSB0 = 0b0;
 "689
-[e = . . _SSP2CON1bits 0 2 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 691: ANSELBbits.ANSB0 = 0b0;
-"691
 [e = . . _ANSELBbits 0 0 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 692: ANSELBbits.ANSB1 = 0b0;
-"692
+[; ;SlaveComm_PIC18.c: 690: ANSELBbits.ANSB1 = 0b0;
+"690
 [e = . . _ANSELBbits 0 1 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 693: ANSELBbits.ANSB2 = 0b0;
-"693
+[; ;SlaveComm_PIC18.c: 691: ANSELBbits.ANSB2 = 0b0;
+"691
 [e = . . _ANSELBbits 0 2 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 694: ANSELBbits.ANSB3 = 0b0;
-"694
+[; ;SlaveComm_PIC18.c: 692: ANSELBbits.ANSB3 = 0b0;
+"692
 [e = . . _ANSELBbits 0 3 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 696: TRISBbits.RB0 = 0b1;
-"696
+[; ;SlaveComm_PIC18.c: 694: TRISBbits.RB0 = 0b1;
+"694
 [e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 697: TRISBbits.RB1 = 0b1;
-"697
+[; ;SlaveComm_PIC18.c: 695: TRISBbits.RB1 = 0b1;
+"695
 [e = . . _TRISBbits 1 1 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 698: TRISBbits.RB2 = 0b1;
-"698
+[; ;SlaveComm_PIC18.c: 696: TRISBbits.RB2 = 0b1;
+"696
 [e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 699: TRISBbits.RB3 = 0b0;
-"699
+[; ;SlaveComm_PIC18.c: 697: TRISBbits.RB3 = 0b0;
+"697
 [e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 701: SSP2STATbits.SMP = 0;
-"701
+[; ;SlaveComm_PIC18.c: 699: SSP2STATbits.SMP = 0;
+"699
 [e = . . _SSP2STATbits 2 7 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 702: SSP2STATbits.CKE = 1;
-"702
+[; ;SlaveComm_PIC18.c: 700: SSP2STATbits.CKE = 1;
+"700
 [e = . . _SSP2STATbits 2 6 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 704: SSP2CON1bits.WCOL = 0;
-"704
+[; ;SlaveComm_PIC18.c: 702: SSP2CON1bits.WCOL = 0;
+"702
 [e = . . _SSP2CON1bits 0 4 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 705: SSP2CON1bits.SSPOV = 0;
-"705
+[; ;SlaveComm_PIC18.c: 703: SSP2CON1bits.SSPOV = 0;
+"703
 [e = . . _SSP2CON1bits 0 3 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 706: SSP2CON1bits.SSPEN = 0;
-"706
+[; ;SlaveComm_PIC18.c: 704: SSP2CON1bits.SSPEN = 0;
+"704
 [e = . . _SSP2CON1bits 0 2 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 707: SSP2CON1bits.CKP = 1;
-"707
+[; ;SlaveComm_PIC18.c: 705: SSP2CON1bits.CKP = 1;
+"705
 [e = . . _SSP2CON1bits 0 1 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 708: SSP2CON1bits.SSPM = 0b0100;
-"708
+[; ;SlaveComm_PIC18.c: 706: SSP2CON1bits.SSPM = 0b0100;
+"706
 [e = . . _SSP2CON1bits 0 0 -> -> 4 `i `uc ]
-[; ;SlaveComm_PIC18.c: 711: SSP2CON3 = 0x00;
-"711
+[; ;SlaveComm_PIC18.c: 709: SSP2CON3 = 0x00;
+"709
 [e = _SSP2CON3 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 712: SSP2CON3bits.BOEN = 0b0;
-"712
+[; ;SlaveComm_PIC18.c: 710: SSP2CON3bits.BOEN = 0b0;
+"710
 [e = . . _SSP2CON3bits 0 4 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 714: SSP2CON1bits.SSPEN = 1;
-"714
+[; ;SlaveComm_PIC18.c: 712: SSP2CON1bits.SSPEN = 1;
+"712
 [e = . . _SSP2CON1bits 0 2 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 718: return;
-"718
+[; ;SlaveComm_PIC18.c: 716: return;
+"716
 [e $UE 938  ]
-[; ;SlaveComm_PIC18.c: 719: }
-"719
+[; ;SlaveComm_PIC18.c: 717: }
+"717
 [e :UE 938 ]
 }
 [a 2C 83 101 116 0 ]

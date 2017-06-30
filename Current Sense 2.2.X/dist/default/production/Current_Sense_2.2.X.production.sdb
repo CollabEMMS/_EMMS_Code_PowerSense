@@ -23,18 +23,12 @@ receive_end_command 2
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\isdigit.c
 [v _isdigit isdigit `(b  1 e 0 0 ]
-"17 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\itoa.c
-[v _utoa utoa `(*.39uc  1 e 2 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
 "32 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\ltoa.c
 [v _ultoa ultoa `(*.39uc  1 e 2 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 3 0 ]
 "245
@@ -47,25 +41,27 @@ receive_end_command 2
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"79 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
+"80 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
 [v _main main `(v  1 e 1 0 ]
-"169
+"191
 [v _pulseFoutPassThru pulseFoutPassThru `(v  1 e 1 0 ]
-"199
+"221
 [v _Timer0_ISR Timer0_ISR `II(v  1 e 1 0 ]
-"213
+"235
 [v _powerPulseCheck powerPulseCheck `(v  1 e 1 0 ]
-"310
+"334
 [v _delayMS10 delayMS10 `(v  1 e 1 0 ]
-"319
+"343
 [v _init init `(v  1 e 1 0 ]
-"329
+"353
 [v _initOSC initOSC `(v  1 e 1 0 ]
-"346
+"370
 [v _initIO initIO `(v  1 e 1 0 ]
-"393
+"388
+[v _initInterruptsClear initInterruptsClear `(v  1 e 1 0 ]
+"417
 [v _initTimer initTimer `(v  1 e 1 0 ]
-"410
+"434
 [v _initMCPFout initMCPFout `(v  1 e 1 0 ]
 "89 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _communications communications `(v  1 e 1 0 ]
@@ -103,11 +99,11 @@ receive_end_command 2
 [v _send_end_of_transmission send_end_of_transmission `(v  1 e 1 0 ]
 "618
 [v _com_command_setPower com_command_setPower `(v  1 e 1 0 ]
-"631
+"629
 [v _com_command_setEnergyUsed com_command_setEnergyUsed `(v  1 e 1 0 ]
-"665
+"663
 [v _com_command_setVersion com_command_setVersion `(v  1 e 1 0 ]
-"671
+"669
 [v _SPISlaveInit SPISlaveInit `(v  1 e 1 0 ]
 "49 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18lf25k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
@@ -149,19 +145,19 @@ receive_end_command 2
 "3257
 [u S1835 . 1 `S1826 1 . 1 0 ]
 [v _SSP2CON3bits SSP2CON3bits `VES1835  1 e 1 @3945 ]
-[s S1323 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S1330 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "3544
-[s S1329 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S1336 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S1334 . 1 `uc 1 SSPM02 1 0 :1:0 
+[s S1341 . 1 `uc 1 SSPM02 1 0 :1:0 
 `uc 1 SSPM12 1 0 :1:1 
 `uc 1 SSPM22 1 0 :1:2 
 `uc 1 SSPM32 1 0 :1:3 
@@ -170,16 +166,16 @@ receive_end_command 2
 `uc 1 SSPOV2 1 0 :1:6 
 `uc 1 WCOL2 1 0 :1:7 
 ]
-[u S1343 . 1 `S1323 1 . 1 0 `S1329 1 . 1 0 `S1334 1 . 1 0 ]
-[v _SSP2CON1bits SSP2CON1bits `VES1343  1 e 1 @3948 ]
-[s S1452 . 1 `uc 1 . 1 0 :2:0 
+[u S1350 . 1 `S1330 1 . 1 0 `S1336 1 . 1 0 `S1341 1 . 1 0 ]
+[v _SSP2CON1bits SSP2CON1bits `VES1350  1 e 1 @3948 ]
+[s S1459 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "3768
-[s S1455 . 1 `uc 1 . 1 0 :5:0 
+[s S1462 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S1458 . 1 `uc 1 BF 1 0 :1:0 
+[s S1465 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -188,38 +184,38 @@ receive_end_command 2
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S1467 . 1 `uc 1 . 1 0 :2:0 
+[s S1474 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S1472 . 1 `uc 1 . 1 0 :2:0 
+[s S1479 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 A 1 0 :1:5 
 ]
-[s S1477 . 1 `uc 1 . 1 0 :2:0 
+[s S1484 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S1482 . 1 `uc 1 . 1 0 :2:0 
+[s S1489 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S1487 . 1 `uc 1 . 1 0 :2:0 
+[s S1494 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S1490 . 1 `uc 1 . 1 0 :5:0 
+[s S1497 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S1493 . 1 `uc 1 . 1 0 :2:0 
+[s S1500 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S1498 . 1 `uc 1 BF2 1 0 :1:0 
+[s S1505 . 1 `uc 1 BF2 1 0 :1:0 
 `uc 1 UA2 1 0 :1:1 
 `uc 1 I2C_READ2 1 0 :1:2 
 `uc 1 I2C_START2 1 0 :1:3 
@@ -228,58 +224,58 @@ receive_end_command 2
 `uc 1 CKE2 1 0 :1:6 
 `uc 1 SMP2 1 0 :1:7 
 ]
-[s S1507 . 1 `uc 1 . 1 0 :2:0 
+[s S1514 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE2 1 0 :1:2 
 `uc 1 S2 1 0 :1:3 
 `uc 1 P2 1 0 :1:4 
 `uc 1 DATA_ADDRESS2 1 0 :1:5 
 ]
-[s S1513 . 1 `uc 1 . 1 0 :2:0 
+[s S1520 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW2 1 0 :1:2 
 `uc 1 START2 1 0 :1:3 
 `uc 1 STOP2 1 0 :1:4 
 `uc 1 D_A2 1 0 :1:5 
 ]
-[s S1519 . 1 `uc 1 . 1 0 :5:0 
+[s S1526 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A2 1 0 :1:5 
 ]
-[s S1522 . 1 `uc 1 . 1 0 :2:0 
+[s S1529 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_nA2 1 0 :1:5 
 ]
-[s S1527 . 1 `uc 1 . 1 0 :2:0 
+[s S1534 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W2 1 0 :1:2 
 ]
-[s S1530 . 1 `uc 1 . 1 0 :2:0 
+[s S1537 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 I2C_DAT2 1 0 :1:5 
 ]
-[s S1535 . 1 `uc 1 . 1 0 :2:0 
+[s S1542 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W2 1 0 :1:2 
 ]
-[s S1538 . 1 `uc 1 . 1 0 :5:0 
+[s S1545 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_A2 1 0 :1:5 
 ]
-[s S1541 . 1 `uc 1 . 1 0 :2:0 
+[s S1548 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA2 1 0 :1:5 
 ]
-[s S1546 . 1 `uc 1 . 1 0 :2:0 
+[s S1553 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE2 1 0 :1:2 
 ]
-[s S1549 . 1 `uc 1 . 1 0 :5:0 
+[s S1556 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS2 1 0 :1:5 
 ]
-[s S1552 . 1 `uc 1 . 1 0 :2:0 
+[s S1559 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS2 1 0 :1:5 
 ]
-[u S1557 . 1 `S1452 1 . 1 0 `S1455 1 . 1 0 `S1458 1 . 1 0 `S1467 1 . 1 0 `S1472 1 . 1 0 `S1477 1 . 1 0 `S1482 1 . 1 0 `S1487 1 . 1 0 `S1490 1 . 1 0 `S1493 1 . 1 0 `S1498 1 . 1 0 `S1507 1 . 1 0 `S1513 1 . 1 0 `S1519 1 . 1 0 `S1522 1 . 1 0 `S1527 1 . 1 0 `S1530 1 . 1 0 `S1535 1 . 1 0 `S1538 1 . 1 0 `S1541 1 . 1 0 `S1546 1 . 1 0 `S1549 1 . 1 0 `S1552 1 . 1 0 ]
-[v _SSP2STATbits SSP2STATbits `VES1557  1 e 1 @3949 ]
+[u S1564 . 1 `S1459 1 . 1 0 `S1462 1 . 1 0 `S1465 1 . 1 0 `S1474 1 . 1 0 `S1479 1 . 1 0 `S1484 1 . 1 0 `S1489 1 . 1 0 `S1494 1 . 1 0 `S1497 1 . 1 0 `S1500 1 . 1 0 `S1505 1 . 1 0 `S1514 1 . 1 0 `S1520 1 . 1 0 `S1526 1 . 1 0 `S1529 1 . 1 0 `S1534 1 . 1 0 `S1537 1 . 1 0 `S1542 1 . 1 0 `S1545 1 . 1 0 `S1548 1 . 1 0 `S1553 1 . 1 0 `S1556 1 . 1 0 `S1559 1 . 1 0 ]
+[v _SSP2STATbits SSP2STATbits `VES1564  1 e 1 @3949 ]
 "4101
 [v _SSP2BUF SSP2BUF `VEuc  1 e 1 @3951 ]
 "5888
@@ -294,7 +290,7 @@ receive_end_command 2
 [v _PIR5 PIR5 `VEuc  1 e 1 @3966 ]
 "6051
 [v _IPR5 IPR5 `VEuc  1 e 1 @3967 ]
-[s S87 . 1 `uc 1 RA0 1 0 :1:0 
+[s S477 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -304,66 +300,66 @@ receive_end_command 2
 `uc 1 RA7 1 0 :1:7 
 ]
 "6182
-[s S96 . 1 `uc 1 AN0 1 0 :1:0 
+[s S486 . 1 `uc 1 AN0 1 0 :1:0 
 `uc 1 AN1 1 0 :1:1 
 `uc 1 AN2 1 0 :1:2 
 `uc 1 AN3 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 AN4 1 0 :1:5 
 ]
-[s S103 . 1 `uc 1 C12IN0M 1 0 :1:0 
+[s S493 . 1 `uc 1 C12IN0M 1 0 :1:0 
 `uc 1 C12IN1M 1 0 :1:1 
 `uc 1 C2INP 1 0 :1:2 
 `uc 1 C1INP 1 0 :1:3 
 `uc 1 C1OUT 1 0 :1:4 
 `uc 1 C2OUT 1 0 :1:5 
 ]
-[s S110 . 1 `uc 1 C12IN0N 1 0 :1:0 
+[s S500 . 1 `uc 1 C12IN0N 1 0 :1:0 
 `uc 1 C12IN1N 1 0 :1:1 
 `uc 1 VREFM 1 0 :1:2 
 `uc 1 VREFP 1 0 :1:3 
 `uc 1 T0CKI 1 0 :1:4 
 `uc 1 SS 1 0 :1:5 
 ]
-[s S117 . 1 `uc 1 . 1 0 :5:0 
+[s S507 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_SS 1 0 :1:5 
 ]
-[s S120 . 1 `uc 1 . 1 0 :2:0 
+[s S510 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 VREFN 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 SRQ 1 0 :1:4 
 `uc 1 nSS 1 0 :1:5 
 ]
-[s S126 . 1 `uc 1 . 1 0 :2:0 
+[s S516 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 CVREF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 CCP5 1 0 :1:4 
 `uc 1 LVDIN 1 0 :1:5 
 ]
-[s S132 . 1 `uc 1 . 1 0 :2:0 
+[s S522 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 DACOUT 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 HLVDIN 1 0 :1:5 
 ]
-[s S137 . 1 `uc 1 . 1 0 :5:0 
+[s S527 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SS1 1 0 :1:5 
 ]
-[s S140 . 1 `uc 1 . 1 0 :5:0 
+[s S530 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_SS1 1 0 :1:5 
 ]
-[s S143 . 1 `uc 1 . 1 0 :5:0 
+[s S533 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 nSS1 1 0 :1:5 
 ]
-[s S146 . 1 `uc 1 . 1 0 :5:0 
+[s S536 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRNQ 1 0 :1:5 
 ]
-[s S149 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S539 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 `uc 1 . 1 0 :6:1 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[u S153 . 1 `S87 1 . 1 0 `S96 1 . 1 0 `S103 1 . 1 0 `S110 1 . 1 0 `S117 1 . 1 0 `S120 1 . 1 0 `S126 1 . 1 0 `S132 1 . 1 0 `S137 1 . 1 0 `S140 1 . 1 0 `S143 1 . 1 0 `S146 1 . 1 0 `S149 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES153  1 e 1 @3968 ]
-[s S274 . 1 `uc 1 RB0 1 0 :1:0 
+[u S543 . 1 `S477 1 . 1 0 `S486 1 . 1 0 `S493 1 . 1 0 `S500 1 . 1 0 `S507 1 . 1 0 `S510 1 . 1 0 `S516 1 . 1 0 `S522 1 . 1 0 `S527 1 . 1 0 `S530 1 . 1 0 `S533 1 . 1 0 `S536 1 . 1 0 `S539 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES543  1 e 1 @3968 ]
+[s S272 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -373,7 +369,7 @@ receive_end_command 2
 `uc 1 RB7 1 0 :1:7 
 ]
 "6474
-[s S283 . 1 `uc 1 INT0 1 0 :1:0 
+[s S281 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 CCP2 1 0 :1:3 
@@ -382,7 +378,7 @@ receive_end_command 2
 `uc 1 KBI2 1 0 :1:6 
 `uc 1 KBI3 1 0 :1:7 
 ]
-[s S292 . 1 `uc 1 AN12 1 0 :1:0 
+[s S290 . 1 `uc 1 AN12 1 0 :1:0 
 `uc 1 AN10 1 0 :1:1 
 `uc 1 AN8 1 0 :1:2 
 `uc 1 AN9 1 0 :1:3 
@@ -391,7 +387,7 @@ receive_end_command 2
 `uc 1 TX2 1 0 :1:6 
 `uc 1 RX2 1 0 :1:7 
 ]
-[s S301 . 1 `uc 1 FLT0 1 0 :1:0 
+[s S299 . 1 `uc 1 FLT0 1 0 :1:0 
 `uc 1 C12IN3M 1 0 :1:1 
 `uc 1 P1B 1 0 :1:2 
 `uc 1 C12IN2M 1 0 :1:3 
@@ -400,7 +396,7 @@ receive_end_command 2
 `uc 1 CK2 1 0 :1:6 
 `uc 1 DT2 1 0 :1:7 
 ]
-[s S310 . 1 `uc 1 SRI 1 0 :1:0 
+[s S308 . 1 `uc 1 SRI 1 0 :1:0 
 `uc 1 C12IN3N 1 0 :1:1 
 `uc 1 CTED1 1 0 :1:2 
 `uc 1 C12IN2N 1 0 :1:3 
@@ -409,35 +405,35 @@ receive_end_command 2
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S319 . 1 `uc 1 CCP4 1 0 :1:0 
+[s S317 . 1 `uc 1 CCP4 1 0 :1:0 
 `uc 1 P1C 1 0 :1:1 
 `uc 1 SDA2 1 0 :1:2 
 `uc 1 CTED2 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 T3CKI 1 0 :1:5 
 ]
-[s S326 . 1 `uc 1 SS2 1 0 :1:0 
+[s S324 . 1 `uc 1 SS2 1 0 :1:0 
 `uc 1 SCL2 1 0 :1:1 
 `uc 1 SDI2 1 0 :1:2 
 `uc 1 P2A 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 P3A 1 0 :1:5 
 ]
-[s S333 . 1 `uc 1 NOT_SS2 1 0 :1:0 
+[s S331 . 1 `uc 1 NOT_SS2 1 0 :1:0 
 ]
-[s S335 . 1 `uc 1 nSS2 1 0 :1:0 
+[s S333 . 1 `uc 1 nSS2 1 0 :1:0 
 `uc 1 SCK2 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SDO2 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 P2B 1 0 :1:5 
 ]
-[s S342 . 1 `uc 1 . 1 0 :3:0 
+[s S340 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S345 . 1 `S274 1 . 1 0 `S283 1 . 1 0 `S292 1 . 1 0 `S301 1 . 1 0 `S310 1 . 1 0 `S319 1 . 1 0 `S326 1 . 1 0 `S333 1 . 1 0 `S335 1 . 1 0 `S342 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES345  1 e 1 @3969 ]
-[s S479 . 1 `uc 1 RC0 1 0 :1:0 
+[u S343 . 1 `S272 1 . 1 0 `S281 1 . 1 0 `S290 1 . 1 0 `S299 1 . 1 0 `S308 1 . 1 0 `S317 1 . 1 0 `S324 1 . 1 0 `S331 1 . 1 0 `S333 1 . 1 0 `S340 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES343  1 e 1 @3969 ]
+[s S91 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -447,7 +443,7 @@ receive_end_command 2
 `uc 1 RC7 1 0 :1:7 
 ]
 "6839
-[s S488 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S100 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 T5CKI 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -456,7 +452,7 @@ receive_end_command 2
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S497 . 1 `uc 1 P2B 1 0 :1:0 
+[s S109 . 1 `uc 1 P2B 1 0 :1:0 
 `uc 1 P2A 1 0 :1:1 
 `uc 1 P1A 1 0 :1:2 
 `uc 1 SCL 1 0 :1:3 
@@ -465,7 +461,7 @@ receive_end_command 2
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S506 . 1 `uc 1 T1CKI 1 0 :1:0 
+[s S118 . 1 `uc 1 T1CKI 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCK1 1 0 :1:3 
@@ -474,7 +470,7 @@ receive_end_command 2
 `uc 1 TX1 1 0 :1:6 
 `uc 1 RX1 1 0 :1:7 
 ]
-[s S515 . 1 `uc 1 T3CKI 1 0 :1:0 
+[s S127 . 1 `uc 1 T3CKI 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 CTPLS 1 0 :1:2 
 `uc 1 SCL1 1 0 :1:3 
@@ -483,7 +479,7 @@ receive_end_command 2
 `uc 1 CK1 1 0 :1:6 
 `uc 1 DT1 1 0 :1:7 
 ]
-[s S524 . 1 `uc 1 T3G 1 0 :1:0 
+[s S136 . 1 `uc 1 T3G 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 AN14 1 0 :1:2 
 `uc 1 AN15 1 0 :1:3 
@@ -492,20 +488,20 @@ receive_end_command 2
 `uc 1 AN18 1 0 :1:6 
 `uc 1 AN19 1 0 :1:7 
 ]
-[s S533 . 1 `uc 1 . 1 0 :6:0 
+[s S145 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CCP3 1 0 :1:6 
 `uc 1 P3B 1 0 :1:7 
 ]
-[s S537 . 1 `uc 1 . 1 0 :6:0 
+[s S149 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 P3A 1 0 :1:6 
 ]
-[s S540 . 1 `uc 1 . 1 0 :1:0 
+[s S152 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[u S544 . 1 `S479 1 . 1 0 `S488 1 . 1 0 `S497 1 . 1 0 `S506 1 . 1 0 `S515 1 . 1 0 `S524 1 . 1 0 `S533 1 . 1 0 `S537 1 . 1 0 `S540 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES544  1 e 1 @3970 ]
-[s S234 . 1 `uc 1 LATA0 1 0 :1:0 
+[u S156 . 1 `S91 1 . 1 0 `S100 1 . 1 0 `S109 1 . 1 0 `S118 1 . 1 0 `S127 1 . 1 0 `S136 1 . 1 0 `S145 1 . 1 0 `S149 1 . 1 0 `S152 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES156  1 e 1 @3970 ]
+[s S232 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -515,7 +511,7 @@ receive_end_command 2
 `uc 1 LATA7 1 0 :1:7 
 ]
 "7189
-[s S243 . 1 `uc 1 LA0 1 0 :1:0 
+[s S241 . 1 `uc 1 LA0 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 `uc 1 LA2 1 0 :1:2 
 `uc 1 LA3 1 0 :1:3 
@@ -524,8 +520,8 @@ receive_end_command 2
 `uc 1 LA6 1 0 :1:6 
 `uc 1 LA7 1 0 :1:7 
 ]
-[u S252 . 1 `S234 1 . 1 0 `S243 1 . 1 0 ]
-[v _LATAbits LATAbits `VES252  1 e 1 @3977 ]
+[u S250 . 1 `S232 1 . 1 0 `S241 1 . 1 0 ]
+[v _LATAbits LATAbits `VES250  1 e 1 @3977 ]
 [s S25 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
@@ -547,7 +543,7 @@ receive_end_command 2
 ]
 [u S43 . 1 `S25 1 . 1 0 `S34 1 . 1 0 ]
 [v _LATBbits LATBbits `VES43  1 e 1 @3978 ]
-[s S1021 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S1025 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -557,7 +553,7 @@ receive_end_command 2
 `uc 1 LATC7 1 0 :1:7 
 ]
 "7411
-[s S1030 . 1 `uc 1 LC0 1 0 :1:0 
+[s S1034 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 LC3 1 0 :1:3 
@@ -566,9 +562,9 @@ receive_end_command 2
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S1039 . 1 `S1021 1 . 1 0 `S1030 1 . 1 0 ]
-[v _LATCbits LATCbits `VES1039  1 e 1 @3979 ]
-[s S870 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S1043 . 1 `S1025 1 . 1 0 `S1034 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1043  1 e 1 @3979 ]
+[s S874 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -578,9 +574,9 @@ receive_end_command 2
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "7527
-[u S888 . 1 `S870 1 . 1 0 `S87 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES888  1 e 1 @3986 ]
-[s S790 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S892 . 1 `S874 1 . 1 0 `S477 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES892  1 e 1 @3986 ]
+[s S794 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -590,9 +586,9 @@ receive_end_command 2
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "7748
-[u S808 . 1 `S790 1 . 1 0 `S274 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES808  1 e 1 @3987 ]
-[s S830 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S812 . 1 `S794 1 . 1 0 `S272 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES812  1 e 1 @3987 ]
+[s S834 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -602,22 +598,22 @@ receive_end_command 2
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "7969
-[u S848 . 1 `S830 1 . 1 0 `S479 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES848  1 e 1 @3988 ]
-[s S691 . 1 `uc 1 TUN 1 0 :6:0 
+[u S852 . 1 `S834 1 . 1 0 `S91 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES852  1 e 1 @3988 ]
+[s S695 . 1 `uc 1 TUN 1 0 :6:0 
 `uc 1 PLLEN 1 0 :1:6 
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "8198
-[s S695 . 1 `uc 1 TUN0 1 0 :1:0 
+[s S699 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
 `uc 1 TUN4 1 0 :1:4 
 `uc 1 TUN5 1 0 :1:5 
 ]
-[u S702 . 1 `S691 1 . 1 0 `S695 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES702  1 e 1 @3995 ]
+[u S706 . 1 `S695 1 . 1 0 `S699 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES706  1 e 1 @3995 ]
 "8526
 [v _PIE1 PIE1 `VEuc  1 e 1 @3997 ]
 "8602
@@ -636,15 +632,15 @@ receive_end_command 2
 [v _PIR3 PIR3 `VEuc  1 e 1 @4004 ]
 "9195
 [v _IPR3 IPR3 `VEuc  1 e 1 @4005 ]
-[s S717 . 1 `uc 1 . 1 0 :1:0 
+[s S721 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "12697
-[s S720 . 1 `uc 1 ADON 1 0 :1:0 
+[s S724 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S724 . 1 `uc 1 . 1 0 :1:0 
+[s S728 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -652,39 +648,39 @@ receive_end_command 2
 `uc 1 CHS3 1 0 :1:5 
 `uc 1 CHS4 1 0 :1:6 
 ]
-[s S732 . 1 `uc 1 . 1 0 :1:0 
+[s S736 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S735 . 1 `uc 1 . 1 0 :1:0 
+[s S739 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S738 . 1 `uc 1 . 1 0 :1:0 
+[s S742 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S741 . 1 `uc 1 . 1 0 :1:0 
+[s S745 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[s S744 . 1 `uc 1 . 1 0 :1:0 
+[s S748 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S747 . 1 `S717 1 . 1 0 `S720 1 . 1 0 `S724 1 . 1 0 `S732 1 . 1 0 `S735 1 . 1 0 `S738 1 . 1 0 `S741 1 . 1 0 `S744 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES747  1 e 1 @4034 ]
-[s S913 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[u S751 . 1 `S721 1 . 1 0 `S724 1 . 1 0 `S728 1 . 1 0 `S736 1 . 1 0 `S739 1 . 1 0 `S742 1 . 1 0 `S745 1 . 1 0 `S748 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES751  1 e 1 @4034 ]
+[s S917 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "14896
-[s S915 . 1 `uc 1 . 1 0 :1:0 
+[s S919 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S918 . 1 `uc 1 . 1 0 :2:0 
+[s S922 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S921 . 1 `uc 1 . 1 0 :3:0 
+[s S925 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S924 . 1 `uc 1 . 1 0 :4:0 
+[s S928 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S927 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S931 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -693,15 +689,15 @@ receive_end_command 2
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S936 . 1 `uc 1 BOR 1 0 :1:0 
+[s S940 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S942 . 1 `S913 1 . 1 0 `S915 1 . 1 0 `S918 1 . 1 0 `S921 1 . 1 0 `S924 1 . 1 0 `S927 1 . 1 0 `S936 1 . 1 0 ]
-[v _RCONbits RCONbits `VES942  1 e 1 @4048 ]
-[s S670 . 1 `uc 1 LFIOFS 1 0 :1:0 
+[u S946 . 1 `S917 1 . 1 0 `S919 1 . 1 0 `S922 1 . 1 0 `S925 1 . 1 0 `S928 1 . 1 0 `S931 1 . 1 0 `S940 1 . 1 0 ]
+[v _RCONbits RCONbits `VES946  1 e 1 @4048 ]
+[s S674 . 1 `uc 1 LFIOFS 1 0 :1:0 
 `uc 1 MFIOFS 1 0 :1:1 
 `uc 1 PRISD 1 0 :1:2 
 `uc 1 SOSCGO 1 0 :1:3 
@@ -711,16 +707,16 @@ receive_end_command 2
 `uc 1 PLLRDY 1 0 :1:7 
 ]
 "15029
-[u S679 . 1 `S670 1 . 1 0 ]
-[v _OSCCON2bits OSCCON2bits `VES679  1 e 1 @4050 ]
-[s S638 . 1 `uc 1 SCS 1 0 :2:0 
+[u S683 . 1 `S674 1 . 1 0 ]
+[v _OSCCON2bits OSCCON2bits `VES683  1 e 1 @4050 ]
+[s S642 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 HFIOFS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "15091
-[s S644 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S648 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 IOFS 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -728,9 +724,9 @@ receive_end_command 2
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S652 . 1 `S638 1 . 1 0 `S644 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES652  1 e 1 @4051 ]
-[s S995 . 1 `uc 1 T0PS 1 0 :3:0 
+[u S656 . 1 `S642 1 . 1 0 `S648 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES656  1 e 1 @4051 ]
+[s S999 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -738,12 +734,12 @@ receive_end_command 2
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "15170
-[s S1002 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S1006 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S1006 . 1 `S995 1 . 1 0 `S1002 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES1006  1 e 1 @4053 ]
+[u S1010 . 1 `S999 1 . 1 0 `S1006 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES1010  1 e 1 @4053 ]
 "15225
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "15244
@@ -754,7 +750,7 @@ receive_end_command 2
 [v _INTCON2 INTCON2 `VEuc  1 e 1 @4081 ]
 "15914
 [v _INTCON INTCON `VEuc  1 e 1 @4082 ]
-[s S428 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S426 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -764,7 +760,7 @@ receive_end_command 2
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "15946
-[s S437 . 1 `uc 1 . 1 0 :1:0 
+[s S435 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -773,98 +769,109 @@ receive_end_command 2
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S446 . 1 `uc 1 . 1 0 :6:0 
+[s S444 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S450 . 1 `S428 1 . 1 0 `S437 1 . 1 0 `S446 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES450  1 e 1 @4082 ]
-"62 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
-[v _meterWatts meterWatts `ui  1 e 2 0 ]
-"63
+[u S448 . 1 `S426 1 . 1 0 `S435 1 . 1 0 `S444 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES448  1 e 1 @4082 ]
+"63 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
+[v _meterWatts meterWatts `ul  1 e 4 0 ]
+"64
 [v _meterEnergyUsed meterEnergyUsed `ul  1 e 4 0 ]
-"65
-[v _timerCountHF timerCountHF `VEul  1 e 4 0 ]
 "66
+[v _timerCountHF timerCountHF `VEul  1 e 4 0 ]
+"67
 [v _timerCountLF timerCountLF `VEul  1 e 4 0 ]
 "30 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _SPI_transmit_wait SPI_transmit_wait `uc  1 e 1 0 ]
-"79 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
+"80 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"83
-[v main@inx inx `i  1 a 2 61 ]
-"167
+"143
+[v main@inx_1080 inx `i  1 a 2 3 ]
+"84
+[v main@inx inx `i  1 a 2 1 ]
+"127
+[v main@initDone initDone `uc  1 a 1 0 ]
+"189
 } 0
-"169
+"191
 [v _pulseFoutPassThru pulseFoutPassThru `(v  1 e 1 0 ]
 {
-"172
+"194
 [v pulseFoutPassThru@runonce runonce `uc  1 s 1 runonce ]
-"197
+"219
 } 0
-"213
+"235
 [v _powerPulseCheck powerPulseCheck `(v  1 e 1 0 ]
 {
-"228
-[v powerPulseCheck@meterWattsHF meterWattsHF `i  1 a 2 30 ]
-"229
-[v powerPulseCheck@meterWattsLF meterWattsLF `i  1 a 2 27 ]
-"233
-[v powerPulseCheck@checkWattsHFvsLF checkWattsHFvsLF `uc  1 a 1 29 ]
-"231
+"247
+[v powerPulseCheck@meterEnergyUsedPart meterEnergyUsedPart `ul  1 s 4 meterEnergyUsedPart ]
+"248
+[v powerPulseCheck@timerCountHFLast timerCountHFLast `ul  1 s 4 timerCountHFLast ]
+"249
+[v powerPulseCheck@timerCountHFCheck timerCountHFCheck `ui  1 s 2 timerCountHFCheck ]
+"250
+[v powerPulseCheck@firstPulse firstPulse `uc  1 s 1 firstPulse ]
+"253
 [v powerPulseCheck@mcpHFoutLast mcpHFoutLast `uc  1 s 1 mcpHFoutLast ]
-"232
+"254
 [v powerPulseCheck@mcpLFoutLast mcpLFoutLast `uc  1 s 1 mcpLFoutLast ]
-"308
+"332
 } 0
-"393
+"417
 [v _initTimer initTimer `(v  1 e 1 0 ]
 {
-"408
+"432
 } 0
-"319
+"343
 [v _init init `(v  1 e 1 0 ]
 {
-"327
+"351
 } 0
-"329
+"353
 [v _initOSC initOSC `(v  1 e 1 0 ]
 {
-"344
+"368
 } 0
-"410
+"434
 [v _initMCPFout initMCPFout `(v  1 e 1 0 ]
 {
-"444
+"468
 } 0
-"310
+"334
 [v _delayMS10 delayMS10 `(v  1 e 1 0 ]
 {
-"312
+"336
 [v delayMS10@inx inx `i  1 a 2 17 ]
-"310
+"334
 [v delayMS10@count count `i  1 p 2 14 ]
-"317
+"341
 } 0
-"346
+"388
+[v _initInterruptsClear initInterruptsClear `(v  1 e 1 0 ]
+{
+"415
+} 0
+"370
 [v _initIO initIO `(v  1 e 1 0 ]
 {
-"362
+"386
 } 0
 "89 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _communications communications `(v  1 e 1 0 ]
 {
 [v communications@firstTime firstTime `uc  1 a 1 wreg ]
 "95
-[v communications@no_more_to_send no_more_to_send `uc  1 a 1 59 ]
+[v communications@no_more_to_send no_more_to_send `uc  1 a 1 55 ]
 "89
 [v communications@firstTime firstTime `uc  1 a 1 wreg ]
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 "91
-[v communications@receive_buffer receive_buffer `S1207  1 s 42 receive_buffer ]
+[v communications@receive_buffer receive_buffer `S1214  1 s 42 receive_buffer ]
 "92
-[v communications@send_buffer send_buffer `S1207  1 s 42 send_buffer ]
+[v communications@send_buffer send_buffer `S1214  1 s 42 send_buffer ]
 "94
 [v communications@end_of_transmission_received end_of_transmission_received `uc  1 s 1 end_of_transmission_received ]
 "97
@@ -872,7 +879,7 @@ receive_end_command 2
 "132
 [v communications@last_state_active last_state_active `uc  1 s 1 last_state_active ]
 "100
-[v communications@firstTime firstTime `uc  1 a 1 60 ]
+[v communications@firstTime firstTime `uc  1 a 1 56 ]
 "150
 } 0
 "485
@@ -880,9 +887,9 @@ receive_end_command 2
 {
 "487
 [v send_data@send_end send_end `uc  1 a 1 20 ]
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 "485
-[v send_data@send_buffer send_buffer `*.39S1207  1 p 2 16 ]
+[v send_data@send_buffer send_buffer `*.39S1214  1 p 2 16 ]
 "511
 } 0
 "583
@@ -900,72 +907,37 @@ receive_end_command 2
 "152
 [v _resetCommunications resetCommunications `(v  1 e 1 0 ]
 {
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-[v resetCommunications@send_buffer send_buffer `*.39S1207  1 p 2 54 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v resetCommunications@send_buffer send_buffer `*.39S1214  1 p 2 54 ]
 "155
 [v resetCommunications@commState commState `i  1 s 2 commState ]
 "197
 } 0
-"665
+"663
 [v _com_command_setVersion com_command_setVersion `(v  1 e 1 0 ]
 {
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-[v com_command_setVersion@send_buffer send_buffer `*.39S1207  1 p 2 34 ]
-"669
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v com_command_setVersion@send_buffer send_buffer `*.39S1214  1 p 2 34 ]
+"667
 } 0
 "618
 [v _com_command_setPower com_command_setPower `(v  1 e 1 0 ]
 {
 "621
-[v com_command_setPower@temp temp `[7]uc  1 a 7 36 ]
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v com_command_setPower@temp temp `[12]uc  1 a 12 42 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 "618
-[v com_command_setPower@send_buffer send_buffer `*.39S1207  1 p 2 34 ]
-"628
+[v com_command_setPower@send_buffer send_buffer `*.39S1214  1 p 2 40 ]
+"627
 } 0
-"17 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\itoa.c
-[v _utoa utoa `(*.39uc  1 e 2 0 ]
-{
-"19
-[v utoa@v v `ui  1 a 2 27 ]
-"20
-[v utoa@c c `uc  1 a 1 29 ]
-"17
-[v utoa@buf buf `*.39uc  1 p 2 21 ]
-[v utoa@val val `ui  1 p 2 23 ]
-[v utoa@base base `i  1 p 2 25 ]
-"37
-} 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-{
-"11
-[v ___lwmod@counter counter `uc  1 a 1 18 ]
-"8
-[v ___lwmod@dividend dividend `ui  1 p 2 14 ]
-[v ___lwmod@divisor divisor `ui  1 p 2 16 ]
-"26
-} 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-{
-"11
-[v ___lwdiv@quotient quotient `ui  1 a 2 19 ]
-"12
-[v ___lwdiv@counter counter `uc  1 a 1 18 ]
-"8
-[v ___lwdiv@dividend dividend `ui  1 p 2 14 ]
-[v ___lwdiv@divisor divisor `ui  1 p 2 16 ]
-"31
-} 0
-"199 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"199
 [v _receive_data receive_data `(E6747  1 e 1 0 ]
 {
 "201
 [v receive_data@data data `uc  1 a 1 20 ]
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 "199
-[v receive_data@receive_buffer receive_buffer `*.39S1207  1 p 2 17 ]
+[v receive_data@receive_buffer receive_buffer `*.39S1214  1 p 2 17 ]
 "203
 [v receive_data@my_status my_status `E6747  1 s 1 my_status ]
 "237
@@ -983,24 +955,24 @@ receive_end_command 2
 [v _process_data process_data `(uc  1 e 1 0 ]
 {
 "246
-[v process_data@parameters parameters `[5][10]uc  1 a 50 8 ]
+[v process_data@parameters parameters `[5][10]uc  1 a 50 4 ]
 "241
-[v process_data@end_of_transmission_received end_of_transmission_received `uc  1 a 1 58 ]
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v process_data@end_of_transmission_received end_of_transmission_received `uc  1 a 1 54 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 "239
-[v process_data@receive_buffer receive_buffer `*.39S1207  1 p 2 4 ]
-[v process_data@send_buffer send_buffer `*.39S1207  1 p 2 6 ]
+[v process_data@receive_buffer receive_buffer `*.39S1214  1 p 2 0 ]
+[v process_data@send_buffer send_buffer `*.39S1214  1 p 2 2 ]
 "254
 } 0
 "315
 [v _process_data_parameters process_data_parameters `(uc  1 e 1 0 ]
 {
 "317
-[v process_data_parameters@end_of_transmission_received end_of_transmission_received `uc  1 a 1 54 ]
+[v process_data_parameters@end_of_transmission_received end_of_transmission_received `uc  1 a 1 58 ]
 "315
-[v process_data_parameters@parameters parameters `*.39[10]uc  1 p 2 0 ]
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-[v process_data_parameters@send_buffer send_buffer `*.39S1207  1 p 2 2 ]
+[v process_data_parameters@parameters parameters `*.39[10]uc  1 p 2 54 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v process_data_parameters@send_buffer send_buffer `*.39S1214  1 p 2 56 ]
 "404
 } 0
 "513
@@ -1030,27 +1002,27 @@ receive_end_command 2
 "604
 [v _send_end_of_transmission send_end_of_transmission `(v  1 e 1 0 ]
 {
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-[v send_end_of_transmission@send_buffer send_buffer `*.39S1207  1 p 2 30 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v send_end_of_transmission@send_buffer send_buffer `*.39S1214  1 p 2 30 ]
 "609
 } 0
 "406
 [v _command_builder1 command_builder1 `(v  1 e 1 0 ]
 {
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-[v command_builder1@send_buffer send_buffer `*.39S1207  1 p 2 26 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v command_builder1@send_buffer send_buffer `*.39S1214  1 p 2 26 ]
 [v command_builder1@data1 data1 `*.25uc  1 p 2 28 ]
 "415
 } 0
-"631
+"629
 [v _com_command_setEnergyUsed com_command_setEnergyUsed `(v  1 e 1 0 ]
 {
-"633
-[v com_command_setEnergyUsed@temp temp `[12]uc  1 a 12 42 ]
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 "631
-[v com_command_setEnergyUsed@send_buffer send_buffer `*.39S1207  1 p 2 40 ]
-"642
+[v com_command_setEnergyUsed@temp temp `[12]uc  1 a 12 42 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+"629
+[v com_command_setEnergyUsed@send_buffer send_buffer `*.39S1214  1 p 2 40 ]
+"640
 } 0
 "32 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\ltoa.c
 [v _ultoa ultoa `(*.39uc  1 e 2 0 ]
@@ -1090,8 +1062,8 @@ receive_end_command 2
 "430 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _command_builder3 command_builder3 `(v  1 e 1 0 ]
 {
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-[v command_builder3@send_buffer send_buffer `*.39S1207  1 p 2 26 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v command_builder3@send_buffer send_buffer `*.39S1214  1 p 2 26 ]
 [v command_builder3@data1 data1 `*.25uc  1 p 2 28 ]
 [v command_builder3@data2 data2 `*.25uc  1 p 2 30 ]
 [v command_builder3@data3 data3 `*.35uc  1 p 2 32 ]
@@ -1102,17 +1074,17 @@ receive_end_command 2
 {
 "477
 [v command_builder_add_string@inx inx `i  1 a 2 24 ]
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
 "475
-[v command_builder_add_string@send_buffer send_buffer `*.39S1207  1 p 2 18 ]
+[v command_builder_add_string@send_buffer send_buffer `*.39S1214  1 p 2 18 ]
 [v command_builder_add_string@data_string data_string `*.35uc  1 p 2 20 ]
 "483
 } 0
 "462
 [v _command_builder_add_char command_builder_add_char `(v  1 e 1 0 ]
 {
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-[v command_builder_add_char@send_buffer send_buffer `*.39S1207  1 p 2 14 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v command_builder_add_char@send_buffer send_buffer `*.39S1214  1 p 2 14 ]
 [v command_builder_add_char@data data `uc  1 p 1 16 ]
 "473
 } 0
@@ -1158,8 +1130,8 @@ receive_end_command 2
 [v process_data_parameterize@parameter_index parameter_index `uc  1 a 1 29 ]
 "256
 [v process_data_parameterize@parameters parameters `*.39[10]uc  1 p 2 20 ]
-[s S1207 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
-[v process_data_parameterize@buffer_to_parameterize buffer_to_parameterize `*.39S1207  1 p 2 22 ]
+[s S1214 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
+[v process_data_parameterize@buffer_to_parameterize buffer_to_parameterize `*.39S1214  1 p 2 22 ]
 "313
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\Umul16.c
@@ -1172,13 +1144,13 @@ receive_end_command 2
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 16 ]
 "53
 } 0
-"671 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"669 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _SPISlaveInit SPISlaveInit `(v  1 e 1 0 ]
 {
-"719
+"717
 } 0
-"199 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
+"221 D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
 [v _Timer0_ISR Timer0_ISR `II(v  1 e 1 0 ]
 {
-"211
+"233
 } 0

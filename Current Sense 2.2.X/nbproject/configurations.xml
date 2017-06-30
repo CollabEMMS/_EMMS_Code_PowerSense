@@ -17,6 +17,7 @@
                    projectFiles="true">
       <itemPath>Current_Sense_Main.c</itemPath>
       <itemPath>SlaveComm_PIC18.c</itemPath>
+      <itemPath>-CL_PowerSense.txt</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

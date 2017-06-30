@@ -8279,7 +8279,7 @@ extern __nonreentrant void _delay3(unsigned char);
 # 21 "Communications.h"
 void communications(bool);
 
-# 48 "Current_Sense_Main.c"
+# 49 "Current_Sense_Main.c"
 void init(void);
 void initOSC(void);
 void initIO(void);
@@ -8294,13 +8294,13 @@ void powerPulseCheck(void);
 
 void delayMS10(int count);
 
-unsigned int meterWatts = 0;
+unsigned long meterWatts = 0;
 unsigned long meterEnergyUsed = 0;
 
 volatile unsigned long timerCountHF = 0;
 volatile unsigned long timerCountLF = 0;
 
-# 79
+# 80
 void main(void)
 {
 init();
@@ -8315,17 +8315,39 @@ delayMS10(10);
 
 initTimer();
 
-# 119
+# 120
 communications(1);
 
-# 128
+# 127
+bool initDone = 0;
+
 while (1)
 {
 communications(0);
 pulseFoutPassThru();
 powerPulseCheck();
 
-# 165
+
+if (initDone == 0)
+{
+if (timerCountLF > 1000)
+{
+initMCPFout();
+initDone = 1;
+
+for (int inx = 0; inx < 10; inx++)
+{
+LATBbits.LATB4 = 1;
+delayMS10(3);
+LATBbits.LATB4 = 0;
+delayMS10(5);
+}
+
+
+}
+}
+
+# 187
 }
 return;
 }
@@ -8335,7 +8357,7 @@ void pulseFoutPassThru(void)
 
 static bool runonce = 0;
 
-if (PORTAbits.RA1 == 0)
+if (PORTCbits.RC2 == 0)
 {
 LATAbits.LATA0 = 1;
 if (runonce == 0)
@@ -8377,32 +8399,62 @@ return;
 void powerPulseCheck(void)
 {
 
-# 228
-int meterWattsHF = 0;
-int meterWattsLF = 0;
+# 247
+static unsigned long meterEnergyUsedPart = 0;
+static unsigned long timerCountHFLast = 2147483647;
+static unsigned int timerCountHFCheck = 1;
+static bool firstPulse = 1;
+
 
 static bool mcpHFoutLast = 0;
 static bool mcpLFoutLast = 0;
-bool checkWattsHFvsLF = 0;
+
+
 
 if (PORTCbits.RC2 == 0)
 {
 if (mcpHFoutLast == 0)
 {
 mcpHFoutLast = 1;
+firstPulse = 0;
 
-
-
-
-meterWattsHF = 1 / timerCountHF;
-checkWattsHFvsLF = 1;
+timerCountHFLast = timerCountHF;
 timerCountHF = 0;
+meterWatts = (((((unsigned long) 27000 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
+
+
+
+timerCountHFCheck = 1;
 }
 }
 else
 {
 mcpHFoutLast = 0;
 }
+
+# 285
+if ((firstPulse == 0) && (timerCountHF > timerCountHFLast))
+{
+if (timerCountHF > ((unsigned long) 1000 * (unsigned long) timerCountHFCheck))
+{
+if (timerCountHFCheck < 90)
+{
+timerCountHFCheck++;
+meterWatts = (((((unsigned long) 27000 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHF;
+}
+else
+{
+meterWatts = 0;
+}
+
+}
+}
+
+if (firstPulse == 1)
+{
+meterWatts = 0;
+}
+
 
 
 if (PORTAbits.RA1 == 0)
@@ -8411,40 +8463,21 @@ if (mcpLFoutLast == 0)
 {
 mcpLFoutLast = 1;
 
+meterEnergyUsedPart += 27000 * (unsigned long) 16;
+while (meterEnergyUsedPart > 100000)
+{
+meterEnergyUsed++;
+meterEnergyUsedPart -= 100000;
+}
 
-
-
-meterWattsLF = 5 / timerCountLF;
-
-meterEnergyUsed += 5;
-
-
-checkWattsHFvsLF = 1;
 timerCountLF = 0;
 }
-}
-
-# 279
-if (checkWattsHFvsLF == 1)
-{
-if (meterWattsHF <= -1)
-{
-meterWatts = meterWattsHF;
 }
 else
 {
-meterWatts = meterWattsLF;
-}
-}
-
-# 299
-if (timerCountLF > 10000)
-{
-meterEnergyUsed++;
-timerCountLF = 0;
+mcpLFoutLast = 0;
 }
 
-meterWatts = 64;
 return;
 
 }
@@ -8462,7 +8495,7 @@ void init()
 {
 initOSC();
 initIO();
-
+initInterruptsClear();
 initMCPFout();
 
 return;
