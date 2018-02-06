@@ -68,6 +68,7 @@ volatile unsigned long timerCountLF = 0;
 
 unsigned long timerCount = 0;
 unsigned long pulseCount = 0;
+bool useLF = true;
 
 
 #define LOW_BYTE(x)     ((unsigned char)((x)&0xFF))
@@ -131,8 +132,20 @@ void main(void)
 
     while (1)
     {
+        timerCount++;
         communications(false);
         pulseFoutPassThru();
+        // determine which line should be used
+        if (timerCount > 40000) {   // these values need to be tweaked for
+            if (pulseCount < 5) {   // calibration, consider adding additional
+                useLF = false;      // timer checks to create a more robust 
+            }                       // piecewise function
+            else {
+                useLF = true;
+            }
+            pulseCount = 0;
+            timerCount = 0;
+        }
         powerPulseCheck();
 
         // reset MCP after 1 second
@@ -195,31 +208,55 @@ void pulseFoutPassThru(void)
 {
     // mimic the pulse from the MCP Fout pins
     static bool runonce = false;
-
-    if (MCP_HFOUT_READ == 0)
-    {
-        // pulse counter
-        // pulseCount++;
-        MCP_LFOUT_PASS_SET = 1;
-        if (runonce == false)
+    if (useLF) {
+        if (MCP_LFOUT_READ == 0)
         {
-            runonce = true;
-            if (LED_READ == 1)
+            MCP_LFOUT_PASS_SET = 1;
+            if (runonce == false)
             {
-                LED_SET = 0;
-            }
-            else
-            {
-                LED_SET = 1;
+                pulseCount++;
+                runonce = true;
+                if (LED_READ == 1)
+                {
+                    LED_SET = 0;
+                }
+                else
+                {
+                    LED_SET = 1;
+                }
             }
         }
+        else
+        {
+            MCP_LFOUT_PASS_SET = 0;
+            runonce = false;
+        }
     }
-    else
-    {
-        MCP_LFOUT_PASS_SET = 0;
-        runonce = false;
+    else if (!useLF) {
+        if (MCP_HFOUT_READ == 0)
+        {
+            MCP_LFOUT_PASS_SET = 1;
+            if (runonce == false)
+            {
+                pulseCount++;
+                runonce = true;
+                if (LED_READ == 1)
+                {
+                    LED_SET = 0;
+                }
+                else
+                {
+                    LED_SET = 1;
+                }
+            }
+        }
+        else
+        {
+            MCP_LFOUT_PASS_SET = 0;
+            runonce = false;
+        }
     }
-
+    
     return;
 }
 
@@ -258,7 +295,7 @@ void powerPulseCheck(void)
     static bool mcpHFoutLast = false; // this is so we run a calc only once each time the pulse comes
     static bool mcpLFoutLast = false; // this is so we run a calc only once each time the pulse comes
 
-    
+    // line switching here
     // HF output is for calculating watts
     if (MCP_HFOUT_READ == 0)
     {
@@ -447,7 +484,7 @@ void initMCPFout(void)
     MCP_FREQ_F2_DIR = 0;
 
 
-    MCP_FREQ_F0_SET = 0;
+  /*  MCP_FREQ_F0_SET = 0;
     MCP_FREQ_F1_SET = 0;
     MCP_FREQ_F2_SET = 0;
 
@@ -459,7 +496,7 @@ void initMCPFout(void)
     MCP_FREQ_F1_SET = 0;
     MCP_FREQ_F2_SET = 0;
 
-    __delay_ms(5);
+    __delay_ms(5);*/
 
     MCP_FREQ_F0_SET = 1;
     MCP_FREQ_F1_SET = 1;
