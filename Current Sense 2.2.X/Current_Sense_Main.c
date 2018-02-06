@@ -66,6 +66,9 @@ unsigned long meterEnergyUsed = 0;
 volatile unsigned long timerCountHF = 0;
 volatile unsigned long timerCountLF = 0;
 
+unsigned long timerCount = 0;
+unsigned long pulseCount = 0;
+
 
 #define LOW_BYTE(x)     ((unsigned char)((x)&0xFF))
 #define HIGH_BYTE(x)    ((unsigned char)(((x)>>8)&0xFF))
@@ -195,6 +198,8 @@ void pulseFoutPassThru(void)
 
     if (MCP_HFOUT_READ == 0)
     {
+        // pulse counter
+        // pulseCount++;
         MCP_LFOUT_PASS_SET = 1;
         if (runonce == false)
         {
