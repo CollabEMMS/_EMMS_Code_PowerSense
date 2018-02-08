@@ -15,3 +15,7 @@ open issues
 
 6/2/2017
     added code to account or when no power is bring used (no pulses)
+
+2/7/2018
+    changed code to implement HF/LF line switching when calculating watts 
+	and flashing the LED.
