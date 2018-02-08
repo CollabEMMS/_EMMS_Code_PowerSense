@@ -81,12 +81,10 @@ bool useLF = true;
 #define TIMER_PRESET_LOW LOW_BYTE( TIMER_PRESET )
 #define TIMER_PRESET_HIGH HIGH_BYTE( TIMER_PRESET)
 
-void main(void)
-{
+void main(void) {
     init();
 
-    for (int inx = 0; inx < 10; inx++)
-    {
+    for (int inx = 0; inx < 10; inx++) {
         LED_SET = 1;
         delayMS10(10);
         LED_SET = 0;
@@ -130,16 +128,15 @@ void main(void)
 
     bool initDone = false;
 
-    while (1)
-    {
+    while (1) {
         timerCount++;
         communications(false);
         pulseFoutPassThru();
         // determine which line should be used
-        if (timerCount > 40000) {   // these values need to be tweaked for
-            if (pulseCount < 5) {   // calibration, consider adding additional
-                useLF = false;      // timer checks to create a more robust 
-            }                       // piecewise function
+        if (timerCount > 40000) { // these values need to be tweaked for
+            if (pulseCount < 5) { // calibration, consider adding additional
+                useLF = false; // timer checks to create a more robust 
+            }// piecewise function
             else {
                 useLF = true;
             }
@@ -149,15 +146,12 @@ void main(void)
         powerPulseCheck();
 
         // reset MCP after 1 second
-        if (initDone == false)
-        {
-            if (timerCountLF > 1000)
-            {
+        if (initDone == false) {
+            if (timerCountLF > 1000) {
                 initMCPFout();
                 initDone = true;
 
-                for (int inx = 0; inx < 10; inx++)
-                {
+                for (int inx = 0; inx < 10; inx++) {
                     LED_SET = 1;
                     delayMS10(3);
                     LED_SET = 0;
@@ -204,64 +198,47 @@ void main(void)
     return;
 }
 
-void pulseFoutPassThru(void)
-{
+void pulseFoutPassThru(void) {
     // mimic the pulse from the MCP Fout pins
     static bool runonce = false;
     if (useLF) {
-        if (MCP_LFOUT_READ == 0)
-        {
+        if (MCP_LFOUT_READ == 0) {
             MCP_LFOUT_PASS_SET = 1;
-            if (runonce == false)
-            {
+            if (runonce == false) {
                 pulseCount++;
                 runonce = true;
-                if (LED_READ == 1)
-                {
+                if (LED_READ == 1) {
                     LED_SET = 0;
-                }
-                else
-                {
+                } else {
                     LED_SET = 1;
                 }
             }
+        } else {
+            MCP_LFOUT_PASS_SET = 0;
+            runonce = false;
         }
-        else
-        {
+    } else if (!useLF) {
+        if (MCP_HFOUT_READ == 0) {
+            MCP_LFOUT_PASS_SET = 1;
+            if (runonce == false) {
+                pulseCount++;
+                runonce = true;
+                if (LED_READ == 1) {
+                    LED_SET = 0;
+                } else {
+                    LED_SET = 1;
+                }
+            }
+        } else {
             MCP_LFOUT_PASS_SET = 0;
             runonce = false;
         }
     }
-    else if (!useLF) {
-        if (MCP_HFOUT_READ == 0)
-        {
-            MCP_LFOUT_PASS_SET = 1;
-            if (runonce == false)
-            {
-                pulseCount++;
-                runonce = true;
-                if (LED_READ == 1)
-                {
-                    LED_SET = 0;
-                }
-                else
-                {
-                    LED_SET = 1;
-                }
-            }
-        }
-        else
-        {
-            MCP_LFOUT_PASS_SET = 0;
-            runonce = false;
-        }
-    }
-    
+
     return;
 }
 
-void interrupt Timer0_ISR(void)
-{
+void interrupt Timer0_ISR(void) {
 
     INTCONbits.TMR0IF = 0;
 
@@ -274,8 +251,7 @@ void interrupt Timer0_ISR(void)
     return;
 }
 
-void powerPulseCheck(void)
-{
+void powerPulseCheck(void) {
 
     // here we check if a pulse has some in from both the HF and the LF pulses
     // the timerCounters are in milli-seconds
@@ -287,7 +263,9 @@ void powerPulseCheck(void)
 #define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh    
 
     static unsigned long meterEnergyUsedPart = 0;
+    static unsigned long timerCountLFLast = 2147483647;
     static unsigned long timerCountHFLast = 2147483647;
+    static unsigned int timerCountLFCheck = 1;
     static unsigned int timerCountHFCheck = 1;
     static bool firstPulse = true;
 
@@ -295,77 +273,81 @@ void powerPulseCheck(void)
     static bool mcpHFoutLast = false; // this is so we run a calc only once each time the pulse comes
     static bool mcpLFoutLast = false; // this is so we run a calc only once each time the pulse comes
 
-    // line switching here
-    // HF output is for calculating watts
-    if (MCP_HFOUT_READ == 0)
-    {
-        if (mcpHFoutLast == false)
-        {
-            mcpHFoutLast = true;
-            firstPulse = false;
+    // Both LF and HF outputs are for calculating watts
+    if (useLF) {
+        if (MCP_LFOUT_READ == 0) {
+            if (mcpLFoutLast == false) {
+                mcpLFoutLast = true;
+                firstPulse = false;
 
-            timerCountHFLast = timerCountHF;
-            timerCountHF = 0;
-            meterWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
-//            meterWatts = timerCountHFLast;
-            
+                timerCountLFLast = timerCountLF;
+                timerCountLF = 0;
+                meterWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountLFLast;
+                //            meterWatts = timerCountHFLast;
 
-            timerCountHFCheck = 1; //reset the periodic power reduction
+
+                timerCountLFCheck = 1; //reset the periodic power reduction
+            }
+        } else {
+            mcpHFoutLast = false;
+        }
+    } else if (!useLF) {
+        if (MCP_HFOUT_READ == 0) {
+            if (mcpHFoutLast == false) {
+                mcpHFoutLast = true;
+                firstPulse = false;
+
+                timerCountHFLast = timerCountHF;
+                timerCountHF = 0;
+                meterWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
+                //            meterWatts = timerCountHFLast;
+
+
+                timerCountHFCheck = 1; //reset the periodic power reduction
+            }
+        } else {
+            mcpHFoutLast = false;
         }
     }
-    else
-    {
-        mcpHFoutLast = false;
-    }
 
-    
+
+
     // if there is no power then no pulses
     // if our pulse time is greater than the last measurement we know we are at a lower power.
     // go ahead and calculate 
 #define POWER_REDUCTION_INTERVAL 1000  //ms (1000 = 1 second ))
 
-    if ((firstPulse == false) && (timerCountHF > timerCountHFLast))
-    {
-        if (timerCountHF > ((unsigned long) POWER_REDUCTION_INTERVAL * (unsigned long) timerCountHFCheck))
-        {
-            if (timerCountHFCheck < 90)
-            {
+    if ((firstPulse == false) && (timerCountHF > timerCountHFLast)) {
+        if (timerCountHF > ((unsigned long) POWER_REDUCTION_INTERVAL * (unsigned long) timerCountHFCheck)) {
+            if (timerCountHFCheck < 90) {
                 timerCountHFCheck++;
                 meterWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHF;
-            }
-            else
-            {
+            } else {
                 meterWatts = 0;
             }
             //          checkWattsHFvsLF = true;
         }
     }
 
-    if (firstPulse == true)
-    {
+    if (firstPulse == true) {
         meterWatts = 0;
     }
 
-    
+
     // LF out is for calculating Watt-Hour (not watts)
-    if (MCP_LFOUT_READ == 0)
-    {
-        if (mcpLFoutLast == false)
-        {
+    if (MCP_LFOUT_READ == 0) {
+        if (mcpLFoutLast == false) {
             mcpLFoutLast = true;
 
             meterEnergyUsedPart += ENERGY_PER_PULSE * (unsigned long) 16;
-            while (meterEnergyUsedPart > ENERGY_PER_PULSE_UNIT)
-            {
+            while (meterEnergyUsedPart > ENERGY_PER_PULSE_UNIT) {
                 meterEnergyUsed++;
                 meterEnergyUsedPart -= ENERGY_PER_PULSE_UNIT;
             }
 
             timerCountLF = 0;
         }
-    }
-    else
-    {
+    } else {
         mcpLFoutLast = false;
     }
 
@@ -373,17 +355,14 @@ void powerPulseCheck(void)
 
 }
 
-void delayMS10(int count)
-{
-    for (int inx = 0; inx < count; inx++)
-    {
+void delayMS10(int count) {
+    for (int inx = 0; inx < count; inx++) {
 
         __delay_ms(10);
     }
 }
 
-void init()
-{
+void init() {
     initOSC();
     initIO();
     initInterruptsClear();
@@ -392,8 +371,7 @@ void init()
     return;
 }
 
-void initOSC(void)
-{
+void initOSC(void) {
     // 16 Mhz internal
     OSCCONbits.IDLEN = 0;
     OSCCONbits.IRCF = 0b111;
@@ -409,8 +387,7 @@ void initOSC(void)
     return;
 }
 
-void initIO(void)
-{
+void initIO(void) {
     ADCON0bits.ADON = 0;
     ANSELA = 0b00000000;
     ANSELB = 0b00000000;
@@ -427,8 +404,7 @@ void initIO(void)
     return;
 }
 
-void initInterruptsClear(void)
-{
+void initInterruptsClear(void) {
 
     INTCON = 0b00000000;
     INTCON2 = 0b00000000;
@@ -456,8 +432,7 @@ void initInterruptsClear(void)
 
 }
 
-void initTimer(void)
-{
+void initTimer(void) {
 
     T0CONbits.TMR0ON = 0; // turn off while configuring
     T0CONbits.T08BIT = 0; // 16 bit
@@ -473,8 +448,7 @@ void initTimer(void)
 
 }
 
-void initMCPFout(void)
-{
+void initMCPFout(void) {
     // reset the MCP
     // wait until SPI timeout is reached before continuing
 
@@ -484,19 +458,19 @@ void initMCPFout(void)
     MCP_FREQ_F2_DIR = 0;
 
 
-  /*  MCP_FREQ_F0_SET = 0;
-    MCP_FREQ_F1_SET = 0;
-    MCP_FREQ_F2_SET = 0;
+    /*  MCP_FREQ_F0_SET = 0;
+      MCP_FREQ_F1_SET = 0;
+      MCP_FREQ_F2_SET = 0;
 
-    __delay_ms(5);
-    MCP_MCLR_SET = 0;
-    __delay_ms(5);
+      __delay_ms(5);
+      MCP_MCLR_SET = 0;
+      __delay_ms(5);
 
-    MCP_FREQ_F0_SET = 0;
-    MCP_FREQ_F1_SET = 0;
-    MCP_FREQ_F2_SET = 0;
+      MCP_FREQ_F0_SET = 0;
+      MCP_FREQ_F1_SET = 0;
+      MCP_FREQ_F2_SET = 0;
 
-    __delay_ms(5);*/
+      __delay_ms(5);*/
 
     MCP_FREQ_F0_SET = 1;
     MCP_FREQ_F1_SET = 1;
