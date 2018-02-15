@@ -61,6 +61,8 @@ void powerPulseCheck(void);
 void delayMS10(int count);
 
 unsigned long meterWatts = 0;
+unsigned long meterWattsHF = 0;
+unsigned long meterWattsLF = 0;
 unsigned long meterEnergyUsed = 0;
 
 volatile unsigned long timerCountHF = 0;
@@ -260,7 +262,7 @@ void powerPulseCheck(void) {
 
 
 #define ENERGY_PER_PULSE 27000 //(221.24 mWh per pulse)
-#define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh    
+#define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh. should be in uWh, needs to confirm  
 
     static unsigned long meterEnergyUsedPart = 0;
     static unsigned long timerCountLFLast = 2147483647;
@@ -274,15 +276,15 @@ void powerPulseCheck(void) {
     static bool mcpLFoutLast = false; // this is so we run a calc only once each time the pulse comes
 
     // Both LF and HF outputs are for calculating watts
-    if (useLF) {
-        if (MCP_LFOUT_READ == 0) {
+    //if (useLF) {
+        if (MCP_LFOUT_READ == 0) {      // If there is low frequency pulse
             if (mcpLFoutLast == false) {
                 mcpLFoutLast = true;
                 firstPulse = false;
 
-                timerCountLFLast = timerCountLF;
+                timerCountLFLast = timerCountLF;   // should be in seconds, needs to confirm
                 timerCountLF = 0;
-                meterWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountLFLast;
+                meterWattsLF = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountLFLast;
                 //            meterWatts = timerCountHFLast;
 
 
@@ -291,15 +293,15 @@ void powerPulseCheck(void) {
         } else {
             mcpHFoutLast = false;
         }
-    } else if (!useLF) {
-        if (MCP_HFOUT_READ == 0) {
+    //} else if (!useLF) {
+        if (MCP_HFOUT_READ == 0) {      // If there is high frequency pulse
             if (mcpHFoutLast == false) {
                 mcpHFoutLast = true;
                 firstPulse = false;
 
                 timerCountHFLast = timerCountHF;
                 timerCountHF = 0;
-                meterWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
+                meterWattsHF = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
                 //            meterWatts = timerCountHFLast;
 
 
