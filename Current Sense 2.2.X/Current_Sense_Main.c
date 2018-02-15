@@ -208,7 +208,6 @@ void pulseFoutPassThru(void) {
         if (MCP_LFOUT_READ == 0) {
             MCP_LFOUT_PASS_SET = 1;
             if (runonce == false) {
-                pulseCount++;
                 runonce = true;
                 if (LED_READ == 1) {
                     LED_SET = 0;
@@ -224,7 +223,6 @@ void pulseFoutPassThru(void) {
         if (MCP_HFOUT_READ == 0) {
             MCP_LFOUT_PASS_SET = 1;
             if (runonce == false) {
-                pulseCount++;
                 runonce = true;
                 if (LED_READ == 1) {
                     LED_SET = 0;
@@ -236,8 +234,6 @@ void pulseFoutPassThru(void) {
             MCP_LFOUT_PASS_SET = 0;
             runonce = false;
         }
-    }
-
     return;
 }
 
@@ -262,9 +258,10 @@ void powerPulseCheck(void) {
 
 
 
-#define ENERGY_PER_PULSE 27000 //(221.24 mWh per pulse)
 #define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh. should be in uWh, needs to confirm  
-
+#define PIECEWISE_FUNC[] = [27000];
+    
+    static unsigned long energyPerPulse = (unsigned long) PIECEWISE_FUNC[0];
     static unsigned long meterEnergyUsedPart = 0;
     static unsigned long timerCountLFLast = 2147483647;
     static unsigned long timerCountHFLast = 2147483647;
@@ -285,11 +282,10 @@ void powerPulseCheck(void) {
 
                 timerCountLFLast = timerCountLF;   // should be in seconds, needs to confirm
                 timerCountLF = 0;
-                meterWattsLF = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountLFLast;
-                //            meterWatts = timerCountHFLast;
+                meterWattsLF = ((((energyPerPulse * (unsigned long) 16 * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountLFLast;
                 
                 // Energy calculation from low frequency 
-                meterEnergyUsedPart += ENERGY_PER_PULSE * (unsigned long) 16;
+                meterEnergyUsedPart += energyPerPulse * (unsigned long) 16;
                 while (meterEnergyUsedPart > ENERGY_PER_PULSE_UNIT) {
                 meterEnergyUsed++;
                 meterEnergyUsedPart -= ENERGY_PER_PULSE_UNIT;
@@ -309,8 +305,7 @@ void powerPulseCheck(void) {
 
                 timerCountHFLast = timerCountHF;
                 timerCountHF = 0;
-                meterWattsHF = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
-                //            meterWatts = timerCountHFLast;
+                meterWattsHF = ((((energyPerPulse * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
 
 
                 timerCountHFCheck = 1; //reset the periodic power reduction
@@ -318,7 +313,7 @@ void powerPulseCheck(void) {
         } else {
             mcpHFoutLast = false;
         }
-    }
+    
 
 
 
@@ -331,7 +326,7 @@ void powerPulseCheck(void) {
         if (timerCountHF > ((unsigned long) POWER_REDUCTION_INTERVAL * (unsigned long) timerCountHFCheck)) {
             if (timerCountHFCheck < 90) {
                 timerCountHFCheck++;
-                meterWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHF;
+                meterWatts = ((((energyPerPulse * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHF;
             } else {
                 meterWatts = 0;
             }
@@ -339,28 +334,26 @@ void powerPulseCheck(void) {
         }
     }
 
+    // If there have been no pulses, current load = 0
     if (firstPulse == true) {
         meterWatts = 0;
     }
 
-
-    // LF out is for calculating Watt-Hour (not watts)
-    if (MCP_LFOUT_READ == 0) {
-        if (mcpLFoutLast == false) {
-            mcpLFoutLast = true;
-
-            meterEnergyUsedPart += ENERGY_PER_PULSE * (unsigned long) 16;
-            while (meterEnergyUsedPart > ENERGY_PER_PULSE_UNIT) {
-                meterEnergyUsed++;
-                meterEnergyUsedPart -= ENERGY_PER_PULSE_UNIT;
-            }
-
-            timerCountLF = 0;
+    // Switch between using low and high frequency lines depending on how long it took between pulses
+    // on the low frequency line. Also determine how much energy is represented in each pulse
+    // using a piecewise function, determine through calibration testing.
+    if (!firstPulse) {
+        if (timerCountLFLast < 4000) {  // 4000 ms = 4 s
+            // Fast enough for LF
+            energyPerPulse = (unsigned long) PIECEWISE_FUNC[0] * (unsigned long) 16;
+            meterWatts = meterWattsLF;
         }
-    } else {
-        mcpLFoutLast = false;
-    }
-
+        else {
+            // Too slow, use HF
+            energyPerPulse = (unsigned long) PIECEWISE_FUNC[0];
+            meterWatts = meterWattsHF;
+        }
+    }    
     return;
 
 }
