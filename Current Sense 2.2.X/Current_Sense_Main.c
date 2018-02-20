@@ -259,7 +259,7 @@ void powerPulseCheck(void) {
 
 
 #define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh. should be in uWh, needs to confirm  
-#define PIECEWISE_FUNC[] = [27000];
+#define PIECEWISE_FUNC[] = [27000, 467, 220];
     
     static unsigned long energyPerPulse = (unsigned long) PIECEWISE_FUNC[0];
     static unsigned long meterEnergyUsedPart = 0;
@@ -344,16 +344,24 @@ void powerPulseCheck(void) {
     // using a piecewise function, determine through calibration testing.
     if (!firstPulse) {
         if (timerCountLFLast < 4000) {  // 4000 ms = 4 s
-            // Fast enough for LF
+            // Fast enough for LF, high load
             energyPerPulse = (unsigned long) PIECEWISE_FUNC[0] * (unsigned long) 16;
             meterWatts = meterWattsLF;
         }
-        else {
-            // Too slow, use HF
-            energyPerPulse = (unsigned long) PIECEWISE_FUNC[0];
+        else if (timerCountLFLast < 33000) { //  4000 < timerCountLFLast < 33000   50W < Load < 100W
+            // Too slow, use HF, low load
+            energyPerPulse = (unsigned .long) PIECEWISE_FUNC[0];
             meterWatts = meterWattsHF;
+        } else if (timerCountLFLast < 40000){ // 30s < timerCountLFLast < 40s: 20w < Load < 50W  
+            meterWatts = meterWattsHF;
+            energyPerPulse = (unsigned .long) PIECEWISE_FUNC[1];    
+        } else { // timerCountLFLast > 40s: Load  <= 20W
+            meterWatts = meterWattsHF;
+            energyPerPulse = (unsigned .long) PIECEWISE_FUNC[2];  
         }
-    }    
+
+        }
+        
     return;
 
 }
