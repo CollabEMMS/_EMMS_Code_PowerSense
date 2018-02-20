@@ -242,8 +242,10 @@ void powerPulseCheck(void) {
     // if the timer prescaler or countdown is changed this will change the meaning of the timerCounters
 
 #define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh. should be in uWh, needs to confirm  
-#define PIECEWISE_FUNC[] = [27000]; // constants of the piecewise function describing calibration, should be calibrated for HF
+
+#define PIECEWISE_FUNC[] = [27000, 467, 220]; // constants of the piecewise function describing calibration, should be calibrated for HF
                                     // right now, could be changed to LF by changing eqs to account for factor of 16
+    
 
     static unsigned long energyPerPulse = (unsigned long) PIECEWISE_FUNC[0];
     static unsigned long meterEnergyUsedPart = 0;
@@ -327,6 +329,11 @@ void powerPulseCheck(void) {
         } else {
             // Too slow, use HF
             energyPerPulse = (unsigned long) PIECEWISE_FUNC[0];
+            if (timerCountLFLast < 33000) {
+               energyPerPulse = (unsigned long) PIECEWISE_FUNC[1]; 
+            } else if (timerCountLFLast < 40000) {
+                energyPerPulse = (unsigned long) PIECEWISE_FUNC[2]; 
+            }
             meterWatts = meterWattsHF;
             useLF = false;
         }
