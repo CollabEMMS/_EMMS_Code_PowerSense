@@ -243,11 +243,9 @@ void powerPulseCheck(void) {
 
 #define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh. should be in uWh, needs to confirm  
 
-#define PIECEWISE_FUNC[] = [27000, 467, 220]; // constants of the piecewise function describing calibration, should be calibrated for HF
+    static unsigned long PIECEWISE_FUNC[3] = {27000, 467, 220}; // constants of the piecewise function describing calibration, should be calibrated for HF
                                     // right now, could be changed to LF by changing eqs to account for factor of 16
-    
-
-    static unsigned long energyPerPulse = (unsigned long) PIECEWISE_FUNC[0];
+    static unsigned long energyPerPulse = 27000;
     static unsigned long meterEnergyUsedPart = 0;
     static unsigned long timerCountLFLast = 2147483647; // this is the max unsigned long
     static unsigned long timerCountHFLast = 2147483647;
@@ -323,16 +321,16 @@ void powerPulseCheck(void) {
     if (!firstPulse) {
         if (timerCountLFLast < 4000) { // 4000 ms = 4 s
             // Fast enough for LF
-            energyPerPulse = (unsigned long) PIECEWISE_FUNC[0];
+            energyPerPulse =  PIECEWISE_FUNC[0];
             meterWatts = meterWattsLF;
             useLF = true;
         } else {
             // Too slow, use HF
-            energyPerPulse = (unsigned long) PIECEWISE_FUNC[0];
+            energyPerPulse =  PIECEWISE_FUNC[0];
             if (timerCountLFLast < 33000) {
-               energyPerPulse = (unsigned long) PIECEWISE_FUNC[1]; 
+               energyPerPulse =  PIECEWISE_FUNC[1]; 
             } else if (timerCountLFLast < 40000) {
-                energyPerPulse = (unsigned long) PIECEWISE_FUNC[2]; 
+                energyPerPulse =  PIECEWISE_FUNC[2]; 
             }
             meterWatts = meterWattsHF;
             useLF = false;
