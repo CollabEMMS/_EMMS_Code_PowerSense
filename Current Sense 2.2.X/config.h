@@ -45,15 +45,18 @@
 
 // MCP SPI MSDO
 // set pin 16 as an output for SPI
-#define MCP_SPI_MSDO_DIR TRISCbits.TRISC5
+#define MCP_SPI_SDO_DIR TRISCbits.TRISC5
+#define MCP_SPI_SDO_SET LATCbits.LATC5
 
 // MCP SPI MSDI
 // set pin 15 as an input for SPI    
-#define MCP_SPI_MSDI_DIR TRISCbits.TRISC4
+#define MCP_SPI_SDI_DIR TRISCbits.TRISC4
+#define MCP_SPI_SDI_READ PORTCbits.RC4
 
 // MCP SPI MSLK
 // set pin 14 as the SPI clock SCK    
-#define MCP_SPI_MSCK_DIR TRISCbits.TRISC3
+#define MCP_SPI_CLK_DIR TRISCbits.TRISC3
+#define MCP_SPI_CLK_SET LATCbits.LATC3
 
 // MCP SPI CS
 // set pin 18 as the SPI CS for MCP

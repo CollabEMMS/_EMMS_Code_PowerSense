@@ -50,10 +50,11 @@ void init(void);
 void initOSC(void);
 void initIO(void);
 void initInterruptsClear(void);
-void initMCPFout(void);
+void initMCP(void);
 void initTimer(void);
 void pulseFoutPassThru(void);
 void powerPulseCheck(void);
+short getSerialData(void);
 
 //void mcpSPIInit( void );
 //void mcpSPIStart( void );
@@ -137,7 +138,7 @@ void main(void)
         {
             if (timerCountLF > 1000)
             {
-                initMCPFout();
+                initMCP();
                 initDone = true;
 
                 for (int inx = 0; inx < 10; inx++)
@@ -254,54 +255,18 @@ void powerPulseCheck(void)
     static bool mcpLFoutLast = false; // this is so we run a calc only once each time the pulse comes
 
     
-    // HF output is for calculating watts
-    if (MCP_HFOUT_READ == 0)
-    {
-        if (mcpHFoutLast == false)
-        {
-            mcpHFoutLast = true;
-            firstPulse = false;
-
-            timerCountHFLast = timerCountHF;
-            timerCountHF = 0;
-            meterWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
-//            meterWatts = timerCountHFLast;
-            
-
-            timerCountHFCheck = 1; //reset the periodic power reduction
-        }
-    }
-    else
-    {
-        mcpHFoutLast = false;
-    }
-
+    // Checking SDO data line
     
-    // if there is no power then no pulses
-    // if our pulse time is greater than the last measurement we know we are at a lower power.
-    // go ahead and calculate 
-#define POWER_REDUCTION_INTERVAL 1000  //ms (1000 = 1 second ))
-
-    if ((firstPulse == false) && (timerCountHF > timerCountHFLast))
-    {
-        if (timerCountHF > ((unsigned long) POWER_REDUCTION_INTERVAL * (unsigned long) timerCountHFCheck))
-        {
-            if (timerCountHFCheck < 90)
-            {
-                timerCountHFCheck++;
-                meterWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHF;
-            }
-            else
-            {
-                meterWatts = 0;
-            }
-            //          checkWattsHFvsLF = true;
-        }
-    }
-
-    if (firstPulse == true)
-    {
-        meterWatts = 0;
+    unsigned short voltageData = 0;
+    unsigned short currentData = 0;
+    
+    if (MCP_SPI_SDI_READ == 1){
+        voltageData = getSerialData();
+        currentData = getSerialData();
+        // this is just to test that we are seeing data come in
+        meterWatts = voltageData;
+        
+        // calculation code needs to be added
     }
 
     
@@ -330,6 +295,40 @@ void powerPulseCheck(void)
     return;
 
 }
+    
+short getSerialData() {
+    char dataIn[16];
+    __delay_us(1); 
+    for (int i = 0; i < 16; i++) {
+        MCP_FREQ_F2_SET = 1;
+        if (MCP_SPI_SDI_READ == 1) {
+            dataIn[i] = 1;
+        }
+        else {
+            dataIn[i] = 0;
+        }
+        MCP_FREQ_F2_SET = 0;
+    }
+    // dataIn[0] is sign bit. Ignoring it will give us the absolute value of the
+    // data, which is easier to work with
+    short data = dataIn[1] * 16384
+            + dataIn[2] * 8192
+            + dataIn[3] * 4096
+            + dataIn[4] * 2048
+            + dataIn[5] * 1024
+            + dataIn[6] * 512
+            + dataIn[7] * 256
+            + dataIn[8] * 128
+            + dataIn[9] * 64
+            + dataIn[10] * 32
+            + dataIn[11] * 16
+            + dataIn[12] * 8
+            + dataIn[13] * 4
+            + dataIn[14] * 2
+            + dataIn[15] * 1;
+            
+    return data;
+}
 
 void delayMS10(int count)
 {
@@ -345,7 +344,7 @@ void init()
     initOSC();
     initIO();
     initInterruptsClear();
-    initMCPFout();
+    initMCP();
 
     return;
 }
@@ -431,39 +430,42 @@ void initTimer(void)
 
 }
 
-void initMCPFout(void)
+void initMCP(void)
 {
     // reset the MCP
     // wait until SPI timeout is reached before continuing
-
+    
+    // set MCLR as output
     MCP_MCLR_DIR = 0;
+    
+    // set frequency control pins as outputs
     MCP_FREQ_F0_DIR = 0;
     MCP_FREQ_F1_DIR = 0;
     MCP_FREQ_F2_DIR = 0;
-
-
-    MCP_FREQ_F0_SET = 0;
-    MCP_FREQ_F1_SET = 0;
-    MCP_FREQ_F2_SET = 0;
-
-    __delay_ms(5);
+    
+    // set directions of SPI pins
+    MCP_SPI_SDO_DIR = 0;
+    MCP_SPI_CS_DIR = 0;
+    MCP_SPI_CLK_DIR = 0;
+    MCP_SPI_SDI_DIR = 1;
+    
+    // Init SPI with command 0xac, for dual-channel output post-HPF
+    int initSPICommand[8] = {1, 0, 1, 0, 1, 1, 0, 0};
     MCP_MCLR_SET = 0;
-    __delay_ms(5);
-
-    MCP_FREQ_F0_SET = 0;
-    MCP_FREQ_F1_SET = 0;
-    MCP_FREQ_F2_SET = 0;
-
-    __delay_ms(5);
-
-    MCP_FREQ_F0_SET = 1;
-    MCP_FREQ_F1_SET = 1;
-    MCP_FREQ_F2_SET = 1;
-
-    __delay_ms(5);
+    MCP_SPI_CS_SET = 0;
     MCP_MCLR_SET = 1;
-    delayMS10(10);
-
+    // Select MCP
+    
+    
+    // Send SPI code
+    for (int i = 0; i < 8; i++) {
+        MCP_SPI_CLK_SET = 0;
+        MCP_SPI_SDO_SET = initSPICommand[i];
+        MCP_SPI_CLK_SET = 1;
+        
+    }
+    MCP_SPI_CLK_SET = 0;
+    
     return;
 }
 
