@@ -298,19 +298,31 @@ void powerPulseCheck(void)
     
 short getSerialData() {
     char dataIn[16];
+    bool negNumber = false;
     __delay_us(1); 
     for (int i = 0; i < 16; i++) {
         MCP_FREQ_F2_SET = 1;
+        // read the serial data line
         if (MCP_SPI_SDI_READ == 1) {
             dataIn[i] = 1;
         }
         else {
             dataIn[i] = 0;
         }
+        // if code is negative, invert the code to make it positive. should 
+        // never run for MSB of code
+        if (negNumber) {
+            dataIn[i] = !dataIn[i];
+        }
         MCP_FREQ_F2_SET = 0;
+        // check to see if the code is a negative number in 2's compliment
+        if ((i == 0) && (dataIn[i] == 1)) {
+            negNumber = true;
+        }
     }
-    // dataIn[0] is sign bit. Ignoring it will give us the absolute value of the
-    // data, which is easier to work with
+    // dataIn[0] is sign bit. Since we have inverted the code if it is negative,
+    // we can ignore the sign bit and add 1 if the code was negative, giving us 
+    // the absolute value of the code
     short data = dataIn[1] * 16384
             + dataIn[2] * 8192
             + dataIn[3] * 4096
@@ -326,7 +338,9 @@ short getSerialData() {
             + dataIn[13] * 4
             + dataIn[14] * 2
             + dataIn[15] * 1;
-            
+    if (negNumber) {
+        data = data + 1;
+    }        
     return data;
 }
 
@@ -452,17 +466,17 @@ void initMCP(void)
     // Init SPI with command 0xac, for dual-channel output post-HPF
     int initSPICommand[8] = {1, 0, 1, 0, 1, 1, 0, 0};
     MCP_MCLR_SET = 0;   // Set the Master clear pin low
-    MCP_SPI_CS_SET = 0; // Set the Chip select/F0 pin low to clock data in
+    __delay_us(1);      // delay for 1us to ensure MCP resets
     MCP_MCLR_SET = 1;   // Set the Master clear pin high
     // Select MCP       
-    
+    MCP_SPI_CS_SET = 0; // Set the Chip select/F0 pin low to clock data in
     // Send SPI code
     for (int i = 0; i < 8; i++) {
-        MCP_SPI_CLK_SET = 0;                 // start the clock at 0
+        MCP_SPI_CLK_SET = 0;                 // start the clock at 0, after 1st bit clock data into MCP
         MCP_SPI_SDO_SET = initSPICommand[i]; // get data ready 
-                                             // MCP_SPI_SDO_SET = MCP_FREQ_F1_SET = MCP_SPI_SDI_SET
-                                             // Setting the SDI pin of MCP by setting SDO pin of PIC 
-        MCP_SPI_CLK_SET = 1;                 // pass data into F1/SDI when clock goes high
+                                             // MCP_SPI_SDO_SET = MCP_FREQ_F1_SET = MCP's SPI pin
+                                             // Setting the SDI pin of MCP by setting MCP_SPI_SDO_SET on the PIC 
+        MCP_SPI_CLK_SET = 1;                 // pass data into SDI of MCP when clock goes high
     }
     MCP_SPI_CLK_SET = 0;
     
