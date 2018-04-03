@@ -260,7 +260,7 @@ void powerPulseCheck(void)
     unsigned short voltageData = 0;
     unsigned short currentData = 0;
     
-    if (MCP_SPI_SDI_READ == 1){
+    if (MCP_SPI_SDI_READ == 1){         // This is the data-ready output flag. If 1, data is ready to read
         voltageData = getSerialData();
         currentData = getSerialData();
         // this is just to test that we are seeing data come in
@@ -444,25 +444,25 @@ void initMCP(void)
     MCP_FREQ_F2_DIR = 0;
     
     // set directions of SPI pins
-    MCP_SPI_SDO_DIR = 0;
-    MCP_SPI_CS_DIR = 0;
-    MCP_SPI_CLK_DIR = 0;
-    MCP_SPI_SDI_DIR = 1;
+    MCP_SPI_SDO_DIR = 0; // Set the direction of PIC pin as output for MCP
+    MCP_SPI_CS_DIR = 0;  // Set the direction of PIC pin as output for MCP
+    MCP_SPI_CLK_DIR = 0; // Set the direction of PIC pin as output for MCP
+    MCP_SPI_SDI_DIR = 1; // Set the direction of PIC pin as input for MCP
     
     // Init SPI with command 0xac, for dual-channel output post-HPF
     int initSPICommand[8] = {1, 0, 1, 0, 1, 1, 0, 0};
-    MCP_MCLR_SET = 0;
-    MCP_SPI_CS_SET = 0;
-    MCP_MCLR_SET = 1;
-    // Select MCP
-    
+    MCP_MCLR_SET = 0;   // Set the Master clear pin low
+    MCP_SPI_CS_SET = 0; // Set the Chip select/F0 pin low to clock data in
+    MCP_MCLR_SET = 1;   // Set the Master clear pin high
+    // Select MCP       
     
     // Send SPI code
     for (int i = 0; i < 8; i++) {
-        MCP_SPI_CLK_SET = 0;
-        MCP_SPI_SDO_SET = initSPICommand[i];
-        MCP_SPI_CLK_SET = 1;
-        
+        MCP_SPI_CLK_SET = 0;                 // start the clock at 0
+        MCP_SPI_SDO_SET = initSPICommand[i]; // get data ready 
+                                             // MCP_SPI_SDO_SET = MCP_FREQ_F1_SET = MCP_SPI_SDI_SET
+                                             // Setting the SDI pin of MCP by setting SDO pin of PIC 
+        MCP_SPI_CLK_SET = 1;                 // pass data into F1/SDI when clock goes high
     }
     MCP_SPI_CLK_SET = 0;
     
