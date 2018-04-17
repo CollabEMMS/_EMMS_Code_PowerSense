@@ -489,7 +489,7 @@ void initSPI(void)
   // set up data direction bit, SPI mode, SPI clock
   // SPI Communication between the PIC and the MCP (on the Power sense board)
     
-  // Set up mode, clock 
+  // Set up SPI Master (PIC): mode and clock rate 
   // Using Module 1 -> SSP1, 
     
     // page 260 of data sheet
