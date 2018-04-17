@@ -8310,7 +8310,7 @@ void init(void);
 void initOSC(void);
 void initIO(void);
 void initInterruptsClear(void);
-void initMCPFout(void);
+void initMCP(void);
 void initTimer(void);
 void pulseFoutPassThru(void);
 void powerPulseCheck(void);
@@ -8359,7 +8359,7 @@ if (initDone == 0)
 {
 if (timerCountLF > 1000)
 {
-initMCPFout();
+initMCP();
 initDone = 1;
 
 for (int inx = 0; inx < 10; inx++)
@@ -8446,7 +8446,9 @@ if (PORTCbits.RC4 == 1){
 voltageData = getSerialData();
 currentData = getSerialData();
 
-meterWatts = 100;
+meterWatts = voltageData;
+
+
 }
 
 
@@ -8478,17 +8480,31 @@ return;
 
 short getSerialData() {
 char dataIn[16];
+bool negNumber = 0;
 _delay((unsigned long)((1)*(16000000/4000000.0)));
 for (int i = 0; i < 16; i++) {
 LATCbits.LATC3 = 1;
+
 if (PORTCbits.RC4 == 1) {
 dataIn[i] = 1;
 }
 else {
 dataIn[i] = 0;
 }
-LATCbits.LATC3 = 0;
+
+
+if (negNumber) {
+dataIn[i] = !dataIn[i];
 }
+LATCbits.LATC3 = 0;
+
+if ((i == 0) && (dataIn[i] == 1)) {
+negNumber = 1;
+}
+}
+
+
+
 short data = dataIn[1] * 16384
 + dataIn[2] * 8192
 + dataIn[3] * 4096
@@ -8504,7 +8520,9 @@ short data = dataIn[1] * 16384
 + dataIn[13] * 4
 + dataIn[14] * 2
 + dataIn[15] * 1;
-
+if (negNumber) {
+data = data + 1;
+}
 return data;
 }
 
@@ -8522,7 +8540,7 @@ void init()
 initOSC();
 initIO();
 initInterruptsClear();
-initMCPFout();
+initMCP();
 
 return;
 }
@@ -8608,7 +8626,7 @@ T0CONbits.TMR0ON = 1;
 
 }
 
-void initMCPFout(void)
+void initMCP(void)
 {
 
 
@@ -8630,20 +8648,28 @@ TRISCbits.TRISC4 = 1;
 
 int initSPICommand[8] = {1, 0, 1, 0, 1, 1, 0, 0};
 LATCbits.LATC6 = 0;
-LATCbits.LATC7 = 0;
+_delay((unsigned long)((1)*(16000000/4000000.0)));
 LATCbits.LATC6 = 1;
 
-
-
+LATCbits.LATC7 = 0;
 
 for (int i = 0; i < 8; i++) {
 LATCbits.LATC3 = 0;
 LATCbits.LATC5 = initSPICommand[i];
-LATCbits.LATC3 = 1;
 
+
+LATCbits.LATC3 = 1;
 }
 LATCbits.LATC3 = 0;
 
 return;
 }
 
+void initSPI(void)
+{
+
+# 497
+SSP1CON1.SSP1EN = 1;
+
+
+}

@@ -483,3 +483,41 @@ void initMCP(void)
     return;
 }
 
+void initSPI(void)
+{
+  // This function initializes all necessary registers to 
+  // set up data direction bit, SPI mode, SPI clock
+  // SPI Communication between the PIC and the MCP (on the Power sense board)
+    
+  // Set up mode, clock 
+  // Using Module 1 -> SSP1, 
+    
+    // page 260 of data sheet
+    // Set SSP1CON1 register, from bit 5 to 0
+    SSP1CON1.SSP1EN = 1;    // Enable serial port in SPI mode
+    SSP1CON1.CKP = 1;       // Clock parity select bit: idle high level
+    SSP1CON1.M = 0000;      // SPI Master Mode, clock = FOSC/4
+    
+    // page 259 of data sheet
+    // Set SSP1STAT register, only bit 7 and 6
+    SSP1STAT.SMP = 1;       // Input data sampled at end of data output time?
+    SSP1STAT.CKE = 0;      // Transmit occurs on transition from Idle to active clock state? 
+    
+   // Set up data direction register, using SPI Port 1 for communication between MCP and PIC18
+    // SCK1 connects to pin 14: RC3
+    TRISC.TRISC3 = 0;        // Output, master clock
+    
+    // SDI1 connects to pin 15: RC4
+    TRISC.TRISC4 = 1;        // MSSP1 SPI data input. 
+    
+    // SDO1 connects to pin 16: RC5
+    TRISC.TRISC5 = 0;        // MSSP1 SPI data output.
+    
+    // SS1 connects to pin 18:  RC7
+    TRISC.TRISC7 = 1;        //  Slave Select set page 215
+    
+    
+    
+    
+    
+}
