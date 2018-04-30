@@ -1,4 +1,7 @@
+Power Sense 3.0 Branch
 open issues
+    voltage and current scalars need values
+    code has not been tested
 
 5/30/2017
     changed powerWatts to unsigned long - was unsigned integer
@@ -15,3 +18,10 @@ open issues
 
 6/2/2017
     added code to account or when no power is bring used (no pulses)
+
+4/30/2018
+    rework of initial Power Sense 3.0 code to incorporate SPI port 1 of the PIC
+    added init code for SPI master function for the PIC, and SPI Waveform 
+        operation on the MCP
+    add power calculation code using data retrieved from MCP through SPI
+        communication

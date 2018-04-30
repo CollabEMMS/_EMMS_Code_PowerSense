@@ -50,23 +50,26 @@ void init(void);
 void initOSC(void);
 void initIO(void);
 void initInterruptsClear(void);
+void initSPI(void);
 void initMCP(void);
 void initTimer(void);
 void pulseFoutPassThru(void);
-void powerPulseCheck(void);
-short getSerialData(void);
-
-//void mcpSPIInit( void );
-//void mcpSPIStart( void );
+void energyPulseCheck(void);
+void readSerialData(void);
+void powerCalculation(void);
 
 void delayMS10(int count);
 
+signed short voltageData = 0;
+signed short currentData = 0;
 unsigned long meterWatts = 0;
 unsigned long meterEnergyUsed = 0;
 
 volatile unsigned long timerCountHF = 0;
 volatile unsigned long timerCountLF = 0;
 
+bool dataRead = false;  // tells code if a complete set of data has been read from the MCP
+bool dataAvailable = false;     // tells code if there is data available to read
 
 #define LOW_BYTE(x)     ((unsigned char)((x)&0xFF))
 #define HIGH_BYTE(x)    ((unsigned char)(((x)>>8)&0xFF))
@@ -131,7 +134,9 @@ void main(void)
     {
         communications(false);
         pulseFoutPassThru();
-        powerPulseCheck();
+        energyPulseCheck();     // get energy (Whr) data from MCP (pulses)
+        readSerialData();       // get voltage and power data from MCP (SPI)
+        powerCalculation();         // calculate power (W) data
 
         // reset MCP after 1 second
         if (initDone == false)
@@ -221,7 +226,7 @@ void pulseFoutPassThru(void)
 
 void interrupt Timer0_ISR(void)
 {
-
+    // Interrupt every 1 ms
     INTCONbits.TMR0IF = 0;
 
     TMR0H = TIMER_PRESET_HIGH;
@@ -229,48 +234,24 @@ void interrupt Timer0_ISR(void)
 
     timerCountHF++;
     timerCountLF++;
+    dataAvailable = true;
 
     return;
 }
 
-void powerPulseCheck(void)
+void energyPulseCheck(void)
 {
-
-    // here we check if a pulse has some in from both the HF and the LF pulses
+    // here we check if a pulse has some in from the LF pulse
     // the timerCounters are in milli-seconds
     // if the timer prescaler or countdown is changed this will change the meaning of the timerCounters
-
-
 
 #define ENERGY_PER_PULSE 27000 //(221.24 mWh per pulse)
 #define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh    
 
     static unsigned long meterEnergyUsedPart = 0;
-    static unsigned long timerCountHFLast = 2147483647;
-    static unsigned int timerCountHFCheck = 1;
-    static bool firstPulse = true;
-
-
-    static bool mcpHFoutLast = false; // this is so we run a calc only once each time the pulse comes
     static bool mcpLFoutLast = false; // this is so we run a calc only once each time the pulse comes
-
     
-    // Checking SDO data line
-    
-    unsigned short voltageData = 0;
-    unsigned short currentData = 0;
-    
-    if (MCP_SPI_SDI_READ == 1){         // This is the data-ready output flag. If 1, data is ready to read
-        voltageData = getSerialData();
-        currentData = getSerialData();
-        // this is just to test that we are seeing data come in
-        meterWatts = voltageData;
-        
-        // calculation code needs to be added
-    }
-
-    
-    // LF out is for calculating Watt-Hour (not watts)
+    // LF out is for calculating energy in Watt-Hours (not watts)
     if (MCP_LFOUT_READ == 0)
     {
         if (mcpLFoutLast == false)
@@ -293,41 +274,89 @@ void powerPulseCheck(void)
     }
 
     return;
-
 }
+
+/**
+ * This code reads the data from the MCP when it is available. The code structure
+ * is non-blocking, so it doesn't wait for data to be available, but instead
+ * continues with the code and retrieves the data the next time this function is 
+ * called.
+ */
+void readSerialData() {
+    // booleans to create non-blocking SPI comm code
+    static bool readingData = false;
+    static bool byte1Read = false;
+    static bool byte2Read = false;
+    static bool byte3Read = false;
+    // only look for data if there is data available OR if we are already reading data
+    if (dataAvailable || readingData) {
+        // Data is available but we're not reading it, so start communication
+        if (!readingData) {
+            SSP1BUF = 0xac;     // send dummy data to initiate communication
+            readingData = true;
+            dataRead = false;
+            dataAvailable = false;
+        }
+        // Data has been read and the buffer is full, so we save the new data
+        if (readingData && SSP1STATbits.BF) {
+            char data = SSP1BUF;    // char is 8-bit data type, read data
+            PIR1bits.SSP1IF = 0;    // Clear interrupt flag
+            SSP1CON1bits.WCOL = 0;  // Clear write collision bit
+            readingData = false;    // no longer reading data
+            // Check which data has just been read
+            if (!byte1Read) {   // MS byte of channel 1 data
+                voltageData = (data << 8) & 0xFF;
+                byte1Read = true;
+            }
+            else if (!byte2Read) {  // LS byte of channel 1 data
+                voltageData = voltageData | data;
+                byte2Read = true;
+            }
+            else if (!byte3Read) {  // MS byte of channel 0 data
+                currentData = (data << 8) & 0xFF;
+                byte3Read = true;
+            }
+            else if (!dataRead) {
+                currentData = currentData | data;   // LS byte of channel 0 data
+                // Last byte of data, reset all bools for next set of data
+                byte1Read = false;
+                byte2Read = false;
+                byte3Read = false;
+                dataRead = true;    // we have read a complete set of data, so 
+            }                       // let calculation code know it's ready
+        }
+    } 
+    return;
+}
+
+/**
+ * This function contains all the calculation code for determining power in Watts
+ */
+void powerCalculation() {
+    static int size = 14;   // number of samples we take per line cycle, max 233
+    static int instantPower[14];    // this number must match size
+    static int counter = 0;
+    // These scalars convert the stepped-down voltage and current data read from the MCP into
+    // the full values actually in use. Values determined by physical circuit.
+    // ei: MCP sees 200mV, 120V actually present (numbers don't reflect reality)
+    static int voltageScalar = 1;   // need to find these values
+    static int currentScalar = 1;
     
-short getSerialData() {
-    char dataIn[16];
-    __delay_us(1); 
-    for (int i = 0; i < 16; i++) {
-        MCP_FREQ_F2_SET = 1;
-        if (MCP_SPI_SDI_READ == 1) {
-            dataIn[i] = 1;
-        }
-        else {
-            dataIn[i] = 0;
-        }
-        MCP_FREQ_F2_SET = 0;
+    // Calculation of real power (average of instantaneous power over 1 cycle)
+    if (dataRead) {
+        instantPower[counter] = (voltageData * voltageScalar) * (currentData * currentScalar);
+        counter++;
     }
-    // dataIn[0] is sign bit. Ignoring it will give us the absolute value of the
-    // data, which is easier to work with
-    short data = dataIn[1] * 16384
-            + dataIn[2] * 8192
-            + dataIn[3] * 4096
-            + dataIn[4] * 2048
-            + dataIn[5] * 1024
-            + dataIn[6] * 512
-            + dataIn[7] * 256
-            + dataIn[8] * 128
-            + dataIn[9] * 64
-            + dataIn[10] * 32
-            + dataIn[11] * 16
-            + dataIn[12] * 8
-            + dataIn[13] * 4
-            + dataIn[14] * 2
-            + dataIn[15] * 1;
-            
-    return data;
+    if (counter == size) {
+        int realPower = 0;
+        for (int i = 0; i < size; i++) {
+            realPower =+ instantPower[i];
+        }
+        counter = 0;
+        meterWatts = realPower / size;
+    }
+    
+    return;
 }
 
 void delayMS10(int count)
@@ -344,6 +373,7 @@ void init()
     initOSC();
     initIO();
     initInterruptsClear();
+    initSPI();
     initMCP();
 
     return;
@@ -430,42 +460,51 @@ void initTimer(void)
 
 }
 
-void initMCP(void)
-{
-    // reset the MCP
-    // wait until SPI timeout is reached before continuing
+void initSPI(void) {
+   
+  // This function initializes all necessary registers to 
+  // set up data direction bit, SPI mode, SPI clock
+  // SPI Communication between the PIC and the MCP (on the Power sense board)
     
-    // set MCLR as output
-    MCP_MCLR_DIR = 0;
+  // Set up SPI Master (PIC): mode and clock rate 
+  // Using Module 1 -> SSP1, 
     
-    // set frequency control pins as outputs
-    MCP_FREQ_F0_DIR = 0;
-    MCP_FREQ_F1_DIR = 0;
-    MCP_FREQ_F2_DIR = 0;
+    // page 260 of data sheet
+    // Set SSP1CON1 register, from bit 5 to 0
+    SSP1CON1bits.SSPEN = 1;    // Enable serial port in SPI mode
+    SSP1CON1bits.CKP = 1;       // Clock parity select bit: idle high level
+    SSP1CON1bits.SSPM = 0000;      // SPI Master Mode, clock = FOSC/4
     
+    // page 259 of data sheet
+    // Set SSP1STAT register, only bit 7 and 6
+    SSP1STATbits.SMP = 1;       // Input data sampled at end of data output time?
+    SSP1STATbits.CKE = 0;      // Transmit occurs on transition from Idle to active clock state? 
+ 
     // set directions of SPI pins
     MCP_SPI_SDO_DIR = 0; // Set the direction of PIC pin as output for MCP
     MCP_SPI_CS_DIR = 0;  // Set the direction of PIC pin as output for MCP
     MCP_SPI_CLK_DIR = 0; // Set the direction of PIC pin as output for MCP
     MCP_SPI_SDI_DIR = 1; // Set the direction of PIC pin as input for MCP
+}
+
+void initMCP(void)
+{
+    // set MCLR as output
+    MCP_MCLR_DIR = 0;  
+
+    // reset MCP
+    MCP_MCLR_SET = 0;   // Set the Master clear pin low
+    __delay_us(1);
+    MCP_MCLR_SET = 1;   // Set the Master clear pin high   
+    MCP_SPI_CS_SET = 0; // Set the Chip select/F0 pin low to clock data in
     
     // Init SPI with command 0xac, for dual-channel output post-HPF
-    int initSPICommand[8] = {1, 0, 1, 0, 1, 1, 0, 0};
-    MCP_MCLR_SET = 0;   // Set the Master clear pin low
-    MCP_SPI_CS_SET = 0; // Set the Chip select/F0 pin low to clock data in
-    MCP_MCLR_SET = 1;   // Set the Master clear pin high
-    // Select MCP       
+    SSP1BUF = 0b10101100;
     
-    // Send SPI code
-    for (int i = 0; i < 8; i++) {
-        MCP_SPI_CLK_SET = 0;                 // start the clock at 0
-        MCP_SPI_SDO_SET = initSPICommand[i]; // get data ready 
-                                             // MCP_SPI_SDO_SET = MCP_FREQ_F1_SET = MCP_SPI_SDI_SET
-                                             // Setting the SDI pin of MCP by setting SDO pin of PIC 
-        MCP_SPI_CLK_SET = 1;                 // pass data into F1/SDI when clock goes high
-    }
-    MCP_SPI_CLK_SET = 0;
-    
+    // NOTE: CS is set low the entire time. this slows the pulse speed but makes
+    // SPI waveform data easier to read.
+    // IF YOU WANT TO CHANGE THIS: make sure CS goes low when attempting to read
+    // SPI data. Then go back to high state once data has been fully read.
     return;
 }
 
