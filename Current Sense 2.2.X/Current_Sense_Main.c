@@ -507,4 +507,3 @@ void initMCP(void)
     // SPI data. Then go back to high state once data has been fully read.
     return;
 }
-
