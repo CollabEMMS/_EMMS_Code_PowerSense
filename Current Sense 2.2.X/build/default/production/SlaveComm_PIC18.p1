@@ -15,7 +15,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _process_data `(uc ~T0 @X0 0 ef2`*S825`*S825 ]
 "65
 [v _send_data `(uc ~T0 @X0 0 ef1`*S825 ]
-"6469 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18lf25k22.h
+"6469 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18lf25k22.h
 [s S337 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S337 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
 "6479
@@ -65,7 +65,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "3600
 [v _SSP2CON1bits `VS165 ~T0 @X0 0 e@3948 ]
 [v F6620 `(v ~T0 @X0 1 tf1`ul ]
-"164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
+"164 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18.h
 [v __delay `JF6620 ~T0 @X0 0 e ]
 [p i __delay ]
 "83 SlaveComm_PIC18.c
@@ -86,7 +86,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _strmatch `(uc ~T0 @X0 0 ef2`*uc`*uc ]
 "47
 [v _meterEnergyUsed `ul ~T0 @X0 0 e ]
-"57 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h
+"57 C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdlib.h
 [v _atol `(l ~T0 @X0 0 ef1`*Cuc ]
 "60 SlaveComm_PIC18.c
 [v _command_builder3 `(v ~T0 @X0 0 ef4`*S825`*uc`*uc`*uc ]
@@ -100,7 +100,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SPI_send_data `(uc ~T0 @X0 0 ef1`uc ]
 "69
 [v _strcmp2 `(i ~T0 @X0 0 ef2`*uc`*uc ]
-"3696 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18lf25k22.h
+"3696 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18lf25k22.h
 [s S170 :2 `uc 1 :1 `uc 1 ]
 [n S170 . . R_NOT_W ]
 "3700
@@ -176,11 +176,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SSP2STATbits `VS169 ~T0 @X0 0 e@3949 ]
 "4160
 [v _SSP2BUF `Vuc ~T0 @X0 0 e@3951 ]
-"102 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h
+"102 C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdlib.h
 [v _ultoa `(*uc ~T0 @X0 0 ef3`*uc`ul`i ]
 "46 SlaveComm_PIC18.c
 [v _meterWatts `ul ~T0 @X0 0 e ]
-"7589 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18lf25k22.h
+"7589 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18lf25k22.h
 [s S375 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S375 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
 "7599
@@ -254,7 +254,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18lf25k22.h: 50: extern volatile unsigned char ANSELA @ 0xF38;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18lf25k22.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18lf25k22.h
 [; ;pic18lf25k22.h: 52: asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
 [; ;pic18lf25k22.h: 55: typedef union {

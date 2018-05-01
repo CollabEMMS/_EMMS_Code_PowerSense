@@ -78,10 +78,10 @@
 # 122
 #pragma config EBTRB = OFF
 
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\__size_t.h"
 typedef unsigned size_t;
 
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdarg.h"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -90,17 +90,17 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdio.h"
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\errno.h"
+# 29 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\errno.h"
 extern int errno;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\conio.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -114,7 +114,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdio.h"
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -141,7 +141,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdlib.h"
 typedef unsigned short wchar_t;
 
 # 15
@@ -190,11 +190,11 @@ extern void free(void *);
 extern void * realloc(void *, size_t);
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 86 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h"
+# 86 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdlib.h"
 extern int atexit(void (*)(void));
 extern char * getenv(const char *);
 extern char ** environ;
@@ -215,15 +215,15 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\stdbool.h"
 typedef unsigned char bool;
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
-# 50 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18lf25k22.h"
+# 50 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18lf25k22.h"
 extern volatile unsigned char ANSELA @ 0xF38;
 
 asm("ANSELA equ 0F38h");
@@ -8275,7 +8275,7 @@ extern volatile __bit nW2 @ (((unsigned) &SSP2STAT)*8) + 2;
 
 extern volatile __bit nWRITE2 @ (((unsigned) &SSP2STAT)*8) + 2;
 
-# 18 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h"
+# 18 "C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18.h"
 __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
@@ -8310,10 +8310,7 @@ void init(void);
 void initOSC(void);
 void initIO(void);
 void initInterruptsClear(void);
-<<<<<<< HEAD
 void initSPI(void);
-=======
->>>>>>> a8567faacad7c8b295045189351eb7b52f7c9a0b
 void initMCP(void);
 void initTimer(void);
 void pulseFoutPassThru(void);
@@ -8441,25 +8438,6 @@ static unsigned long meterEnergyUsedPart = 0;
 static bool mcpLFoutLast = 0;
 
 
-<<<<<<< HEAD
-=======
-
-
-unsigned short voltageData = 0;
-unsigned short currentData = 0;
-
-if (PORTCbits.RC4 == 1){
-voltageData = getSerialData();
-currentData = getSerialData();
-
-meterWatts = voltageData;
-
-
-}
-
-
-
->>>>>>> a8567faacad7c8b295045189351eb7b52f7c9a0b
 if (PORTAbits.RA1 == 0)
 {
 if (mcpLFoutLast == 0)
@@ -8498,10 +8476,9 @@ if (!readingData) {
 SSP1BUF = 0xac;
 readingData = 1;
 dataRead = 0;
-dataAvailable = 0;
+
 }
 
-<<<<<<< HEAD
 if (readingData && SSP1STATbits.BF) {
 char data = SSP1BUF;
 PIR1bits.SSP1IF = 0;
@@ -8515,17 +8492,6 @@ byte1Read = 1;
 else if (!byte2Read) {
 voltageData = voltageData | data;
 byte2Read = 1;
-=======
-short getSerialData() {
-char dataIn[16];
-bool negNumber = 0;
-_delay((unsigned long)((1)*(16000000/4000000.0)));
-for (int i = 0; i < 16; i++) {
-LATCbits.LATC3 = 1;
-
-if (PORTCbits.RC4 == 1) {
-dataIn[i] = 1;
->>>>>>> a8567faacad7c8b295045189351eb7b52f7c9a0b
 }
 else if (!byte3Read) {
 currentData = (data << 8) & 0xFF;
@@ -8534,18 +8500,18 @@ byte3Read = 1;
 else if (!dataRead) {
 currentData = currentData | data;
 
+dataAvailable = 0;
 byte1Read = 0;
 byte2Read = 0;
 byte3Read = 0;
 dataRead = 1;
 }
-<<<<<<< HEAD
 }
 }
 return;
 }
 
-# 335
+# 336
 void powerCalculation() {
 static int size = 14;
 static int instantPower[14];
@@ -8571,41 +8537,6 @@ meterWatts = realPower / size;
 }
 
 return;
-=======
-
-
-if (negNumber) {
-dataIn[i] = !dataIn[i];
-}
-LATCbits.LATC3 = 0;
-
-if ((i == 0) && (dataIn[i] == 1)) {
-negNumber = 1;
-}
-}
-
-
-
-short data = dataIn[1] * 16384
-+ dataIn[2] * 8192
-+ dataIn[3] * 4096
-+ dataIn[4] * 2048
-+ dataIn[5] * 1024
-+ dataIn[6] * 512
-+ dataIn[7] * 256
-+ dataIn[8] * 128
-+ dataIn[9] * 64
-+ dataIn[10] * 32
-+ dataIn[11] * 16
-+ dataIn[12] * 8
-+ dataIn[13] * 4
-+ dataIn[14] * 2
-+ dataIn[15] * 1;
-if (negNumber) {
-data = data + 1;
-}
-return data;
->>>>>>> a8567faacad7c8b295045189351eb7b52f7c9a0b
 }
 
 void delayMS10(int count)
@@ -8622,10 +8553,7 @@ void init()
 initOSC();
 initIO();
 initInterruptsClear();
-<<<<<<< HEAD
 initSPI();
-=======
->>>>>>> a8567faacad7c8b295045189351eb7b52f7c9a0b
 initMCP();
 
 return;
@@ -8712,14 +8640,9 @@ T0CONbits.TMR0ON = 1;
 
 }
 
-<<<<<<< HEAD
 void initSPI(void) {
-=======
-void initMCP(void)
-{
->>>>>>> a8567faacad7c8b295045189351eb7b52f7c9a0b
 
-# 474
+# 475
 SSP1CON1bits.SSPEN = 1;
 SSP1CON1bits.CKP = 1;
 SSP1CON1bits.SSPM = 0000;
@@ -8739,7 +8662,6 @@ TRISCbits.TRISC4 = 1;
 void initMCP(void)
 {
 
-<<<<<<< HEAD
 TRISCbits.TRISC6 = 0;
 
 
@@ -8750,33 +8672,7 @@ LATCbits.LATC7 = 0;
 
 
 SSP1BUF = 0b10101100;
-=======
-int initSPICommand[8] = {1, 0, 1, 0, 1, 1, 0, 0};
-LATCbits.LATC6 = 0;
-_delay((unsigned long)((1)*(16000000/4000000.0)));
-LATCbits.LATC6 = 1;
 
-LATCbits.LATC7 = 0;
-
-for (int i = 0; i < 8; i++) {
-LATCbits.LATC3 = 0;
-LATCbits.LATC5 = initSPICommand[i];
-
-
-LATCbits.LATC3 = 1;
-}
-LATCbits.LATC3 = 0;
->>>>>>> a8567faacad7c8b295045189351eb7b52f7c9a0b
-
-# 508
+# 509
 return;
-}
-
-void initSPI(void)
-{
-
-# 497
-SSP1CON1.SSP1EN = 1;
-
-
 }

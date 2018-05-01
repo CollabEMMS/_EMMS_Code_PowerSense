@@ -3,47 +3,47 @@
 [d edition pro ]
 [d chip 18LF25K22 ]
 [d frameptr 4065 ]
-"97 C:\Users\NathanLaptop\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"97 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [e E6751 receive_status `uc
 receive_waiting 0
 receive_in_command 1
 receive_end_command 2
 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\atol.c
 [v _atol atol `(l  1 e 4 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+"62 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
-"86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
+"86 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"54 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftdiv.c
+"54 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftmul.c
+"62 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
-"20 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftsub.c
+"20 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\isdigit.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\isdigit.c
 [v _isdigit isdigit `(b  1 e 0 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
-"32 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+"32 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ltoa.c
 [v _ultoa ultoa `(*.39uc  1 e 2 0 ]
-"10 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcadd.c
+"10 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 3 0 ]
 "245
 [v ___flsub __flsub `(d  1 e 3 0 ]
-"11 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcdiv.c
+"11 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\sprcmul.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 3 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+"15 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+"15 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"84 C:\Users\NathanLaptop\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
+"84 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
 [v _main main `(v  1 e 1 0 ]
 "197
 [v _pulseFoutPassThru pulseFoutPassThru `(v  1 e 1 0 ]
@@ -53,25 +53,25 @@ receive_end_command 2
 [v _energyPulseCheck energyPulseCheck `(v  1 e 1 0 ]
 "285
 [v _readSerialData readSerialData `(v  1 e 1 0 ]
-"335
+"336
 [v _powerCalculation powerCalculation `(v  1 e 1 0 ]
-"362
+"363
 [v _delayMS10 delayMS10 `(v  1 e 1 0 ]
-"371
+"372
 [v _init init `(v  1 e 1 0 ]
-"382
+"383
 [v _initOSC initOSC `(v  1 e 1 0 ]
-"399
+"400
 [v _initIO initIO `(v  1 e 1 0 ]
-"417
+"418
 [v _initInterruptsClear initInterruptsClear `(v  1 e 1 0 ]
-"446
+"447
 [v _initTimer initTimer `(v  1 e 1 0 ]
-"463
+"464
 [v _initSPI initSPI `(v  1 e 1 0 ]
-"490
+"491
 [v _initMCP initMCP `(v  1 e 1 0 ]
-"89 C:\Users\NathanLaptop\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"89 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _communications communications `(v  1 e 1 0 ]
 "152
 [v _resetCommunications resetCommunications `(v  1 e 1 0 ]
@@ -113,7 +113,7 @@ receive_end_command 2
 [v _com_command_setVersion com_command_setVersion `(v  1 e 1 0 ]
 "669
 [v _SPISlaveInit SPISlaveInit `(v  1 e 1 0 ]
-"50 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18lf25k22.h
+"50 C:\Program Files (x86)\Microchip\xc8\v1.43\include\pic18lf25k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
 [s S2052 . 1 `uc 1 ANSA0 1 0 :1:0 
 `uc 1 ANSA1 1 0 :1:1 
@@ -848,7 +848,7 @@ receive_end_command 2
 ]
 [u S456 . 1 `S434 1 . 1 0 `S443 1 . 1 0 `S452 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES456  1 e 1 @4082 ]
-"63 C:\Users\NathanLaptop\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
+"63 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
 [v _voltageData voltageData `s  1 e 2 0 ]
 "64
 [v _currentData currentData `s  1 e 2 0 ]
@@ -864,9 +864,9 @@ receive_end_command 2
 [v _dataRead dataRead `uc  1 e 1 0 ]
 "72
 [v _dataAvailable dataAvailable `uc  1 e 1 0 ]
-"30 C:\Users\NathanLaptop\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"30 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _SPI_transmit_wait SPI_transmit_wait `uc  1 e 1 0 ]
-"84 C:\Users\NathanLaptop\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
+"84 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "149
@@ -890,7 +890,7 @@ receive_end_command 2
 [v readSerialData@byte2Read byte2Read `uc  1 s 1 byte2Read ]
 "290
 [v readSerialData@byte3Read byte3Read `uc  1 s 1 byte3Read ]
-"330
+"331
 } 0
 "197
 [v _pulseFoutPassThru pulseFoutPassThru `(v  1 e 1 0 ]
@@ -899,26 +899,26 @@ receive_end_command 2
 [v pulseFoutPassThru@runonce runonce `uc  1 s 1 runonce ]
 "225
 } 0
-"335
+"336
 [v _powerCalculation powerCalculation `(v  1 e 1 0 ]
 {
-"352
+"353
 [v powerCalculation@i i `i  1 a 2 33 ]
-"351
+"352
 [v powerCalculation@realPower realPower `i  1 a 2 31 ]
-"336
-[v powerCalculation@size size `i  1 s 2 size ]
 "337
-[v powerCalculation@instantPower instantPower `[14]i  1 s 28 instantPower ]
+[v powerCalculation@size size `i  1 s 2 size ]
 "338
+[v powerCalculation@instantPower instantPower `[14]i  1 s 28 instantPower ]
+"339
 [v powerCalculation@counter counter `i  1 s 2 counter ]
-"342
-[v powerCalculation@voltageScalar voltageScalar `i  1 s 2 voltageScalar ]
 "343
+[v powerCalculation@voltageScalar voltageScalar `i  1 s 2 voltageScalar ]
+"344
 [v powerCalculation@currentScalar currentScalar `i  1 s 2 currentScalar ]
-"360
+"361
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "11
@@ -931,40 +931,40 @@ receive_end_command 2
 [v ___awdiv@divisor divisor `i  1 p 2 20 ]
 "42
 } 0
-"446 C:\Users\NathanLaptop\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
+"447 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
 [v _initTimer initTimer `(v  1 e 1 0 ]
 {
-"461
+"462
 } 0
-"371
+"372
 [v _init init `(v  1 e 1 0 ]
 {
-"380
+"381
 } 0
-"463
+"464
 [v _initSPI initSPI `(v  1 e 1 0 ]
 {
-"488
+"489
 } 0
-"382
+"383
 [v _initOSC initOSC `(v  1 e 1 0 ]
 {
-"397
+"398
 } 0
-"490
+"491
 [v _initMCP initMCP `(v  1 e 1 0 ]
 {
-"509
+"510
 } 0
-"417
+"418
 [v _initInterruptsClear initInterruptsClear `(v  1 e 1 0 ]
 {
-"444
+"445
 } 0
-"399
+"400
 [v _initIO initIO `(v  1 e 1 0 ]
 {
-"415
+"416
 } 0
 "242
 [v _energyPulseCheck energyPulseCheck `(v  1 e 1 0 ]
@@ -975,16 +975,16 @@ receive_end_command 2
 [v energyPulseCheck@mcpLFoutLast mcpLFoutLast `uc  1 s 1 mcpLFoutLast ]
 "277
 } 0
-"362
+"363
 [v _delayMS10 delayMS10 `(v  1 e 1 0 ]
 {
-"364
+"365
 [v delayMS10@inx inx `i  1 a 2 21 ]
-"362
+"363
 [v delayMS10@count count `i  1 p 2 18 ]
-"369
+"370
 } 0
-"89 C:\Users\NathanLaptop\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"89 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _communications communications `(v  1 e 1 0 ]
 {
 [v communications@firstTime firstTime `uc  1 a 1 wreg ]
@@ -1149,7 +1149,7 @@ receive_end_command 2
 [v com_command_setEnergyUsed@send_buffer send_buffer `*.39S1519  1 p 2 44 ]
 "640
 } 0
-"32 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+"32 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\ltoa.c
 [v _ultoa ultoa `(*.39uc  1 e 2 0 ]
 {
 "35
@@ -1162,7 +1162,7 @@ receive_end_command 2
 [v ultoa@base base `i  1 p 2 37 ]
 "53
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
 {
 "11
@@ -1172,7 +1172,7 @@ receive_end_command 2
 [v ___llmod@divisor divisor `ul  1 p 4 22 ]
 "26
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "11
@@ -1184,7 +1184,7 @@ receive_end_command 2
 [v ___lldiv@divisor divisor `ul  1 p 4 22 ]
 "31
 } 0
-"430 C:\Users\NathanLaptop\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"430 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _command_builder3 command_builder3 `(v  1 e 1 0 ]
 {
 [s S1519 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
@@ -1213,7 +1213,7 @@ receive_end_command 2
 [v command_builder_add_char@data data `uc  1 p 1 20 ]
 "473
 } 0
-"5 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\atol.c
 [v _atol atol `(l  1 e 4 0 ]
 {
 "7
@@ -1225,7 +1225,7 @@ receive_end_command 2
 [v atol@s s `*.39Cuc  1 p 2 30 ]
 "27
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\isdigit.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\isdigit.c
 [v _isdigit isdigit `(b  1 e 0 0 ]
 {
 [v isdigit@c c `uc  1 a 1 wreg ]
@@ -1234,7 +1234,7 @@ receive_end_command 2
 [v isdigit@c c `uc  1 a 1 20 ]
 "15
 } 0
-"15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+"15 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 {
 "17
@@ -1244,7 +1244,7 @@ receive_end_command 2
 [v ___lmul@multiplicand multiplicand `ul  1 p 4 22 ]
 "129
 } 0
-"256 C:\Users\NathanLaptop\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"256 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _process_data_parameterize process_data_parameterize `(v  1 e 1 0 ]
 {
 "268
@@ -1259,7 +1259,7 @@ receive_end_command 2
 [v process_data_parameterize@buffer_to_parameterize buffer_to_parameterize `*.39S1519  1 p 2 26 ]
 "313
 } 0
-"15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+"15 C:\Program Files (x86)\Microchip\xc8\v1.43\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
@@ -1269,12 +1269,12 @@ receive_end_command 2
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 20 ]
 "53
 } 0
-"669 C:\Users\NathanLaptop\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
+"669 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm_PIC18.c
 [v _SPISlaveInit SPISlaveInit `(v  1 e 1 0 ]
 {
 "717
 } 0
-"227 C:\Users\NathanLaptop\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
+"227 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Current_Sense_Main.c
 [v _Timer0_ISR Timer0_ISR `II(v  1 e 1 0 ]
 {
 "240
