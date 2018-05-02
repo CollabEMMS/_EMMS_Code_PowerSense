@@ -299,6 +299,10 @@ void readSerialData() {
             SSP1BUF = 0xac;     // send dummy data to initiate communication
             readingData = true;
             dataRead = false;
+<<<<<<< HEAD
+=======
+            
+>>>>>>> c2e67261772049e795475e3f0c496ee3a9fd415b
         }
         // Data has been read and the buffer is full, so we save the new data
         if (readingData && SSP1STATbits.BF) {
@@ -322,6 +326,7 @@ void readSerialData() {
             else if (!dataRead) {
                 currentData = currentData | data;   // LS byte of channel 0 data
                 // Last byte of data, reset all bools for next set of data
+                dataAvailable = false;
                 byte1Read = false;
                 byte2Read = false;
                 byte3Read = false;
@@ -343,7 +348,7 @@ void powerCalculation() {
     static int counter = 0;
     // These scalars convert the stepped-down voltage and current data read from the MCP into
     // the full values actually in use. Values determined by physical circuit.
-    // ei: MCP sees 200mV, 120V actually present (numbers don't reflect reality)
+    // ie: MCP sees 200mV, 120V actually present (numbers don't reflect reality)
     static int voltageScalar = 1;   // need to find these values
     static int currentScalar = 1;
     
