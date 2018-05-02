@@ -87,9 +87,9 @@ void main(void)
 
     for (int inx = 0; inx < 10; inx++)
     {
-        LED_SET = 1;
+        LED1_SET = 1;
         delayMS10(10);
-        LED_SET = 0;
+        LED1_SET = 0;
         delayMS10(10);
     }
 
@@ -148,9 +148,9 @@ void main(void)
 
                 for (int inx = 0; inx < 10; inx++)
                 {
-                    LED_SET = 1;
+                    LED1_SET = 1;
                     delayMS10(3);
-                    LED_SET = 0;
+                    LED1_SET = 0;
                     delayMS10(5);
                 }
 
@@ -205,13 +205,13 @@ void pulseFoutPassThru(void)
         if (runonce == false)
         {
             runonce = true;
-            if (LED_READ == 1)
+            if (LED2_READ == 1)
             {
-                LED_SET = 0;
+                LED2_SET = 0;
             }
             else
             {
-                LED_SET = 1;
+                LED2_SET = 1;
             }
         }
     }
@@ -285,17 +285,20 @@ void energyPulseCheck(void)
 void readSerialData() {
     // booleans to create non-blocking SPI comm code
     static bool readingData = false;
+    static bool drFlag = false;     // figure out what to do with this
     static bool byte1Read = false;
     static bool byte2Read = false;
     static bool byte3Read = false;
     // only look for data if there is data available OR if we are already reading data
     if (dataAvailable || readingData) {
+//        if (!drFlag) {
+//            drFlag = true;  // figure out what to do with this
+//        }
         // Data is available but we're not reading it, so start communication
         if (!readingData) {
             SSP1BUF = 0xac;     // send dummy data to initiate communication
             readingData = true;
             dataRead = false;
-            dataAvailable = false;
         }
         // Data has been read and the buffer is full, so we save the new data
         if (readingData && SSP1STATbits.BF) {
@@ -322,6 +325,7 @@ void readSerialData() {
                 byte1Read = false;
                 byte2Read = false;
                 byte3Read = false;
+                dataAvailable = false;
                 dataRead = true;    // we have read a complete set of data, so 
             }                       // let calculation code know it's ready
         }
@@ -334,6 +338,7 @@ void readSerialData() {
  */
 void powerCalculation() {
     static int size = 14;   // number of samples we take per line cycle, max 233
+                            // determined by how often we sample.
     static int instantPower[14];    // this number must match size
     static int counter = 0;
     // These scalars convert the stepped-down voltage and current data read from the MCP into
@@ -348,12 +353,20 @@ void powerCalculation() {
         counter++;
     }
     if (counter == size) {
+        // This will be really fast
+        if (LED3_READ == 1) {
+            LED3_SET = 0;
+        }
+        else {
+            LED3_SET = 1;
+        }
+        
         int realPower = 0;
         for (int i = 0; i < size; i++) {
             realPower =+ instantPower[i];
         }
+        meterWatts = realPower / counter;
         counter = 0;
-        meterWatts = realPower / size;
     }
     
     return;
@@ -366,6 +379,7 @@ void delayMS10(int count)
 
         __delay_ms(10);
     }
+    return;
 }
 
 void init()
@@ -403,13 +417,23 @@ void initIO(void)
     ANSELB = 0b00000000;
     ANSELC = 0b00000000;
 
-    LED_DIR = 0;
-    LED_SET = 0;
+    LED1_DIR = 0;
+    LED1_SET = 0;
+    LED2_DIR = 0;
+    LED2_SET = 0;
+    LED3_DIR = 0;
+    LED3_SET = 0;
 
     MCP_HFOUT_DIR = 1;
     MCP_LFOUT_DIR = 1;
     MCP_LFOUT_PASS_DIR = 0;
     MCP_LFOUT_PASS_SET = 0;
+    
+    // set directions of SPI pins
+    MCP_SPI_SDO_DIR = 0; // Set the direction of PIC pin as output for MCP
+    MCP_SPI_CS_DIR = 0;  // Set the direction of PIC pin as output for MCP
+    MCP_SPI_CLK_DIR = 0; // Set the direction of PIC pin as output for MCP
+    MCP_SPI_SDI_DIR = 1; // Set the direction of PIC pin as input for MCP
 
     return;
 }
@@ -441,6 +465,7 @@ void initInterruptsClear(void)
     IPR4 = 0b00000000;
     IPR5 = 0b00000000;
 
+    return;
 }
 
 void initTimer(void)
@@ -457,7 +482,7 @@ void initTimer(void)
     T0CONbits.TMR0ON = 1;
 
     // each interrupt should be ~1ms
-
+    return;
 }
 
 void initSPI(void) {
@@ -473,18 +498,14 @@ void initSPI(void) {
     // Set SSP1CON1 register, from bit 5 to 0
     SSP1CON1bits.SSPEN = 1;    // Enable serial port in SPI mode
     SSP1CON1bits.CKP = 1;       // Clock parity select bit: idle high level
-    SSP1CON1bits.SSPM = 0000;      // SPI Master Mode, clock = FOSC/4
+    SSP1CON1bits.SSPM = 0b0000;      // SPI Master Mode, clock = FOSC/4
     
     // page 259 of data sheet
     // Set SSP1STAT register, only bit 7 and 6
-    SSP1STATbits.SMP = 1;       // Input data sampled at end of data output time?
-    SSP1STATbits.CKE = 0;      // Transmit occurs on transition from Idle to active clock state? 
- 
-    // set directions of SPI pins
-    MCP_SPI_SDO_DIR = 0; // Set the direction of PIC pin as output for MCP
-    MCP_SPI_CS_DIR = 0;  // Set the direction of PIC pin as output for MCP
-    MCP_SPI_CLK_DIR = 0; // Set the direction of PIC pin as output for MCP
-    MCP_SPI_SDI_DIR = 1; // Set the direction of PIC pin as input for MCP
+    SSP1STATbits.SMP = 0;       // Input data sampled at end of data output time?
+    SSP1STATbits.CKE = 1;      // Transmit occurs on transition from Idle to active clock state? 
+    
+    return;
 }
 
 void initMCP(void)

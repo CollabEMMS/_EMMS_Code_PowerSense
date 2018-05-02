@@ -10,10 +10,18 @@
 
 #define _XTAL_FREQ 16000000  //16 Mhz
 
-// indicator LED
-#define LED_DIR TRISBbits.TRISB4
-#define LED_SET LATBbits.LATB4
-#define LED_READ PORTBbits.RB4
+// indicator LED 3
+#define LED1_DIR TRISCbits.TRISC0
+#define LED1_SET LATCbits.LATC0
+#define LED1_READ PORTCbits.RC0
+// indicator LED 3
+#define LED2_DIR TRISCbits.TRISC1
+#define LED2_SET LATCbits.LATC1
+#define LED2_READ PORTCbits.RC1
+// indicator LED 3
+#define LED3_DIR TRISBbits.TRISB4
+#define LED3_SET LATBbits.LATB4
+#define LED3_READ PORTBbits.RB4
 //
 //// pulse input pin 3
 //#define MCP_LFOUT_DIR TRISAbits.TRISA1
