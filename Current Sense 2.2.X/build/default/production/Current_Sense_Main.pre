@@ -8338,9 +8338,9 @@ init();
 
 for (int inx = 0; inx < 10; inx++)
 {
-LATBbits.LATB4 = 1;
+LATCbits.LATC0 = 1;
 delayMS10(10);
-LATBbits.LATB4 = 0;
+LATCbits.LATC0 = 0;
 delayMS10(10);
 }
 
@@ -8370,9 +8370,9 @@ initDone = 1;
 
 for (int inx = 0; inx < 10; inx++)
 {
-LATBbits.LATB4 = 1;
+LATCbits.LATC0 = 1;
 delayMS10(3);
-LATBbits.LATB4 = 0;
+LATCbits.LATC0 = 0;
 delayMS10(5);
 }
 
@@ -8390,19 +8390,19 @@ void pulseFoutPassThru(void)
 
 static bool runonce = 0;
 
-if (PORTCbits.RC2 == 0)
+if (PORTAbits.RA3 == 0)
 {
 LATAbits.LATA0 = 1;
 if (runonce == 0)
 {
 runonce = 1;
-if (PORTBbits.RB4 == 1)
+if (PORTCbits.RC1 == 1)
 {
-LATBbits.LATB4 = 0;
+LATCbits.LATC1 = 0;
 }
 else
 {
-LATBbits.LATB4 = 1;
+LATCbits.LATC1 = 1;
 }
 }
 }
@@ -8438,7 +8438,7 @@ static unsigned long meterEnergyUsedPart = 0;
 static bool mcpLFoutLast = 0;
 
 
-if (PORTAbits.RA1 == 0)
+if (PORTAbits.RA2 == 0)
 {
 if (mcpLFoutLast == 0)
 {
@@ -8466,17 +8466,19 @@ return;
 void readSerialData() {
 
 static bool readingData = 0;
+static bool drFlag = 0;
 static bool byte1Read = 0;
 static bool byte2Read = 0;
 static bool byte3Read = 0;
 
 if (dataAvailable || readingData) {
 
+
+
+
 if (!readingData) {
 SSP1BUF = 0xac;
 readingData = 1;
-dataRead = 0;
-
 }
 
 if (readingData && SSP1STATbits.BF) {
@@ -8511,9 +8513,10 @@ dataRead = 1;
 return;
 }
 
-# 336
+# 338
 void powerCalculation() {
 static int size = 14;
+
 static int instantPower[14];
 static int counter = 0;
 
@@ -8528,12 +8531,21 @@ instantPower[counter] = (voltageData * voltageScalar) * (currentData * currentSc
 counter++;
 }
 if (counter == size) {
+
+if (PORTBbits.RB4 == 1) {
+LATBbits.LATB4 = 0;
+}
+else {
+LATBbits.LATB4 = 1;
+}
+
 int realPower = 0;
 for (int i = 0; i < size; i++) {
 realPower =+ instantPower[i];
 }
+meterWatts = realPower / counter;
 counter = 0;
-meterWatts = realPower / size;
+dataRead = 0;
 }
 
 return;
@@ -8546,6 +8558,7 @@ for (int inx = 0; inx < count; inx++)
 
 _delay((unsigned long)((10)*(16000000/4000.0)));
 }
+return;
 }
 
 void init()
@@ -8583,13 +8596,23 @@ ANSELA = 0b00000000;
 ANSELB = 0b00000000;
 ANSELC = 0b00000000;
 
+TRISCbits.TRISC0 = 0;
+LATCbits.LATC0 = 0;
+TRISCbits.TRISC1 = 0;
+LATCbits.LATC1 = 0;
 TRISBbits.TRISB4 = 0;
 LATBbits.LATB4 = 0;
 
-TRISCbits.TRISC2 = 1;
-TRISAbits.TRISA1 = 1;
+TRISAbits.TRISA3 = 1;
+TRISAbits.TRISA2 = 1;
 TRISAbits.TRISA0 = 0;
 LATAbits.LATA0 = 0;
+
+
+TRISCbits.TRISC5 = 0;
+TRISCbits.TRISC7 = 0;
+TRISCbits.TRISC3 = 0;
+TRISCbits.TRISC4 = 1;
 
 return;
 }
@@ -8621,6 +8644,7 @@ IPR3 = 0b00000000;
 IPR4 = 0b00000000;
 IPR5 = 0b00000000;
 
+return;
 }
 
 void initTimer(void)
@@ -8637,26 +8661,22 @@ INTCONbits.GIE = 1;
 T0CONbits.TMR0ON = 1;
 
 
-
+return;
 }
 
 void initSPI(void) {
 
-# 475
+# 499
 SSP1CON1bits.SSPEN = 1;
 SSP1CON1bits.CKP = 1;
-SSP1CON1bits.SSPM = 0000;
+SSP1CON1bits.SSPM = 0b0000;
 
 
 
-SSP1STATbits.SMP = 1;
-SSP1STATbits.CKE = 0;
+SSP1STATbits.SMP = 0;
+SSP1STATbits.CKE = 1;
 
-
-TRISCbits.TRISC5 = 0;
-TRISCbits.TRISC7 = 0;
-TRISCbits.TRISC3 = 0;
-TRISCbits.TRISC4 = 1;
+return;
 }
 
 void initMCP(void)
@@ -8673,6 +8693,6 @@ LATCbits.LATC7 = 0;
 
 SSP1BUF = 0b10101100;
 
-# 509
+# 529
 return;
 }

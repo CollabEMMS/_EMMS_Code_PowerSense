@@ -15,15 +15,15 @@
 #include "Communications.h"
 
 
-// HFout pulse input pin 13
-#define MCP_HFOUT_DIR TRISCbits.TRISC2
-#define MCP_HFOUT_READ PORTCbits.RC2
+// HFout pulse input pin 5
+#define MCP_HFOUT_DIR TRISAbits.TRISA3
+#define MCP_HFOUT_READ PORTAbits.RA3
 
-// Fout pulse input pin 3
-#define MCP_LFOUT_DIR TRISAbits.TRISA1
-#define MCP_LFOUT_READ PORTAbits.RA1
+// LFout pulse input pin 4
+#define MCP_LFOUT_DIR TRISAbits.TRISA2
+#define MCP_LFOUT_READ PORTAbits.RA2
 
-// Fout pulse output (pass thru) pin 2
+// Fout pulse output (pass thru) pin 2      DELETE not used
 #define MCP_LFOUT_PASS_DIR TRISAbits.TRISA0
 #define MCP_LFOUT_PASS_SET LATAbits.LATA0
 
@@ -60,8 +60,10 @@ void powerCalculation(void);
 
 void delayMS10(int count);
 
-signed short voltageData = 0;
-signed short currentData = 0;
+signed short voltageCode = 0;
+unsigned long voltageData = 0;
+signed short currentCode = 0;
+unsigned long currentData = 0;
 unsigned long meterWatts = 0;
 unsigned long meterEnergyUsed = 0;
 
@@ -280,7 +282,8 @@ void energyPulseCheck(void)
  * This code reads the data from the MCP when it is available. The code structure
  * is non-blocking, so it doesn't wait for data to be available, but instead
  * continues with the code and retrieves the data the next time this function is 
- * called.
+ * called. The values retrieved are codes which relate to the actual values across
+ * the channel pins. See MCP data sheet pg 25.
  */
 void readSerialData() {
     // booleans to create non-blocking SPI comm code
@@ -298,11 +301,6 @@ void readSerialData() {
         if (!readingData) {
             SSP1BUF = 0xac;     // send dummy data to initiate communication
             readingData = true;
-            dataRead = false;
-<<<<<<< HEAD
-=======
-            
->>>>>>> c2e67261772049e795475e3f0c496ee3a9fd415b
         }
         // Data has been read and the buffer is full, so we save the new data
         if (readingData && SSP1STATbits.BF) {
@@ -312,52 +310,75 @@ void readSerialData() {
             readingData = false;    // no longer reading data
             // Check which data has just been read
             if (!byte1Read) {   // MS byte of channel 1 data
-                voltageData = (data << 8) & 0xFF;
+                voltageCode = (data << 8) & 0xFF;
                 byte1Read = true;
             }
             else if (!byte2Read) {  // LS byte of channel 1 data
-                voltageData = voltageData | data;
+                voltageCode = voltageCode | data;
                 byte2Read = true;
             }
             else if (!byte3Read) {  // MS byte of channel 0 data
-                currentData = (data << 8) & 0xFF;
+                currentCode = (data << 8) & 0xFF;
                 byte3Read = true;
             }
             else if (!dataRead) {
-                currentData = currentData | data;   // LS byte of channel 0 data
+                currentCode = currentCode | data;   // LS byte of channel 0 data
                 // Last byte of data, reset all bools for next set of data
                 dataAvailable = false;
                 byte1Read = false;
                 byte2Read = false;
                 byte3Read = false;
-                dataAvailable = false;
-                dataRead = true;    // we have read a complete set of data, so 
-            }                       // let calculation code know it's ready
+                dataRead = true;    // we have read a complete set of data, so let calculation code know it's ready
+                dataCodeToRealValues();
+            }                      
         }
     } 
     return;
+}
+
+void dataCodeToRealValues() {
+    if (dataRead) {
+        currentData = (long)(currentCode * 1.088);  // provided in mA
+        voltageData = (long)(voltageCode * );
+        /**
+         * Some Theory behind the numbers
+         * CH0 code = Vdiff0 * 45933.47 using gain = 1 and Vref = 2.4V
+         * CH1 code = Vdiff1 * 32710.20
+         * from here we can find the differential voltage across the pins for a given code
+         * 
+         * CHANNEL 0:
+         * Using 2 10 ohm resistors and the AC1030 1000:1 transformer
+         * Current in A through meter = Vdiff0 * 1000 / 20ohms
+         * multiply by 1000 to work in mA to keep accuracy by not using floats
+         * Current in mA = (CHO code * 1000 * 1000) / (20 * 45933.47)
+         * 
+         * CHANNEL 1:
+         * 2 200 ohm and 1 150k ohm resistors and 1:1.5 transformer
+         * Voltage across meter = Vdiff1 * 1.5 * 150k ohm / 400
+         * Voltage from code = (CH1 code * 1.5 * 150000) / (400 * 32710.2)
+         */
+    }
 }
 
 /**
  * This function contains all the calculation code for determining power in Watts
  */
 void powerCalculation() {
-    static int size = 14;   // number of samples we take per line cycle, max 233
-                            // determined by how often we sample.
-    static int instantPower[14];    // this number must match size
+#define SIZE = 14   // number of samples we take per line cycle, max 233
+                    // determined by how often we sample.
+    static int instantPower[SIZE];    // this number must match size
     static int counter = 0;
     // These scalars convert the stepped-down voltage and current data read from the MCP into
     // the full values actually in use. Values determined by physical circuit.
     // ie: MCP sees 200mV, 120V actually present (numbers don't reflect reality)
-    static int voltageScalar = 1;   // need to find these values
-    static int currentScalar = 1;
+
     
     // Calculation of real power (average of instantaneous power over 1 cycle)
     if (dataRead) {
-        instantPower[counter] = (voltageData * voltageScalar) * (currentData * currentScalar);
+        instantPower[counter] = (voltageData * currentData);
         counter++;
     }
-    if (counter == size) {
+    if (counter == SIZE) {
         // This will be really fast
         if (LED3_READ == 1) {
             LED3_SET = 0;
@@ -367,11 +388,12 @@ void powerCalculation() {
         }
         
         int realPower = 0;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < SIZE; i++) {
             realPower =+ instantPower[i];
         }
         meterWatts = realPower / counter;
         counter = 0;
+        dataRead = false;
     }
     
     return;
@@ -432,7 +454,7 @@ void initIO(void)
     MCP_HFOUT_DIR = 1;
     MCP_LFOUT_DIR = 1;
     MCP_LFOUT_PASS_DIR = 0;
-    MCP_LFOUT_PASS_SET = 0;
+    MCP_LFOUT_PASS_SET  =0;
     
     // set directions of SPI pins
     MCP_SPI_SDO_DIR = 0; // Set the direction of PIC pin as output for MCP
