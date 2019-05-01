@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Tue Apr 30 09:01:39 2019
+                                                                                               Mon Apr 29 20:24:55 2019
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F25K22
@@ -1138,12 +1138,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1124  000934  0E00               	movlw	0
   1125  000936  6E49               	movwf	_timerCountHF+3,c	;volatile
   1126                           
-  1127                           ;Current_Sense_Main.c: 446: meterWatts = (((((unsigned long) 2243 * (unsigned long) 3600
-      +                          ) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned l
-      +                          ong) timerCountHFLast;
-  1128  000938  0E6C               	movlw	108
+  1127                           ;Current_Sense_Main.c: 446: meterWatts = (((((unsigned long) 22124 * (unsigned long) 360
+      +                          0) / ((unsigned long) 1000000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned
+      +                           long) timerCountHFLast;
+  1128  000938  0E1E               	movlw	30
   1129  00093A  6E13               	movwf	___lldiv@dividend,c
-  1130  00093C  0E3B               	movlw	59
+  1130  00093C  0E37               	movlw	55
   1131  00093E  6E14               	movwf	___lldiv@dividend+1,c
   1132  000940  0E01               	movlw	1
   1133  000942  6E15               	movwf	___lldiv@dividend+2,c
@@ -1236,12 +1236,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1219  0009D6  4A4A               	infsnz	powerPulseCheck@timerCountHFCheck,f,c
   1220  0009D8  2A4B               	incf	powerPulseCheck@timerCountHFCheck+1,f,c
   1221                           
-  1222                           ;Current_Sense_Main.c: 471: meterWatts = (((((unsigned long) 2243 * (unsigned long) 3600
-      +                          ) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned l
-      +                          ong) timerCountHF;
-  1223  0009DA  0E6C               	movlw	108
+  1222                           ;Current_Sense_Main.c: 471: meterWatts = (((((unsigned long) 22124 * (unsigned long) 360
+      +                          0) / ((unsigned long) 1000000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned
+      +                           long) timerCountHF;
+  1223  0009DA  0E1E               	movlw	30
   1224  0009DC  6E13               	movwf	___lldiv@dividend,c
-  1225  0009DE  0E3B               	movlw	59
+  1225  0009DE  0E37               	movlw	55
   1226  0009E0  6E14               	movwf	___lldiv@dividend+1,c
   1227  0009E2  0E01               	movlw	1
   1228  0009E4  6E15               	movwf	___lldiv@dividend+2,c
@@ -1331,18 +1331,18 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1312  000A54  0E00               	movlw	0
   1313  000A56  6E3A               	movwf	_timerCountLF+3,c	;volatile
   1314                           
-  1315                           ;Current_Sense_Main.c: 495: meterEnergyUsedPart += 2243 * (unsigned long) 16;
-  1316  000A58  0E30               	movlw	48
+  1315                           ;Current_Sense_Main.c: 495: meterEnergyUsedPart += 22124 * (unsigned long) 16;
+  1316  000A58  0EC0               	movlw	192
   1317  000A5A  0100               	movlb	0	; () banked
   1318  000A5C  2760               	addwf	powerPulseCheck@meterEnergyUsedPart& (0+255),f,b
-  1319  000A5E  0E8C               	movlw	140
+  1319  000A5E  0E66               	movlw	102
   1320  000A60  2361               	addwfc	(powerPulseCheck@meterEnergyUsedPart+1)& (0+255),f,b
-  1321  000A62  0E00               	movlw	0
+  1321  000A62  0E05               	movlw	5
   1322  000A64  2362               	addwfc	(powerPulseCheck@meterEnergyUsedPart+2)& (0+255),f,b
   1323  000A66  0E00               	movlw	0
   1324  000A68  2363               	addwfc	(powerPulseCheck@meterEnergyUsedPart+3)& (0+255),f,b
   1325                           
-  1326                           ;Current_Sense_Main.c: 496: while (meterEnergyUsedPart > 100000)
+  1326                           ;Current_Sense_Main.c: 496: while (meterEnergyUsedPart > 1000000)
   1327  000A6A  D00E               	goto	l160
   1328  000A6C                     l2999:
   1329                           
@@ -1356,12 +1356,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1337  000A74  2366               	addwfc	(_meterEnergyUsed+2)& (0+255),f,b
   1338  000A76  2367               	addwfc	(_meterEnergyUsed+3)& (0+255),f,b
   1339                           
-  1340                           ;Current_Sense_Main.c: 499: meterEnergyUsedPart -= 100000;
-  1341  000A78  0EA0               	movlw	160
+  1340                           ;Current_Sense_Main.c: 499: meterEnergyUsedPart -= 1000000;
+  1341  000A78  0E40               	movlw	64
   1342  000A7A  5F60               	subwf	powerPulseCheck@meterEnergyUsedPart& (0+255),f,b
-  1343  000A7C  0E86               	movlw	134
+  1343  000A7C  0E42               	movlw	66
   1344  000A7E  5B61               	subwfb	(powerPulseCheck@meterEnergyUsedPart+1)& (0+255),f,b
-  1345  000A80  0E01               	movlw	1
+  1345  000A80  0E0F               	movlw	15
   1346  000A82  5B62               	subwfb	(powerPulseCheck@meterEnergyUsedPart+2)& (0+255),f,b
   1347  000A84  0E00               	movlw	0
   1348  000A86  5B63               	subwfb	(powerPulseCheck@meterEnergyUsedPart+3)& (0+255),f,b
@@ -1370,11 +1370,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1351                           ; BSR set to: 0
   1352  000A88  5163               	movf	(powerPulseCheck@meterEnergyUsedPart+3)& (0+255),w,b
   1353  000A8A  E1F0               	bnz	l2999
-  1354  000A8C  0EA1               	movlw	161
+  1354  000A8C  0E41               	movlw	65
   1355  000A8E  5D60               	subwf	powerPulseCheck@meterEnergyUsedPart& (0+255),w,b
-  1356  000A90  0E86               	movlw	134
+  1356  000A90  0E42               	movlw	66
   1357  000A92  5961               	subwfb	(powerPulseCheck@meterEnergyUsedPart+1)& (0+255),w,b
-  1358  000A94  0E01               	movlw	1
+  1358  000A94  0E0F               	movlw	15
   1359  000A96  5962               	subwfb	(powerPulseCheck@meterEnergyUsedPart+2)& (0+255),w,b
   1360  000A98  A0D8               	btfss	status,0,c
   1361  000A9A  0012               	return	
@@ -6302,7 +6302,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Tue Apr 30 09:01:39 2019
+Symbol Table                                                                                   Mon Apr 29 20:24:55 2019
 
                                        _SPISlaveInit 1646                                  ___wmul@multiplicand 0015  
                                        __CFG_CP0$OFF 000000                                         __CFG_CP1$OFF 000000  

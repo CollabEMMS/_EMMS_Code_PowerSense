@@ -419,9 +419,9 @@ void powerPulseCheck(void)
 
 
 //#define ENERGY_PER_PULSE 27000 //(221.24 mWh per pulse)
-#define ENERGY_PER_PULSE 2243 //(22.124 mWh per pulse)
+#define ENERGY_PER_PULSE 22124 //(22.124 mWh per pulse)
 //    #define ENERGY_PER_PULSE 2700     //(22.124 mWh per pulse)
-#define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh    
+#define ENERGY_PER_PULSE_UNIT 1000000 // energy per pulse is divided by this to get Wh    
 
     static unsigned long meterEnergyUsedPart = 0;
     static unsigned long timerCountHFLast = 2147483647;

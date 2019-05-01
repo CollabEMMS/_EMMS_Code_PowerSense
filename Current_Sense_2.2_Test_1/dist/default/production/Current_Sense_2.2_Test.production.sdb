@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F25K22 ]
 [d frameptr 4065 ]
-"101 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+"101 C:\Users\emms\Documents\_EMMS_Code_PowerSense-master\_EMMS_Code_PowerSense-master\Current_Sense_2.2_Test\SlaveComm_PIC18.c
 [e E6751 receive_status `uc
 receive_waiting 0
 receive_in_command 1
@@ -41,7 +41,7 @@ receive_end_command 2
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"90 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+"90 C:\Users\emms\Documents\_EMMS_Code_PowerSense-master\_EMMS_Code_PowerSense-master\Current_Sense_2.2_Test\Current_Sense_Main.c
 [v _main main `(v  1 e 1 0 ]
 "302
 [v _toggleBlue toggleBlue `(v  1 e 1 0 ]
@@ -57,7 +57,7 @@ receive_end_command 2
 [v _initOSC initOSC `(v  1 e 1 0 ]
 "613
 [v _initTimer initTimer `(v  1 e 1 0 ]
-"90 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+"90 C:\Users\emms\Documents\_EMMS_Code_PowerSense-master\_EMMS_Code_PowerSense-master\Current_Sense_2.2_Test\SlaveComm_PIC18.c
 [v _communications communications `(v  1 e 1 0 ]
 "158
 [v _resetCommunications resetCommunications `(v  1 e 1 0 ]
@@ -710,7 +710,7 @@ receive_end_command 2
 ]
 [u S613 . 1 `S591 1 . 1 0 `S600 1 . 1 0 `S609 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES613  1 e 1 @4082 ]
-"69 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+"69 C:\Users\emms\Documents\_EMMS_Code_PowerSense-master\_EMMS_Code_PowerSense-master\Current_Sense_2.2_Test\Current_Sense_Main.c
 [v _meterWatts meterWatts `ul  1 e 4 0 ]
 "70
 [v _meterEnergyUsed meterEnergyUsed `ul  1 e 4 0 ]
@@ -720,9 +720,9 @@ receive_end_command 2
 [v _timerCountLF timerCountLF `VEul  1 e 4 0 ]
 "88
 [v _isLow isLow `uc  1 e 1 0 ]
-"30 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+"30 C:\Users\emms\Documents\_EMMS_Code_PowerSense-master\_EMMS_Code_PowerSense-master\Current_Sense_2.2_Test\SlaveComm_PIC18.c
 [v _SPI_transmit_wait SPI_transmit_wait `uc  1 e 1 0 ]
-"90 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+"90 C:\Users\emms\Documents\_EMMS_Code_PowerSense-master\_EMMS_Code_PowerSense-master\Current_Sense_2.2_Test\Current_Sense_Main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "131
@@ -775,7 +775,7 @@ receive_end_command 2
 [v delayMS10@count count `i  1 p 2 18 ]
 "537
 } 0
-"90 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+"90 C:\Users\emms\Documents\_EMMS_Code_PowerSense-master\_EMMS_Code_PowerSense-master\Current_Sense_2.2_Test\SlaveComm_PIC18.c
 [v _communications communications `(v  1 e 1 0 ]
 {
 [v communications@firstTime firstTime `uc  1 a 1 wreg ]
@@ -975,7 +975,7 @@ receive_end_command 2
 [v ___lldiv@divisor divisor `ul  1 p 4 22 ]
 "31
 } 0
-"454 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+"454 C:\Users\emms\Documents\_EMMS_Code_PowerSense-master\_EMMS_Code_PowerSense-master\Current_Sense_2.2_Test\SlaveComm_PIC18.c
 [v _command_builder3 command_builder3 `(v  1 e 1 0 ]
 {
 [s S1061 buffer 42 `[40]uc 1 data_buffer 40 0 `uc 1 write_position 1 40 `uc 1 read_position 1 41 ]
@@ -1035,7 +1035,7 @@ receive_end_command 2
 [v ___lmul@multiplicand multiplicand `ul  1 p 4 22 ]
 "129
 } 0
-"280 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+"280 C:\Users\emms\Documents\_EMMS_Code_PowerSense-master\_EMMS_Code_PowerSense-master\Current_Sense_2.2_Test\SlaveComm_PIC18.c
 [v _process_data_parameterize process_data_parameterize `(v  1 e 1 0 ]
 {
 "292
@@ -1060,12 +1060,12 @@ receive_end_command 2
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 20 ]
 "53
 } 0
-"706 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+"706 C:\Users\emms\Documents\_EMMS_Code_PowerSense-master\_EMMS_Code_PowerSense-master\Current_Sense_2.2_Test\SlaveComm_PIC18.c
 [v _SPISlaveInit SPISlaveInit `(v  1 e 1 0 ]
 {
 "754
 } 0
-"396 C:\Users\emms\Documents\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+"396 C:\Users\emms\Documents\_EMMS_Code_PowerSense-master\_EMMS_Code_PowerSense-master\Current_Sense_2.2_Test\Current_Sense_Main.c
 [v _Timer0_ISR Timer0_ISR `II(v  1 e 1 0 ]
 {
 "408
