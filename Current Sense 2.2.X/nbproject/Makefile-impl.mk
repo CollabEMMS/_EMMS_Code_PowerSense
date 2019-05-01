@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Current_Sense_2.2_Test_HFLF
+PROJECTNAME=Current Sense 2.2.X
 
 # Active Configuration
 DEFAULTCONF=default
