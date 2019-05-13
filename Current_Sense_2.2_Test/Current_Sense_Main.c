@@ -1,8 +1,11 @@
 /*
- * File:   newmain.c
+ * File:   Test_HFLF.c
  * Author: gt1165
+ * 
+ * Editor: jw1530
  *
  * Created on November 6, 2015, 3:33 PM
+ * Edited: 5/1/2019
  */
 #include "pragma.h"
 
@@ -12,7 +15,7 @@
 //#include <p18f25k22.h>
 #include <p18cxxx.h>
 #include <xc.h>
-#include "config.h" 
+#include "config.h"
 #include "Communications.h"
 
 // HFout pulse input pin 5 - RA3
@@ -57,7 +60,7 @@ void initIO(void);
 void initInterruptsClear(void);
 void initMCPFout(void);
 void initTimer(void);
-void pulseFoutPassThru(void);
+void toggleLEDs(void);
 void powerPulseCheck(void);
 void toggleBlue(void);
 
@@ -71,6 +74,7 @@ unsigned long meterEnergyUsed = 0;
 
 volatile unsigned long timerCountHF = 0;
 volatile unsigned long timerCountLF = 0;
+volatile bool useLF = true; // used to control HF/LF LED flashing
 
 
 #define LOW_BYTE(x)     ((unsigned char)((x)&0xFF))
@@ -92,15 +96,43 @@ void main(void)
     init();
     
    // Set output for all LEDs 
-   LED_DIR = 0;
-   LED_DIR_OR = 0;
-   LED_DIR_PR = 0;
+   LED_DIR_G = 0;
+   LED_DIR_R = 0;
+   LED_DIR_B = 0;
 
    
    // Light all LEDs
-   LED_SET = 1;             // blue
-   LED_SET_PR = 1;          // purple
-   LED_SET_OR = 1;          // orange
+   LED_SET_G = 1;             // green
+   LED_SET_B = 1;          // red
+   LED_SET_R = 1;          // blue
+   
+   delayMS10(10);
+   
+   LED_SET_G = 0;             
+   LED_SET_B = 0;          
+   LED_SET_R = 0;          
+   
+   delayMS10(10);
+   
+   LED_SET_G = 1;             
+   LED_SET_B = 0;          
+   LED_SET_R = 0;          
+   
+   delayMS10(10);
+   
+   LED_SET_G = 0;             
+   LED_SET_B = 1;          
+   LED_SET_R = 0;         
+   
+   delayMS10(10);
+   
+   LED_SET_G = 0;             
+   LED_SET_B = 0;          
+   LED_SET_R = 1;          
+   
+   delayMS10(5);
+   
+   
    
    // Set up directions for F0, F1, and F2
    MCP_FREQ_F0_DIR = 0;
@@ -126,9 +158,9 @@ void main(void)
    // To catch pulse, set it as input:
         MCP_LFOUT_DIR_zero = 1;
    
-    LED_SET = 0;    
-    LED_SET_PR = 0;          
-    LED_SET_OR = 0; 
+    LED_SET_G = 0;    
+    LED_SET_B = 0;          
+    LED_SET_R = 0; 
     
     bool isLow = false; 
     communications(true);
@@ -147,7 +179,8 @@ void main(void)
 //        delayMS10(2); }
         
         
-        toggleBlue();
+        // toggleBlue();
+       toggleLEDs();
         // toggle blue led as the speed of Fout 1 (same as yellow LEDs)
 //       if(MCP_LFOUT_READ_zero == 0) {
 //           if(isLow == false) {
@@ -299,20 +332,24 @@ void main(void)
     return;
 }
 
+
+// toggleBlue not used with HF/LF switching
+// *** No longer used since we have three LEDs for multiple purposes. SEE PULSE FOUT PASS THRU
 void toggleBlue(void) 
 {
 //    bool isLow = false;
-      if(MCP_LFOUT_READ_zero == 0) { // low frequency
+      if(MCP_LFOUT_READ_zero == 0) 
+        { // low frequency
            if(isLow == false) {
-            LED_DIR = 1;
-            if (LED_READ == 0) 
+            LED_DIR_G = 1;
+            if (LED_READ_G == 0) 
             {
-                LED_DIR = 0;
-                LED_SET = 1;
+                LED_DIR_G = 0;
+                LED_SET_G = 1;
             }
             else {
-                LED_DIR = 0;
-                LED_SET = 0;
+                LED_DIR_G = 0;
+                LED_SET_G = 0;
             }
             isLow = true;
             
@@ -322,11 +359,11 @@ void toggleBlue(void)
            isLow = false;
         }
      
-          if(isLow) {
-           LED_SET_PR = 0;
-       } else {
-           LED_SET_PR = 1;
-       }
+        if(isLow) {
+           LED_SET_B = 0;
+        } else {
+           LED_SET_B = 1;
+        }
     
       
     // toggle blue led as the speed of Fout 1 (same as yellow LEDs)
@@ -362,34 +399,49 @@ void toggleBlue(void)
 
 
 
-
-void pulseFoutPassThru(void)
+// Toggles LEDs for each LF and HF pulses
+// *** Replaced pulseFoutPassThru()
+void toggleLEDs(void)
 {
-    // mimic the pulse from the MCP Fout pins
-    static bool runonce = false;
-
-    if (MCP_HFOUT_READ == 0)
-    {
-        MCP_LFOUT_PASS_SET = 1;
-        if (runonce == false)
-        {
-            runonce = true;
-            if (LED_READ == 1)
+    static bool runonceLF = false;
+    static bool runonceHF = false;
+    
+    // Toggle blue LED with each LF pulse
+    if (MCP_LFOUT_READ_zero == 0) {
+        if (runonceLF == false) {
+            runonceLF = true;
+            if (LED_READ_G == 1) {
+                LED_SET_G = 0;
+            } else
             {
-                LED_SET = 0;
-            }
-            else
-            {
-                LED_SET = 1;
+                LED_SET_G = 1;
             }
         }
+    } else {
+        runonceLF = false;
     }
-    else
-    {
-        MCP_LFOUT_PASS_SET = 0;
-        runonce = false;
+    
+    // Toggle Orange LED with each HF pulse
+    if (MCP_HFOUT_READ == 0) {
+        if (runonceHF == false) {
+            runonceHF = true;
+            if (LED_READ_R == 1) {
+                LED_SET_R = 0;
+            } else {
+                LED_SET_R = 1;
+            }
+        }
+    } else {
+        runonceHF = false;
     }
-
+    
+    // Toggle Purple LED to indicate HF/!LF
+    if (useLF) {
+        LED_SET_B = 0;
+    } else {
+        LED_SET_B = 1;
+    }
+    
     return;
 }
 
@@ -424,44 +476,87 @@ void powerPulseCheck(void)
 #define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh    
 
     static unsigned long meterEnergyUsedPart = 0;
+    static unsigned long meterWattsHF = 0;
+    static unsigned long meterWattsLF = 0;
+    static unsigned long timerCountLFLast = 2147483647;
     static unsigned long timerCountHFLast = 2147483647;
     static unsigned int timerCountHFCheck = 1;
-    static bool firstPulse = true;
-
+    static bool firstHFPulse = true;
+    static bool firstLFPulse = true;
 
     static bool mcpHFoutLast = false; // this is so we run a calc only once each time the pulse comes
     static bool mcpLFoutLast = false; // this is so we run a calc only once each time the pulse comes
-
     
-    // HF output is for calculating watts
-    if (MCP_HFOUT_READ == 0)
+    // set load to 0 if no pulses seen yet
+    if (firstHFPulse == true)
     {
-        if (mcpHFoutLast == false)
-        {
+        meterWatts = 0;
+    }
+    
+    // Calculate HF Watts
+    if (MCP_HFOUT_READ == 0) {
+        if (mcpHFoutLast == false) {
             mcpHFoutLast = true;
-            firstPulse = false;
+            firstHFPulse = false;
 
             timerCountHFLast = timerCountHF;
             timerCountHF = 0;
-            meterWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
+            meterWattsHF = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
 //            meterWatts = timerCountHFLast;
-            
-
+          
             timerCountHFCheck = 1; //reset the periodic power reduction
+            
+            // Decided whether or not to use LF based on HF power calc
+            // Numbers determined from calculations done for time vs load
+            if (meterWattsHF > 50) { // ** W subject to change
+                useLF = 1;
+            } else {
+                useLF = 0;
+            }
         }
-    }
-    else
-    {
+    } else {
         mcpHFoutLast = false;
     }
+    
+    // Calculate LF Watts and WHrs
+    // WHrs is always LF because it is most accurate
+    if (MCP_LFOUT_READ_zero == 0) {
+        if (mcpLFoutLast == false) {
+            mcpLFoutLast = true;
+            firstLFPulse = false;
 
+            timerCountLFLast = timerCountLF;
+            timerCountLF = 0;
+            // Fix the math in the next line
+            meterWattsLF = ((((ENERGY_PER_PULSE * (unsigned long) 16 * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountLFLast;
+            // meterWattsLF = timerCountLFLast;
+                    
+            meterEnergyUsedPart += ENERGY_PER_PULSE * (unsigned long) 16;
+            while (meterEnergyUsedPart > ENERGY_PER_PULSE_UNIT)
+            {
+                meterEnergyUsed++;
+                meterEnergyUsedPart -= ENERGY_PER_PULSE_UNIT;
+            }
+        }
+    } else {
+        mcpLFoutLast = false;
+    }
+    
+    // Set meterWatts to chosen source
+    if (useLF) {
+        meterWatts = meterWattsLF;
+    } else {
+        meterWatts = meterWattsHF;
+    }
+    
+    // meterWatts = (unsigned long) 69;
     
     // if there is no power then no pulses
     // if our pulse time is greater than the last measurement we know we are at a lower power.
     // go ahead and calculate 
 #define POWER_REDUCTION_INTERVAL 1000  //ms (1000 = 1 second ))
 
-    if ((firstPulse == false) && (timerCountHF > timerCountHFLast))
+    if ((firstHFPulse == false) && (timerCountHF > timerCountHFLast))
     {
         if (timerCountHF > ((unsigned long) POWER_REDUCTION_INTERVAL * (unsigned long) timerCountHFCheck))
         {
@@ -478,12 +573,7 @@ void powerPulseCheck(void)
         }
     }
 
-    if (firstPulse == true)
-    {
-        meterWatts = 0;
-    }
-
-    
+    /*
     // LF out is for calculating Watt-Hour (not watts)
     if (MCP_LFOUT_READ_zero == 0)
     {
@@ -502,19 +592,22 @@ void powerPulseCheck(void)
 //            timerCountLF = 0;
         }
     }
+     */
+ 
+    
     /*
      * Potential functionality for the meter to "sleep" if it hasn't
      * received a pulse in more than XXX number of seconds
      */
     else if(timerCountLF >= 200000) {
         
-        LED_SET_PR = 1;
+        LED_SET_B = 1;
         
     }
     
     else if(timerCountLF >= 50000) {
         
-        LED_SET_OR = 1;
+        LED_SET_R = 1;
         
     }
     
@@ -570,8 +663,8 @@ void initIO(void)
     ANSELB = 0b00000000;
     ANSELC = 0b00000000;
 
-    LED_DIR = 0;
-    LED_SET = 0;
+    LED_DIR_G = 0;
+    LED_SET_G = 0;
 
     MCP_HFOUT_DIR = 1;
     MCP_LFOUT_DIR_zero = 1;

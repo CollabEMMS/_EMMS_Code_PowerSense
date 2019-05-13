@@ -8749,7 +8749,7 @@ void com_command_setPower(struct buffer * send_buffer)
 
 char temp[12];
 
-# 658
+# 657
 ultoa(temp, meterWatts, 10);
 
 command_builder3(send_buffer, "Set", "Watts", temp);
@@ -8760,6 +8760,12 @@ return;
 void com_command_setEnergyUsed(struct buffer * send_buffer)
 {
 char temp[12];
+
+if (meterEnergyUsed > 5000) {
+while (1) {
+LATCbits.LATC1 = 1;
+}
+}
 
 ultoa(temp, meterEnergyUsed, 10);
 

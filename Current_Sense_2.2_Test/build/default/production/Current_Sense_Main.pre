@@ -8305,14 +8305,14 @@ extern __nonreentrant void _delay3(unsigned char);
 # 21 "Communications.h"
 void communications(bool);
 
-# 54 "Current_Sense_Main.c"
+# 57 "Current_Sense_Main.c"
 void init(void);
 void initOSC(void);
 void initIO(void);
 void initInterruptsClear(void);
 void initMCPFout(void);
 void initTimer(void);
-void pulseFoutPassThru(void);
+void toggleLEDs(void);
 void powerPulseCheck(void);
 void toggleBlue(void);
 
@@ -8326,8 +8326,9 @@ unsigned long meterEnergyUsed = 0;
 
 volatile unsigned long timerCountHF = 0;
 volatile unsigned long timerCountLF = 0;
+volatile bool useLF = 1;
 
-# 88
+# 92
 bool isLow = 0;
 
 void main(void)
@@ -8345,6 +8346,34 @@ LATBbits.LATB4 = 1;
 LATCbits.LATC1 = 1;
 LATCbits.LATC0 = 1;
 
+delayMS10(10);
+
+LATBbits.LATB4 = 0;
+LATCbits.LATC1 = 0;
+LATCbits.LATC0 = 0;
+
+delayMS10(10);
+
+LATBbits.LATB4 = 1;
+LATCbits.LATC1 = 0;
+LATCbits.LATC0 = 0;
+
+delayMS10(10);
+
+LATBbits.LATB4 = 0;
+LATCbits.LATC1 = 1;
+LATCbits.LATC0 = 0;
+
+delayMS10(10);
+
+LATBbits.LATB4 = 0;
+LATCbits.LATC1 = 0;
+LATCbits.LATC0 = 1;
+
+delayMS10(5);
+
+
+
 
 TRISCbits.TRISC7 = 0;
 TRISCbits.TRISC4 = 0;
@@ -8354,7 +8383,7 @@ ANSELA = 0b00000000;
 ANSELB = 0b00000000;
 ANSELC = 0b00000000;
 
-# 118
+# 150
 LATCbits.LATC6 = 1;
 LATCbits.LATC7 = 1;
 LATCbits.LATC4 = 1;
@@ -8378,27 +8407,31 @@ communications(1);
 while (1)
 {
 
-# 150
-toggleBlue();
+# 183
+toggleLEDs();
 
-# 187
+# 220
 initTimer();
 
-# 230
+# 263
 communications(0);
 
-# 244
+# 277
 powerPulseCheck();
 }
 
-# 299
+# 332
 return;
 }
+
+
+
 
 void toggleBlue(void)
 {
 
-if(PORTAbits.RA2 == 0) {
+if(PORTAbits.RA2 == 0)
+{
 if(isLow == 0) {
 TRISBbits.TRISB4 = 1;
 if (PORTBbits.RB4 == 0)
@@ -8424,35 +8457,49 @@ LATCbits.LATC1 = 0;
 LATCbits.LATC1 = 1;
 }
 
-# 359
+# 396
 }
 
-# 366
-void pulseFoutPassThru(void)
+# 404
+void toggleLEDs(void)
 {
+static bool runonceLF = 0;
+static bool runonceHF = 0;
 
-static bool runonce = 0;
 
-if (PORTAbits.RA3 == 0)
-{
-LATAbits.LATA0 = 1;
-if (runonce == 0)
-{
-runonce = 1;
-if (PORTBbits.RB4 == 1)
-{
+if (PORTAbits.RA2 == 0) {
+if (runonceLF == 0) {
+runonceLF = 1;
+if (PORTBbits.RB4 == 1) {
 LATBbits.LATB4 = 0;
-}
-else
+} else
 {
 LATBbits.LATB4 = 1;
 }
 }
+} else {
+runonceLF = 0;
 }
-else
-{
-LATAbits.LATA0 = 0;
-runonce = 0;
+
+
+if (PORTAbits.RA3 == 0) {
+if (runonceHF == 0) {
+runonceHF = 1;
+if (PORTCbits.RC0 == 1) {
+LATCbits.LATC0 = 0;
+} else {
+LATCbits.LATC0 = 1;
+}
+}
+} else {
+runonceHF = 0;
+}
+
+
+if (useLF) {
+LATCbits.LATC1 = 0;
+} else {
+LATCbits.LATC1 = 1;
 }
 
 return;
@@ -8477,41 +8524,83 @@ return;
 void powerPulseCheck(void)
 {
 
-# 426
+# 478
 static unsigned long meterEnergyUsedPart = 0;
+static unsigned long meterWattsHF = 0;
+static unsigned long meterWattsLF = 0;
+static unsigned long timerCountLFLast = 2147483647;
 static unsigned long timerCountHFLast = 2147483647;
 static unsigned int timerCountHFCheck = 1;
-static bool firstPulse = 1;
-
+static bool firstHFPulse = 1;
+static bool firstLFPulse = 1;
 
 static bool mcpHFoutLast = 0;
 static bool mcpLFoutLast = 0;
 
 
+if (firstHFPulse == 1)
+{
+meterWatts = 0;
+}
 
-if (PORTAbits.RA3 == 0)
-{
-if (mcpHFoutLast == 0)
-{
+
+if (PORTAbits.RA3 == 0) {
+if (mcpHFoutLast == 0) {
 mcpHFoutLast = 1;
-firstPulse = 0;
+firstHFPulse = 0;
 
 timerCountHFLast = timerCountHF;
 timerCountHF = 0;
-meterWatts = (((((unsigned long) 2243 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
-
+meterWattsHF = (((((unsigned long) 2243 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
 
 
 timerCountHFCheck = 1;
+
+
+
+if (meterWattsHF > 50) {
+useLF = 1;
+} else {
+useLF = 0;
 }
 }
-else
-{
+} else {
 mcpHFoutLast = 0;
 }
 
-# 464
-if ((firstPulse == 0) && (timerCountHF > timerCountHFLast))
+
+
+if (PORTAbits.RA2 == 0) {
+if (mcpLFoutLast == 0) {
+mcpLFoutLast = 1;
+firstLFPulse = 0;
+
+timerCountLFLast = timerCountLF;
+timerCountLF = 0;
+
+meterWattsLF = ((((2243 * (unsigned long) 16 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountLFLast;
+
+
+meterEnergyUsedPart += 2243 * (unsigned long) 16;
+while (meterEnergyUsedPart > 100000)
+{
+meterEnergyUsed++;
+meterEnergyUsedPart -= 100000;
+}
+}
+} else {
+mcpLFoutLast = 0;
+}
+
+
+if (useLF) {
+meterWatts = meterWattsLF;
+} else {
+meterWatts = meterWattsHF;
+}
+
+# 559
+if ((firstHFPulse == 0) && (timerCountHF > timerCountHFLast))
 {
 if (timerCountHF > ((unsigned long) 1000 * (unsigned long) timerCountHFCheck))
 {
@@ -8528,32 +8617,7 @@ meterWatts = 0;
 }
 }
 
-if (firstPulse == 1)
-{
-meterWatts = 0;
-}
-
-
-
-if (PORTAbits.RA2 == 0)
-{
-if (mcpLFoutLast == 0)
-{
-mcpLFoutLast = 1;
-timerCountLF = 0;
-
-meterEnergyUsedPart += 2243 * (unsigned long) 16;
-while (meterEnergyUsedPart > 100000)
-{
-meterEnergyUsed++;
-meterEnergyUsedPart -= 100000;
-}
-
-
-}
-}
-
-# 509
+# 602
 else if(timerCountLF >= 200000) {
 
 LATCbits.LATC1 = 1;
@@ -8685,12 +8749,12 @@ TRISCbits.TRISC7 = 0;
 TRISCbits.TRISC4 = 0;
 TRISCbits.TRISC3 = 0;
 
-# 655
+# 748
 LATCbits.LATC7 = 1;
 LATCbits.LATC4 = 1;
 LATCbits.LATC3 = 1;
 
-# 663
+# 756
 return;
 }
 

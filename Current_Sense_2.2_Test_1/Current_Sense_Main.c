@@ -60,6 +60,7 @@ void initTimer(void);
 void pulseFoutPassThru(void);
 void powerPulseCheck(void);
 void toggleBlue(void);
+void toggleLEDs(void);
 
 //void mcpSPIInit( void );
 //void mcpSPIStart( void );
@@ -133,11 +134,15 @@ void main(void)
     bool isLow = false; 
     communications(true);
     
-
+    initTimer();
     
-   while (1)
+    while (1)
     {
      
+       if (meterEnergyUsed > 5000) {
+           LED_DIR_PR = 0;
+           LED_SET_PR = 1;
+        }
         
 //        // blinking orange
 //        for(int i = 0; i <5; i++) {
@@ -147,8 +152,13 @@ void main(void)
 //        delayMS10(2); }
         
         
-        toggleBlue();
-        // toggle blue led as the speed of Fout 1 (same as yellow LEDs)
+//         toggleBlue();
+  
+        
+        toggleLEDs();
+        
+        
+         // toggle blue led as the speed of Fout 1 (same as yellow LEDs)
 //       if(MCP_LFOUT_READ_zero == 0) {
 //           if(isLow == false) {
 //            LED_DIR_PR = 1;
@@ -183,8 +193,6 @@ void main(void)
 //        LED_SET = 0;
 //        delayMS10(10);
 //    }
-
-    initTimer(); //
 
     //SPISlaveInit( );    // this is now done in the first communications call
 
@@ -359,39 +367,81 @@ void toggleBlue(void)
 }
 
 
-
-
-
-
-void pulseFoutPassThru(void)
+void toggleLEDs(void)
 {
-    // mimic the pulse from the MCP Fout pins
-    static bool runonce = false;
-
-    if (MCP_HFOUT_READ == 0)
-    {
-        MCP_LFOUT_PASS_SET = 1;
-        if (runonce == false)
-        {
-            runonce = true;
-            if (LED_READ == 1)
-            {
+    static bool runonceLF = false;
+    static bool runonceHF = false;
+    
+    // Toggle blue LED with each LF pulse
+    if (MCP_LFOUT_READ_zero == 0) {
+        if (runonceLF == false) {
+            runonceLF = true;
+            if (LED_READ == 1) {
                 LED_SET = 0;
-            }
-            else
+            } else
             {
                 LED_SET = 1;
             }
         }
+    } else {
+        runonceLF = false;
     }
-    else
-    {
-        MCP_LFOUT_PASS_SET = 0;
-        runonce = false;
+    
+    // Toggle Orange LED with each HF pulse
+    if (MCP_HFOUT_READ == 0) {
+        if (runonceHF == false) {
+            runonceHF = true;
+            if (LED_READ_OR == 1) {
+                LED_SET_OR = 0;
+            } else {
+                LED_SET_OR = 1;
+            }
+        }
+    } else {
+        runonceHF = false;
     }
-
+    
+    // Toggle Purple LED to indicate HF/!LF
+//    if (useLF) {
+//        LED_SET_B = 0;
+//    } else {
+//        LED_SET_B = 1;
+//    }
+    
     return;
 }
+
+
+
+//void pulseFoutPassThru(void)
+//{
+//    // mimic the pulse from the MCP Fout pins
+//    static bool runonce = false;
+//
+//    if (MCP_HFOUT_READ == 0)
+//    {
+//        MCP_LFOUT_PASS_SET = 1;
+//        if (runonce == false)
+//        {
+//            runonce = true;
+//            if (LED_READ == 1)
+//            {
+//                LED_SET = 0;
+//            }
+//            else
+//            {
+//                LED_SET = 1;
+//            }
+//        }
+//    }
+//    else
+//    {
+//        MCP_LFOUT_PASS_SET = 0;
+//        runonce = false;
+//    }
+//
+//    return;
+//}
 
 void interrupt Timer0_ISR(void)
 {
@@ -419,9 +469,9 @@ void powerPulseCheck(void)
 
 
 //#define ENERGY_PER_PULSE 27000 //(221.24 mWh per pulse)
-#define ENERGY_PER_PULSE 22124 //(22.124 mWh per pulse)
+#define ENERGY_PER_PULSE 2500 //(22.124 mWh per pulse)
 //    #define ENERGY_PER_PULSE 2700     //(22.124 mWh per pulse)
-#define ENERGY_PER_PULSE_UNIT 1000000 // energy per pulse is divided by this to get Wh    
+#define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh    
 
     static unsigned long meterEnergyUsedPart = 0;
     static unsigned long timerCountHFLast = 2147483647;
@@ -492,7 +542,9 @@ void powerPulseCheck(void)
             mcpLFoutLast = true;
             timerCountLF = 0;
             
-            meterEnergyUsedPart += ENERGY_PER_PULSE * (unsigned long) 16;
+            // "17" below used to be a 16, but has since been recalibrated
+            meterEnergyUsedPart += ENERGY_PER_PULSE * (unsigned long) 17;
+            
             while (meterEnergyUsedPart > ENERGY_PER_PULSE_UNIT)
             {
                 meterEnergyUsed++;
@@ -508,13 +560,13 @@ void powerPulseCheck(void)
      */
     else if(timerCountLF >= 200000) {
         
-        LED_SET_PR = 1;
+        //LED_SET_PR = 1;
         
     }
     
     else if(timerCountLF >= 50000) {
         
-        LED_SET_OR = 1;
+        //LED_SET_OR = 1;
         
     }
     
@@ -523,6 +575,14 @@ void powerPulseCheck(void)
         mcpLFoutLast = false;
     }
 
+    //Hard coding numbers for testing:
+//    meterWatts = 73;
+//    meterEnergyUsed = 15;
+    
+//    if (meterEnergyUsed > 5000) {
+//        LED_SET_PR = 1;
+//    }
+//    
     return;
 
 }

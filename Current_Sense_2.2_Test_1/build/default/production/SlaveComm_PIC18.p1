@@ -180,7 +180,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ultoa `(*uc ~T0 @X0 0 ef3`*uc`ul`i ]
 "46 SlaveComm_PIC18.c
 [v _meterWatts `ul ~T0 @X0 0 e ]
-"7589 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f25k22.h
+"7472 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f25k22.h
+[s S372 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S372 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"7482
+[s S373 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S373 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
+"7471
+[u S371 `S372 1 `S373 1 ]
+[n S371 . . . ]
+"7493
+[v _LATCbits `VS371 ~T0 @X0 0 e@3979 ]
+"7589
 [s S375 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S375 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
 "7599
@@ -210,17 +221,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1 . . ]
 "65
 [v _ANSELAbits `VS1 ~T0 @X0 0 e@3896 ]
-"7472
-[s S372 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S372 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"7482
-[s S373 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S373 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
-"7471
-[u S371 `S372 1 `S373 1 ]
-[n S371 . . . ]
-"7493
-[v _LATCbits `VS371 ~T0 @X0 0 e@3979 ]
 "101
 [s S4 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S4 . ANSB0 ANSB1 ANSB2 ANSB3 ANSB4 ANSB5 ]
@@ -8078,231 +8078,253 @@ Version 3.2 HI-TECH Software Intermediate Code
 "645
 [v _temp `uc ~T0 @X0 -> 12 `i a ]
 [; ;SlaveComm_PIC18.c: 645: char temp[12];
-[; ;SlaveComm_PIC18.c: 658: ultoa(temp, meterWatts, 10);
-"658
+[; ;SlaveComm_PIC18.c: 657: ultoa(temp, meterWatts, 10);
+"657
 [e ( _ultoa (3 , , &U _temp _meterWatts -> 10 `i ]
-[; ;SlaveComm_PIC18.c: 660: command_builder3(send_buffer, "Set", "Watts", temp);
-"660
+[; ;SlaveComm_PIC18.c: 659: command_builder3(send_buffer, "Set", "Watts", temp);
+"659
 [e ( _command_builder3 (4 , , , _send_buffer -> :s 26C `*uc -> :s 27C `*uc &U _temp ]
-[; ;SlaveComm_PIC18.c: 662: return;
-"662
+[; ;SlaveComm_PIC18.c: 661: return;
+"661
 [e $UE 933  ]
-[; ;SlaveComm_PIC18.c: 663: }
-"663
+[; ;SlaveComm_PIC18.c: 662: }
+"662
 [e :UE 933 ]
 }
-"665
+"664
 [v _com_command_setEnergyUsed `(v ~T0 @X0 1 ef1`*S825 ]
-"666
-{
-[; ;SlaveComm_PIC18.c: 665: void com_command_setEnergyUsed(struct buffer * send_buffer)
-[; ;SlaveComm_PIC18.c: 666: {
-[e :U _com_command_setEnergyUsed ]
 "665
+{
+[; ;SlaveComm_PIC18.c: 664: void com_command_setEnergyUsed(struct buffer * send_buffer)
+[; ;SlaveComm_PIC18.c: 665: {
+[e :U _com_command_setEnergyUsed ]
+"664
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"666
+"665
 [f ]
-"667
+"666
 [v _temp `uc ~T0 @X0 -> 12 `i a ]
-[; ;SlaveComm_PIC18.c: 667: char temp[12];
-[; ;SlaveComm_PIC18.c: 669: ultoa(temp, meterEnergyUsed, 10);
+[; ;SlaveComm_PIC18.c: 666: char temp[12];
+[; ;SlaveComm_PIC18.c: 668: if (meterEnergyUsed > 5000) {
+"668
+[e $ ! > _meterEnergyUsed -> -> -> 5000 `i `l `ul 935  ]
+{
+[; ;SlaveComm_PIC18.c: 669: while (1) {
 "669
-[e ( _ultoa (3 , , &U _temp _meterEnergyUsed -> 10 `i ]
-[; ;SlaveComm_PIC18.c: 672: command_builder3(send_buffer, "Set", "EnUsed", temp);
+[e :U 937 ]
+{
+[; ;SlaveComm_PIC18.c: 670: LATCbits.LATC1 = 1;
+"670
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+"671
+}
+[e :U 936 ]
+"669
+[e $U 937  ]
+[e :U 938 ]
 "672
-[e ( _command_builder3 (4 , , , _send_buffer -> :s 28C `*uc -> :s 29C `*uc &U _temp ]
-[; ;SlaveComm_PIC18.c: 674: return;
+}
+[e :U 935 ]
+[; ;SlaveComm_PIC18.c: 671: }
+[; ;SlaveComm_PIC18.c: 672: }
+[; ;SlaveComm_PIC18.c: 674: ultoa(temp, meterEnergyUsed, 10);
 "674
-[e $UE 934  ]
-[; ;SlaveComm_PIC18.c: 677: }
+[e ( _ultoa (3 , , &U _temp _meterEnergyUsed -> 10 `i ]
+[; ;SlaveComm_PIC18.c: 677: command_builder3(send_buffer, "Set", "EnUsed", temp);
 "677
+[e ( _command_builder3 (4 , , , _send_buffer -> :s 28C `*uc -> :s 29C `*uc &U _temp ]
+[; ;SlaveComm_PIC18.c: 679: return;
+"679
+[e $UE 934  ]
+[; ;SlaveComm_PIC18.c: 682: }
+"682
 [e :UE 934 ]
 }
-"679
-[v _com_command_setVolts `(v ~T0 @X0 1 ef1`*S825 ]
-"680
-{
-[; ;SlaveComm_PIC18.c: 679: void com_command_setVolts(struct buffer * send_buffer)
-[; ;SlaveComm_PIC18.c: 680: {
-[e :U _com_command_setVolts ]
-"679
-[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"680
-[f ]
-[; ;SlaveComm_PIC18.c: 681: command_builder3(send_buffer, "Set", "Volts", "222");
-"681
-[e ( _command_builder3 (4 , , , _send_buffer -> :s 30C `*uc -> :s 31C `*uc -> :s 32C `*uc ]
-[; ;SlaveComm_PIC18.c: 683: return;
-"683
-[e $UE 935  ]
-[; ;SlaveComm_PIC18.c: 684: }
 "684
-[e :UE 935 ]
-}
-"686
-[v _com_command_setAmps `(v ~T0 @X0 1 ef1`*S825 ]
-"687
+[v _com_command_setVolts `(v ~T0 @X0 1 ef1`*S825 ]
+"685
 {
-[; ;SlaveComm_PIC18.c: 686: void com_command_setAmps(struct buffer * send_buffer)
-[; ;SlaveComm_PIC18.c: 687: {
-[e :U _com_command_setAmps ]
-"686
+[; ;SlaveComm_PIC18.c: 684: void com_command_setVolts(struct buffer * send_buffer)
+[; ;SlaveComm_PIC18.c: 685: {
+[e :U _com_command_setVolts ]
+"684
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"687
+"685
 [f ]
-[; ;SlaveComm_PIC18.c: 688: command_builder3(send_buffer, "Set", "Amps", "333");
+[; ;SlaveComm_PIC18.c: 686: command_builder3(send_buffer, "Set", "Volts", "222");
+"686
+[e ( _command_builder3 (4 , , , _send_buffer -> :s 30C `*uc -> :s 31C `*uc -> :s 32C `*uc ]
+[; ;SlaveComm_PIC18.c: 688: return;
 "688
-[e ( _command_builder3 (4 , , , _send_buffer -> :s 33C `*uc -> :s 34C `*uc -> :s 35C `*uc ]
-[; ;SlaveComm_PIC18.c: 690: return;
-"690
-[e $UE 936  ]
-[; ;SlaveComm_PIC18.c: 691: }
+[e $UE 939  ]
+[; ;SlaveComm_PIC18.c: 689: }
+"689
+[e :UE 939 ]
+}
 "691
-[e :UE 936 ]
-}
-"693
-[v _com_command_readCalibration `(v ~T0 @X0 1 ef1`*S825 ]
-"694
+[v _com_command_setAmps `(v ~T0 @X0 1 ef1`*S825 ]
+"692
 {
-[; ;SlaveComm_PIC18.c: 693: void com_command_readCalibration(struct buffer * send_buffer)
-[; ;SlaveComm_PIC18.c: 694: {
-[e :U _com_command_readCalibration ]
-"693
+[; ;SlaveComm_PIC18.c: 691: void com_command_setAmps(struct buffer * send_buffer)
+[; ;SlaveComm_PIC18.c: 692: {
+[e :U _com_command_setAmps ]
+"691
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"694
+"692
 [f ]
-[; ;SlaveComm_PIC18.c: 695: command_builder2(send_buffer, "Read", "Calibration");
+[; ;SlaveComm_PIC18.c: 693: command_builder3(send_buffer, "Set", "Amps", "333");
+"693
+[e ( _command_builder3 (4 , , , _send_buffer -> :s 33C `*uc -> :s 34C `*uc -> :s 35C `*uc ]
+[; ;SlaveComm_PIC18.c: 695: return;
 "695
-[e ( _command_builder2 (3 , , _send_buffer -> :s 36C `*uc -> :s 37C `*uc ]
-[; ;SlaveComm_PIC18.c: 697: return;
-"697
-[e $UE 937  ]
-[; ;SlaveComm_PIC18.c: 698: }
+[e $UE 940  ]
+[; ;SlaveComm_PIC18.c: 696: }
+"696
+[e :UE 940 ]
+}
 "698
-[e :UE 937 ]
-}
-"700
-[v _com_command_setVersion `(v ~T0 @X0 1 ef1`*S825 ]
-"701
+[v _com_command_readCalibration `(v ~T0 @X0 1 ef1`*S825 ]
+"699
 {
-[; ;SlaveComm_PIC18.c: 700: void com_command_setVersion(struct buffer * send_buffer)
-[; ;SlaveComm_PIC18.c: 701: {
-[e :U _com_command_setVersion ]
-"700
+[; ;SlaveComm_PIC18.c: 698: void com_command_readCalibration(struct buffer * send_buffer)
+[; ;SlaveComm_PIC18.c: 699: {
+[e :U _com_command_readCalibration ]
+"698
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"701
+"699
 [f ]
-[; ;SlaveComm_PIC18.c: 702: command_builder3(send_buffer, "Set", "PSVersion", "444");
+[; ;SlaveComm_PIC18.c: 700: command_builder2(send_buffer, "Read", "Calibration");
+"700
+[e ( _command_builder2 (3 , , _send_buffer -> :s 36C `*uc -> :s 37C `*uc ]
+[; ;SlaveComm_PIC18.c: 702: return;
 "702
-[e ( _command_builder3 (4 , , , _send_buffer -> :s 38C `*uc -> :s 39C `*uc -> :s 40C `*uc ]
-[; ;SlaveComm_PIC18.c: 704: }
-"704
-[e :UE 938 ]
+[e $UE 941  ]
+[; ;SlaveComm_PIC18.c: 703: }
+"703
+[e :UE 941 ]
 }
+"705
+[v _com_command_setVersion `(v ~T0 @X0 1 ef1`*S825 ]
 "706
-[v _SPISlaveInit `(v ~T0 @X0 1 ef ]
-"707
 {
-[; ;SlaveComm_PIC18.c: 706: void SPISlaveInit(void)
-[; ;SlaveComm_PIC18.c: 707: {
+[; ;SlaveComm_PIC18.c: 705: void com_command_setVersion(struct buffer * send_buffer)
+[; ;SlaveComm_PIC18.c: 706: {
+[e :U _com_command_setVersion ]
+"705
+[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
+"706
+[f ]
+[; ;SlaveComm_PIC18.c: 707: command_builder3(send_buffer, "Set", "PSVersion", "444");
+"707
+[e ( _command_builder3 (4 , , , _send_buffer -> :s 38C `*uc -> :s 39C `*uc -> :s 40C `*uc ]
+[; ;SlaveComm_PIC18.c: 709: }
+"709
+[e :UE 942 ]
+}
+"711
+[v _SPISlaveInit `(v ~T0 @X0 1 ef ]
+"712
+{
+[; ;SlaveComm_PIC18.c: 711: void SPISlaveInit(void)
+[; ;SlaveComm_PIC18.c: 712: {
 [e :U _SPISlaveInit ]
 [f ]
-[; ;SlaveComm_PIC18.c: 709: TRISAbits.TRISA0 = 0;
-"709
-[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 710: TRISAbits.TRISA1 = 1;
-"710
-[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 712: TRISCbits.TRISC3 = 0;
-"712
-[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 713: TRISCbits.TRISC5 = 0;
-"713
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 714: TRISCbits.TRISC6 = 0;
+[; ;SlaveComm_PIC18.c: 714: TRISAbits.TRISA0 = 0;
 "714
-[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 715: TRISCbits.TRISC7 = 0;
+[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 715: TRISAbits.TRISA1 = 1;
 "715
-[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 716: ANSELAbits.ANSA1 = 0b0;
-"716
-[e = . . _ANSELAbits 0 1 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 718: LATCbits.LATC6 = 1;
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;SlaveComm_PIC18.c: 717: TRISCbits.TRISC3 = 0;
+"717
+[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 718: TRISCbits.TRISC5 = 0;
 "718
-[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 719: LATCbits.LATC3 = 1;
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 719: TRISCbits.TRISC6 = 0;
 "719
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 720: LATCbits.LATC5 = 1;
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 720: TRISCbits.TRISC7 = 0;
 "720
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 721: LATCbits.LATC7 = 1;
+[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 721: ANSELAbits.ANSA1 = 0b0;
 "721
-[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 724: SSP2CON1bits.SSPEN = 0;
+[e = . . _ANSELAbits 0 1 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 723: LATCbits.LATC6 = 1;
+"723
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
+[; ;SlaveComm_PIC18.c: 724: LATCbits.LATC3 = 1;
 "724
-[e = . . _SSP2CON1bits 0 2 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 726: ANSELBbits.ANSB0 = 0b0;
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+[; ;SlaveComm_PIC18.c: 725: LATCbits.LATC5 = 1;
+"725
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;SlaveComm_PIC18.c: 726: LATCbits.LATC7 = 1;
 "726
-[e = . . _ANSELBbits 0 0 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 727: ANSELBbits.ANSB1 = 0b0;
-"727
-[e = . . _ANSELBbits 0 1 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 728: ANSELBbits.ANSB2 = 0b0;
-"728
-[e = . . _ANSELBbits 0 2 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 729: ANSELBbits.ANSB3 = 0b0;
+[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
+[; ;SlaveComm_PIC18.c: 729: SSP2CON1bits.SSPEN = 0;
 "729
-[e = . . _ANSELBbits 0 3 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 731: TRISBbits.RB0 = 0b1;
-"731
-[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 732: TRISBbits.RB1 = 0b1;
-"732
-[e = . . _TRISBbits 1 1 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 733: TRISBbits.RB2 = 0b1;
-"733
-[e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 734: TRISBbits.RB3 = 0b0;
-"734
-[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 736: SSP2STATbits.SMP = 0;
-"736
-[e = . . _SSP2STATbits 2 7 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 737: SSP2STATbits.CKE = 1;
-"737
-[e = . . _SSP2STATbits 2 6 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 739: SSP2CON1bits.WCOL = 0;
-"739
-[e = . . _SSP2CON1bits 0 4 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 740: SSP2CON1bits.SSPOV = 0;
-"740
-[e = . . _SSP2CON1bits 0 3 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 741: SSP2CON1bits.SSPEN = 0;
-"741
 [e = . . _SSP2CON1bits 0 2 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 742: SSP2CON1bits.CKP = 1;
+[; ;SlaveComm_PIC18.c: 731: ANSELBbits.ANSB0 = 0b0;
+"731
+[e = . . _ANSELBbits 0 0 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 732: ANSELBbits.ANSB1 = 0b0;
+"732
+[e = . . _ANSELBbits 0 1 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 733: ANSELBbits.ANSB2 = 0b0;
+"733
+[e = . . _ANSELBbits 0 2 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 734: ANSELBbits.ANSB3 = 0b0;
+"734
+[e = . . _ANSELBbits 0 3 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 736: TRISBbits.RB0 = 0b1;
+"736
+[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
+[; ;SlaveComm_PIC18.c: 737: TRISBbits.RB1 = 0b1;
+"737
+[e = . . _TRISBbits 1 1 -> -> 1 `i `uc ]
+[; ;SlaveComm_PIC18.c: 738: TRISBbits.RB2 = 0b1;
+"738
+[e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
+[; ;SlaveComm_PIC18.c: 739: TRISBbits.RB3 = 0b0;
+"739
+[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 741: SSP2STATbits.SMP = 0;
+"741
+[e = . . _SSP2STATbits 2 7 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 742: SSP2STATbits.CKE = 1;
 "742
-[e = . . _SSP2CON1bits 0 1 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 743: SSP2CON1bits.SSPM = 0b0100;
-"743
-[e = . . _SSP2CON1bits 0 0 -> -> 4 `i `uc ]
-[; ;SlaveComm_PIC18.c: 746: SSP2CON3 = 0x00;
+[e = . . _SSP2STATbits 2 6 -> -> 1 `i `uc ]
+[; ;SlaveComm_PIC18.c: 744: SSP2CON1bits.WCOL = 0;
+"744
+[e = . . _SSP2CON1bits 0 4 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 745: SSP2CON1bits.SSPOV = 0;
+"745
+[e = . . _SSP2CON1bits 0 3 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 746: SSP2CON1bits.SSPEN = 0;
 "746
-[e = _SSP2CON3 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 747: SSP2CON3bits.BOEN = 0b0;
+[e = . . _SSP2CON1bits 0 2 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 747: SSP2CON1bits.CKP = 1;
 "747
+[e = . . _SSP2CON1bits 0 1 -> -> 1 `i `uc ]
+[; ;SlaveComm_PIC18.c: 748: SSP2CON1bits.SSPM = 0b0100;
+"748
+[e = . . _SSP2CON1bits 0 0 -> -> 4 `i `uc ]
+[; ;SlaveComm_PIC18.c: 751: SSP2CON3 = 0x00;
+"751
+[e = _SSP2CON3 -> -> 0 `i `uc ]
+[; ;SlaveComm_PIC18.c: 752: SSP2CON3bits.BOEN = 0b0;
+"752
 [e = . . _SSP2CON3bits 0 4 -> -> 0 `i `uc ]
-[; ;SlaveComm_PIC18.c: 749: SSP2CON1bits.SSPEN = 1;
-"749
-[e = . . _SSP2CON1bits 0 2 -> -> 1 `i `uc ]
-[; ;SlaveComm_PIC18.c: 753: return;
-"753
-[e $UE 939  ]
-[; ;SlaveComm_PIC18.c: 754: }
+[; ;SlaveComm_PIC18.c: 754: SSP2CON1bits.SSPEN = 1;
 "754
-[e :UE 939 ]
+[e = . . _SSP2CON1bits 0 2 -> -> 1 `i `uc ]
+[; ;SlaveComm_PIC18.c: 758: return;
+"758
+[e $UE 943  ]
+[; ;SlaveComm_PIC18.c: 759: }
+"759
+[e :UE 943 ]
 }
 [a 2C 83 101 116 0 ]
 [a 9C 83 101 116 0 ]

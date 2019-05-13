@@ -654,7 +654,6 @@ void com_command_setPower(struct buffer * send_buffer)
 //            LED_SET_PR = 0;
 //            delayMS10(100);
 //            }
-    
     ultoa(temp, meterWatts, 10);
 //     ultoa(temp, 100, 10);
     command_builder3(send_buffer, "Set", "Watts", temp);
@@ -665,10 +664,16 @@ void com_command_setPower(struct buffer * send_buffer)
 void com_command_setEnergyUsed(struct buffer * send_buffer)
 {
     char temp[12];
-
+    
+    if (meterEnergyUsed > 5000) {
+        while (1) {
+            LED_SET_PR = 1;
+        }
+    }
+    
     ultoa(temp, meterEnergyUsed, 10);
 //    ultoa(temp, 200, 10);
-
+    
     command_builder3(send_buffer, "Set", "EnUsed", temp);
 
     return;
