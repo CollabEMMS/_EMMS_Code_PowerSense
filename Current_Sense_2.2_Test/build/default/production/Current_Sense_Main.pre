@@ -8306,20 +8306,20 @@ extern __nonreentrant void _delay3(unsigned char);
 void communications(bool);
 
 # 54 "Current_Sense_Main.c"
-void init(void);
-void initOSC(void);
-void initIO(void);
-void initInterruptsClear(void);
-void initMCPFout(void);
-void initTimer(void);
-void pulseFoutPassThru(void);
-void powerPulseCheck(void);
-void toggleBlue(void);
+void init( void );
+void initOSC( void );
+void initIO( void );
+void initInterruptsClear( void );
+void initMCPFout( void );
+void initTimer( void );
+void pulseFoutPassThru( void );
+void powerPulseCheck( void );
+void toggleBlue( void );
 
 
 
 
-void delayMS10(int count);
+void delayMS10( int count );
 
 unsigned long meterWatts = 0;
 unsigned long meterEnergyUsed = 0;
@@ -8330,135 +8330,118 @@ volatile unsigned long timerCountLF = 0;
 # 88
 bool isLow = 0;
 
-void main(void)
+void main( void )
 {
-init();
+ANSELA = 0b00000000;
+ANSELB = 0b00000000;
+ANSELC = 0b00000000;
+
+init( );
 
 
-TRISBbits.TRISB4 = 0;
-TRISCbits.TRISC0 = 0;
-TRISCbits.TRISC1 = 0;
 
 
-
+for( int inx = 0; inx < 3; inx++ )
+{
 LATBbits.LATB4 = 1;
 LATCbits.LATC1 = 1;
 LATCbits.LATC0 = 1;
+_delay((unsigned long)((100)*(16000000/4000.0)));
+LATBbits.LATB4 = 0;
+LATCbits.LATC1 = 0;
+LATCbits.LATC0 = 0;
+_delay((unsigned long)((100)*(16000000/4000.0)));
+
+
+}
+
+
+LATBbits.LATB4 = 0;
+LATCbits.LATC1 = 0;
+LATCbits.LATC0 = 0;
 
 
 TRISCbits.TRISC7 = 0;
 TRISCbits.TRISC4 = 0;
 TRISCbits.TRISC3 = 0;
 TRISCbits.TRISC6 = 0;
-ANSELA = 0b00000000;
-ANSELB = 0b00000000;
-ANSELC = 0b00000000;
 
-# 118
+
 LATCbits.LATC6 = 1;
 LATCbits.LATC7 = 1;
 LATCbits.LATC4 = 1;
 LATCbits.LATC3 = 0;
 
 
-delayMS10(5);
+delayMS10( 5 );
 
 
 TRISAbits.TRISA2 = 1;
 
-LATBbits.LATB4 = 0;
-LATCbits.LATC1 = 0;
-LATCbits.LATC0 = 0;
-
 bool isLow = 0;
-communications(1);
+communications( 1 );
+
+initTimer( );
 
 
-
-while (1)
+while( 1 )
 {
 
-# 150
-toggleBlue();
+# 156
+toggleBlue( );
 
-# 187
-initTimer();
+# 235
+communications( 0 );
 
-# 230
-communications(0);
-
-# 244
-powerPulseCheck();
+# 249
+powerPulseCheck( );
 }
 
-# 299
+# 304
 return;
 }
 
-void toggleBlue(void)
+void toggleBlue( void )
 {
 
-if(PORTAbits.RA2 == 0) {
-if(isLow == 0) {
-TRISBbits.TRISB4 = 1;
-if (PORTBbits.RB4 == 0)
+if( PORTAbits.RA2 == 0 )
 {
-TRISBbits.TRISB4 = 0;
-LATBbits.LATB4 = 1;
+if( isLow == 0 )
+{
+
+if( PORTBbits.RB4 == 0 )
+{
+
+
 }
-else {
-TRISBbits.TRISB4 = 0;
-LATBbits.LATB4 = 0;
+else
+{
+
+
 }
 isLow = 1;
 
 }
 }
-else{
+else
+{
 isLow = 0;
 }
 
-if(isLow) {
+if( isLow )
+{
 LATCbits.LATC1 = 0;
-} else {
+}
+else
+{
 LATCbits.LATC1 = 1;
 }
 
-# 359
+# 371
 }
 
-# 366
-void pulseFoutPassThru(void)
-{
-
-static bool runonce = 0;
-
-if (PORTAbits.RA3 == 0)
-{
-LATAbits.LATA0 = 1;
-if (runonce == 0)
-{
-runonce = 1;
-if (PORTBbits.RB4 == 1)
-{
-LATBbits.LATB4 = 0;
-}
-else
-{
-LATBbits.LATB4 = 1;
-}
-}
-}
-else
-{
-LATAbits.LATA0 = 0;
-runonce = 0;
-}
-
-return;
-}
-
-void interrupt Timer0_ISR(void)
+# 403
+void interrupt Timer0_ISR( void )
 {
 
 INTCONbits.TMR0IF = 0;
@@ -8472,12 +8455,59 @@ timerCountLF++;
 return;
 }
 
-
-
-void powerPulseCheck(void)
+void powerPulseCheck( void )
 {
 
-# 426
+
+
+static int TESTING_count = 0;
+static bool TESTING_oneshot = 0;
+
+if( timerCountHF >= 1000 )
+{
+TESTING_count++;
+timerCountHF = 0;
+}
+
+if( TESTING_count < 5 )
+{
+meterEnergyUsed = 0;
+meterWatts = 0;
+}
+
+if( TESTING_count % 10 == 0 )
+{
+if( TESTING_oneshot == 0 )
+{
+TESTING_oneshot = 1;
+
+if( PORTBbits.RB4 == 0 )
+{
+LATBbits.LATB4 = 1;
+
+
+}
+else
+{
+
+LATBbits.LATB4 = 0;
+
+
+}
+
+meterEnergyUsed++;
+meterWatts = meterEnergyUsed;
+
+}
+}
+else
+{
+TESTING_oneshot = 0;
+}
+
+return;
+
+# 482
 static unsigned long meterEnergyUsedPart = 0;
 static unsigned long timerCountHFLast = 2147483647;
 static unsigned int timerCountHFCheck = 1;
@@ -8487,11 +8517,10 @@ static bool firstPulse = 1;
 static bool mcpHFoutLast = 0;
 static bool mcpLFoutLast = 0;
 
-
-
-if (PORTAbits.RA3 == 0)
+# 496
+if( PORTAbits.RA3 == 0 )
 {
-if (mcpHFoutLast == 0)
+if( mcpHFoutLast == 0 )
 {
 mcpHFoutLast = 1;
 firstPulse = 0;
@@ -8510,12 +8539,12 @@ else
 mcpHFoutLast = 0;
 }
 
-# 464
-if ((firstPulse == 0) && (timerCountHF > timerCountHFLast))
+# 523
+if( (firstPulse == 0) && (timerCountHF > timerCountHFLast) )
 {
-if (timerCountHF > ((unsigned long) 1000 * (unsigned long) timerCountHFCheck))
+if( timerCountHF > ((unsigned long) 1000 * (unsigned long) timerCountHFCheck) )
 {
-if (timerCountHFCheck < 90)
+if( timerCountHFCheck < 90 )
 {
 timerCountHFCheck++;
 meterWatts = (((((unsigned long) 2243 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHF;
@@ -8528,22 +8557,22 @@ meterWatts = 0;
 }
 }
 
-if (firstPulse == 1)
+if( firstPulse == 1 )
 {
 meterWatts = 0;
 }
 
 
 
-if (PORTAbits.RA2 == 0)
+if( PORTAbits.RA2 == 0 )
 {
-if (mcpLFoutLast == 0)
+if( mcpLFoutLast == 0 )
 {
 mcpLFoutLast = 1;
 timerCountLF = 0;
 
 meterEnergyUsedPart += 2243 * (unsigned long) 16;
-while (meterEnergyUsedPart > 100000)
+while( meterEnergyUsedPart > 100000 )
 {
 meterEnergyUsed++;
 meterEnergyUsedPart -= 100000;
@@ -8553,14 +8582,16 @@ meterEnergyUsedPart -= 100000;
 }
 }
 
-# 509
-else if(timerCountLF >= 200000) {
+# 568
+else if( timerCountLF >= 200000 )
+{
 
 LATCbits.LATC1 = 1;
 
 }
 
-else if(timerCountLF >= 50000) {
+else if( timerCountLF >= 50000 )
+{
 
 LATCbits.LATC0 = 1;
 
@@ -8571,30 +8602,32 @@ else
 mcpLFoutLast = 0;
 }
 
+
+
 return;
 
 }
 
-void delayMS10(int count)
+void delayMS10( int count )
 {
-for (int inx = 0; inx < count; inx++)
+for( int inx = 0; inx < count; inx++ )
 {
 
 _delay((unsigned long)((10)*(16000000/4000.0)));
 }
 }
 
-void init()
+void init( )
 {
-initOSC();
-
+initOSC( );
+initIO( );
 
 
 
 return;
 }
 
-void initOSC(void)
+void initOSC( void )
 {
 
 OSCCONbits.IDLEN = 0;
@@ -8611,7 +8644,7 @@ OSCTUNEbits.PLLEN = 0;
 return;
 }
 
-void initIO(void)
+void initIO( void )
 {
 ADCON0bits.ADON = 0;
 ANSELA = 0b00000000;
@@ -8619,7 +8652,13 @@ ANSELB = 0b00000000;
 ANSELC = 0b00000000;
 
 TRISBbits.TRISB4 = 0;
+TRISCbits.TRISC0 = 0;
+TRISCbits.TRISC1 = 0;
+
 LATBbits.LATB4 = 0;
+LATCbits.LATC0 = 0;
+LATCbits.LATC1 = 0;
+
 
 TRISAbits.TRISA3 = 1;
 TRISAbits.TRISA2 = 1;
@@ -8629,7 +8668,7 @@ TRISAbits.TRISA2 = 1;
 return;
 }
 
-void initInterruptsClear(void)
+void initInterruptsClear( void )
 {
 
 INTCON = 0b00000000;
@@ -8658,7 +8697,7 @@ IPR5 = 0b00000000;
 
 }
 
-void initTimer(void)
+void initTimer( void )
 {
 
 T0CONbits.TMR0ON = 0;
@@ -8675,7 +8714,7 @@ T0CONbits.TMR0ON = 1;
 
 }
 
-void initMCPFout(void)
+void initMCPFout( void )
 {
 
 
@@ -8685,12 +8724,12 @@ TRISCbits.TRISC7 = 0;
 TRISCbits.TRISC4 = 0;
 TRISCbits.TRISC3 = 0;
 
-# 655
+# 724
 LATCbits.LATC7 = 1;
 LATCbits.LATC4 = 1;
 LATCbits.LATC3 = 1;
 
-# 663
+# 732
 return;
 }
 
