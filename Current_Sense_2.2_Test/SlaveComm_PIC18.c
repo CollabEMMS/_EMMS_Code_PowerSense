@@ -43,8 +43,8 @@ struct buffer
     unsigned char read_position;
 };
 
-extern unsigned long meterWatts;
-extern unsigned long meterEnergyUsed;
+extern long meterWatts;
+extern long meterEnergyUsed;
 
 void delayMS10( int count );
 
@@ -277,7 +277,7 @@ bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer )
 
 }
 
-void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer * buffer_to_parameterize )
+void process_data_parameterize( char parameters[][PARAMETER_MAX_LENGTH], struct buffer * buffer_to_parameterize )
 {
     unsigned char parameter_position = 0;
     unsigned char parameter_index = 0;
@@ -336,7 +336,7 @@ void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_M
     return;
 }
 
-bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer * send_buffer )
+bool process_data_parameters( char parameters[][PARAMETER_MAX_LENGTH], struct buffer * send_buffer )
 {
     bool end_of_transmission_received = false;
 
@@ -356,7 +356,7 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
     }
     else if( strmatch( parameters[0], "Set" ) == true )
     {
-	if( strmatch( parameters[1], "Calibration" ) == true )
+	if( strmatch( parameters[1], "Calib" ) == true )
 	{
 	    // set the calibration value for the current sense, if required
 	}
@@ -378,20 +378,20 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
     {
 	// nothing to read right now
     }
-    else if( strmatch( parameters[0], "Data" ) == true )
-    {
-	if( strmatch( parameters[1], "LEDB" ) == true )
-	{
-	    if( strmatch( parameters[2], "On" ) == true )
-	    {
-		command_builder3( send_buffer, "Set", "LEDB", "Off" );
-	    }
-	    else if( strmatch( parameters[2], "Off" ) == true )
-	    {
-		command_builder3( send_buffer, "Set", "LEDB", "On" );
-	    }
-	}
-    }
+	//    else if( strmatch( parameters[0], "Data" ) == true )
+	//    {
+	//	if( strmatch( parameters[1], "LEDB" ) == true )
+	//	{
+	//	    if( strmatch( parameters[2], "On" ) == true )
+	//	    {
+	//		command_builder3( send_buffer, "Set", "LEDB", "Off" );
+	//	    }
+	//	    else if( strmatch( parameters[2], "Off" ) == true )
+	//	    {
+	//		command_builder3( send_buffer, "Set", "LEDB", "On" );
+	//	    }
+	//	}
+	//    }
     else if( strmatch( parameters[0], "Conf" ) == true )
     {
 	if( strmatch( parameters[1], "LEDB" ) == true )
@@ -539,9 +539,19 @@ bool strmatch( char* a, char* b )
     int result;
     bool match;
 
+    static int co = 0;
+    co++;
+
     result = strcmp2( a, b );
 
-    match = (result == 0) ? true : false;
+    if( result == 0 )
+    {
+	match = true;
+    }
+    else
+    {
+	match = false;
+    }
 
     return match;
 }
@@ -563,12 +573,11 @@ int strcmp2( char* a, char* b )
 	}
 	else if( a[inx] == b[inx] )
 	{
-	    //do nothing = never reset to zero
+	    //do nothing
 	}
 
 	inx++;
     }
-
 
     if( (a[inx] == CHAR_NULL) && (b[inx] != CHAR_NULL) )
     {
@@ -579,8 +588,8 @@ int strcmp2( char* a, char* b )
 	match = 1;
     }
 
-    return match;
 
+    return match;
 }
 
 bool SPI_receive_data( char *data )
@@ -655,7 +664,7 @@ void com_command_setPower( struct buffer * send_buffer )
     //            delayMS10(100);
     //            }
 
-    ultoa( temp, meterWatts, 10 );
+    ltoa( temp, meterWatts, 10 );
     //     ultoa(temp, 100, 10);
     command_builder3( send_buffer, "Set", "Watts", temp );
 
@@ -666,7 +675,7 @@ void com_command_setEnergyUsed( struct buffer * send_buffer )
 {
     char temp[12];
 
-    ultoa( temp, meterEnergyUsed, 10 );
+    ltoa( temp, meterEnergyUsed, 10 );
     //    ultoa(temp, 200, 10);
 
     command_builder3( send_buffer, "Set", "EnUsed", temp );

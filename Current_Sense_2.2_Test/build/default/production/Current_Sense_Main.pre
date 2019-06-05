@@ -8321,11 +8321,11 @@ void toggleBlue( void );
 
 void delayMS10( int count );
 
-unsigned long meterWatts = 0;
-unsigned long meterEnergyUsed = 0;
+long meterWatts = 0;
+long meterEnergyUsed = 0;
 
-volatile unsigned long timerCountHF = 0;
-volatile unsigned long timerCountLF = 0;
+volatile long timerCountHF = 0;
+volatile long timerCountLF = 0;
 
 # 88
 bool isLow = 0;
@@ -8351,8 +8351,6 @@ LATBbits.LATB4 = 0;
 LATCbits.LATC1 = 0;
 LATCbits.LATC0 = 0;
 _delay((unsigned long)((100)*(16000000/4000.0)));
-
-
 }
 
 
@@ -8378,7 +8376,7 @@ delayMS10( 5 );
 
 TRISAbits.TRISA2 = 1;
 
-bool isLow = 0;
+
 communications( 1 );
 
 initTimer( );
@@ -8387,17 +8385,17 @@ initTimer( );
 while( 1 )
 {
 
-# 156
+# 151
 toggleBlue( );
 
-# 235
+# 228
 communications( 0 );
 
-# 249
+# 242
 powerPulseCheck( );
 }
 
-# 304
+# 297
 return;
 }
 
@@ -8437,10 +8435,10 @@ else
 LATCbits.LATC1 = 1;
 }
 
-# 371
+# 364
 }
 
-# 403
+# 396
 void interrupt Timer0_ISR( void )
 {
 
@@ -8507,17 +8505,33 @@ TESTING_oneshot = 0;
 
 return;
 
-# 482
-static unsigned long meterEnergyUsedPart = 0;
-static unsigned long timerCountHFLast = 2147483647;
-static unsigned int timerCountHFCheck = 1;
+# 475
+static long meterEnergyUsedPart = 0;
+static long timerCountHFLast = 2147483647;
+static bool timerCountHFLastValid = 0;
+
+static int timerCountHFCheck = 1;
+static long timerCountLFLast = 2147483647;
+static bool timerCountLFLastValid = 0;
+
 static bool firstPulse = 1;
 
 
 static bool mcpHFoutLast = 0;
 static bool mcpLFoutLast = 0;
+static bool mcpLFoutLastEnergy = 0;
 
-# 496
+bool meterWattsHFNew = 0;
+bool meterWattsLFNew = 0;
+long meterWattsHF = 0;
+long meterWattsLF = 0;
+
+static long multiplierHFRate = 8;
+
+
+
+
+meterWattsHFNew = 0;
 if( PORTAbits.RA3 == 0 )
 {
 if( mcpHFoutLast == 0 )
@@ -8526,12 +8540,14 @@ mcpHFoutLast = 1;
 firstPulse = 0;
 
 timerCountHFLast = timerCountHF;
+timerCountHFLastValid = 1;
 timerCountHF = 0;
-meterWatts = (((((unsigned long) 2243 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHFLast;
-
+meterWattsHF = (((((long) 2243 * (long) 3600) / ((long) 100000 / (long) 1000))) * (long) 1) / (long) timerCountHFLast;
 
 
 timerCountHFCheck = 1;
+
+meterWattsHFNew = 1;
 }
 }
 else
@@ -8539,15 +8555,59 @@ else
 mcpHFoutLast = 0;
 }
 
-# 523
+
+meterWattsLFNew = 0;
+if( PORTAbits.RA4 == 0 )
+{
+if( mcpLFoutLast == 0 )
+{
+mcpLFoutLast = 1;
+firstPulse = 0;
+
+timerCountLFLast = timerCountLF;
+timerCountLFLastValid = 1;
+timerCountLF = 0;
+meterWattsLF = (((((long) 2243 * (long) 3600) / ((long) 100000 / (long) 1000))) * (long) multiplierHFRate) / (long) timerCountLFLast;
+
+
+meterWattsLFNew = 1;
+}
+meterWattsLFNew = 0;
+}
+else
+{
+mcpLFoutLast = 0;
+meterWattsLFNew = 0;
+}
+
+if( (meterWattsLFNew == 1) || (meterWattsHFNew == 1) )
+{
+
+if( (timerCountLFLast > 1000) || (timerCountLF > 1000) )
+{
+meterWatts = meterWattsHF;
+}
+else
+{
+meterWatts = meterWattsLF;
+}
+}
+
+
+if( (timerCountHFLastValid == 1) && (timerCountLFLastValid == 1) )
+{
+multiplierHFRate = (timerCountLFLast + (timerCountHFLast / 2)) / timerCountHFLast;
+}
+
+# 574
 if( (firstPulse == 0) && (timerCountHF > timerCountHFLast) )
 {
-if( timerCountHF > ((unsigned long) 1000 * (unsigned long) timerCountHFCheck) )
+if( timerCountHF > ((long) 1000 * (long) timerCountHFCheck) )
 {
 if( timerCountHFCheck < 90 )
 {
 timerCountHFCheck++;
-meterWatts = (((((unsigned long) 2243 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerCountHF;
+meterWatts = (((((long) 2243 * (long) 3600) / ((long) 100000 / (long) 1000))) * (long) 1) / (long) timerCountHF;
 }
 else
 {
@@ -8566,43 +8626,42 @@ meterWatts = 0;
 
 if( PORTAbits.RA2 == 0 )
 {
-if( mcpLFoutLast == 0 )
+if( mcpLFoutLastEnergy == 0 )
 {
-mcpLFoutLast = 1;
+mcpLFoutLastEnergy = 1;
 timerCountLF = 0;
 
-meterEnergyUsedPart += 2243 * (unsigned long) 16;
+meterEnergyUsedPart += 2243 * (long) multiplierHFRate;
 while( meterEnergyUsedPart > 100000 )
 {
 meterEnergyUsed++;
 meterEnergyUsedPart -= 100000;
 }
-
-
 }
 }
 
-# 568
+# 617
 else if( timerCountLF >= 200000 )
 {
 
 LATCbits.LATC1 = 1;
 
 }
-
 else if( timerCountLF >= 50000 )
 {
 
 LATCbits.LATC0 = 1;
 
 }
-
 else
 {
-mcpLFoutLast = 0;
+mcpLFoutLastEnergy = 0;
 }
 
 
+
+meterWatts = 77;
+meterEnergyUsed = 1121;
 
 return;
 
@@ -8724,12 +8783,12 @@ TRISCbits.TRISC7 = 0;
 TRISCbits.TRISC4 = 0;
 TRISCbits.TRISC3 = 0;
 
-# 724
+# 774
 LATCbits.LATC7 = 1;
 LATCbits.LATC4 = 1;
 LATCbits.LATC3 = 1;
 
-# 732
+# 782
 return;
 }
 

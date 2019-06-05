@@ -11,90 +11,92 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$dist/default/production\Current_Sense_2.2_Test.production.obj
-cinit CODE 0 1434 1434 58 1
-text0 CODE 0 F3C F3C BC 1
-text1 CODE 0 1770 1770 22 1
-text2 CODE 0 D9C D9C E0 1
-text3 CODE 0 135E 135E 70 1
-text4 CODE 0 17F2 17F2 18 1
-text5 CODE 0 1838 1838 A 1
-text6 CODE 0 180A 180A 18 1
-text7 CODE 0 1792 1792 22 1
-text8 CODE 0 166A 166A 32 1
-text9 CODE 0 FF8 FF8 9E 1
-text10 CODE 0 11D0 11D0 90 1
-text11 CODE 0 17B4 17B4 20 1
-text12 CODE 0 1134 1134 9C 1
-text13 CODE 0 1724 1724 26 1
-text14 CODE 0 158E 158E 4A 1
-text15 CODE 0 E7C E7C C0 1
-text16 CODE 0 16FC 16FC 28 1
-text17 CODE 0 169C 169C 30 1
-text18 CODE 0 660 660 2A6 1
-text19 CODE 0 16CC 16CC 30 1
-text20 CODE 0 A86 A86 12C 1
-text21 CODE 0 1822 1822 16 1
-text22 CODE 0 148C 148C 56 1
-text23 CODE 0 15D8 15D8 4A 1
-text24 CODE 0 BB2 BB2 F6 1
-text25 CODE 0 13CE 13CE 66 1
-text26 CODE 0 1260 1260 82 1
-text27 CODE 0 1096 1096 9E 1
-text28 CODE 0 12E2 12E2 7C 1
-text29 CODE 0 14E2 14E2 56 1
-text30 CODE 0 CA8 CA8 F4 1
-text31 CODE 0 17D4 17D4 1E 1
-text32 CODE 0 1538 1538 56 1
-text33 CODE 0 906 906 180 1
-text34 CODE 0 174A 174A 26 1
-text35 CODE 0 1622 1622 48 1
-idataCOMRAM CODE 0 1848 1848 1 1
-cstackCOMRAM COMRAM 1 1 1 37 1
-cstackBANK0 BANK0 1 C2 C2 13 1
-cstackBANK1 BANK1 1 100 100 33 1
-temp COMRAM 1 4C 4C 1 1
-bssBANK0 BANK0 1 60 60 62 1
-intcode CODE 0 8 8 B8 1
-smallconst SMALLCONST 0 600 600 60 1
-idataBANK0 CODE 0 1842 1842 6 1
-dataBANK0 BANK0 1 D5 D5 6 1
-dataCOMRAM COMRAM 1 4B 4B 1 1
-bssCOMRAM COMRAM 1 38 38 13 1
-$C:\Users\Austin\AppData\Local\Temp\sejc.obj
+$C:\Users\Austin\AppData\Local\Temp\sdl0.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 C0 C0 4 1
 reset_vec CODE 0 0 0 4 1
 config CONFIG 0 300000 300000 E 1
+$dist/default/production\Current_Sense_2.2_Test.production.obj
+cinit CODE 0 147A 147A 64 1
+text0 CODE 0 F80 F80 B6 1
+text1 CODE 0 181C 181C 22 1
+text2 CODE 0 AFE AFE 10C 1
+text3 CODE 0 13A4 13A4 70 1
+text4 CODE 0 DF4 DF4 CC 1
+text5 CODE 0 189E 189E 18 1
+text6 CODE 0 18F2 18F2 A 1
+text7 CODE 0 18B6 18B6 18 1
+text8 CODE 0 183E 183E 22 1
+text9 CODE 0 1744 1744 32 1
+text10 CODE 0 1036 1036 A4 1
+text11 CODE 0 1216 1216 90 1
+text12 CODE 0 1860 1860 20 1
+text13 CODE 0 10DA 10DA 9E 1
+text14 CODE 0 17D0 17D0 26 1
+text15 CODE 0 1632 1632 4A 1
+text16 CODE 0 EC0 EC0 C0 1
+text17 CODE 0 17A8 17A8 28 1
+text18 CODE 0 1776 1776 32 1
+text19 CODE 0 65A 65A 1F8 1
+text20 CODE 0 170E 170E 36 1
+text21 CODE 0 9D2 9D2 12C 1
+text22 CODE 0 18CE 18CE 16 1
+text23 CODE 0 14DE 14DE 56 1
+text24 CODE 0 167C 167C 4A 1
+text25 CODE 0 15E0 15E0 52 1
+text26 CODE 0 C0A C0A F6 1
+text27 CODE 0 1414 1414 66 1
+text28 CODE 0 12A6 12A6 82 1
+text29 CODE 0 1178 1178 9E 1
+text30 CODE 0 1328 1328 7C 1
+text31 CODE 0 1534 1534 56 1
+text32 CODE 0 D00 D00 F4 1
+text33 CODE 0 1880 1880 1E 1
+text34 CODE 0 158A 158A 56 1
+text35 CODE 0 852 852 180 1
+text36 CODE 0 17F6 17F6 26 1
+text37 CODE 0 16C6 16C6 48 1
+idataCOMRAM CODE 0 18FC 18FC 1 1
+cstackCOMRAM COMRAM 1 1 1 39 1
+cstackBANK0 BANK0 1 60 60 4D 1
+temp COMRAM 1 4D 4D 1 1
+bssBANK0 BANK0 1 AD AD 3E 1
+bssBANK1 BANK1 1 100 100 2A 1
+intcode CODE 0 8 8 B8 1
+smallconst SMALLCONST 0 600 600 5A 1
+idataBANK0 CODE 0 18E4 18E4 E 1
+dataBANK0 BANK0 1 EB EB E 1
+dataCOMRAM COMRAM 1 4C 4C 1 1
+bssCOMRAM COMRAM 1 3A 3A 12 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM DB-FF 1
-RAM 133-5FF 1
+RAM F9-FF 1
+RAM 12A-5FF 1
 SFR F38-FFF 1
-BANK0 DB-FF 1
-BANK1 133-1FF 1
+BANK0 F9-FF 1
+BANK1 12A-1FF 1
 BANK2 200-2FF 1
 BANK3 300-3FF 1
 BANK4 400-4FF 1
 BANK5 500-5FF 1
 CONST 4-7 1
 CONST C4-5FF 1
-CONST 1849-7FFF 1
-STACK 133-5FF 1
-SMALLCONST 1849-7FFF 1
+CONST 18FD-7FFF 1
+STACK 12A-5FF 1
+SMALLCONST 18FD-7FFF 1
 CODE 4-7 1
 CODE C4-5FF 1
-CODE 1849-7FFF 1
-BIGRAM 4D-5F 1
-BIGRAM DB-FF 1
-BIGRAM 133-5FF 1
-COMRAM 4D-5F 1
+CODE 18FD-7FFF 1
+BIGRAM 4E-5F 1
+BIGRAM F9-FF 1
+BIGRAM 12A-5FF 1
+COMRAM 4E-5F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST 1849-7FFF 1
+MEDIUMCONST 18FD-7FFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -109,545 +111,584 @@ MEDIUMCONST 1849-7FFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Current_Sense_2.2_Test.production.obj
-8 intcode CODE >403:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-8 intcode CODE >754:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-52 intcode CODE >406:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-54 intcode CODE >408:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-58 intcode CODE >409:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-5C intcode CODE >411:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-68 intcode CODE >412:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-74 intcode CODE >415:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1622 text35 CODE >706:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1622 text35 CODE >709:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1624 text35 CODE >710:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1626 text35 CODE >712:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1628 text35 CODE >713:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-162A text35 CODE >714:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-162C text35 CODE >715:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-162E text35 CODE >716:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1632 text35 CODE >718:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1634 text35 CODE >719:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1636 text35 CODE >720:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1638 text35 CODE >721:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-163A text35 CODE >724:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-163C text35 CODE >726:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-163E text35 CODE >727:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1640 text35 CODE >728:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1642 text35 CODE >729:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1644 text35 CODE >731:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1646 text35 CODE >732:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1648 text35 CODE >733:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-164A text35 CODE >734:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-164C text35 CODE >736:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-164E text35 CODE >737:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1650 text35 CODE >739:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1652 text35 CODE >740:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1654 text35 CODE >741:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1656 text35 CODE >742:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1658 text35 CODE >743:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1660 text35 CODE >746:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1664 text35 CODE >747:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1666 text35 CODE >749:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-174A text34 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
-174A text34 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
-1756 text34 CODE >38:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
-175E text34 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
-1766 text34 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
-906 text33 CODE >280:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-906 text33 CODE >282:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-90A text33 CODE >283:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-90E text33 CODE >292:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-92A text33 CODE >293:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-92A text33 CODE >294:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-94E text33 CODE >292:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-95C text33 CODE >304:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-95C text33 CODE >306:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-960 text33 CODE >307:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-962 text33 CODE >309:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-968 text33 CODE >313:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-96C text33 CODE >316:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-96E text33 CODE >317:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-96E text33 CODE >319:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-9B6 text33 CODE >320:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-9B8 text33 CODE >321:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-9BE text33 CODE >325:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-9C2 text33 CODE >326:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-9C2 text33 CODE >329:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-9EA text33 CODE >331:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-9EC text33 CODE >299:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-A1C text33 CODE >331:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-A1C text33 CODE >333:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-A2A text33 CODE >297:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-A2A text33 CODE >334:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1538 text32 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
-1538 text32 CODE >119:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
-1548 text32 CODE >120:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
-1548 text32 CODE >121:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
-154C text32 CODE >122:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
-155C text32 CODE >123:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
-1566 text32 CODE >124:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
-1570 text32 CODE >125:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
-157C text32 CODE >128:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
-158C text32 CODE >129:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
-17D4 text31 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\isdigit.c
-17D6 text31 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\isdigit.c
-CA8 text30 CODE >5:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-CA8 text30 CODE >11:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-CB8 text30 CODE >12:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-CC8 text30 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-CD8 text30 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-CDC text30 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-CE4 text30 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-CE6 text30 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-CE8 text30 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-CF2 text30 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-CF2 text30 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-D36 text30 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-D46 text30 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-D46 text30 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-D50 text30 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-D56 text30 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-D8A text30 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-D9A text30 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-14E2 text29 CODE >486:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-14E2 text29 CODE >488:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1506 text29 CODE >490:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1514 text29 CODE >491:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1526 text29 CODE >493:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1536 text29 CODE >494:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-12E2 text28 CODE >499:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-12E2 text28 CODE >501:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-12EC text28 CODE >502:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-12EC text28 CODE >503:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1326 text28 CODE >501:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1096 text27 CODE >454:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1096 text27 CODE >456:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-10A6 text27 CODE >457:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-10B6 text27 CODE >458:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-10C6 text27 CODE >459:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-10DA text27 CODE >460:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-10EA text27 CODE >461:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-10FE text27 CODE >462:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-110E text27 CODE >463:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1122 text27 CODE >464:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1260 text26 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-1260 text26 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-1270 text26 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-127C text26 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-1280 text26 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-1282 text26 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-128C text26 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-128E text26 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-128E text26 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-1292 text26 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-129C text26 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-12B0 text26 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-12C0 text26 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-12C2 text26 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-12C2 text26 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-12CC text26 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-12D0 text26 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-12E0 text26 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
-13CE text25 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-13CE text25 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-13DA text25 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-13DE text25 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-13E0 text25 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-13EA text25 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-13EC text25 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-13EC text25 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-13F0 text25 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-1404 text25 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-1414 text25 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-141E text25 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-1422 text25 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-1432 text25 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
-BB2 text24 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-BB2 text24 CODE >38:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-BC2 text24 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-BC2 text24 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-BF8 text24 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-BFC text24 CODE >42:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-C08 text24 CODE >43:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-C1A text24 CODE >44:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-C1A text24 CODE >45:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-C44 text24 CODE >46:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-C7A text24 CODE >47:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-C80 text24 CODE >48:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-C84 text24 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-C88 text24 CODE >50:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-C9A text24 CODE >51:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-15D8 text23 CODE >665:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-15D8 text23 CODE >669:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-15FC text23 CODE >672:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-148C text22 CODE >430:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-148C text22 CODE >432:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-149C text22 CODE >433:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-14AC text22 CODE >434:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-14BC text22 CODE >435:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-14D0 text22 CODE >436:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1822 text21 CODE >628:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1822 text21 CODE >630:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-A86 text20 CODE >549:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-A86 text20 CODE >551:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-A8E text20 CODE >552:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-A96 text20 CODE >554:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-A98 text20 CODE >556:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-AC2 text20 CODE >558:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-ACA text20 CODE >559:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-ACC text20 CODE >560:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-AFA text20 CODE >562:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-AFE text20 CODE >564:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-AFE text20 CODE >569:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-B02 text20 CODE >554:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-B02 text20 CODE >570:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-B3A text20 CODE >573:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-B6A text20 CODE >575:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-B6E text20 CODE >576:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-B70 text20 CODE >577:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-BA0 text20 CODE >579:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-BA8 text20 CODE >580:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-BA8 text20 CODE >582:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-16CC text19 CODE >537:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-16CC text19 CODE >542:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-16E8 text19 CODE >544:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-16F8 text19 CODE >546:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-660 text18 CODE >339:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-660 text18 CODE >341:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-664 text18 CODE >344:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-67E text18 CODE >355:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-682 text18 CODE >356:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-684 text18 CODE >357:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-69E text18 CODE >359:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-6BC text18 CODE >363:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-6DA text18 CODE >369:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-6FA text18 CODE >370:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-706 text18 CODE >376:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-708 text18 CODE >377:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-722 text18 CODE >381:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-73C text18 CODE >383:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-75A text18 CODE >385:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-778 text18 CODE >387:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-79C text18 CODE >388:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-79E text18 CODE >389:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-7BC text18 CODE >391:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-7E0 text18 CODE >394:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-7E2 text18 CODE >395:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-7FC text18 CODE >397:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-81A text18 CODE >399:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-826 text18 CODE >400:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-828 text18 CODE >401:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-846 text18 CODE >403:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-852 text18 CODE >404:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-854 text18 CODE >405:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-872 text18 CODE >407:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-87E text18 CODE >408:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-880 text18 CODE >409:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-89E text18 CODE >411:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-8AA text18 CODE >412:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-8AC text18 CODE >413:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-8CA text18 CODE >415:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-8D6 text18 CODE >416:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-8D8 text18 CODE >417:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-8F6 text18 CODE >419:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-902 text18 CODE >420:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-902 text18 CODE >427:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-169C text17 CODE >263:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-169C text17 CODE >272:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-16B0 text17 CODE >274:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-16C8 text17 CODE >276:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-16FC text16 CODE >586:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-16FC text16 CODE >589:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1700 text16 CODE >591:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1704 text16 CODE >593:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1710 text16 CODE >594:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1714 text16 CODE >595:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1716 text16 CODE >596:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-171A text16 CODE >597:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-171C text16 CODE >598:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-171C text16 CODE >600:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1720 text16 CODE >601:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1720 text16 CODE >603:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-E7C text15 CODE >217:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-E7C text15 CODE >223:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-E84 text15 CODE >225:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-E88 text15 CODE >226:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-E88 text15 CODE >228:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-E9A text15 CODE >236:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-EA8 text15 CODE >238:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-EAC text15 CODE >239:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-EBC text15 CODE >240:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-ECC text15 CODE >241:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-ECC text15 CODE >243:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-ED2 text15 CODE >245:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-EF6 text15 CODE >247:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-F04 text15 CODE >248:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-F16 text15 CODE >250:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-F26 text15 CODE >251:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-F26 text15 CODE >254:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-F34 text15 CODE >256:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-F38 text15 CODE >257:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-F38 text15 CODE >260:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-158E text14 CODE >642:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-158E text14 CODE >658:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-15B2 text14 CODE >660:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1724 text13 CODE >700:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1724 text13 CODE >702:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1748 text13 CODE >704:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1134 text12 CODE >158:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1134 text12 CODE >164:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1136 text12 CODE >165:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1146 text12 CODE >166:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1148 text12 CODE >168:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-114A text12 CODE >169:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-114E text12 CODE >171:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-115E text12 CODE >172:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-116E text12 CODE >177:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1174 text12 CODE >178:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1176 text12 CODE >180:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1176 text12 CODE >181:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1182 text12 CODE >182:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1184 text12 CODE >183:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1184 text12 CODE >184:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1190 text12 CODE >197:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1192 text12 CODE >198:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1192 text12 CODE >199:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-119E text12 CODE >210:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-119E text12 CODE >211:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-11A8 text12 CODE >213:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-11AA text12 CODE >178:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-17B4 text11 CODE >607:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-17B6 text11 CODE >609:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-17BA text11 CODE >611:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-17C0 text11 CODE >613:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-17C4 text11 CODE >614:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-17C8 text11 CODE >615:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-17CC text11 CODE >617:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-17CC text11 CODE >619:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-17D0 text11 CODE >622:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-11D0 text10 CODE >509:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-11D0 text10 CODE >513:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-11F0 text10 CODE >515:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-11F4 text10 CODE >516:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-11FA text10 CODE >517:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-11FC text10 CODE >518:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-11FC text10 CODE >520:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1200 text10 CODE >523:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-122C text10 CODE >526:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-123A text10 CODE >527:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-124C text10 CODE >529:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-125C text10 CODE >530:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-125C text10 CODE >534:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-FF8 text9 CODE >90:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-FFC text9 CODE >104:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1004 text9 CODE >106:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1008 text9 CODE >107:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-100E text9 CODE >108:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1012 text9 CODE >109:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-101E text9 CODE >110:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1020 text9 CODE >111:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1020 text9 CODE >115:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-102E text9 CODE >117:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1030 text9 CODE >125:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1030 text9 CODE >127:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-104A text9 CODE >129:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-104E text9 CODE >133:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1050 text9 CODE >117:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1064 text9 CODE >133:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1064 text9 CODE >135:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1074 text9 CODE >139:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1078 text9 CODE >141:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-107C text9 CODE >142:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-107E text9 CODE >143:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-107E text9 CODE >145:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1084 text9 CODE >147:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1090 text9 CODE >148:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1090 text9 CODE >150:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-1094 text9 CODE >153:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
-166A text8 CODE >593:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-166A text8 CODE >595:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1674 text8 CODE >596:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1674 text8 CODE >598:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1682 text8 CODE >595:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1792 text7 CODE >629:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1792 text7 CODE >631:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1794 text7 CODE >632:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-179A text7 CODE >633:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-179E text7 CODE >634:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17A2 text7 CODE >636:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17A4 text7 CODE >637:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17A6 text7 CODE >638:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17A8 text7 CODE >640:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17AA text7 CODE >641:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17AC text7 CODE >642:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17AE text7 CODE >645:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17B0 text7 CODE >646:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-180A text6 CODE >612:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-180A text6 CODE >615:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-180C text6 CODE >616:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1812 text6 CODE >617:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1816 text6 CODE >619:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1818 text6 CODE >620:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-181A text6 CODE >621:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-181C text6 CODE >623:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-181E text6 CODE >624:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1838 text5 CODE >602:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1838 text5 CODE >604:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-183C text5 CODE >605:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17F2 text4 CODE >682:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17F2 text4 CODE >685:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17F4 text4 CODE >686:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17F6 text4 CODE >687:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17F8 text4 CODE >688:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-17FA text4 CODE >689:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1802 text4 CODE >691:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1804 text4 CODE >692:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1806 text4 CODE >693:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1808 text4 CODE >697:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-135E text3 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-135E text3 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-1362 text3 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-1366 text3 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-136E text3 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-1372 text3 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-1372 text3 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-1376 text3 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-137E text3 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-1386 text3 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-138A text3 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-138C text3 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-1392 text3 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-1394 text3 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-1394 text3 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-1398 text3 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-13A4 text3 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-13AC text3 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-13B2 text3 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-13B6 text3 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-13BC text3 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-13C4 text3 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
-D9C text2 CODE >417:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-D9C text2 CODE >425:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-DAE text2 CODE >427:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-DB2 text2 CODE >428:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-DC2 text2 CODE >429:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-DC2 text2 CODE >431:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-DD2 text2 CODE >433:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-DE4 text2 CODE >434:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-DF4 text2 CODE >435:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-DF4 text2 CODE >437:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E10 text2 CODE >439:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E16 text2 CODE >441:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E1A text2 CODE >443:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E1E text2 CODE >445:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E20 text2 CODE >448:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E22 text2 CODE >449:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E22 text2 CODE >452:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E24 text2 CODE >455:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E24 text2 CODE >457:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E32 text2 CODE >458:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E42 text2 CODE >461:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E44 text2 CODE >462:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E44 text2 CODE >464:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E48 text2 CODE >467:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E4A text2 CODE >555:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E4A text2 CODE >557:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E56 text2 CODE >558:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-E66 text2 CODE >555:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1770 text1 CODE >307:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1770 text1 CODE >310:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1774 text1 CODE >312:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-177A text1 CODE >315:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-177C text1 CODE >325:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1780 text1 CODE >329:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1780 text1 CODE >331:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1784 text1 CODE >332:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1784 text1 CODE >334:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-178A text1 CODE >336:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-178C text1 CODE >337:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-178E text1 CODE >338:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-178E text1 CODE >340:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F3C text0 CODE >90:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F3C text0 CODE >92:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F42 text0 CODE >93:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F46 text0 CODE >94:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F4A text0 CODE >96:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F4E text0 CODE >101:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F62 text0 CODE >102:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F62 text0 CODE >103:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F64 text0 CODE >104:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F66 text0 CODE >105:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F68 text0 CODE >106:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F80 text0 CODE >107:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F82 text0 CODE >108:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F84 text0 CODE >109:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F86 text0 CODE >110:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-F9E text0 CODE >101:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FB4 text0 CODE >116:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FB6 text0 CODE >117:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FB8 text0 CODE >118:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FBA text0 CODE >121:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FBC text0 CODE >122:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FBE text0 CODE >123:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FC0 text0 CODE >124:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FC2 text0 CODE >127:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FC4 text0 CODE >128:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FC6 text0 CODE >129:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FC8 text0 CODE >130:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FCA text0 CODE >133:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FD6 text0 CODE >136:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FD8 text0 CODE >138:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FDE text0 CODE >139:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FE4 text0 CODE >141:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FE8 text0 CODE >144:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FE8 text0 CODE >156:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FEC text0 CODE >235:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FF2 text0 CODE >249:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-FF6 text0 CODE >144:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
-1434 cinit CODE >1436:C:\Users\Austin\AppData\Local\Temp\sejc.
-1434 cinit CODE >1438:C:\Users\Austin\AppData\Local\Temp\sejc.
-1434 cinit CODE >1441:C:\Users\Austin\AppData\Local\Temp\sejc.
-1434 cinit CODE >1515:C:\Users\Austin\AppData\Local\Temp\sejc.
-1436 cinit CODE >1516:C:\Users\Austin\AppData\Local\Temp\sejc.
-1438 cinit CODE >1517:C:\Users\Austin\AppData\Local\Temp\sejc.
-143A cinit CODE >1518:C:\Users\Austin\AppData\Local\Temp\sejc.
-143C cinit CODE >1519:C:\Users\Austin\AppData\Local\Temp\sejc.
-143E cinit CODE >1520:C:\Users\Austin\AppData\Local\Temp\sejc.
-1440 cinit CODE >1521:C:\Users\Austin\AppData\Local\Temp\sejc.
-1444 cinit CODE >1522:C:\Users\Austin\AppData\Local\Temp\sejc.
-1448 cinit CODE >1523:C:\Users\Austin\AppData\Local\Temp\sejc.
-1448 cinit CODE >1524:C:\Users\Austin\AppData\Local\Temp\sejc.
-144A cinit CODE >1525:C:\Users\Austin\AppData\Local\Temp\sejc.
-144E cinit CODE >1526:C:\Users\Austin\AppData\Local\Temp\sejc.
-1450 cinit CODE >1527:C:\Users\Austin\AppData\Local\Temp\sejc.
-1452 cinit CODE >1528:C:\Users\Austin\AppData\Local\Temp\sejc.
-1454 cinit CODE >1532:C:\Users\Austin\AppData\Local\Temp\sejc.
-1456 cinit CODE >1533:C:\Users\Austin\AppData\Local\Temp\sejc.
-1458 cinit CODE >1534:C:\Users\Austin\AppData\Local\Temp\sejc.
-145A cinit CODE >1535:C:\Users\Austin\AppData\Local\Temp\sejc.
-145C cinit CODE >1536:C:\Users\Austin\AppData\Local\Temp\sejc.
-145E cinit CODE >1537:C:\Users\Austin\AppData\Local\Temp\sejc.
-1460 cinit CODE >1538:C:\Users\Austin\AppData\Local\Temp\sejc.
-1462 cinit CODE >1539:C:\Users\Austin\AppData\Local\Temp\sejc.
-1466 cinit CODE >1543:C:\Users\Austin\AppData\Local\Temp\sejc.
-146A cinit CODE >1544:C:\Users\Austin\AppData\Local\Temp\sejc.
-146C cinit CODE >1545:C:\Users\Austin\AppData\Local\Temp\sejc.
-146C cinit CODE >1546:C:\Users\Austin\AppData\Local\Temp\sejc.
-146E cinit CODE >1547:C:\Users\Austin\AppData\Local\Temp\sejc.
-1470 cinit CODE >1548:C:\Users\Austin\AppData\Local\Temp\sejc.
-1472 cinit CODE >1551:C:\Users\Austin\AppData\Local\Temp\sejc.
-1476 cinit CODE >1552:C:\Users\Austin\AppData\Local\Temp\sejc.
-1478 cinit CODE >1553:C:\Users\Austin\AppData\Local\Temp\sejc.
-1478 cinit CODE >1554:C:\Users\Austin\AppData\Local\Temp\sejc.
-147A cinit CODE >1555:C:\Users\Austin\AppData\Local\Temp\sejc.
-147C cinit CODE >1556:C:\Users\Austin\AppData\Local\Temp\sejc.
-147E cinit CODE >1562:C:\Users\Austin\AppData\Local\Temp\sejc.
-147E cinit CODE >1564:C:\Users\Austin\AppData\Local\Temp\sejc.
-1480 cinit CODE >1565:C:\Users\Austin\AppData\Local\Temp\sejc.
-1482 cinit CODE >1567:C:\Users\Austin\AppData\Local\Temp\sejc.
-1484 cinit CODE >1568:C:\Users\Austin\AppData\Local\Temp\sejc.
-1486 cinit CODE >1569:C:\Users\Austin\AppData\Local\Temp\sejc.
-1488 cinit CODE >1570:C:\Users\Austin\AppData\Local\Temp\sejc.
+8 intcode CODE >396:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+8 intcode CODE >763:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+52 intcode CODE >399:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+54 intcode CODE >401:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+58 intcode CODE >402:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+5C intcode CODE >404:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+68 intcode CODE >405:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+74 intcode CODE >408:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+16C6 text37 CODE >715:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16C6 text37 CODE >718:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16C8 text37 CODE >719:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16CA text37 CODE >721:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16CC text37 CODE >722:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16CE text37 CODE >723:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16D0 text37 CODE >724:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16D2 text37 CODE >725:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16D6 text37 CODE >727:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16D8 text37 CODE >728:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16DA text37 CODE >729:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16DC text37 CODE >730:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16DE text37 CODE >733:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16E0 text37 CODE >735:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16E2 text37 CODE >736:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16E4 text37 CODE >737:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16E6 text37 CODE >738:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16E8 text37 CODE >740:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16EA text37 CODE >741:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16EC text37 CODE >742:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16EE text37 CODE >743:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16F0 text37 CODE >745:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16F2 text37 CODE >746:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16F4 text37 CODE >748:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16F6 text37 CODE >749:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16F8 text37 CODE >750:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16FA text37 CODE >751:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16FC text37 CODE >752:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1704 text37 CODE >755:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1708 text37 CODE >756:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+170A text37 CODE >758:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17F6 text36 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+17F6 text36 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+1802 text36 CODE >38:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+180A text36 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+1812 text36 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+852 text35 CODE >280:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+852 text35 CODE >282:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+856 text35 CODE >283:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+85A text35 CODE >292:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+876 text35 CODE >293:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+876 text35 CODE >294:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+89A text35 CODE >292:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+8A8 text35 CODE >304:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+8A8 text35 CODE >306:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+8AC text35 CODE >307:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+8AE text35 CODE >309:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+8B4 text35 CODE >313:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+8B8 text35 CODE >316:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+8BA text35 CODE >317:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+8BA text35 CODE >319:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+902 text35 CODE >320:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+904 text35 CODE >321:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+90A text35 CODE >325:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+90E text35 CODE >326:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+90E text35 CODE >329:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+936 text35 CODE >331:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+938 text35 CODE >299:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+968 text35 CODE >331:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+968 text35 CODE >333:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+976 text35 CODE >297:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+976 text35 CODE >334:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+158A text34 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+158A text34 CODE >119:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+159A text34 CODE >120:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+159A text34 CODE >121:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+159E text34 CODE >122:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+15AE text34 CODE >123:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+15B8 text34 CODE >124:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+15C2 text34 CODE >125:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+15CE text34 CODE >128:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+15DE text34 CODE >129:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+1880 text33 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\isdigit.c
+1882 text33 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\isdigit.c
+D00 text32 CODE >5:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D00 text32 CODE >11:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D10 text32 CODE >12:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D20 text32 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D30 text32 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D34 text32 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D3C text32 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D3E text32 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D40 text32 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D4A text32 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D4A text32 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D8E text32 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D9E text32 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+D9E text32 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+DA8 text32 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+DAE text32 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+DE2 text32 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+DF2 text32 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+1534 text31 CODE >486:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1534 text31 CODE >488:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1558 text31 CODE >490:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1566 text31 CODE >491:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1578 text31 CODE >493:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1588 text31 CODE >494:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1328 text30 CODE >499:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1328 text30 CODE >501:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1332 text30 CODE >502:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1332 text30 CODE >503:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+136C text30 CODE >501:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1178 text29 CODE >454:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1178 text29 CODE >456:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1188 text29 CODE >457:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1198 text29 CODE >458:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+11A8 text29 CODE >459:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+11BC text29 CODE >460:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+11CC text29 CODE >461:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+11E0 text29 CODE >462:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+11F0 text29 CODE >463:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1204 text29 CODE >464:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+12A6 text28 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+12A6 text28 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+12B6 text28 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+12C2 text28 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+12C6 text28 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+12C8 text28 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+12D2 text28 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+12D4 text28 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+12D4 text28 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+12D8 text28 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+12E2 text28 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+12F6 text28 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1306 text28 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1308 text28 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1308 text28 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1312 text28 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1316 text28 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1326 text28 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1414 text27 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1414 text27 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1420 text27 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1424 text27 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1426 text27 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1430 text27 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1432 text27 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1432 text27 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1436 text27 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+144A text27 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+145A text27 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1464 text27 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1468 text27 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1478 text27 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+C0A text26 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+C0A text26 CODE >38:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+C1A text26 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+C1A text26 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+C50 text26 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+C54 text26 CODE >42:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+C60 text26 CODE >43:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+C72 text26 CODE >44:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+C72 text26 CODE >45:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+C9C text26 CODE >46:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+CD2 text26 CODE >47:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+CD8 text26 CODE >48:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+CDC text26 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+CE0 text26 CODE >50:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+CF2 text26 CODE >51:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+15E0 text25 CODE >7:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+15E0 text25 CODE >10:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+15E8 text25 CODE >12:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+15EC text25 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+15FC text25 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+160C text25 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+160C text25 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+167C text24 CODE >674:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+167C text24 CODE >678:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+16A0 text24 CODE >681:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+14DE text23 CODE >430:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+14DE text23 CODE >432:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+14EE text23 CODE >433:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+14FE text23 CODE >434:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+150E text23 CODE >435:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1522 text23 CODE >436:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+18CE text22 CODE >637:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+18CE text22 CODE >639:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+9D2 text21 CODE >559:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+9D2 text21 CODE >561:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+9DA text21 CODE >562:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+9E2 text21 CODE >564:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+9E4 text21 CODE >566:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+A0E text21 CODE >568:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+A16 text21 CODE >569:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+A18 text21 CODE >570:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+A46 text21 CODE >572:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+A4A text21 CODE >574:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+A4A text21 CODE >579:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+A4E text21 CODE >564:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+A4E text21 CODE >580:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+A86 text21 CODE >582:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+AB6 text21 CODE >584:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+ABA text21 CODE >585:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+ABC text21 CODE >586:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+AEC text21 CODE >588:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+AF4 text21 CODE >589:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+AF4 text21 CODE >592:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+170E text20 CODE >537:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+170E text20 CODE >543:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1714 text20 CODE >545:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1730 text20 CODE >547:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1738 text20 CODE >549:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+173C text20 CODE >551:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+173C text20 CODE >553:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1740 text20 CODE >556:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+65A text19 CODE >339:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+65A text19 CODE >341:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+65E text19 CODE >344:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+678 text19 CODE >355:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+67C text19 CODE >356:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+67E text19 CODE >357:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+698 text19 CODE >359:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+6B8 text19 CODE >363:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+6D8 text19 CODE >369:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+6FA text19 CODE >370:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+706 text19 CODE >376:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+708 text19 CODE >377:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+722 text19 CODE >395:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+73C text19 CODE >397:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+75C text19 CODE >399:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+768 text19 CODE >400:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+76A text19 CODE >401:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+78A text19 CODE >403:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+796 text19 CODE >404:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+798 text19 CODE >405:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+7B8 text19 CODE >407:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+7C4 text19 CODE >408:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+7C6 text19 CODE >409:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+7E6 text19 CODE >411:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+7F2 text19 CODE >412:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+7F4 text19 CODE >413:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+814 text19 CODE >415:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+820 text19 CODE >416:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+822 text19 CODE >417:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+842 text19 CODE >419:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+84E text19 CODE >420:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+84E text19 CODE >427:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1776 text18 CODE >263:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1776 text18 CODE >272:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+178A text18 CODE >274:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17A4 text18 CODE >276:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17A8 text17 CODE >595:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17A8 text17 CODE >598:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17AC text17 CODE >600:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17B0 text17 CODE >602:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17BC text17 CODE >603:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17C0 text17 CODE >604:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17C2 text17 CODE >605:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17C6 text17 CODE >606:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17C8 text17 CODE >607:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17C8 text17 CODE >609:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17CC text17 CODE >610:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17CC text17 CODE >612:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+EC0 text16 CODE >217:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+EC0 text16 CODE >223:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+EC8 text16 CODE >225:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+ECC text16 CODE >226:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+ECC text16 CODE >228:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+EDE text16 CODE >236:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+EEC text16 CODE >238:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+EF0 text16 CODE >239:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+F00 text16 CODE >240:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+F10 text16 CODE >241:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+F10 text16 CODE >243:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+F16 text16 CODE >245:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+F3A text16 CODE >247:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+F48 text16 CODE >248:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+F5A text16 CODE >250:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+F6A text16 CODE >251:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+F6A text16 CODE >254:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+F78 text16 CODE >256:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+F7C text16 CODE >257:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+F7C text16 CODE >260:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1632 text15 CODE >651:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1632 text15 CODE >667:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1656 text15 CODE >669:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17D0 text14 CODE >709:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17D0 text14 CODE >711:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+17F4 text14 CODE >713:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10DA text13 CODE >158:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10DA text13 CODE >164:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10DC text13 CODE >165:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10EE text13 CODE >166:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10F0 text13 CODE >168:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10F2 text13 CODE >169:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10F6 text13 CODE >171:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1108 text13 CODE >172:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1118 text13 CODE >177:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+111C text13 CODE >178:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+111E text13 CODE >180:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+111E text13 CODE >181:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+112A text13 CODE >182:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+112C text13 CODE >183:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+112C text13 CODE >184:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1138 text13 CODE >197:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+113A text13 CODE >198:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+113A text13 CODE >199:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1146 text13 CODE >210:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1146 text13 CODE >211:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1150 text13 CODE >213:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1152 text13 CODE >178:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1860 text12 CODE >616:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1862 text12 CODE >618:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1866 text12 CODE >620:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+186C text12 CODE >622:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1870 text12 CODE >623:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1874 text12 CODE >624:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1878 text12 CODE >626:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1878 text12 CODE >628:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+187C text12 CODE >631:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1216 text11 CODE >509:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1216 text11 CODE >513:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1236 text11 CODE >515:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+123A text11 CODE >516:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1240 text11 CODE >517:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1242 text11 CODE >518:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1242 text11 CODE >520:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1246 text11 CODE >523:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1272 text11 CODE >526:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1280 text11 CODE >527:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1292 text11 CODE >529:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+12A2 text11 CODE >530:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+12A2 text11 CODE >534:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1036 text10 CODE >90:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+103A text10 CODE >104:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1042 text10 CODE >106:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1046 text10 CODE >107:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+104C text10 CODE >108:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1050 text10 CODE >109:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+105C text10 CODE >110:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+105E text10 CODE >111:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+105E text10 CODE >115:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+106C text10 CODE >117:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+106E text10 CODE >125:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+106E text10 CODE >127:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+108A text10 CODE >129:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1090 text10 CODE >133:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1092 text10 CODE >117:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10A6 text10 CODE >133:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10A6 text10 CODE >135:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10B6 text10 CODE >139:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10BA text10 CODE >141:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10BE text10 CODE >142:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10C0 text10 CODE >143:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10C0 text10 CODE >145:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10C6 text10 CODE >147:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10D2 text10 CODE >148:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10D2 text10 CODE >150:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+10D8 text10 CODE >153:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\SlaveComm_PIC18.c
+1744 text9 CODE >643:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1744 text9 CODE >645:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+174E text9 CODE >646:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+174E text9 CODE >648:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+175C text9 CODE >645:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+183E text8 CODE >679:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+183E text8 CODE >681:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1840 text8 CODE >682:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1846 text8 CODE >683:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+184A text8 CODE >684:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+184E text8 CODE >686:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1850 text8 CODE >687:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1852 text8 CODE >688:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1854 text8 CODE >690:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1856 text8 CODE >691:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1858 text8 CODE >692:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+185A text8 CODE >695:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+185C text8 CODE >696:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18B6 text7 CODE >662:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18B6 text7 CODE >665:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18B8 text7 CODE >666:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18BE text7 CODE >667:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18C2 text7 CODE >669:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18C4 text7 CODE >670:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18C6 text7 CODE >671:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18C8 text7 CODE >673:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18CA text7 CODE >674:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18F2 text6 CODE >652:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18F2 text6 CODE >654:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18F6 text6 CODE >655:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+189E text5 CODE >732:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+189E text5 CODE >735:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18A0 text5 CODE >736:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18A2 text5 CODE >737:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18A4 text5 CODE >738:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18A6 text5 CODE >739:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18AE text5 CODE >741:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18B0 text5 CODE >742:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18B2 text5 CODE >743:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+18B4 text5 CODE >747:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+DF4 text4 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+DF4 text4 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+DF8 text4 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+DFC text4 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E0C text4 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E10 text4 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E10 text4 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E14 text4 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E24 text4 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E28 text4 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E28 text4 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E38 text4 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E44 text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E48 text4 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E4A text4 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E54 text4 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E56 text4 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E56 text4 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E5A text4 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E64 text4 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E78 text4 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E88 text4 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E8A text4 CODE >35:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E8A text4 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E94 text4 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E98 text4 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+E9E text4 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+EAE text4 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+13A4 text3 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13A4 text3 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13A8 text3 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13AC text3 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13B4 text3 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13B8 text3 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13B8 text3 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13BC text3 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13C4 text3 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13CC text3 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13D0 text3 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13D2 text3 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13D8 text3 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13DA text3 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13DA text3 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13DE text3 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13EA text3 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13F2 text3 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13F8 text3 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+13FC text3 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+1402 text3 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+140A text3 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awmod.c
+AFE text2 CODE >410:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+AFE text2 CODE >418:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B14 text2 CODE >420:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B1A text2 CODE >421:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B2A text2 CODE >422:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B2A text2 CODE >424:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B3C text2 CODE >426:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B4C text2 CODE >427:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B5C text2 CODE >428:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B5C text2 CODE >430:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B78 text2 CODE >432:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B7E text2 CODE >434:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B82 text2 CODE >436:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B86 text2 CODE >438:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B88 text2 CODE >441:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B8A text2 CODE >442:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B8A text2 CODE >445:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B8C text2 CODE >448:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B8C text2 CODE >450:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+B9A text2 CODE >451:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+BAA text2 CODE >454:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+BAC text2 CODE >455:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+BAC text2 CODE >457:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+BB0 text2 CODE >460:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+BB2 text2 CODE >606:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+BB2 text2 CODE >608:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+BBE text2 CODE >609:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+BCE text2 CODE >606:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+BE6 text2 CODE >632:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+BE6 text2 CODE >636:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+BF8 text2 CODE >637:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+181C text1 CODE >300:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+181C text1 CODE >303:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1820 text1 CODE >305:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1826 text1 CODE >308:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1828 text1 CODE >318:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+182C text1 CODE >322:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+182C text1 CODE >324:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1830 text1 CODE >325:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1830 text1 CODE >327:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1836 text1 CODE >329:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1838 text1 CODE >330:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+183A text1 CODE >331:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+183A text1 CODE >333:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+F80 text0 CODE >90:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+F80 text0 CODE >92:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+F86 text0 CODE >93:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+F8A text0 CODE >94:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+F8E text0 CODE >96:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+F92 text0 CODE >101:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FA6 text0 CODE >102:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FA6 text0 CODE >103:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FA8 text0 CODE >104:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FAA text0 CODE >105:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FAC text0 CODE >106:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FC4 text0 CODE >107:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FC6 text0 CODE >108:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FC8 text0 CODE >109:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FCA text0 CODE >110:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FE2 text0 CODE >101:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FF8 text0 CODE >114:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FFA text0 CODE >115:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FFC text0 CODE >116:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+FFE text0 CODE >119:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1000 text0 CODE >120:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1002 text0 CODE >121:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1004 text0 CODE >122:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1006 text0 CODE >125:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1008 text0 CODE >126:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+100A text0 CODE >127:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+100C text0 CODE >128:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+100E text0 CODE >131:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+101A text0 CODE >134:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+101C text0 CODE >137:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1022 text0 CODE >139:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1026 text0 CODE >142:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1026 text0 CODE >151:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+102A text0 CODE >228:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1030 text0 CODE >242:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+1034 text0 CODE >142:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\Current_Sense_Main.c
+147A cinit CODE >1434:C:\Users\Austin\AppData\Local\Temp\sdl0.
+147A cinit CODE >1436:C:\Users\Austin\AppData\Local\Temp\sdl0.
+147A cinit CODE >1439:C:\Users\Austin\AppData\Local\Temp\sdl0.
+147A cinit CODE >1534:C:\Users\Austin\AppData\Local\Temp\sdl0.
+147C cinit CODE >1535:C:\Users\Austin\AppData\Local\Temp\sdl0.
+147E cinit CODE >1536:C:\Users\Austin\AppData\Local\Temp\sdl0.
+1480 cinit CODE >1537:C:\Users\Austin\AppData\Local\Temp\sdl0.
+1482 cinit CODE >1538:C:\Users\Austin\AppData\Local\Temp\sdl0.
+1484 cinit CODE >1539:C:\Users\Austin\AppData\Local\Temp\sdl0.
+1486 cinit CODE >1540:C:\Users\Austin\AppData\Local\Temp\sdl0.
+148A cinit CODE >1541:C:\Users\Austin\AppData\Local\Temp\sdl0.
+148E cinit CODE >1542:C:\Users\Austin\AppData\Local\Temp\sdl0.
+148E cinit CODE >1543:C:\Users\Austin\AppData\Local\Temp\sdl0.
+1490 cinit CODE >1544:C:\Users\Austin\AppData\Local\Temp\sdl0.
+1494 cinit CODE >1545:C:\Users\Austin\AppData\Local\Temp\sdl0.
+1496 cinit CODE >1546:C:\Users\Austin\AppData\Local\Temp\sdl0.
+1498 cinit CODE >1547:C:\Users\Austin\AppData\Local\Temp\sdl0.
+149A cinit CODE >1551:C:\Users\Austin\AppData\Local\Temp\sdl0.
+149C cinit CODE >1552:C:\Users\Austin\AppData\Local\Temp\sdl0.
+149E cinit CODE >1553:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14A0 cinit CODE >1554:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14A2 cinit CODE >1555:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14A4 cinit CODE >1556:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14A6 cinit CODE >1557:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14A8 cinit CODE >1558:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14AC cinit CODE >1562:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14B0 cinit CODE >1563:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14B2 cinit CODE >1564:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14B2 cinit CODE >1565:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14B4 cinit CODE >1566:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14B6 cinit CODE >1567:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14B8 cinit CODE >1570:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14BC cinit CODE >1571:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14BE cinit CODE >1572:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14BE cinit CODE >1573:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14C0 cinit CODE >1574:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14C2 cinit CODE >1575:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14C4 cinit CODE >1578:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14C8 cinit CODE >1579:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14CA cinit CODE >1580:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14CA cinit CODE >1581:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14CC cinit CODE >1582:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14CE cinit CODE >1583:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14D0 cinit CODE >1589:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14D0 cinit CODE >1591:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14D2 cinit CODE >1592:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14D4 cinit CODE >1594:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14D6 cinit CODE >1595:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14D8 cinit CODE >1596:C:\Users\Austin\AppData\Local\Temp\sdl0.
+14DA cinit CODE >1597:C:\Users\Austin\AppData\Local\Temp\sdl0.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -662,18 +703,21 @@ FF6 text0 CODE >144:D:\EMMS\GitHub\_EMMS_Code_PowerSense\Current_Sense_2.2_Test\
 %SYMTAB
 __LdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\Current_Sense_2.2_Test.production.obj
-_command_builder_add_char 14E2 0 CODE 0 text29 dist/default/production\Current_Sense_2.2_Test.production.obj
+_command_builder_add_char 1534 0 CODE 0 text31 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hspace_0 30000E 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__Hspace_1 133 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
+__Hspace_1 12A 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hspace_2 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 process_data_parameterize@parameters 19 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@meterWattsHFNew 6C 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\Current_Sense_2.2_Test.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Austin\AppData\Local\Temp\sejc.obj
+powerPulseCheck@meterWattsLFNew 6D 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Austin\AppData\Local\Temp\sdl0.obj
+_powerPulseCheck$2442 60 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Current_Sense_2.2_Test.production.obj
-powerPulseCheck@mcpLFoutLast 43 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-communications@last_state_active 3F 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@mcpLFoutLast 42 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+communications@last_state_active BF 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lsmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\Current_Sense_2.2_Test.production.obj
 _IPR1 F9F 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _IPR2 FA2 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -690,20 +734,25 @@ _PIR2 FA1 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.ob
 _PIR3 FA4 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _PIR4 F7B 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _PIR5 F7E 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sejc.obj
-_atol CA8 0 CODE 0 text30 dist/default/production\Current_Sense_2.2_Test.production.obj
-_init 1838 0 CODE 0 text5 dist/default/production\Current_Sense_2.2_Test.production.obj
-_main F3C 0 CODE 0 text0 dist/default/production\Current_Sense_2.2_Test.production.obj
-btemp 4C 0 COMRAM 1 temp dist/default/production\Current_Sense_2.2_Test.production.obj
-start C0 0 CODE 0 init C:\Users\Austin\AppData\Local\Temp\sejc.obj
+___sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sdl0.obj
+_atol D00 0 CODE 0 text32 dist/default/production\Current_Sense_2.2_Test.production.obj
+_init 18F2 0 CODE 0 text6 dist/default/production\Current_Sense_2.2_Test.production.obj
+_ltoa 15E0 0 CODE 0 text25 dist/default/production\Current_Sense_2.2_Test.production.obj
+_main F80 0 CODE 0 text0 dist/default/production\Current_Sense_2.2_Test.production.obj
+btemp 4D 0 COMRAM 1 temp dist/default/production\Current_Sense_2.2_Test.production.obj
+start C0 0 CODE 0 init C:\Users\Austin\AppData\Local\Temp\sdl0.obj
+__size_of___aldiv 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of___awmod 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-_com_command_setEnergyUsed 15D8 0 CODE 0 text23 dist/default/production\Current_Sense_2.2_Test.production.obj
+_com_command_setEnergyUsed 167C 0 CODE 0 text24 dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_atol 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_init 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
+__size_of_ltoa 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of___lldiv 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of___llmod 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 delayMS10@count 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+ltoa@buf 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+ltoa@val 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 delayMS10@inx 16 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -711,47 +760,50 @@ __CFG_DEBUG$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.produ
 command_builder1@data1 21 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 ?___lmul 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 ?___wmul 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-communications@receive_buffer 98 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+communications@receive_buffer 100 0 BANK1 1 bssBANK1 dist/default/production\Current_Sense_2.2_Test.production.obj
 command_builder_add_string@data_string 19 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-com_command_setEnergyUsed@send_buffer 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-com_command_setPower@send_buffer 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+com_command_setEnergyUsed@send_buffer 37 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+com_command_setPower@send_buffer 37 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 receive_data@receive_buffer 16 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_resetCommunications 11D0 0 CODE 0 text12 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_resetCommunications 1178 0 CODE 0 text13 dist/default/production\Current_Sense_2.2_Test.production.obj
 __LidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_CCP2MX$PORTC1 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_com_command_setVersion 174A 0 CODE 0 text13 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_com_command_setVersion 17F6 0 CODE 0 text14 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hpowerup C0 0 CODE 0 powerup dist/default/production\Current_Sense_2.2_Test.production.obj
-communications@send_buffer 6E 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+communications@send_buffer C1 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 ___awmod@sign 18 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 _T0CONbits FD5 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_CCP3MX$PORTB5 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 process_data_parameterize@inx 20 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_strmatch 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sejc.obj
-intlevel0 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sejc.obj
-intlevel1 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sejc.obj
-intlevel2 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sejc.obj
-intlevel3 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sejc.obj
+__accesstop 60 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sdl0.obj
+intlevel0 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdl0.obj
+intlevel1 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdl0.obj
+intlevel2 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdl0.obj
+intlevel3 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdl0.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-_send_end_of_transmission 1822 0 CODE 0 text21 dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@mcpLFoutLastEnergy 41 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+_send_end_of_transmission 18CE 0 CODE 0 text22 dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_process_data_parameters 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
+___aldiv@divisor 23 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 _OSCCONbits FD3 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-_receive_data E7C 0 CODE 0 text15 dist/default/production\Current_Sense_2.2_Test.production.obj
+_receive_data EC0 0 CODE 0 text16 dist/default/production\Current_Sense_2.2_Test.production.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-wtemp6 4D 0 COMRAM 1 temp dist/default/production\Current_Sense_2.2_Test.production.obj
+wtemp6 4E 0 COMRAM 1 temp dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_EBTR0$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_EBTR1$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 ___llmod@divisor 17 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-_SPI_send_data 17B4 0 CODE 0 text11 dist/default/production\Current_Sense_2.2_Test.production.obj
+_SPI_send_data 1860 0 CODE 0 text12 dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_EBTR2$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_EBTR3$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_P2BMX$PORTB5 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-powerPulseCheck@timerCountHFLast D7 0 BANK0 1 dataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@timerCountHFLast F5 0 BANK0 1 dataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\Current_Sense_2.2_Test.production.obj
+___aldiv@sign 28 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\Current_Sense_2.2_Test.production.obj
-__pidataCOMRAM 1848 0 CODE 0 idataCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+__pidataCOMRAM 18FC 0 CODE 0 idataCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_command_builder_add_string 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_communications 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 ___wmul@multiplicand 15 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -760,22 +812,24 @@ command_builder_add_char@send_buffer 13 0 COMRAM 1 cstackCOMRAM dist/default/pro
 _ANSELA F38 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _ANSELB F39 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _ANSELC F3A 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-process_data_parameters@parameters 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sejc.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sejc.obj
-__end_of_send_data 1260 0 CODE 0 text10 dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@timerCountLFLast EB 0 BANK0 1 dataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+process_data_parameters@parameters 6C 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sdl0.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sdl0.obj
+powerPulseCheck@multiplierHFRate F1 0 BANK0 1 dataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_send_data 12A6 0 CODE 0 text11 dist/default/production\Current_Sense_2.2_Test.production.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-communications@firstTime CF 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+communications@firstTime A8 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_initOSC 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 ultoa@c 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 ultoa@v 28 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_send_data 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-powerPulseCheck@mcpHFoutLast 44 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@mcpHFoutLast 43 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of___lmul 158E 0 CODE 0 text32 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of___wmul 1770 0 CODE 0 text34 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of___lmul 15E0 0 CODE 0 text34 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of___wmul 181C 0 CODE 0 text36 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\Current_Sense_2.2_Test.production.obj
-main@inx D3 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+main@inx AB 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_toggleBlue 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 receive_data@data 19 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 process_data_parameterize@buffer_to_parameterize 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -784,52 +838,54 @@ __size_of_receive_data 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Tes
 SPI_receive_data@recvGood 15 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hintcodelo C0 0 CODE 0 intcodelo dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_command_builder_add_char 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of___awmod 13CE 0 CODE 0 text3 dist/default/production\Current_Sense_2.2_Test.production.obj
-_strmatch 16CC 0 CODE 0 text19 dist/default/production\Current_Sense_2.2_Test.production.obj
-powerPulseCheck@timerCountHFCheck D5 0 BANK0 1 dataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of___lldiv 12E2 0 CODE 0 text26 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of___llmod 1434 0 CODE 0 text25 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of___aldiv EC0 0 CODE 0 text4 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of___awmod 1414 0 CODE 0 text3 dist/default/production\Current_Sense_2.2_Test.production.obj
+_strmatch 170E 0 CODE 0 text20 dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@timerCountHFCheck EF 0 BANK0 1 dataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of___lldiv 1328 0 CODE 0 text28 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of___llmod 147A 0 CODE 0 text27 dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_isdigit 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_com_command_setPower 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-_send_data 11D0 0 CODE 0 text10 dist/default/production\Current_Sense_2.2_Test.production.obj
-process_data_parameters@end_of_transmission_received 33 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+_send_data 1216 0 CODE 0 text11 dist/default/production\Current_Sense_2.2_Test.production.obj
+process_data_parameters@end_of_transmission_received 39 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 _INTCON FF2 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _OSCTUNEbits F9B 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_strcmp2 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_strmatch 16FC 0 CODE 0 text19 dist/default/production\Current_Sense_2.2_Test.production.obj
-_command_builder_add_string 12E2 0 CODE 0 text28 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_strmatch 1744 0 CODE 0 text20 dist/default/production\Current_Sense_2.2_Test.production.obj
+_command_builder_add_string 1328 0 CODE 0 text30 dist/default/production\Current_Sense_2.2_Test.production.obj
 process_data_parameterize@parameter_position 23 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-_SPISlaveInit 1622 0 CODE 0 text35 dist/default/production\Current_Sense_2.2_Test.production.obj
+_SPISlaveInit 16C6 0 CODE 0 text37 dist/default/production\Current_Sense_2.2_Test.production.obj
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_ultoa 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-communications@no_more_to_send CE 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_com_command_setPower 15D8 0 CODE 0 text14 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_receive_data F3C 0 CODE 0 text15 dist/default/production\Current_Sense_2.2_Test.production.obj
-_SPI_transmit_wait 42 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+communications@no_more_to_send A7 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_com_command_setPower 167C 0 CODE 0 text15 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_receive_data F80 0 CODE 0 text16 dist/default/production\Current_Sense_2.2_Test.production.obj
+_SPI_transmit_wait 40 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 ___lldiv@counter 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lintcodelo C0 0 CODE 0 intcodelo dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_initIO 17B4 0 CODE 0 text7 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_initIO 1860 0 CODE 0 text8 dist/default/production\Current_Sense_2.2_Test.production.obj
 _SSP2CON1bits F6C 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-start_initialization 1434 0 CODE 0 cinit dist/default/production\Current_Sense_2.2_Test.production.obj
+start_initialization 147A 0 CODE 0 cinit dist/default/production\Current_Sense_2.2_Test.production.obj
 _SSP2CON3bits F69 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_process_data_parameterize A86 0 CODE 0 text33 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_process_data_parameterize 9D2 0 CODE 0 text35 dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_PBADEN$ON 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 _TRISAbits F92 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _TRISBbits F93 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _TRISCbits F94 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
+___aldiv@quotient 29 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 ___lldiv@dividend 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 ___rparam_used 1 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_SPI_send_data 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-_process_data 169C 0 CODE 0 text17 dist/default/production\Current_Sense_2.2_Test.production.obj
+_process_data 1776 0 CODE 0 text18 dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_WDTPS$32768 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__pcstackBANK0 C2 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
-__pcstackBANK1 100 0 BANK1 1 cstackBANK1 dist/default/production\Current_Sense_2.2_Test.production.obj
+__pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_send_end_of_transmission 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-resetCommunications@commState 6C 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+resetCommunications@commState BB 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+strmatch@co B9 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_SPISlaveInit 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_initOSC 1822 0 CODE 0 text6 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_initOSC 18CE 0 CODE 0 text7 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -856,13 +912,14 @@ __Htext8 0 0 ABS 0 text8 dist/default/production\Current_Sense_2.2_Test.producti
 __Htext9 0 0 ABS 0 text9 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\Current_Sense_2.2_Test.production.obj
-__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\Austin\AppData\Local\Temp\sejc.obj
+__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\Austin\AppData\Local\Temp\sdl0.obj
+ltoa@base 33 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_com_command_setVersion 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_command_builder_add_char 1538 0 CODE 0 text29 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_SPI_send_data 17D4 0 CODE 0 text11 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_command_builder_add_char 158A 0 CODE 0 text31 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_SPI_send_data 1880 0 CODE 0 text12 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\Current_Sense_2.2_Test.production.obj
-_meterEnergyUsed 64 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+_meterEnergyUsed B1 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 send_data@send_end 19 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -870,17 +927,17 @@ __Lbank2 0 0 ABS 0 bank2 dist/default/production\Current_Sense_2.2_Test.producti
 __Lbank3 0 0 ABS 0 bank3 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lbank4 0 0 ABS 0 bank4 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lbank5 0 0 ABS 0 bank5 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_isdigit 17F2 0 CODE 0 text31 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_isdigit 189E 0 CODE 0 text33 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lcinit 0 0 ABS 0 cinit dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lconst 0 0 CONST 0 const dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lidata 0 0 CODE 0 idata dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lidloc 200000 0 IDLOC 0 idloc dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_process_data 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\Current_Sense_2.2_Test.production.obj
-com_command_setPower@temp C2 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+com_command_setPower@temp 60 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lparam 0 0 COMRAM 1 rparam dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lrdata 0 0 COMRAM 1 rdata dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_SPISlaveInit 166A 0 CODE 0 text35 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_SPISlaveInit 170E 0 CODE 0 text37 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lstack 0 0 STACK 2 stack dist/default/production\Current_Sense_2.2_Test.production.obj
 __Ltext0 0 0 ABS 0 text0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Ltext1 0 0 ABS 0 text1 dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -897,39 +954,38 @@ __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\Current_Sense_2.2
 _PORTAbits F80 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _PORTBbits F81 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_T3CMX$PORTC0 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_strcmp2 BB2 0 CODE 0 text20 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_strcmp2 AFE 0 CODE 0 text21 dist/default/production\Current_Sense_2.2_Test.production.obj
 _INTCONbits FF2 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __Habs1 0 0 ABS 0 abs1 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hdata 0 0 ABS 0 data dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hinit C4 0 CODE 0 init dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\Current_Sense_2.2_Test.production.obj
-__Htemp 4D 0 COMRAM 1 temp dist/default/production\Current_Sense_2.2_Test.production.obj
+__Htemp 4E 0 COMRAM 1 temp dist/default/production\Current_Sense_2.2_Test.production.obj
 __Htext 0 0 ABS 0 text dist/default/production\Current_Sense_2.2_Test.production.obj
 __Labs1 0 0 ABS 0 abs1 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production\Current_Sense_2.2_Test.production.obj
 __Linit C0 0 CODE 0 init dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\Current_Sense_2.2_Test.production.obj
-__Ltemp 4C 0 COMRAM 1 temp dist/default/production\Current_Sense_2.2_Test.production.obj
+__Ltemp 4D 0 COMRAM 1 temp dist/default/production\Current_Sense_2.2_Test.production.obj
 __Ltext 0 0 ABS 0 text dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_XINST$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _SSP2CON3 F69 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-___lmul 1538 0 CODE 0 text32 dist/default/production\Current_Sense_2.2_Test.production.obj
-___wmul 174A 0 CODE 0 text34 dist/default/production\Current_Sense_2.2_Test.production.obj
+___lmul 158A 0 CODE 0 text34 dist/default/production\Current_Sense_2.2_Test.production.obj
+___wmul 17F6 0 CODE 0 text36 dist/default/production\Current_Sense_2.2_Test.production.obj
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
-__LcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_process_data_parameterize 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _SSP2STATbits F6D 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-int$flags 4C 0 COMRAM 1 temp dist/default/production\Current_Sense_2.2_Test.production.obj
+int$flags 4D 0 COMRAM 1 temp dist/default/production\Current_Sense_2.2_Test.production.obj
 command_builder_add_char@data 15 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hintret 0 0 ABS 0 intret dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hirdata 0 0 CODE 0 irdata dist/default/production\Current_Sense_2.2_Test.production.obj
 __S0 30000E 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__S1 133 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
+__S1 12A 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __S2 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_process_data 16CC 0 CODE 0 text17 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_process_data 17A8 0 CODE 0 text18 dist/default/production\Current_Sense_2.2_Test.production.obj
 atol@sign 27 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -939,25 +995,27 @@ ultoa@base 26 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_
 strcmp2@a 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 strcmp2@b 15 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_BORV$190 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_send_end_of_transmission 1838 0 CODE 0 text21 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_send_end_of_transmission 18E4 0 CODE 0 text22 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/default/production\Current_Sense_2.2_Test.production.obj
-process_data@parameters 100 0 BANK1 1 cstackBANK1 dist/default/production\Current_Sense_2.2_Test.production.obj
+process_data@parameters 74 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 ___lldiv@divisor 17 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-_SPI_receive_data 16FC 0 CODE 0 text16 dist/default/production\Current_Sense_2.2_Test.production.obj
+_SPI_receive_data 17A8 0 CODE 0 text17 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hramtop 600 0 RAM 0 ramtop dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_powerPulseCheck E7C 0 CODE 0 text2 dist/default/production\Current_Sense_2.2_Test.production.obj
-_initIO 1792 0 CODE 0 text7 dist/default/production\Current_Sense_2.2_Test.production.obj
-__pdataBANK0 D5 0 BANK0 1 dataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_powerPulseCheck C0A 0 CODE 0 text2 dist/default/production\Current_Sense_2.2_Test.production.obj
+_initIO 183E 0 CODE 0 text8 dist/default/production\Current_Sense_2.2_Test.production.obj
+__pdataBANK0 EB 0 BANK0 1 dataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_PWRTEN$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __activetblptr 2 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-_meterWatts 68 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+_meterWatts B5 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 process_data_parameterize@parameter_index 22 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-powerPulseCheck@firstPulse 4B 0 COMRAM 1 dataCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@firstPulse 4C 0 COMRAM 1 dataCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of___lmul 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of___wmul 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
+ltoa@cp 35 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+__LbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Htext10 0 0 ABS 0 text10 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Htext11 0 0 ABS 0 text11 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Htext12 0 0 ABS 0 text12 dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -984,124 +1042,132 @@ __Htext32 0 0 ABS 0 text32 dist/default/production\Current_Sense_2.2_Test.produc
 __Htext33 0 0 ABS 0 text33 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Htext34 0 0 ABS 0 text34 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Htext35 0 0 ABS 0 text35 dist/default/production\Current_Sense_2.2_Test.production.obj
+__Htext36 0 0 ABS 0 text36 dist/default/production\Current_Sense_2.2_Test.production.obj
+__Htext37 0 0 ABS 0 text37 dist/default/production\Current_Sense_2.2_Test.production.obj
 ___awmod@counter 17 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_initTimer 180A 0 CODE 0 text4 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_initTimer 18B6 0 CODE 0 text5 dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_HFOFST$ON 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext10 11D0 0 CODE 0 text10 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext11 17B4 0 CODE 0 text11 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext12 1134 0 CODE 0 text12 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext13 1724 0 CODE 0 text13 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext14 158E 0 CODE 0 text14 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext15 E7C 0 CODE 0 text15 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext16 16FC 0 CODE 0 text16 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext17 169C 0 CODE 0 text17 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext18 660 0 CODE 0 text18 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext19 16CC 0 CODE 0 text19 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext20 A86 0 CODE 0 text20 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext21 1822 0 CODE 0 text21 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext22 148C 0 CODE 0 text22 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext23 15D8 0 CODE 0 text23 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext24 BB2 0 CODE 0 text24 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext25 13CE 0 CODE 0 text25 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext26 1260 0 CODE 0 text26 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext27 1096 0 CODE 0 text27 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext28 12E2 0 CODE 0 text28 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext29 14E2 0 CODE 0 text29 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext30 CA8 0 CODE 0 text30 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext31 17D4 0 CODE 0 text31 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext32 1538 0 CODE 0 text32 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext33 906 0 CODE 0 text33 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext34 174A 0 CODE 0 text34 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext35 1622 0 CODE 0 text35 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext10 1036 0 CODE 0 text10 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext11 1216 0 CODE 0 text11 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext12 1860 0 CODE 0 text12 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext13 10DA 0 CODE 0 text13 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext14 17D0 0 CODE 0 text14 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext15 1632 0 CODE 0 text15 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext16 EC0 0 CODE 0 text16 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext17 17A8 0 CODE 0 text17 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext18 1776 0 CODE 0 text18 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext19 65A 0 CODE 0 text19 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext20 170E 0 CODE 0 text20 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext21 9D2 0 CODE 0 text21 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext22 18CE 0 CODE 0 text22 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext23 14DE 0 CODE 0 text23 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext24 167C 0 CODE 0 text24 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext25 15E0 0 CODE 0 text25 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext26 C0A 0 CODE 0 text26 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext27 1414 0 CODE 0 text27 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext28 12A6 0 CODE 0 text28 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext29 1178 0 CODE 0 text29 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext30 1328 0 CODE 0 text30 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext31 1534 0 CODE 0 text31 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext32 D00 0 CODE 0 text32 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext33 1880 0 CODE 0 text33 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext34 158A 0 CODE 0 text34 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext35 852 0 CODE 0 text35 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext36 17F6 0 CODE 0 text36 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext37 16C6 0 CODE 0 text37 dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_initTimer 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 command_builder3@send_buffer 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-___awmod 135E 0 CODE 0 text3 dist/default/production\Current_Sense_2.2_Test.production.obj
-___lldiv 1260 0 CODE 0 text26 dist/default/production\Current_Sense_2.2_Test.production.obj
-___llmod 13CE 0 CODE 0 text25 dist/default/production\Current_Sense_2.2_Test.production.obj
+___aldiv DF4 0 CODE 0 text4 dist/default/production\Current_Sense_2.2_Test.production.obj
+___awmod 13A4 0 CODE 0 text3 dist/default/production\Current_Sense_2.2_Test.production.obj
+___lldiv 12A6 0 CODE 0 text28 dist/default/production\Current_Sense_2.2_Test.production.obj
+___llmod 1414 0 CODE 0 text27 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lbigram 0 0 ABS 0 bigram dist/default/production\Current_Sense_2.2_Test.production.obj
 ___lmul@multiplier 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-process_data@end_of_transmission_received 132 0 BANK1 1 cstackBANK1 dist/default/production\Current_Sense_2.2_Test.production.obj
-_communications FF8 0 CODE 0 text9 dist/default/production\Current_Sense_2.2_Test.production.obj
+process_data@end_of_transmission_received A6 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+_communications 1036 0 CODE 0 text10 dist/default/production\Current_Sense_2.2_Test.production.obj
 ?_atol 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lcomram 0 0 ABS 0 comram dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lconfig 300000 0 CONFIG 0 config dist/default/production\Current_Sense_2.2_Test.production.obj
-powerPulseCheck@TESTING_count 3C 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@TESTING_count BD 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 ___wmul@multiplier 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 _LATBbits F8A 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _LATCbits F8B 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-_process_data_parameters 660 0 CODE 0 text18 dist/default/production\Current_Sense_2.2_Test.production.obj
+_process_data_parameters 65A 0 CODE 0 text19 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\Current_Sense_2.2_Test.production.obj
-_initTimer 17F2 0 CODE 0 text4 dist/default/production\Current_Sense_2.2_Test.production.obj
-main@isLow D2 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+_initTimer 189E 0 CODE 0 text5 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\Current_Sense_2.2_Test.production.obj
 __end_of_Timer0_ISR C0 0 CODE 0 intcode dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_process_data_parameters 906 0 CODE 0 text18 dist/default/production\Current_Sense_2.2_Test.production.obj
-process_data@send_buffer 36 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_process_data_parameters 852 0 CODE 0 text19 dist/default/production\Current_Sense_2.2_Test.production.obj
+process_data@send_buffer 72 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_initIO 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-stackhi 5FF 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sejc.obj
-stacklo 133 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sejc.obj
+stackhi 5FF 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sdl0.obj
+stacklo 12A 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sdl0.obj
 receive_data@my_status 3E 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 strmatch@result 22 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\Current_Sense_2.2_Test.production.obj
-_powerPulseCheck D9C 0 CODE 0 text2 dist/default/production\Current_Sense_2.2_Test.production.obj
+_powerPulseCheck AFE 0 CODE 0 text2 dist/default/production\Current_Sense_2.2_Test.production.obj
 command_builder3@data1 21 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 command_builder3@data2 23 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 command_builder3@data3 25 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production\Current_Sense_2.2_Test.production.obj
 _ADCON0bits FC2 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-_process_data_parameterize 906 0 CODE 0 text33 dist/default/production\Current_Sense_2.2_Test.production.obj
+_process_data_parameterize 852 0 CODE 0 text35 dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_com_command_setEnergyUsed 1622 0 CODE 0 text23 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_com_command_setEnergyUsed 16C6 0 CODE 0 text24 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lspace_0 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lspace_1 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lspace_2 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__pbssCOMRAM 38 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+__pbssCOMRAM 3A 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 strcmp2@inx 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 strmatch@a 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 strmatch@b 20 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
-__HcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\Current_Sense_2.2_Test.production.obj
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-end_of_initialization 147E 0 CODE 0 cinit dist/default/production\Current_Sense_2.2_Test.production.obj
-_com_command_setPower 158E 0 CODE 0 text14 dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@timerCountHFLastValid 45 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@meterWattsHF 64 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@meterWattsLF 68 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+end_of_initialization 14D0 0 CODE 0 cinit dist/default/production\Current_Sense_2.2_Test.production.obj
+_com_command_setPower 1632 0 CODE 0 text15 dist/default/production\Current_Sense_2.2_Test.production.obj
 SPI_send_data@sendGood 14 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_SPI_receive_data 1724 0 CODE 0 text16 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_SPI_receive_data 17D0 0 CODE 0 text17 dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _RCONbits FD0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-com_command_setEnergyUsed@temp C2 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+com_command_setEnergyUsed@temp 60 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+?___aldiv 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 ?___awmod 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-process_data@receive_buffer 34 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+process_data@receive_buffer 70 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 ?___lldiv 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 ?___llmod 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_communications 1096 0 CODE 0 text9 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_communications 10DA 0 CODE 0 text10 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_delayMS10 169C 0 CODE 0 text8 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_delayMS10 1776 0 CODE 0 text9 dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_SPI_receive_data 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
-_initOSC 180A 0 CODE 0 text6 dist/default/production\Current_Sense_2.2_Test.production.obj
+__HbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\Current_Sense_2.2_Test.production.obj
+_initOSC 18B6 0 CODE 0 text7 dist/default/production\Current_Sense_2.2_Test.production.obj
 ___awmod@dividend 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lramtop 600 0 RAM 0 ramtop dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_delayMS10 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\Current_Sense_2.2_Test.production.obj
-_command_builder1 148C 0 CODE 0 text22 dist/default/production\Current_Sense_2.2_Test.production.obj
-_command_builder3 1096 0 CODE 0 text27 dist/default/production\Current_Sense_2.2_Test.production.obj
-__pcinit 1434 0 CODE 0 cinit dist/default/production\Current_Sense_2.2_Test.production.obj
+_command_builder1 14DE 0 CODE 0 text23 dist/default/production\Current_Sense_2.2_Test.production.obj
+_command_builder3 1178 0 CODE 0 text29 dist/default/production\Current_Sense_2.2_Test.production.obj
+__pcinit 147A 0 CODE 0 cinit dist/default/production\Current_Sense_2.2_Test.production.obj
 ultoa@buf 20 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 ultoa@val 22 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext0 F3C 0 CODE 0 text0 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext1 1770 0 CODE 0 text1 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext2 D9C 0 CODE 0 text2 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext3 135E 0 CODE 0 text3 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext4 17F2 0 CODE 0 text4 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext5 1838 0 CODE 0 text5 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext6 180A 0 CODE 0 text6 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext7 1792 0 CODE 0 text7 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext8 166A 0 CODE 0 text8 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ptext9 FF8 0 CODE 0 text9 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext0 F80 0 CODE 0 text0 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext1 181C 0 CODE 0 text1 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext2 AFE 0 CODE 0 text2 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext3 13A4 0 CODE 0 text3 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext4 DF4 0 CODE 0 text4 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext5 189E 0 CODE 0 text5 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext6 18F2 0 CODE 0 text6 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext7 18B6 0 CODE 0 text7 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext8 183E 0 CODE 0 text8 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ptext9 1744 0 CODE 0 text9 dist/default/production\Current_Sense_2.2_Test.production.obj
 _OSCCON2bits FD2 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 strmatch@match 24 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -1131,24 +1197,28 @@ __Ltext32 0 0 ABS 0 text32 dist/default/production\Current_Sense_2.2_Test.produc
 __Ltext33 0 0 ABS 0 text33 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Ltext34 0 0 ABS 0 text34 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Ltext35 0 0 ABS 0 text35 dist/default/production\Current_Sense_2.2_Test.production.obj
-_toggleBlue 1770 0 CODE 0 text1 dist/default/production\Current_Sense_2.2_Test.production.obj
-__ramtop 600 0 RAM 0 ramtop C:\Users\Austin\AppData\Local\Temp\sejc.obj
+__Ltext36 0 0 ABS 0 text36 dist/default/production\Current_Sense_2.2_Test.production.obj
+__Ltext37 0 0 ABS 0 text37 dist/default/production\Current_Sense_2.2_Test.production.obj
+_toggleBlue 181C 0 CODE 0 text1 dist/default/production\Current_Sense_2.2_Test.production.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\Austin\AppData\Local\Temp\sdl0.obj
+___aldiv@dividend 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_resetCommunications 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lpowerup C0 0 CODE 0 powerup dist/default/production\Current_Sense_2.2_Test.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Current_Sense_2.2_Test.production.obj
-_com_command_setVersion 1724 0 CODE 0 text13 dist/default/production\Current_Sense_2.2_Test.production.obj
-_isdigit 17D4 0 CODE 0 text31 dist/default/production\Current_Sense_2.2_Test.production.obj
+_com_command_setVersion 17D0 0 CODE 0 text14 dist/default/production\Current_Sense_2.2_Test.production.obj
+_isdigit 1880 0 CODE 0 text33 dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@timerCountLFLastValid 44 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __psmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\Current_Sense_2.2_Test.production.obj
-_delayMS10 166A 0 CODE 0 text8 dist/default/production\Current_Sense_2.2_Test.production.obj
+_delayMS10 1744 0 CODE 0 text9 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\Current_Sense_2.2_Test.production.obj
 strcmp2@match 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-communications@receive_current_state 40 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-_strcmp2 A86 0 CODE 0 text20 dist/default/production\Current_Sense_2.2_Test.production.obj
+communications@receive_current_state 3F 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+_strcmp2 9D2 0 CODE 0 text21 dist/default/production\Current_Sense_2.2_Test.production.obj
 ___param_bank 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-_timerCountHF 47 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-_timerCountLF 38 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+_timerCountHF 48 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+_timerCountLF 3A 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of__initialization 147E 0 CODE 0 cinit dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of__initialization 14D0 0 CODE 0 cinit dist/default/production\Current_Sense_2.2_Test.production.obj
 ___awmod@divisor 15 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 _INTCON2 FF1 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _INTCON3 FF0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -1163,7 +1233,7 @@ __CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.produc
 __CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 command_builder_add_string@send_buffer 17 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_com_command_setEnergyUsed 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__pidataBANK0 1842 0 CODE 0 idataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+__pidataBANK0 18E4 0 CODE 0 idataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\Current_Sense_2.2_Test.production.obj
 ___lmul@product 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_powerPulseCheck 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -1173,20 +1243,22 @@ __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_
 SPI_send_data@data 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 _SSP2BUF F6F 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 ___llmod@dividend 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+___aldiv@counter 27 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_BOREN$SBORDIS 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-_resetCommunications 1134 0 CODE 0 text12 dist/default/production\Current_Sense_2.2_Test.production.obj
+_resetCommunications 10DA 0 CODE 0 text13 dist/default/production\Current_Sense_2.2_Test.production.obj
 ___llmod@counter 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_command_builder_add_string 135E 0 CODE 0 text28 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_atol D9C 0 CODE 0 text30 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_init 1842 0 CODE 0 text5 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_main FF8 0 CODE 0 text0 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_command_builder_add_string 13A4 0 CODE 0 text30 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_atol DF4 0 CODE 0 text32 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_init 18FC 0 CODE 0 text6 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_ltoa 1632 0 CODE 0 text25 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_main 1036 0 CODE 0 text0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __pintcode 8 0 CODE 0 intcode dist/default/production\Current_Sense_2.2_Test.production.obj
 isdigit@c 15 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-_isdigit$2081 14 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+_isdigit$2073 14 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 _TMR0H FD7 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _TMR0L FD6 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_ultoa CA8 0 CODE 0 text24 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_toggleBlue 1792 0 CODE 0 text1 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_ultoa D00 0 CODE 0 text26 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_toggleBlue 183E 0 CODE 0 text1 dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_CP0$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_CP1$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __HRAM 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -1199,37 +1271,38 @@ __Lram 0 0 ABS 0 ram dist/default/production\Current_Sense_2.2_Test.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_CP2$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_CP3$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-_isLow 46 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+_isLow 47 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_PLLCFG$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_CPB$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
-_ultoa BB2 0 CODE 0 text24 dist/default/production\Current_Sense_2.2_Test.production.obj
-powerPulseCheck@TESTING_oneshot 45 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+_ultoa C0A 0 CODE 0 text26 dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@TESTING_oneshot 46 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 command_builder_add_string@inx 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 __CFG_PRICLKEN$OFF 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __HdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_command_builder1 14E2 0 CODE 0 text22 dist/default/production\Current_Sense_2.2_Test.production.obj
-__end_of_command_builder3 1134 0 CODE 0 text27 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_command_builder1 1534 0 CODE 0 text23 dist/default/production\Current_Sense_2.2_Test.production.obj
+__end_of_command_builder3 1216 0 CODE 0 text29 dist/default/production\Current_Sense_2.2_Test.production.obj
 atol@a 28 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 atol@c 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 atol@s 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 send_data@send_buffer 15 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 send_end_of_transmission@send_buffer 23 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
 ?_strcmp2 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-__initialization 1434 0 CODE 0 cinit dist/default/production\Current_Sense_2.2_Test.production.obj
-__pbssBANK0 60 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
-__pdataCOMRAM 4B 0 COMRAM 1 dataCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-powerPulseCheck@meterEnergyUsedPart 60 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
-communications@end_of_transmission_received 41 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+__initialization 147A 0 CODE 0 cinit dist/default/production\Current_Sense_2.2_Test.production.obj
+__pbssBANK0 AD 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+__pbssBANK1 100 0 BANK1 1 bssBANK1 dist/default/production\Current_Sense_2.2_Test.production.obj
+__pdataCOMRAM 4C 0 COMRAM 1 dataCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+powerPulseCheck@meterEnergyUsedPart AD 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+communications@end_of_transmission_received C0 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_command_builder1 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_command_builder3 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\Current_Sense_2.2_Test.production.obj
 ___wmul@product 17 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-__Hsmallconst 660 0 SMALLCONST 0 smallconst dist/default/production\Current_Sense_2.2_Test.production.obj
+__Hsmallconst 65A 0 SMALLCONST 0 smallconst dist/default/production\Current_Sense_2.2_Test.production.obj
 __size_of_Timer0_ISR 0 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\Current_Sense_2.2_Test.production.obj
-process_data_parameters@send_buffer 31 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
-resetCommunications@send_buffer 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2_Test.production.obj
+process_data_parameters@send_buffer 6E 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
+resetCommunications@send_buffer 6C 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2_Test.production.obj
 _ANSELAbits F38 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 _ANSELBbits F39 0 ABS 0 - dist/default/production\Current_Sense_2.2_Test.production.obj
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\Current_Sense_2.2_Test.production.obj
@@ -1262,11 +1335,11 @@ SPI_receive_data@data 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current
 # All other numeric quantities are in decimal.
 %SEGMENTS
 idloc 0 200000 200000 8 1
-text18 0 660 660 11E9 1
-cstackCOMRAM 1 1 1 4C 1
-cstackBANK1 1 100 100 33 1
+text19 0 65A 65A 12A3 1
+cstackCOMRAM 1 1 1 4D 1
+cstackBANK0 1 60 60 99 1
 reset_vec 0 0 0 4 1
-bssBANK0 1 60 60 7B 1
+bssBANK1 1 100 100 2A 1
 intcode 0 8 8 BC 1
-smallconst 0 600 600 60 1
+smallconst 0 600 600 5A 1
 config 0 300000 300000 E 1
