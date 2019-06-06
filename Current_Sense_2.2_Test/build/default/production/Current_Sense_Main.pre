@@ -8467,7 +8467,7 @@ TESTING_count++;
 timerCountHF = 0;
 }
 
-if( TESTING_count < 5 )
+if( TESTING_count < 1 )
 {
 meterEnergyUsed = 0;
 meterWatts = 0;
@@ -8494,6 +8494,10 @@ LATBbits.LATB4 = 0;
 }
 
 meterEnergyUsed++;
+meterEnergyUsed++;
+meterEnergyUsed++;
+meterEnergyUsed++;
+meterEnergyUsed++;
 meterWatts = meterEnergyUsed;
 
 }
@@ -8505,7 +8509,7 @@ TESTING_oneshot = 0;
 
 return;
 
-# 475
+# 479
 static long meterEnergyUsedPart = 0;
 static long timerCountHFLast = 2147483647;
 static bool timerCountHFLastValid = 0;
@@ -8526,11 +8530,7 @@ bool meterWattsLFNew = 0;
 long meterWattsHF = 0;
 long meterWattsLF = 0;
 
-static long multiplierHFRate = 8;
-
-
-
-
+# 504
 meterWattsHFNew = 0;
 if( PORTAbits.RA3 == 0 )
 {
@@ -8567,7 +8567,7 @@ firstPulse = 0;
 timerCountLFLast = timerCountLF;
 timerCountLFLastValid = 1;
 timerCountLF = 0;
-meterWattsLF = (((((long) 2243 * (long) 3600) / ((long) 100000 / (long) 1000))) * (long) multiplierHFRate) / (long) timerCountLFLast;
+meterWattsLF = (((((long) 2243 * (long) 3600) / ((long) 100000 / (long) 1000))) * (long) 16) / (long) timerCountLFLast;
 
 
 meterWattsLFNew = 1;
@@ -8593,13 +8593,7 @@ meterWatts = meterWattsLF;
 }
 }
 
-
-if( (timerCountHFLastValid == 1) && (timerCountLFLastValid == 1) )
-{
-multiplierHFRate = (timerCountLFLast + (timerCountHFLast / 2)) / timerCountHFLast;
-}
-
-# 574
+# 578
 if( (firstPulse == 0) && (timerCountHF > timerCountHFLast) )
 {
 if( timerCountHF > ((long) 1000 * (long) timerCountHFCheck) )
@@ -8631,7 +8625,7 @@ if( mcpLFoutLastEnergy == 0 )
 mcpLFoutLastEnergy = 1;
 timerCountLF = 0;
 
-meterEnergyUsedPart += 2243 * (long) multiplierHFRate;
+meterEnergyUsedPart += 2243 * (long) 16;
 while( meterEnergyUsedPart > 100000 )
 {
 meterEnergyUsed++;
@@ -8640,7 +8634,7 @@ meterEnergyUsedPart -= 100000;
 }
 }
 
-# 617
+# 621
 else if( timerCountLF >= 200000 )
 {
 
@@ -8657,11 +8651,6 @@ else
 {
 mcpLFoutLastEnergy = 0;
 }
-
-
-
-meterWatts = 77;
-meterEnergyUsed = 1121;
 
 return;
 
@@ -8783,12 +8772,12 @@ TRISCbits.TRISC7 = 0;
 TRISCbits.TRISC4 = 0;
 TRISCbits.TRISC3 = 0;
 
-# 774
+# 773
 LATCbits.LATC7 = 1;
 LATCbits.LATC4 = 1;
 LATCbits.LATC3 = 1;
 
-# 782
+# 781
 return;
 }
 

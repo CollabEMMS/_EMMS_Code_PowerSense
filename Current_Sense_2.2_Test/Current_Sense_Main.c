@@ -412,52 +412,56 @@ void powerPulseCheck( void )
 
     //    __delay_ms( 100 );
     //  TEST just increment power every 5 seconds to see what happens
-    static int TESTING_count = 0;
-    static bool TESTING_oneshot = false;
-
-    if( timerCountHF >= 1000 )
-    {
-	TESTING_count++;
-	timerCountHF = 0;
-    }
-
-    if( TESTING_count < 5 )
-    {
-	meterEnergyUsed = 0;
-	meterWatts = 0;
-    }
-
-    if( TESTING_count % 10 == 0 )
-    {
-	if( TESTING_oneshot == false )
-	{
-	    TESTING_oneshot = true;
-
-	    if( LED_READ == 0 )
-	    {
-		LED_SET = 1;
-		//	LED_SET_PR = 1;
-		//LED_SET_OR = 1;
-	    }
-	    else
-	    {
-
-		LED_SET = 0;
-		//	LED_SET_PR = 0;
-		//LED_SET_OR = 0;
-	    }
-
-	    meterEnergyUsed++;
-	    meterWatts = meterEnergyUsed;
-
-	}
-    }
-    else
-    {
-	TESTING_oneshot = false;
-    }
-
-    return;
+    //    static int TESTING_count = 0;
+    //    static bool TESTING_oneshot = false;
+    //
+    //    if( timerCountHF >= 1000 )
+    //    {
+    //	TESTING_count++;
+    //	timerCountHF = 0;
+    //    }
+    //
+    //    if( TESTING_count < 1 )
+    //    {
+    //	meterEnergyUsed = 0;
+    //	meterWatts = 0;
+    //    }
+    //
+    //    if( TESTING_count % 10 == 0 )
+    //    {
+    //	if( TESTING_oneshot == false )
+    //	{
+    //	    TESTING_oneshot = true;
+    //
+    //	    if( LED_READ == 0 )
+    //	    {
+    //		LED_SET = 1;
+    //		//	LED_SET_PR = 1;
+    //		//LED_SET_OR = 1;
+    //	    }
+    //	    else
+    //	    {
+    //
+    //		LED_SET = 0;
+    //		//	LED_SET_PR = 0;
+    //		//LED_SET_OR = 0;
+    //	    }
+    //
+    //	    meterEnergyUsed++;
+    //	    meterEnergyUsed++;
+    //	    meterEnergyUsed++;
+    //	    meterEnergyUsed++;
+    //	    meterEnergyUsed++;
+    //	    meterWatts = meterEnergyUsed;
+    //
+    //	}
+    //    }
+    //    else
+    //    {
+    //	TESTING_oneshot = false;
+    //    }
+    //
+    //    return;
 
     // here we check if a pulse has some in from both the HF and the LF pulses
     // the timerCounters are in milli-seconds
@@ -492,7 +496,7 @@ void powerPulseCheck( void )
     long meterWattsHF = 0;
     long meterWattsLF = 0;
 
-    static long multiplierHFRate = 8; // this is the automatically calculated frequency multiplier for HF and LF
+    //    static long multiplierHFRate = 8; // this is the automatically calculated frequency multiplier for HF and LF
 
 
 
@@ -533,7 +537,7 @@ void powerPulseCheck( void )
 	    timerCountLFLast = timerCountLF;
 	    timerCountLFLastValid = true;
 	    timerCountLF = 0;
-	    meterWattsLF = (((((long) ENERGY_PER_PULSE * (long) 3600) / ((long) ENERGY_PER_PULSE_UNIT / (long) 1000))) * (long) multiplierHFRate) / (long) timerCountLFLast;
+	    meterWattsLF = (((((long) ENERGY_PER_PULSE * (long) 3600) / ((long) ENERGY_PER_PULSE_UNIT / (long) 1000))) * (long) 16) / (long) timerCountLFLast;
 	    //            meterWatts = timerCountLFLast;
 
 	    meterWattsLFNew = true;
@@ -560,10 +564,10 @@ void powerPulseCheck( void )
     }
 
     //Determine automatically the relationship between the HF and LF pulse rates
-    if( (timerCountHFLastValid == true) && (timerCountLFLastValid == true) )
-    {
-	multiplierHFRate = (timerCountLFLast + (timerCountHFLast / 2)) / timerCountHFLast;
-    }
+    //    if( (timerCountHFLastValid == true) && (timerCountLFLastValid == true) )
+    //    {
+    //	multiplierHFRate = (timerCountLFLast + (timerCountHFLast / 2)) / timerCountHFLast;
+    //    }
 
 
     // if there is no power then no pulses
@@ -602,7 +606,7 @@ void powerPulseCheck( void )
 	    mcpLFoutLastEnergy = true;
 	    timerCountLF = 0;
 
-	    meterEnergyUsedPart += ENERGY_PER_PULSE * (long) multiplierHFRate;
+	    meterEnergyUsedPart += ENERGY_PER_PULSE * (long) 16;
 	    while( meterEnergyUsedPart > ENERGY_PER_PULSE_UNIT )
 	    {
 		meterEnergyUsed++;
@@ -630,11 +634,6 @@ void powerPulseCheck( void )
     {
 	mcpLFoutLastEnergy = false;
     }
-
-
-    //DEBUG TOM
-    meterWatts = 77;
-    meterEnergyUsed = 1121;
 
     return;
 
