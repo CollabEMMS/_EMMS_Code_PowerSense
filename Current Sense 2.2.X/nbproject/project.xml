@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>Current Sense 2.2</name>
+            <name>NNC_Current_Sense_2.2</name>
             <creation-uuid>13198a7c-837b-41f1-b067-496206319c52</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
