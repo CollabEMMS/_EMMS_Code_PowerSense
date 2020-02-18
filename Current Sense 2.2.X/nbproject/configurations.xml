@@ -49,7 +49,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.2.72"/>
+        <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.0.41"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -196,9 +196,6 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="3.25"/>
       </PICkit3PlatformTool>
-      <XC8-CO>
-        <property key="coverage-enable" value=""/>
-      </XC8-CO>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
         <property key="gcc-opt-driver-new" value="false"/>
@@ -215,14 +212,11 @@
       <pk4hybrid>
         <property key="AutoSelectMemRanges" value="auto"/>
         <property key="Freeze Peripherals" value="true"/>
-        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UpdateOptions"
                   value="ToolFirmwareOption.UseLatest"/>
-        <property key="communication.activationmode" value="nohv"/>
         <property key="communication.interface" value=""/>
-        <property key="communication.interface.jtag" value="2wire"/>
         <property key="communication.speed" value="${communication.speed.default}"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="memories.aux" value="false"/>
@@ -239,7 +233,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-7fff"/>
         <property key="poweroptions.powerenable" value="false"/>
-        <property key="programmerToGoImageName" value="Current Sense 2.2_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.ledbrightness" value="5"/>
@@ -250,8 +243,6 @@
         <property key="programoptions.pgmentry.voltage" value="high"/>
         <property key="programoptions.pgmspeed" value="Med"/>
         <property key="programoptions.preservedataflash" value="false"/>
-        <property key="programoptions.preservedataflash.ranges"
-                  value="${memories.dataflash.default}"/>
         <property key="programoptions.preserveeeprom" value="false"/>
         <property key="programoptions.preserveeeprom.ranges" value="0-ff"/>
         <property key="programoptions.preserveprogram.ranges" value="0-7fff"/>
@@ -260,8 +251,6 @@
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
-        <property key="ptgProgramImage" value="true"/>
-        <property key="ptgSendImage" value="true"/>
         <property key="voltagevalue" value="3.25"/>
       </pk4hybrid>
     </conf>

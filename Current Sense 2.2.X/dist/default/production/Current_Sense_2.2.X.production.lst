@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Sat Feb 15 17:15:08 2020
+                                                                                               Mon Feb 17 20:31:24 2020
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F25K22
@@ -1533,7 +1533,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1519  000998  C073  F023         	movff	mcpUpdatePower@timerHFoutLast_ms+3,powerReduction@timerLast_ms+3
   1520  00099C  EC11  F00A         	call	_powerReduction	;wreg free
   1521                           
-  1522                           ;MCP3909_Interface.c: 307: meterWatts_global = 78;
+  1522                           ;MCP3909_Interface.c: 305: meterWatts_global = 78;
   1523  0009A0  0E4E               	movlw	78
   1524  0009A2  0100               	movlb	0	; () banked
   1525  0009A4  6F7C               	movwf	_meterWatts_global& (0+255),b
@@ -1627,7 +1627,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1613                           
   1614 ;; *************** function _powerReduction *****************
   1615 ;; Defined at:
-  1616 ;;		line 335 in file "MCP3909_Interface.c"
+  1616 ;;		line 334 in file "MCP3909_Interface.c"
   1617 ;; Parameters:    Size  Location     Type
   1618 ;;  timerLast_ms    4   31[COMRAM] unsigned long 
   1619 ;; Auto vars:     Size  Location     Type
@@ -1662,9 +1662,9 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1648  001422                     _powerReduction:
   1649                           	opt stack 27
   1650                           
-  1651                           ;MCP3909_Interface.c: 344: unsigned long timerReduce_ms;
-  1652                           ;MCP3909_Interface.c: 345: static int countReduce = 0;
-  1653                           ;MCP3909_Interface.c: 347: timerReduce_ms = timerGetCount( 2 );
+  1651                           ;MCP3909_Interface.c: 343: unsigned long timerReduce_ms;
+  1652                           ;MCP3909_Interface.c: 344: static int countReduce = 0;
+  1653                           ;MCP3909_Interface.c: 346: timerReduce_ms = timerGetCount( 2 );
   1654                           
   1655                           ;incstack = 0
   1656  001422  0E00               	movlw	0
@@ -1677,7 +1677,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1663  001436  C015  F026         	movff	?_timerGetCount+2,powerReduction@timerReduce_ms+2
   1664  00143A  C016  F027         	movff	?_timerGetCount+3,powerReduction@timerReduce_ms+3
   1665                           
-  1666                           ;MCP3909_Interface.c: 349: if( (timerReduce_ms > 90000) || (timerLast_ms == 0) )
+  1666                           ;MCP3909_Interface.c: 348: if( (timerReduce_ms > 90000) || (timerLast_ms == 0) )
   1667  00143E  5027               	movf	powerReduction@timerReduce_ms+3,w,c
   1668  001440  E10E               	bnz	l3977
   1669  001442  0E91               	movlw	145
@@ -1697,8 +1697,8 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1683  00145E                     u2850:
   1684  00145E                     l3977:
   1685                           
-  1686                           ;MCP3909_Interface.c: 350: {
-  1687                           ;MCP3909_Interface.c: 351: meterWatts_global = 0;
+  1686                           ;MCP3909_Interface.c: 349: {
+  1687                           ;MCP3909_Interface.c: 350: meterWatts_global = 0;
   1688  00145E  0E00               	movlw	0
   1689  001460  0100               	movlb	0	; () banked
   1690  001462  6F7C               	movwf	_meterWatts_global& (0+255),b
@@ -1709,11 +1709,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1695  00146C  0E00               	movlw	0
   1696  00146E  6F7F               	movwf	(_meterWatts_global+3)& (0+255),b
   1697                           
-  1698                           ;MCP3909_Interface.c: 352: }
+  1698                           ;MCP3909_Interface.c: 351: }
   1699  001470  0012               	return	
   1700  001472                     l543:
   1701                           
-  1702                           ;MCP3909_Interface.c: 353: else if( timerReduce_ms > timerLast_ms )
+  1702                           ;MCP3909_Interface.c: 352: else if( timerReduce_ms > timerLast_ms )
   1703                           
   1704                           ; BSR set to: 0
   1705  001472  5024               	movf	powerReduction@timerReduce_ms,w,c
@@ -1727,8 +1727,8 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1713  001482  B0D8               	btfsc	status,0,c
   1714  001484  0012               	return	
   1715                           
-  1716                           ;MCP3909_Interface.c: 354: {
-  1717                           ;MCP3909_Interface.c: 355: meterWatts_global = (((((unsigned long) 27000 * (unsigned lon
+  1716                           ;MCP3909_Interface.c: 353: {
+  1717                           ;MCP3909_Interface.c: 354: meterWatts_global = (((((unsigned long) 27000 * (unsigned lon
       +                          g) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (uns
       +                          igned long) timerReduce_ms;
   1718  001486  0EE0               	movlw	224
@@ -1837,7 +1837,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1821                           
   1822 ;; *************** function _powerCalculateWatts *****************
   1823 ;; Defined at:
-  1824 ;;		line 312 in file "MCP3909_Interface.c"
+  1824 ;;		line 311 in file "MCP3909_Interface.c"
   1825 ;; Parameters:    Size  Location     Type
   1826 ;;  timer_ms        4   31[COMRAM] unsigned long 
   1827 ;;  outHF           1   35[COMRAM] unsigned char 
@@ -1872,16 +1872,16 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1856  00175C                     _powerCalculateWatts:
   1857                           	opt stack 27
   1858                           
-  1859                           ;MCP3909_Interface.c: 319: int calcWatts;
-  1860                           ;MCP3909_Interface.c: 321: if( outHF == 1 )
+  1859                           ;MCP3909_Interface.c: 318: int calcWatts;
+  1860                           ;MCP3909_Interface.c: 320: if( outHF == 1 )
   1861                           
   1862                           ;incstack = 0
   1863  00175C  0424               	decf	powerCalculateWatts@outHF,w,c
   1864  00175E  A4D8               	btfss	status,2,c
   1865  001760  D013               	goto	l536
   1866                           
-  1867                           ;MCP3909_Interface.c: 322: {
-  1868                           ;MCP3909_Interface.c: 324: calcWatts = (((((unsigned long) 27000 * (unsigned long) 3600)
+  1867                           ;MCP3909_Interface.c: 321: {
+  1868                           ;MCP3909_Interface.c: 323: calcWatts = (((((unsigned long) 27000 * (unsigned long) 3600)
       +                           / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned lo
       +                          ng) timer_ms;
   1869  001762  0EE0               	movlw	224
@@ -1900,9 +1900,9 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1882  001786  D012               	goto	L3
   1883  001788                     l536:
   1884                           
-  1885                           ;MCP3909_Interface.c: 326: else
-  1886                           ;MCP3909_Interface.c: 327: {
-  1887                           ;MCP3909_Interface.c: 329: calcWatts = (((((unsigned long) 27000 * (unsigned long) 3600)
+  1885                           ;MCP3909_Interface.c: 325: else
+  1886                           ;MCP3909_Interface.c: 326: {
+  1887                           ;MCP3909_Interface.c: 328: calcWatts = (((((unsigned long) 27000 * (unsigned long) 3600)
       +                           / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned lo
       +                          ng) timer_ms;
   1888  001788  0EE0               	movlw	224
@@ -1922,8 +1922,8 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1902  0017AC  C013  F025         	movff	?___lldiv,powerCalculateWatts@calcWatts
   1903  0017B0  C014  F026         	movff	?___lldiv+1,powerCalculateWatts@calcWatts+1
   1904                           
-  1905                           ;MCP3909_Interface.c: 330: }
-  1906                           ;MCP3909_Interface.c: 332: return calcWatts;
+  1905                           ;MCP3909_Interface.c: 329: }
+  1906                           ;MCP3909_Interface.c: 331: return calcWatts;
   1907  0017B4  C025  F020         	movff	powerCalculateWatts@calcWatts,?_powerCalculateWatts
   1908  0017B8  C026  F021         	movff	powerCalculateWatts@calcWatts+1,?_powerCalculateWatts+1
   1909  0017BC  0E00               	movlw	0
@@ -9186,7 +9186,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Sat Feb 15 17:15:08 2020
+Symbol Table                                                                                   Mon Feb 17 20:31:24 2020
 
                                        _SPISlaveInit 1E22                                                   l22 1B28  
                                                  l23 1B04                                                   l25 1B10  

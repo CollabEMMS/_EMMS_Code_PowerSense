@@ -8276,9 +8276,8 @@ meterWatts_global = meterWattsHF;
 
 powerReduction( timerHFoutLast_ms );
 
-
-
 meterWatts_global = 78;
+
 
 return;
 }
@@ -8286,7 +8285,7 @@ return;
 unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
 {
 
-# 319
+# 318
 int calcWatts;
 
 if( outHF == 1 )
@@ -8306,7 +8305,7 @@ return calcWatts;
 void powerReduction( unsigned long timerLast_ms )
 {
 
-# 344
+# 343
 unsigned long timerReduce_ms;
 static int countReduce = 0;
 

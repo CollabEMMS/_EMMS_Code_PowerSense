@@ -11,6 +11,11 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
+$C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
+idloc IDLOC 0 200000 200000 8 1
+init CODE 0 DA DA 4 1
+reset_vec CODE 0 0 0 4 1
+config CONFIG 0 300000 300000 E 1
 $dist/default/production\Current_Sense_2.2.X.production.obj
 cinit CODE 0 1CD8 1CD8 32 1
 text0 CODE 0 E4A E4A F0 1
@@ -81,11 +86,6 @@ bssBANK1 BANK1 1 133 133 2A 1
 intcode CODE 0 8 8 D2 1
 smallconst SMALLCONST 0 600 600 54 1
 bssCOMRAM COMRAM 1 3D 3D 10 1
-$C:\Users\Austin\AppData\Local\Temp\sads.obj
-idloc IDLOC 0 200000 200000 8 1
-init CODE 0 DA DA 4 1
-reset_vec CODE 0 0 0 4 1
-config CONFIG 0 300000 300000 E 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -129,63 +129,63 @@ MEDIUMCONST 1F9A-7FFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Current_Sense_2.2.X.production.obj
-8 intcode CODE >715:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-8 intcode CODE >80:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-52 intcode CODE >82:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-54 intcode CODE >84:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-58 intcode CODE >85:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-5C intcode CODE >87:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-6A intcode CODE >88:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-76 intcode CODE >89:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-82 intcode CODE >90:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-8E intcode CODE >93:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1E22 text58 CODE >690:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E22 text58 CODE >693:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E24 text58 CODE >695:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E26 text58 CODE >696:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E28 text58 CODE >697:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E2A text58 CODE >698:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E2C text58 CODE >700:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E2E text58 CODE >701:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E30 text58 CODE >703:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E32 text58 CODE >704:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E34 text58 CODE >705:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E36 text58 CODE >706:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E38 text58 CODE >707:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E40 text58 CODE >709:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E44 text58 CODE >710:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E46 text58 CODE >712:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+8 intcode CODE >715:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+8 intcode CODE >80:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+52 intcode CODE >82:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+54 intcode CODE >84:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+58 intcode CODE >85:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+5C intcode CODE >87:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+6A intcode CODE >88:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+76 intcode CODE >89:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+82 intcode CODE >90:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+8E intcode CODE >93:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1E22 text58 CODE >690:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E22 text58 CODE >693:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E24 text58 CODE >695:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E26 text58 CODE >696:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E28 text58 CODE >697:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E2A text58 CODE >698:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E2C text58 CODE >700:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E2E text58 CODE >701:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E30 text58 CODE >703:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E32 text58 CODE >704:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E34 text58 CODE >705:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E36 text58 CODE >706:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E38 text58 CODE >707:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E40 text58 CODE >709:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E44 text58 CODE >710:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E46 text58 CODE >712:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 1E70 text57 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
 1E70 text57 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
 1E7C text57 CODE >38:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
 1E84 text57 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
 1E8C text57 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
-9B4 text56 CODE >290:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-9B4 text56 CODE >292:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-9B8 text56 CODE >293:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-9BC text56 CODE >302:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-9D8 text56 CODE >303:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-9D8 text56 CODE >304:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-9FC text56 CODE >302:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A0A text56 CODE >314:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A0A text56 CODE >316:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A0E text56 CODE >317:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A10 text56 CODE >319:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A16 text56 CODE >323:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A1A text56 CODE >326:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A1C text56 CODE >327:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A1C text56 CODE >329:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A64 text56 CODE >330:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A66 text56 CODE >331:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A6C text56 CODE >335:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A70 text56 CODE >336:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A70 text56 CODE >339:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A98 text56 CODE >341:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-A9A text56 CODE >309:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-ACA text56 CODE >341:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-ACA text56 CODE >343:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-AD8 text56 CODE >307:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-AD8 text56 CODE >344:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+9B4 text56 CODE >290:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+9B4 text56 CODE >292:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+9B8 text56 CODE >293:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+9BC text56 CODE >302:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+9D8 text56 CODE >303:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+9D8 text56 CODE >304:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+9FC text56 CODE >302:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A0A text56 CODE >314:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A0A text56 CODE >316:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A0E text56 CODE >317:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A10 text56 CODE >319:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A16 text56 CODE >323:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A1A text56 CODE >326:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A1C text56 CODE >327:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A1C text56 CODE >329:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A64 text56 CODE >330:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A66 text56 CODE >331:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A6C text56 CODE >335:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A70 text56 CODE >336:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A70 text56 CODE >339:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A98 text56 CODE >341:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+A9A text56 CODE >309:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+ACA text56 CODE >341:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+ACA text56 CODE >343:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+AD8 text56 CODE >307:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+AD8 text56 CODE >344:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 1A0E text55 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 1A0E text55 CODE >119:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 1A1E text55 CODE >120:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
@@ -216,21 +216,21 @@ DFE text53 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\at
 E04 text53 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
 E38 text53 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
 E48 text53 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
-1958 text52 CODE >482:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1958 text52 CODE >484:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-197C text52 CODE >486:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-198A text52 CODE >487:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-199C text52 CODE >489:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-19AC text52 CODE >490:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-19AC text52 CODE >492:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-14BC text51 CODE >495:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-14BC text51 CODE >497:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-14C4 text51 CODE >499:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-14CE text51 CODE >500:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-14CE text51 CODE >501:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1510 text51 CODE >499:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1546 text51 CODE >504:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-154E text51 CODE >505:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1958 text52 CODE >482:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1958 text52 CODE >484:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+197C text52 CODE >486:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+198A text52 CODE >487:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+199C text52 CODE >489:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+19AC text52 CODE >490:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+19AC text52 CODE >492:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+14BC text51 CODE >495:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+14BC text51 CODE >497:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+14C4 text51 CODE >499:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+14CE text51 CODE >500:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+14CE text51 CODE >501:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1510 text51 CODE >499:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1546 text51 CODE >504:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+154E text51 CODE >505:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 1A64 text50 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
 1A64 text50 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
 1A6C text50 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
@@ -286,22 +286,22 @@ E48 text53 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\at
 1BFE text47 CODE >10:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
 1C06 text47 CODE >11:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
 1C06 text47 CODE >12:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
-18F6 text46 CODE >468:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-18F6 text46 CODE >471:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1906 text46 CODE >472:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1916 text46 CODE >474:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1932 text46 CODE >475:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1946 text46 CODE >477:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-F3A text45 CODE >436:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-F3A text45 CODE >438:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-F4A text45 CODE >439:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-F5A text45 CODE >440:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-F62 text45 CODE >441:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-F7E text45 CODE >442:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-F96 text45 CODE >443:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-FB2 text45 CODE >444:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-FCA text45 CODE >445:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-FE6 text45 CODE >446:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+18F6 text46 CODE >468:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+18F6 text46 CODE >471:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1906 text46 CODE >472:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1916 text46 CODE >474:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1932 text46 CODE >475:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1946 text46 CODE >477:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+F3A text45 CODE >436:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+F3A text45 CODE >438:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+F4A text45 CODE >439:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+F5A text45 CODE >440:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+F62 text45 CODE >441:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+F7E text45 CODE >442:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+F96 text45 CODE >443:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+FB2 text45 CODE >444:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+FCA text45 CODE >445:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+FE6 text45 CODE >446:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 1664 text44 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
 1664 text44 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
 1674 text44 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
@@ -349,262 +349,262 @@ D2E text42 CODE >48:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lt
 D32 text42 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
 D36 text42 CODE >50:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
 D48 text42 CODE >51:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
-1B98 text41 CODE >651:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1B98 text41 CODE >655:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1BBC text41 CODE >657:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-19B4 text40 CODE >411:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-19B4 text40 CODE >413:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-19C4 text40 CODE >414:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-19D4 text40 CODE >415:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-19DC text40 CODE >416:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-19F8 text40 CODE >417:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1F42 text39 CODE >626:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1F42 text39 CODE >628:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-B34 text38 CODE >547:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-B34 text38 CODE >549:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-B3C text38 CODE >550:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-B44 text38 CODE >552:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-B46 text38 CODE >554:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-B70 text38 CODE >556:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-B78 text38 CODE >557:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-B7A text38 CODE >558:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-BA8 text38 CODE >560:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-BAC text38 CODE >562:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-BAC text38 CODE >567:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-BB0 text38 CODE >552:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-BB0 text38 CODE >568:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-BE8 text38 CODE >571:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-C18 text38 CODE >573:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-C1C text38 CODE >574:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-C1E text38 CODE >575:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-C4E text38 CODE >577:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-C56 text38 CODE >578:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-C56 text38 CODE >580:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1DA0 text37 CODE >535:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1DA0 text37 CODE >540:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1DBC text37 CODE >542:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1DCC text37 CODE >544:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-654 text36 CODE >349:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-654 text36 CODE >351:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-658 text36 CODE >354:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-672 text36 CODE >356:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-676 text36 CODE >357:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-678 text36 CODE >358:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-692 text36 CODE >360:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-6B2 text36 CODE >364:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-6D2 text36 CODE >370:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-6F4 text36 CODE >371:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-700 text36 CODE >373:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-702 text36 CODE >374:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-71C text36 CODE >379:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-736 text36 CODE >382:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-756 text36 CODE >384:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-762 text36 CODE >385:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-764 text36 CODE >386:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-784 text36 CODE >388:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-790 text36 CODE >389:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-792 text36 CODE >390:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-7B2 text36 CODE >392:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-7BE text36 CODE >393:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-7C0 text36 CODE >394:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-7E0 text36 CODE >396:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-7EC text36 CODE >397:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-7EE text36 CODE >398:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-80E text36 CODE >400:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-81A text36 CODE >401:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-81A text36 CODE >408:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1D6E text35 CODE >273:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1D6E text35 CODE >282:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1D82 text35 CODE >284:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1D9C text35 CODE >286:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1DFA text34 CODE >584:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1DFA text34 CODE >587:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1DFE text34 CODE >589:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E02 text34 CODE >591:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E0E text34 CODE >592:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E12 text34 CODE >593:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E14 text34 CODE >594:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E18 text34 CODE >595:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E1A text34 CODE >596:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E1A text34 CODE >598:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E1E text34 CODE >599:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E1E text34 CODE >601:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-FFC text33 CODE >232:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-FFC text33 CODE >238:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1004 text33 CODE >240:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1008 text33 CODE >241:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1008 text33 CODE >244:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-101A text33 CODE >246:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1028 text33 CODE >248:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-102C text33 CODE >249:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-103C text33 CODE >250:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-104C text33 CODE >251:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-104C text33 CODE >253:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1052 text33 CODE >255:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1076 text33 CODE >257:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1084 text33 CODE >258:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1096 text33 CODE >260:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-10A6 text33 CODE >261:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-10A6 text33 CODE >264:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-10B4 text33 CODE >266:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-10B8 text33 CODE >267:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-10B8 text33 CODE >270:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1B4E text32 CODE >640:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1B4E text32 CODE >645:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1B72 text32 CODE >646:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E4A text31 CODE >683:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E4A text31 CODE >685:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1B02 text30 CODE >82:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1B02 text30 CODE >84:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1B04 text30 CODE >86:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1B04 text30 CODE >87:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1B0E text30 CODE >88:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1B10 text30 CODE >89:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1B10 text30 CODE >90:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1B1A text30 CODE >91:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1B1C text30 CODE >92:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1B1C text30 CODE >93:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1B26 text30 CODE >95:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1B28 text30 CODE >84:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-16E6 text29 CODE >243:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-16E6 text29 CODE >249:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-16E8 text29 CODE >251:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-16E8 text29 CODE >252:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-16F4 text29 CODE >253:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-16F6 text29 CODE >254:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-16F6 text29 CODE >255:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-16FC text29 CODE >257:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-16FC text29 CODE >258:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-170A text29 CODE >249:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-172E text29 CODE >260:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-172E text29 CODE >262:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1736 text29 CODE >264:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-173E text29 CODE >266:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-173E text29 CODE >268:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1746 text29 CODE >271:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1F6A text28 CODE >276:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1F6A text28 CODE >280:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1F76 text28 CODE >281:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1238 text27 CODE >183:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1238 text27 CODE >189:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1244 text27 CODE >191:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1246 text27 CODE >192:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1258 text27 CODE >193:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-125A text27 CODE >195:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-125C text27 CODE >196:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1260 text27 CODE >198:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1270 text27 CODE >199:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1280 text27 CODE >204:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1284 text27 CODE >205:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1286 text27 CODE >207:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1286 text27 CODE >208:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1292 text27 CODE >209:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1294 text27 CODE >210:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1294 text27 CODE >211:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-12A0 text27 CODE >212:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-12A2 text27 CODE >213:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-12A2 text27 CODE >214:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-12AE text27 CODE >225:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-12AE text27 CODE >226:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-12B6 text27 CODE >228:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-12B8 text27 CODE >205:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E96 text26 CODE >605:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E98 text26 CODE >607:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1E9C text26 CODE >609:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1EA2 text26 CODE >611:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1EA6 text26 CODE >612:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1EAA text26 CODE >613:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1EAE text26 CODE >615:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1EAE text26 CODE >617:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1EB2 text26 CODE >620:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1550 text25 CODE >507:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1550 text25 CODE >511:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1570 text25 CODE >513:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1574 text25 CODE >514:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-157A text25 CODE >515:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-157C text25 CODE >516:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-157C text25 CODE >518:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1580 text25 CODE >521:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-15AC text25 CODE >524:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-15BA text25 CODE >525:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-15CC text25 CODE >527:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-15DC text25 CODE >528:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-15DC text25 CODE >532:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1384 text24 CODE >121:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1388 text24 CODE >132:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1390 text24 CODE >134:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1394 text24 CODE >135:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1398 text24 CODE >136:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-13A4 text24 CODE >137:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-13A6 text24 CODE >138:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-13A6 text24 CODE >140:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-13B6 text24 CODE >142:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-13B8 text24 CODE >150:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-13B8 text24 CODE >152:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-13D2 text24 CODE >154:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-13D8 text24 CODE >158:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-13DA text24 CODE >142:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-13EE text24 CODE >158:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-13EE text24 CODE >160:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-13FE text24 CODE >164:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1402 text24 CODE >166:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1406 text24 CODE >167:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1408 text24 CODE >168:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1408 text24 CODE >170:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-140E text24 CODE >172:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-141A text24 CODE >173:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-141A text24 CODE >175:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1420 text24 CODE >178:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1F84 text23 CODE >106:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1F84 text23 CODE >108:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1F88 text23 CODE >109:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1F90 text22 CODE >114:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1F90 text22 CODE >116:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
-1F58 text21 CODE >121:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F58 text21 CODE >123:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F5A text21 CODE >124:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F60 text21 CODE >125:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F64 text21 CODE >126:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AB6 text20 CODE >131:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AB6 text20 CODE >134:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1ABA text20 CODE >135:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1ABE text20 CODE >136:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AC2 text20 CODE >138:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AC4 text20 CODE >140:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AC8 text20 CODE >141:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1ACC text20 CODE >142:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AD0 text20 CODE >143:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AD4 text20 CODE >144:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AD8 text20 CODE >146:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1ADC text20 CODE >147:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AE0 text20 CODE >148:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AE4 text20 CODE >149:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AE8 text20 CODE >150:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AEC text20 CODE >152:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AF0 text20 CODE >153:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AF4 text20 CODE >154:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AF8 text20 CODE >155:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1AFC text20 CODE >156:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F2A text19 CODE >104:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F2A text19 CODE >107:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F2C text19 CODE >108:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F32 text19 CODE >109:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F36 text19 CODE >111:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F38 text19 CODE >112:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F3A text19 CODE >113:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F3C text19 CODE >115:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1F3E text19 CODE >116:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1C66 text18 CODE >158:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1C66 text18 CODE >160:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1C7A text18 CODE >161:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1C8E text18 CODE >162:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1ED4 text17 CODE >194:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1ED4 text17 CODE >196:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1F78 text16 CODE >71:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1F78 text16 CODE >73:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1F7A text16 CODE >74:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1F7C text16 CODE >75:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1F7E text16 CODE >77:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1B98 text41 CODE >651:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1B98 text41 CODE >655:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1BBC text41 CODE >657:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+19B4 text40 CODE >411:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+19B4 text40 CODE >413:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+19C4 text40 CODE >414:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+19D4 text40 CODE >415:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+19DC text40 CODE >416:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+19F8 text40 CODE >417:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1F42 text39 CODE >626:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1F42 text39 CODE >628:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+B34 text38 CODE >547:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+B34 text38 CODE >549:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+B3C text38 CODE >550:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+B44 text38 CODE >552:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+B46 text38 CODE >554:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+B70 text38 CODE >556:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+B78 text38 CODE >557:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+B7A text38 CODE >558:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+BA8 text38 CODE >560:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+BAC text38 CODE >562:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+BAC text38 CODE >567:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+BB0 text38 CODE >552:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+BB0 text38 CODE >568:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+BE8 text38 CODE >571:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+C18 text38 CODE >573:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+C1C text38 CODE >574:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+C1E text38 CODE >575:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+C4E text38 CODE >577:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+C56 text38 CODE >578:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+C56 text38 CODE >580:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1DA0 text37 CODE >535:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1DA0 text37 CODE >540:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1DBC text37 CODE >542:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1DCC text37 CODE >544:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+654 text36 CODE >349:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+654 text36 CODE >351:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+658 text36 CODE >354:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+672 text36 CODE >356:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+676 text36 CODE >357:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+678 text36 CODE >358:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+692 text36 CODE >360:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+6B2 text36 CODE >364:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+6D2 text36 CODE >370:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+6F4 text36 CODE >371:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+700 text36 CODE >373:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+702 text36 CODE >374:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+71C text36 CODE >379:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+736 text36 CODE >382:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+756 text36 CODE >384:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+762 text36 CODE >385:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+764 text36 CODE >386:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+784 text36 CODE >388:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+790 text36 CODE >389:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+792 text36 CODE >390:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+7B2 text36 CODE >392:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+7BE text36 CODE >393:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+7C0 text36 CODE >394:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+7E0 text36 CODE >396:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+7EC text36 CODE >397:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+7EE text36 CODE >398:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+80E text36 CODE >400:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+81A text36 CODE >401:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+81A text36 CODE >408:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1D6E text35 CODE >273:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1D6E text35 CODE >282:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1D82 text35 CODE >284:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1D9C text35 CODE >286:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1DFA text34 CODE >584:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1DFA text34 CODE >587:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1DFE text34 CODE >589:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E02 text34 CODE >591:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E0E text34 CODE >592:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E12 text34 CODE >593:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E14 text34 CODE >594:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E18 text34 CODE >595:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E1A text34 CODE >596:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E1A text34 CODE >598:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E1E text34 CODE >599:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E1E text34 CODE >601:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+FFC text33 CODE >232:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+FFC text33 CODE >238:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1004 text33 CODE >240:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1008 text33 CODE >241:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1008 text33 CODE >244:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+101A text33 CODE >246:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1028 text33 CODE >248:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+102C text33 CODE >249:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+103C text33 CODE >250:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+104C text33 CODE >251:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+104C text33 CODE >253:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1052 text33 CODE >255:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1076 text33 CODE >257:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1084 text33 CODE >258:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1096 text33 CODE >260:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+10A6 text33 CODE >261:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+10A6 text33 CODE >264:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+10B4 text33 CODE >266:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+10B8 text33 CODE >267:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+10B8 text33 CODE >270:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1B4E text32 CODE >640:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1B4E text32 CODE >645:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1B72 text32 CODE >646:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E4A text31 CODE >683:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E4A text31 CODE >685:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1B02 text30 CODE >82:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1B02 text30 CODE >84:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1B04 text30 CODE >86:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1B04 text30 CODE >87:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1B0E text30 CODE >88:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1B10 text30 CODE >89:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1B10 text30 CODE >90:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1B1A text30 CODE >91:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1B1C text30 CODE >92:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1B1C text30 CODE >93:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1B26 text30 CODE >95:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1B28 text30 CODE >84:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+16E6 text29 CODE >243:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+16E6 text29 CODE >249:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+16E8 text29 CODE >251:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+16E8 text29 CODE >252:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+16F4 text29 CODE >253:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+16F6 text29 CODE >254:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+16F6 text29 CODE >255:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+16FC text29 CODE >257:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+16FC text29 CODE >258:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+170A text29 CODE >249:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+172E text29 CODE >260:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+172E text29 CODE >262:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1736 text29 CODE >264:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+173E text29 CODE >266:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+173E text29 CODE >268:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1746 text29 CODE >271:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1F6A text28 CODE >276:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1F6A text28 CODE >280:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1F76 text28 CODE >281:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1238 text27 CODE >183:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1238 text27 CODE >189:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1244 text27 CODE >191:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1246 text27 CODE >192:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1258 text27 CODE >193:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+125A text27 CODE >195:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+125C text27 CODE >196:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1260 text27 CODE >198:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1270 text27 CODE >199:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1280 text27 CODE >204:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1284 text27 CODE >205:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1286 text27 CODE >207:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1286 text27 CODE >208:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1292 text27 CODE >209:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1294 text27 CODE >210:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1294 text27 CODE >211:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+12A0 text27 CODE >212:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+12A2 text27 CODE >213:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+12A2 text27 CODE >214:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+12AE text27 CODE >225:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+12AE text27 CODE >226:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+12B6 text27 CODE >228:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+12B8 text27 CODE >205:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E96 text26 CODE >605:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E98 text26 CODE >607:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1E9C text26 CODE >609:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1EA2 text26 CODE >611:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1EA6 text26 CODE >612:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1EAA text26 CODE >613:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1EAE text26 CODE >615:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1EAE text26 CODE >617:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1EB2 text26 CODE >620:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1550 text25 CODE >507:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1550 text25 CODE >511:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1570 text25 CODE >513:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1574 text25 CODE >514:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+157A text25 CODE >515:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+157C text25 CODE >516:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+157C text25 CODE >518:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1580 text25 CODE >521:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+15AC text25 CODE >524:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+15BA text25 CODE >525:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+15CC text25 CODE >527:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+15DC text25 CODE >528:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+15DC text25 CODE >532:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1384 text24 CODE >121:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1388 text24 CODE >132:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1390 text24 CODE >134:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1394 text24 CODE >135:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1398 text24 CODE >136:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+13A4 text24 CODE >137:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+13A6 text24 CODE >138:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+13A6 text24 CODE >140:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+13B6 text24 CODE >142:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+13B8 text24 CODE >150:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+13B8 text24 CODE >152:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+13D2 text24 CODE >154:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+13D8 text24 CODE >158:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+13DA text24 CODE >142:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+13EE text24 CODE >158:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+13EE text24 CODE >160:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+13FE text24 CODE >164:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1402 text24 CODE >166:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1406 text24 CODE >167:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1408 text24 CODE >168:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1408 text24 CODE >170:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+140E text24 CODE >172:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+141A text24 CODE >173:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+141A text24 CODE >175:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1420 text24 CODE >178:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1F84 text23 CODE >106:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1F84 text23 CODE >108:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1F88 text23 CODE >109:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1F90 text22 CODE >114:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1F90 text22 CODE >116:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+1F58 text21 CODE >121:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F58 text21 CODE >123:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F5A text21 CODE >124:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F60 text21 CODE >125:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F64 text21 CODE >126:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AB6 text20 CODE >131:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AB6 text20 CODE >134:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1ABA text20 CODE >135:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1ABE text20 CODE >136:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AC2 text20 CODE >138:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AC4 text20 CODE >140:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AC8 text20 CODE >141:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1ACC text20 CODE >142:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AD0 text20 CODE >143:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AD4 text20 CODE >144:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AD8 text20 CODE >146:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1ADC text20 CODE >147:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AE0 text20 CODE >148:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AE4 text20 CODE >149:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AE8 text20 CODE >150:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AEC text20 CODE >152:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AF0 text20 CODE >153:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AF4 text20 CODE >154:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AF8 text20 CODE >155:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1AFC text20 CODE >156:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F2A text19 CODE >104:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F2A text19 CODE >107:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F2C text19 CODE >108:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F32 text19 CODE >109:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F36 text19 CODE >111:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F38 text19 CODE >112:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F3A text19 CODE >113:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F3C text19 CODE >115:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1F3E text19 CODE >116:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1C66 text18 CODE >158:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1C66 text18 CODE >160:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1C7A text18 CODE >161:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1C8E text18 CODE >162:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1ED4 text17 CODE >194:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1ED4 text17 CODE >196:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1F78 text16 CODE >71:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1F78 text16 CODE >73:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1F7A text16 CODE >74:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1F7C text16 CODE >75:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1F7E text16 CODE >77:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
 15E0 text15 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
 15E0 text15 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
 15E4 text15 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
@@ -633,196 +633,196 @@ FFC text33 CODE >238:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 
 164C text15 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
 1652 text15 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
 165A text15 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
-1D3C text14 CODE >111:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1D3C text14 CODE >113:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1D46 text14 CODE >114:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1D46 text14 CODE >115:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1D54 text14 CODE >113:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-117A text13 CODE >314:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-117A text13 CODE >318:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1196 text13 CODE >320:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-11B2 text13 CODE >321:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-11BE text13 CODE >322:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-11DA text13 CODE >323:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-11E6 text13 CODE >324:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1202 text13 CODE >325:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-120E text13 CODE >326:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-122A text13 CODE >327:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-10BC text12 CODE >296:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-10BC text12 CODE >300:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-10D8 text12 CODE >302:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-10F4 text12 CODE >303:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1100 text12 CODE >304:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-111C text12 CODE >305:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1128 text12 CODE >306:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1144 text12 CODE >307:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1150 text12 CODE >308:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-116C text12 CODE >309:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1F10 text11 CODE >332:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1F10 text11 CODE >334:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1F1C text11 CODE >335:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1EB6 text10 CODE >187:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1EB6 text10 CODE >189:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1892 text9 CODE >175:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1892 text9 CODE >180:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1894 text9 CODE >181:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1896 text9 CODE >182:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1898 text9 CODE >184:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-18A8 text9 CODE >185:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-18AA text9 CODE >186:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-18BA text9 CODE >188:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-18BC text9 CODE >189:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-18BE text9 CODE >190:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-18C0 text9 CODE >192:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-18D0 text9 CODE >194:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-18D2 text9 CODE >195:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-18D4 text9 CODE >196:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-18D6 text9 CODE >198:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-18E6 text9 CODE >199:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-18E8 text9 CODE >200:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1CA4 text8 CODE >153:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1CA4 text8 CODE >155:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1CA6 text8 CODE >156:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1CA8 text8 CODE >157:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1CAA text8 CODE >159:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1CAC text8 CODE >160:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1CAE text8 CODE >161:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1CB0 text8 CODE >162:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1CB2 text8 CODE >164:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1CB4 text8 CODE >166:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1CC6 text8 CODE >168:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1CD2 text8 CODE >170:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1F98 text7 CODE >286:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-1F98 text7 CODE >288:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-175C text6 CODE >312:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-175C text6 CODE >321:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1762 text6 CODE >324:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1788 text6 CODE >326:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1788 text6 CODE >329:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-17B4 text6 CODE >332:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1D0A text5 CODE >95:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1D0A text5 CODE >97:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1422 text4 CODE >335:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1422 text4 CODE >347:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-143E text4 CODE >349:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-145E text4 CODE >351:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1470 text4 CODE >352:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1472 text4 CODE >353:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1486 text4 CODE >355:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-14BA text4 CODE >358:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-1DD0 text3 CODE >100:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1DD0 text3 CODE >102:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-81E text2 CODE >205:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-81E text2 CODE >226:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-822 text2 CODE >228:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-828 text2 CODE >230:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-834 text2 CODE >232:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-838 text2 CODE >235:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-854 text2 CODE >236:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-860 text2 CODE >237:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-86C text2 CODE >239:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-88C text2 CODE >241:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-89C text2 CODE >243:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-89E text2 CODE >244:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-89E text2 CODE >246:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-8A2 text2 CODE >247:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-8A2 text2 CODE >255:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-8AA text2 CODE >257:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-8B0 text2 CODE >259:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-8BC text2 CODE >261:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-8C0 text2 CODE >264:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-8DC text2 CODE >265:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-8E8 text2 CODE >266:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-8F4 text2 CODE >268:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-914 text2 CODE >271:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-926 text2 CODE >272:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-928 text2 CODE >274:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-934 text2 CODE >275:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-944 text2 CODE >272:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-944 text2 CODE >276:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-95A text2 CODE >279:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-95A text2 CODE >281:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-95E text2 CODE >282:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-95E text2 CODE >293:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-96E text2 CODE >295:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-978 text2 CODE >297:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-978 text2 CODE >299:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-98C text2 CODE >303:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-9A0 text2 CODE >307:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-182E text1 CODE >53:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-182E text1 CODE >56:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1830 text1 CODE >57:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1832 text1 CODE >58:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1834 text1 CODE >59:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1836 text1 CODE >60:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-183E text1 CODE >62:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1840 text1 CODE >63:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1842 text1 CODE >64:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1844 text1 CODE >68:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1856 text1 CODE >69:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1866 text1 CODE >70:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1876 text1 CODE >71:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1886 text1 CODE >73:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1888 text1 CODE >75:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-188C text1 CODE >76:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-1890 text1 CODE >78:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
-E4A text0 CODE >48:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E4A text0 CODE >51:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E4E text0 CODE >52:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E52 text0 CODE >53:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E56 text0 CODE >55:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E5A text0 CODE >57:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E5E text0 CODE >58:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E62 text0 CODE >60:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E66 text0 CODE >63:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E80 text0 CODE >64:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E80 text0 CODE >65:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E84 text0 CODE >66:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E96 text0 CODE >67:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-E9A text0 CODE >68:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-EAC text0 CODE >63:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-EB4 text0 CODE >72:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-EB8 text0 CODE >74:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-EC4 text0 CODE >76:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-EC4 text0 CODE >78:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-EC8 text0 CODE >79:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-ECC text0 CODE >85:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-EE8 text0 CODE >86:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-F18 text0 CODE >88:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-F20 text0 CODE >90:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-F24 text0 CODE >91:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-F30 text0 CODE >94:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-F32 text0 CODE >95:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-F32 text0 CODE >97:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-F38 text0 CODE >76:D:\EMMS\NateNationCode\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
-1CD8 cinit CODE >2904:C:\Users\Austin\AppData\Local\Temp\sads.
-1CD8 cinit CODE >2906:C:\Users\Austin\AppData\Local\Temp\sads.
-1CD8 cinit CODE >2909:C:\Users\Austin\AppData\Local\Temp\sads.
-1CD8 cinit CODE >2969:C:\Users\Austin\AppData\Local\Temp\sads.
-1CDC cinit CODE >2970:C:\Users\Austin\AppData\Local\Temp\sads.
-1CDE cinit CODE >2971:C:\Users\Austin\AppData\Local\Temp\sads.
-1CDE cinit CODE >2972:C:\Users\Austin\AppData\Local\Temp\sads.
-1CE0 cinit CODE >2973:C:\Users\Austin\AppData\Local\Temp\sads.
-1CE2 cinit CODE >2974:C:\Users\Austin\AppData\Local\Temp\sads.
-1CE4 cinit CODE >2977:C:\Users\Austin\AppData\Local\Temp\sads.
-1CE8 cinit CODE >2978:C:\Users\Austin\AppData\Local\Temp\sads.
-1CEA cinit CODE >2979:C:\Users\Austin\AppData\Local\Temp\sads.
-1CEA cinit CODE >2980:C:\Users\Austin\AppData\Local\Temp\sads.
-1CEC cinit CODE >2981:C:\Users\Austin\AppData\Local\Temp\sads.
-1CEE cinit CODE >2982:C:\Users\Austin\AppData\Local\Temp\sads.
-1CF0 cinit CODE >2985:C:\Users\Austin\AppData\Local\Temp\sads.
-1CF4 cinit CODE >2986:C:\Users\Austin\AppData\Local\Temp\sads.
-1CF6 cinit CODE >2987:C:\Users\Austin\AppData\Local\Temp\sads.
-1CF6 cinit CODE >2988:C:\Users\Austin\AppData\Local\Temp\sads.
-1CF8 cinit CODE >2989:C:\Users\Austin\AppData\Local\Temp\sads.
-1CFA cinit CODE >2990:C:\Users\Austin\AppData\Local\Temp\sads.
-1CFC cinit CODE >2996:C:\Users\Austin\AppData\Local\Temp\sads.
-1CFC cinit CODE >2998:C:\Users\Austin\AppData\Local\Temp\sads.
-1CFE cinit CODE >2999:C:\Users\Austin\AppData\Local\Temp\sads.
-1D00 cinit CODE >3001:C:\Users\Austin\AppData\Local\Temp\sads.
-1D02 cinit CODE >3002:C:\Users\Austin\AppData\Local\Temp\sads.
-1D04 cinit CODE >3003:C:\Users\Austin\AppData\Local\Temp\sads.
-1D06 cinit CODE >3004:C:\Users\Austin\AppData\Local\Temp\sads.
+1D3C text14 CODE >111:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1D3C text14 CODE >113:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1D46 text14 CODE >114:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1D46 text14 CODE >115:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1D54 text14 CODE >113:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+117A text13 CODE >314:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+117A text13 CODE >318:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1196 text13 CODE >320:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+11B2 text13 CODE >321:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+11BE text13 CODE >322:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+11DA text13 CODE >323:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+11E6 text13 CODE >324:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1202 text13 CODE >325:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+120E text13 CODE >326:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+122A text13 CODE >327:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+10BC text12 CODE >296:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+10BC text12 CODE >300:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+10D8 text12 CODE >302:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+10F4 text12 CODE >303:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1100 text12 CODE >304:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+111C text12 CODE >305:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1128 text12 CODE >306:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1144 text12 CODE >307:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1150 text12 CODE >308:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+116C text12 CODE >309:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1F10 text11 CODE >332:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1F10 text11 CODE >334:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1F1C text11 CODE >335:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1EB6 text10 CODE >187:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1EB6 text10 CODE >189:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1892 text9 CODE >175:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1892 text9 CODE >180:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1894 text9 CODE >181:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1896 text9 CODE >182:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1898 text9 CODE >184:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+18A8 text9 CODE >185:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+18AA text9 CODE >186:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+18BA text9 CODE >188:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+18BC text9 CODE >189:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+18BE text9 CODE >190:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+18C0 text9 CODE >192:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+18D0 text9 CODE >194:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+18D2 text9 CODE >195:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+18D4 text9 CODE >196:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+18D6 text9 CODE >198:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+18E6 text9 CODE >199:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+18E8 text9 CODE >200:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1CA4 text8 CODE >153:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1CA4 text8 CODE >155:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1CA6 text8 CODE >156:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1CA8 text8 CODE >157:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1CAA text8 CODE >159:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1CAC text8 CODE >160:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1CAE text8 CODE >161:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1CB0 text8 CODE >162:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1CB2 text8 CODE >164:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1CB4 text8 CODE >166:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1CC6 text8 CODE >168:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1CD2 text8 CODE >170:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1F98 text7 CODE >286:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+1F98 text7 CODE >288:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+175C text6 CODE >311:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+175C text6 CODE >320:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1762 text6 CODE >323:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1788 text6 CODE >325:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1788 text6 CODE >328:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+17B4 text6 CODE >331:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1D0A text5 CODE >95:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1D0A text5 CODE >97:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1422 text4 CODE >334:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1422 text4 CODE >346:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+143E text4 CODE >348:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+145E text4 CODE >350:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1470 text4 CODE >351:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1472 text4 CODE >352:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1486 text4 CODE >354:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+14BA text4 CODE >357:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+1DD0 text3 CODE >100:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1DD0 text3 CODE >102:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+81E text2 CODE >205:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+81E text2 CODE >226:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+822 text2 CODE >228:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+828 text2 CODE >230:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+834 text2 CODE >232:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+838 text2 CODE >235:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+854 text2 CODE >236:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+860 text2 CODE >237:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+86C text2 CODE >239:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+88C text2 CODE >241:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+89C text2 CODE >243:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+89E text2 CODE >244:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+89E text2 CODE >246:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+8A2 text2 CODE >247:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+8A2 text2 CODE >255:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+8AA text2 CODE >257:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+8B0 text2 CODE >259:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+8BC text2 CODE >261:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+8C0 text2 CODE >264:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+8DC text2 CODE >265:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+8E8 text2 CODE >266:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+8F4 text2 CODE >268:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+914 text2 CODE >271:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+926 text2 CODE >272:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+928 text2 CODE >274:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+934 text2 CODE >275:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+944 text2 CODE >272:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+944 text2 CODE >276:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+95A text2 CODE >279:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+95A text2 CODE >281:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+95E text2 CODE >282:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+95E text2 CODE >293:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+96E text2 CODE >295:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+978 text2 CODE >297:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+978 text2 CODE >299:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+98C text2 CODE >303:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+9A0 text2 CODE >305:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+182E text1 CODE >53:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+182E text1 CODE >56:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1830 text1 CODE >57:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1832 text1 CODE >58:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1834 text1 CODE >59:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1836 text1 CODE >60:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+183E text1 CODE >62:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1840 text1 CODE >63:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1842 text1 CODE >64:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1844 text1 CODE >68:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1856 text1 CODE >69:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1866 text1 CODE >70:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1876 text1 CODE >71:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1886 text1 CODE >73:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1888 text1 CODE >75:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+188C text1 CODE >76:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+1890 text1 CODE >78:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+E4A text0 CODE >48:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E4A text0 CODE >51:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E4E text0 CODE >52:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E52 text0 CODE >53:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E56 text0 CODE >55:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E5A text0 CODE >57:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E5E text0 CODE >58:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E62 text0 CODE >60:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E66 text0 CODE >63:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E80 text0 CODE >64:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E80 text0 CODE >65:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E84 text0 CODE >66:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E96 text0 CODE >67:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+E9A text0 CODE >68:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+EAC text0 CODE >63:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+EB4 text0 CODE >72:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+EB8 text0 CODE >74:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+EC4 text0 CODE >76:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+EC4 text0 CODE >78:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+EC8 text0 CODE >79:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+ECC text0 CODE >85:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+EE8 text0 CODE >86:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+F18 text0 CODE >88:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+F20 text0 CODE >90:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+F24 text0 CODE >91:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+F30 text0 CODE >94:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+F32 text0 CODE >95:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+F32 text0 CODE >97:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+F38 text0 CODE >76:C:\Users\Zachery Holsinger\OneDrive - Messiah College\Collab\GitHub\EMMS_Code_Java\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+1CD8 cinit CODE >2904:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CD8 cinit CODE >2906:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CD8 cinit CODE >2909:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CD8 cinit CODE >2969:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CDC cinit CODE >2970:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CDE cinit CODE >2971:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CDE cinit CODE >2972:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CE0 cinit CODE >2973:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CE2 cinit CODE >2974:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CE4 cinit CODE >2977:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CE8 cinit CODE >2978:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CEA cinit CODE >2979:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CEA cinit CODE >2980:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CEC cinit CODE >2981:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CEE cinit CODE >2982:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CF0 cinit CODE >2985:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CF4 cinit CODE >2986:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CF6 cinit CODE >2987:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CF6 cinit CODE >2988:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CF8 cinit CODE >2989:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CFA cinit CODE >2990:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CFC cinit CODE >2996:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CFC cinit CODE >2998:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1CFE cinit CODE >2999:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1D00 cinit CODE >3001:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1D02 cinit CODE >3002:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1D04 cinit CODE >3003:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
+1D06 cinit CODE >3004:C:\Users\ZACHER~1\AppData\Local\Temp\sap4.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -847,7 +847,7 @@ process_data_parameterize@parameters 19 0 COMRAM 1 cstackCOMRAM dist/default/pro
 _ledTestToggle 1F6A 0 CODE 0 text28 dist/default/production\Current_Sense_2.2.X.production.obj
 __size_of_ledRunUp 0 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\Current_Sense_2.2.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Austin\AppData\Local\Temp\sads.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
 __size_of_ledInit 0 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
 ?_timerGetCount 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2.X.production.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Current_Sense_2.2.X.production.obj
@@ -871,13 +871,13 @@ _PIR2 FA1 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
 _PIR3 FA4 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
 _PIR4 F7B 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
 _PIR5 F7E 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sads.obj
+___sp 0 0 STACK 2 stack C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
 _atol D56 0 CODE 0 text53 dist/default/production\Current_Sense_2.2.X.production.obj
 _itoa 1BE2 0 CODE 0 text47 dist/default/production\Current_Sense_2.2.X.production.obj
 _main E4A 0 CODE 0 text0 dist/default/production\Current_Sense_2.2.X.production.obj
 _utoa 12E0 0 CODE 0 text48 dist/default/production\Current_Sense_2.2.X.production.obj
 btemp 4D 0 COMRAM 1 temp dist/default/production\Current_Sense_2.2.X.production.obj
-start DA 0 CODE 0 init C:\Users\Austin\AppData\Local\Temp\sads.obj
+start DA 0 CODE 0 init C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
 __end_of_timerInit 1892 0 CODE 0 text1 dist/default/production\Current_Sense_2.2.X.production.obj
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
 _com_command_setEnergyUsed 1B98 0 CODE 0 text41 dist/default/production\Current_Sense_2.2.X.production.obj
@@ -918,11 +918,11 @@ _timerInit 182E 0 CODE 0 text1 dist/default/production\Current_Sense_2.2.X.produ
 utoa@c 22 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2.X.production.obj
 utoa@v 20 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2.X.production.obj
 __size_of_strmatch 0 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sads.obj
-intlevel0 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sads.obj
-intlevel1 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sads.obj
-intlevel2 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sads.obj
-intlevel3 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sads.obj
+__accesstop 60 0 ABS 0 - C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
+intlevel0 0 0 CODE 0 text C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
+intlevel1 0 0 CODE 0 text C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
+intlevel2 0 0 CODE 0 text C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
+intlevel3 0 0 CODE 0 text C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
 ledRunDown@ledRunDelay 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2.X.production.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Current_Sense_2.2.X.production.obj
 _send_end_of_transmission 1F42 0 CODE 0 text39 dist/default/production\Current_Sense_2.2.X.production.obj
@@ -962,10 +962,10 @@ _ANSELB F39 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
 _ANSELC F3A 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
 ___awdiv@dividend 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2.X.production.obj
 process_data_parameters@parameters CA 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sads.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
 ledRunUp@ledRunDelay 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2.X.production.obj
 command_builder3@xsum 37 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2.X.production.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sads.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
 __end_of_send_data 15E0 0 CODE 0 text25 dist/default/production\Current_Sense_2.2.X.production.obj
 _ledSetAllOff 1ED4 0 CODE 0 text17 dist/default/production\Current_Sense_2.2.X.production.obj
 mcpUpdatePower@meterEnergyUsedPart 74 0 BANK0 1 bssBANK0 dist/default/production\Current_Sense_2.2.X.production.obj
@@ -1092,7 +1092,7 @@ _xsum_builder 18F6 0 CODE 0 text46 dist/default/production\Current_Sense_2.2.X.p
 __size_of_commRun 0 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Current_Sense_2.2.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\Current_Sense_2.2.X.production.obj
-__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\Austin\AppData\Local\Temp\sads.obj
+__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
 _mcpUpdatePower 81E 0 CODE 0 text2 dist/default/production\Current_Sense_2.2.X.production.obj
 __size_of_com_command_setVersion 0 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
 __end_of_command_builder_add_char 19B4 0 CODE 0 text52 dist/default/production\Current_Sense_2.2.X.production.obj
@@ -1343,8 +1343,8 @@ __end_of_process_data_parameters 81E 0 CODE 0 text36 dist/default/production\Cur
 process_data@send_buffer D0 0 BANK0 1 cstackBANK0 dist/default/production\Current_Sense_2.2.X.production.obj
 __size_of_initIO 0 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
 itoa@cp 29 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2.X.production.obj
-stackhi 5FF 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sads.obj
-stacklo 15D 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sads.obj
+stackhi 5FF 0 ABS 0 - C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
+stacklo 15D 0 ABS 0 - C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
 receive_data@my_status 4B 0 COMRAM 1 bssCOMRAM dist/default/production\Current_Sense_2.2.X.production.obj
 strmatch@result 22 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2.X.production.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\Current_Sense_2.2.X.production.obj
@@ -1466,7 +1466,7 @@ __Ltext55 0 0 ABS 0 text55 dist/default/production\Current_Sense_2.2.X.productio
 __Ltext56 0 0 ABS 0 text56 dist/default/production\Current_Sense_2.2.X.production.obj
 __Ltext57 0 0 ABS 0 text57 dist/default/production\Current_Sense_2.2.X.production.obj
 __Ltext58 0 0 ABS 0 text58 dist/default/production\Current_Sense_2.2.X.production.obj
-__ramtop 600 0 RAM 0 ramtop C:\Users\Austin\AppData\Local\Temp\sads.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\ZACHER~1\AppData\Local\Temp\sap4.obj
 __size_of_resetCommunications 0 0 ABS 0 - dist/default/production\Current_Sense_2.2.X.production.obj
 __Lpowerup DA 0 CODE 0 powerup dist/default/production\Current_Sense_2.2.X.production.obj
 timerGetCount@timerIndex 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Current_Sense_2.2.X.production.obj
