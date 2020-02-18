@@ -5,12 +5,14 @@
         <group>
             <file>file:/D:/EMMS/NateNationCode/_EMMS_Code_PowerSense/Current%20Sense%202.2.X/_ConfigPragma.c</file>
             <file>file:/D:/EMMS/NateNationCode/_EMMS_Code_PowerSense/Current%20Sense%202.2.X/Main_PowerSense.c</file>
-            <file>file:/D:/EMMS/NateNationCode/_EMMS_Code_PowerSense/Current%20Sense%202.2.X/Timer.h</file>
+            <file>file:/D:/EMMS/NateNationCode/_EMMS_Code_PowerSense/Current%20Sense%202.2.X/MCP3909_Interface.c</file>
             <file>file:/D:/EMMS/NateNationCode/_EMMS_Code_PowerSense/Current%20Sense%202.2.X/LEDControl.c</file>
+            <file>file:/D:/EMMS/NateNationCode/_EMMS_Code_PowerSense/Current%20Sense%202.2.X/Timer.h</file>
             <file>file:/D:/EMMS/NateNationCode/_EMMS_Code_PowerSense/Current%20Sense%202.2.X/pragma.h</file>
             <file>file:/D:/EMMS/NateNationCode/_EMMS_Code_PowerSense/Current%20Sense%202.2.X/Timer.c</file>
             <file>file:/D:/EMMS/NateNationCode/_EMMS_Code_PowerSense/Current%20Sense%202.2.X/Main_PowerSense.h</file>
             <file>file:/D:/EMMS/NateNationCode/_EMMS_Code_PowerSense/Current%20Sense%202.2.X/LEDControl.h</file>
+            <file>file:/D:/EMMS/NateNationCode/_EMMS_Code_PowerSense/Current%20Sense%202.2.X/SlaveComm.c</file>
             <file>file:/D:/EMMS/NateNationCode/_EMMS_Code_PowerSense/Current%20Sense%202.2.X/common.h</file>
         </group>
     </open-files>

@@ -8132,20 +8132,27 @@ void ledRunUp( int ledRunDelay );
 void ledRunDown( int ledRunDelay );
 void ledRun( int ledRunDelay );
 
-# 136 "MCP3909_Interface.c"
+# 134 "MCP3909_Interface.c"
 unsigned long meterEnergyUsedPart = 0;
 
-# 148
+# 146
 void mcpInitF( void );
 unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF );
 void powerReduction( unsigned long timerLast_ms );
 
-# 155
+# 153
 void mcpInit( void )
 {
 TRISAbits.TRISA3 = 1;
 TRISAbits.TRISA2 = 1;
 TRISAbits.TRISA4 = 1;
+
+TRISCbits.TRISC6 = 0;
+TRISCbits.TRISC7 = 0;
+TRISCbits.TRISC4 = 0;
+TRISCbits.TRISC3 = 0;
+
+LATCbits.LATC6 = 1;
 
 meterEnergyUsedPart = 0;
 
@@ -8159,12 +8166,6 @@ return;
 void mcpInitF( void )
 {
 
-
-
-TRISCbits.TRISC6 = 0;
-TRISCbits.TRISC7 = 0;
-TRISCbits.TRISC4 = 0;
-TRISCbits.TRISC3 = 0;
 
 
 LATCbits.LC7 = 0;
@@ -8195,7 +8196,10 @@ return;
 void mcpUpdatePower( void )
 {
 
-# 220
+# 212
+static unsigned long meterEnergyUsedPart = 0;
+
+# 221
 static int meterWattsHF = 0;
 static unsigned long timerHFoutLast_ms = 0;
 
@@ -8205,7 +8209,6 @@ if( PORTAbits.RA3 == 0 )
 {
 if( oneShotHFout == 0 )
 {
-
 ledGoToggle( 0 );
 
 oneShotHFout = 1;
@@ -8235,7 +8238,6 @@ if( (PORTAbits.RA2 == 0) || (PORTAbits.RA4 == 0) )
 {
 if( oneShotLFout == 0 )
 {
-
 ledGoToggle( 1 );
 
 oneShotLFout = 1;
@@ -8244,7 +8246,6 @@ unsigned long timerLFout_ms;
 timerLFout_ms = timerGetCount( 1 );
 timerResetCount( 1 );
 timerResetCount( 2 );
-
 
 meterWattsLF = powerCalculateWatts( timerLFout_ms, 0 );
 
@@ -8262,7 +8263,7 @@ else
 oneShotLFout = 0;
 }
 
-# 294
+# 293
 if( meterWattsLF > 500 )
 {
 meterWatts_global = meterWattsLF;
@@ -8275,15 +8276,17 @@ meterWatts_global = meterWattsHF;
 
 powerReduction( timerHFoutLast_ms );
 
+
+
+meterWatts_global = 78;
+
 return;
 }
 
 unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
 {
 
-
-
-
+# 319
 int calcWatts;
 
 if( outHF == 1 )
@@ -8303,7 +8306,7 @@ return calcWatts;
 void powerReduction( unsigned long timerLast_ms )
 {
 
-# 340
+# 344
 unsigned long timerReduce_ms;
 static int countReduce = 0;
 

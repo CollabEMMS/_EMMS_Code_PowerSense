@@ -8149,7 +8149,6 @@ void initInterruptsClear( void );
 void main( void )
 {
 
-# 83
 initOSC( );
 initIO( );
 ledInit( );
@@ -8228,8 +8227,6 @@ ANSELB = 0b00000000;
 ANSELC = 0b00000000;
 
 return;
-
-# 170
 }
 
 void initInterruptsClear( void )

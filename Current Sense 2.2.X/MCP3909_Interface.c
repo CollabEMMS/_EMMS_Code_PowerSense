@@ -43,8 +43,6 @@
 // pin 28   PGM
 
 
-
-
 // Fout0	pin 4	RA2
 // Fout1	pin 6	RA4
 // HFout	pin 5	RA3
@@ -158,6 +156,13 @@ void mcpInit( void )
     MCP_LFOUT0_DIR = 1;
     MCP_LFOUT1_DIR = 1;
 
+    MCP_MCLR_DIR = 0;
+    MCP_F0_DIR = 0;
+    MCP_F1_DIR = 0;
+    MCP_F2_DIR = 0;
+
+    MCP_MCLR_SET = 1;
+
     meterEnergyUsedPart = 0;
 
     delayMS10( 100 );
@@ -170,13 +175,7 @@ void mcpInit( void )
 void mcpInitF( void )
 {
     // reset the MCP
-    // wait until SPI timeout is reached before continuing
-
-    MCP_MCLR_DIR = 0;
-    MCP_F0_DIR = 0;
-    MCP_F1_DIR = 0;
-    MCP_F2_DIR = 0;
-
+    // wait until MCP SPI timeout is reached before continuing
 
     MCP_F0_SET = 0;
     MCP_F1_SET = 0;
@@ -210,6 +209,8 @@ void mcpUpdatePower( void )
 #define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh
 #define HF_TO_LF_WATTS_THRESHOLD 500 // at what level do we switch from using HF to LF to show and calc watts
 
+    static unsigned long meterEnergyUsedPart = 0;
+
     // check each of the pulse outputs from the MCP
     // 1 = inactive
     // 0 is active
@@ -226,7 +227,6 @@ void mcpUpdatePower( void )
     {
 	if( oneShotHFout == false )
 	{
-	    // TODO testing
 	    ledGoToggle( 0 );
 
 	    oneShotHFout = true;
@@ -256,7 +256,6 @@ void mcpUpdatePower( void )
     {
 	if( oneShotLFout == false )
 	{
-	    // TODO testing
 	    ledGoToggle( 1 );
 
 	    oneShotLFout = true;
@@ -266,7 +265,6 @@ void mcpUpdatePower( void )
 	    timerResetCount( 1 );
 	    timerResetCount( 2 ); // the power reduce counter
 
-	    // TODO verify calculation
 	    meterWattsLF = powerCalculateWatts( timerLFout_ms, false );
 
 	    // with every pulse we add to energy used
@@ -284,13 +282,14 @@ void mcpUpdatePower( void )
     }
 
     // TODO choose which to store as power - LF or HF
-    // be careful that we do this only if we have a new power calculated
+    // this should be carefully thought out
+    //  The LFwatts updates slowly while the HFwatts updates quickly
+    //     but if we switch from showing HFwatts to LFwatts we could see the values jump weird
+    //     like the LFwatts might show a lower value than the HFwatts when we switch to it because it was not updated yet
 
     // the meterWatts variables are static in this function
     // so there will always be values in them
-    // if the HFwatts is > set number then switch to LFwatts
 
-    // TODO will the LFwatts keep up with HFwatts - when we switch will the new number be ready?
     if( meterWattsLF > HF_TO_LF_WATTS_THRESHOLD )
     {
 	meterWatts_global = meterWattsLF;
@@ -303,11 +302,15 @@ void mcpUpdatePower( void )
     // we need to reduce the power if there are no pulses
     powerReduction( timerHFoutLast_ms );
 
+    meterWatts_global = 78;
+
+
     return;
 }
 
 unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
 {
+    // TODO verify calculation
 
     // calc the meter watts here
     // need to figure out the difference between HFout and LFout calculations

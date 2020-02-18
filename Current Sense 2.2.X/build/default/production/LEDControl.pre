@@ -8344,8 +8344,6 @@ void ledRunUp( int ledRunDelay )
 int delay10ms;
 delay10ms = ledRunDelay / 10;
 
-
-
 ledSetAll( 0, 0, 0 );
 delayMS10( delay10ms );
 ledSetAll( 1, 0, 0 );

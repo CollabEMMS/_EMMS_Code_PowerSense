@@ -47,38 +47,6 @@ void initInterruptsClear( void );
 
 void main( void )
 {
-    // TODO Testing
-    //    ANSELA = 0;
-    //    ANSELB = 0;
-    //    ANSELC = 0;
-    //
-    //
-    //
-    //#define LED1_DIR    TRISBbits.TRISB4
-    //#define LED1_SET    LATBbits.LATB4
-    //#define LED1_READ   PORTBbits.RB4
-    //
-    //#define LED2_DIR    TRISCbits.TRISC0
-    //#define LED2_SET    LATCbits.LATC0
-    //#define LED2_READ   PORTCbits.RC0
-    //
-    //#define LED3_DIR    TRISCbits.TRISC1
-    //#define LED3_SET    LATCbits.LATC1
-    //#define LED3_READ   PORTCbits.RC1
-    //
-    //    LED1_DIR = 0;
-    //    LED2_DIR = 0;
-    //    LED3_DIR = 0;
-    //
-    //    LED1_SET = 0;
-    //    LED2_SET = 1;
-    //    LED3_SET = 0;
-    //
-    //
-    //    while( 1 );
-
-
-    // TODO end testing
 
     initOSC( );
     initIO( );
@@ -158,15 +126,6 @@ void initIO( void )
     ANSELC = 0b00000000;
 
     return;
-
-    // TODO verify this is taken care of elsewhere
-    //    MCP_HFOUT_DIR = 1;
-    //    MCP_LFOUT_DIR = 1;
-    //    MCP_LFOUT_PASS_DIR = 0;
-    //    MCP_LFOUT_PASS_SET = 0;
-    //
-
-
 }
 
 void initInterruptsClear( void )

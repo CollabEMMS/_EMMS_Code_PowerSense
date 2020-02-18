@@ -6486,280 +6486,280 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main_PowerSense.c: 49: {
 [e :U _main ]
 [f ]
-[; ;Main_PowerSense.c: 83: initOSC( );
-"83
+[; ;Main_PowerSense.c: 51: initOSC( );
+"51
 [e ( _initOSC ..  ]
-[; ;Main_PowerSense.c: 84: initIO( );
-"84
+[; ;Main_PowerSense.c: 52: initIO( );
+"52
 [e ( _initIO ..  ]
-[; ;Main_PowerSense.c: 85: ledInit( );
-"85
+[; ;Main_PowerSense.c: 53: ledInit( );
+"53
 [e ( _ledInit ..  ]
-[; ;Main_PowerSense.c: 87: ledSetAllOff( );
-"87
+[; ;Main_PowerSense.c: 55: ledSetAllOff( );
+"55
 [e ( _ledSetAllOff ..  ]
-[; ;Main_PowerSense.c: 89: initInterruptsClear( );
-"89
+[; ;Main_PowerSense.c: 57: initInterruptsClear( );
+"57
 [e ( _initInterruptsClear ..  ]
-[; ;Main_PowerSense.c: 90: timerInit( );
-"90
+[; ;Main_PowerSense.c: 58: timerInit( );
+"58
 [e ( _timerInit ..  ]
-[; ;Main_PowerSense.c: 92: mcpInit( );
-"92
+[; ;Main_PowerSense.c: 60: mcpInit( );
+"60
 [e ( _mcpInit ..  ]
-[; ;Main_PowerSense.c: 95: for( int inx = 0; inx < 5; inx++ )
-"95
+[; ;Main_PowerSense.c: 63: for( int inx = 0; inx < 5; inx++ )
+"63
 {
 [v _inx `i ~T0 @X0 1 a ]
 [e = _inx -> 0 `i ]
 [e $ < _inx -> 5 `i 822  ]
 [e $U 823  ]
-"96
+"64
 [e :U 822 ]
-[; ;Main_PowerSense.c: 96: {
+[; ;Main_PowerSense.c: 64: {
 {
-[; ;Main_PowerSense.c: 97: ledSetAllOn( );
-"97
+[; ;Main_PowerSense.c: 65: ledSetAllOn( );
+"65
 [e ( _ledSetAllOn ..  ]
-[; ;Main_PowerSense.c: 98: _delay((unsigned long)((10)*(16000000UL/4000.0)));
-"98
+[; ;Main_PowerSense.c: 66: _delay((unsigned long)((10)*(16000000UL/4000.0)));
+"66
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `ul `d .4000.0 `ul ]
-[; ;Main_PowerSense.c: 99: ledSetAllOff( );
-"99
+[; ;Main_PowerSense.c: 67: ledSetAllOff( );
+"67
 [e ( _ledSetAllOff ..  ]
-[; ;Main_PowerSense.c: 100: _delay((unsigned long)((10)*(16000000UL/4000.0)));
-"100
+[; ;Main_PowerSense.c: 68: _delay((unsigned long)((10)*(16000000UL/4000.0)));
+"68
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `ul `d .4000.0 `ul ]
-"101
+"69
 }
-"95
+"63
 [e ++ _inx -> 1 `i ]
 [e $ < _inx -> 5 `i 822  ]
 [e :U 823 ]
-"101
+"69
 }
-[; ;Main_PowerSense.c: 101: }
-[; ;Main_PowerSense.c: 104: commInit( );
-"104
+[; ;Main_PowerSense.c: 69: }
+[; ;Main_PowerSense.c: 72: commInit( );
+"72
 [e ( _commInit ..  ]
-[; ;Main_PowerSense.c: 106: ledRun( 100 );
-"106
+[; ;Main_PowerSense.c: 74: ledRun( 100 );
+"74
 [e ( _ledRun (1 -> 100 `i ]
-[; ;Main_PowerSense.c: 108: while( 1 )
-"108
+[; ;Main_PowerSense.c: 76: while( 1 )
+"76
 [e :U 826 ]
-[; ;Main_PowerSense.c: 109: {
-"109
+[; ;Main_PowerSense.c: 77: {
+"77
 {
-[; ;Main_PowerSense.c: 110: mcpUpdatePower( );
-"110
+[; ;Main_PowerSense.c: 78: mcpUpdatePower( );
+"78
 [e ( _mcpUpdatePower ..  ]
-[; ;Main_PowerSense.c: 111: commRun( );
-"111
+[; ;Main_PowerSense.c: 79: commRun( );
+"79
 [e ( _commRun ..  ]
-[; ;Main_PowerSense.c: 114: {
-"114
+[; ;Main_PowerSense.c: 82: {
+"82
 {
-"115
+"83
 [v F6704 `uc ~T0 @X0 1 s oneShot ]
 [i F6704
 -> -> 0 `i `uc
 ]
-"116
+"84
 [v _timerHeartbeat `ul ~T0 @X0 1 a ]
-[; ;Main_PowerSense.c: 115: static bool oneShot = 0;
-[; ;Main_PowerSense.c: 116: unsigned long timerHeartbeat;
-[; ;Main_PowerSense.c: 117: timerHeartbeat = timerGetCount( 3 );
-"117
+[; ;Main_PowerSense.c: 83: static bool oneShot = 0;
+[; ;Main_PowerSense.c: 84: unsigned long timerHeartbeat;
+[; ;Main_PowerSense.c: 85: timerHeartbeat = timerGetCount( 3 );
+"85
 [e = _timerHeartbeat ( _timerGetCount (1 -> 3 `i ]
-[; ;Main_PowerSense.c: 118: if( (timerHeartbeat % 500) == 0 )
-"118
+[; ;Main_PowerSense.c: 86: if( (timerHeartbeat % 500) == 0 )
+"86
 [e $ ! == % _timerHeartbeat -> -> -> 500 `i `l `ul -> -> -> 0 `i `l `ul 828  ]
-[; ;Main_PowerSense.c: 119: {
-"119
+[; ;Main_PowerSense.c: 87: {
+"87
 {
-[; ;Main_PowerSense.c: 120: if( oneShot == 0 )
-"120
+[; ;Main_PowerSense.c: 88: if( oneShot == 0 )
+"88
 [e $ ! == -> F6704 `i -> 0 `i 829  ]
-[; ;Main_PowerSense.c: 121: {
-"121
+[; ;Main_PowerSense.c: 89: {
+"89
 {
-[; ;Main_PowerSense.c: 122: oneShot = 1;
-"122
+[; ;Main_PowerSense.c: 90: oneShot = 1;
+"90
 [e = F6704 -> -> 1 `i `uc ]
-[; ;Main_PowerSense.c: 123: ledTestToggle( 1 );
-"123
+[; ;Main_PowerSense.c: 91: ledTestToggle( 1 );
+"91
 [e ( _ledTestToggle (1 -> 1 `i ]
-"124
+"92
 }
 [e :U 829 ]
-"126
+"94
 }
-[; ;Main_PowerSense.c: 124: }
-[; ;Main_PowerSense.c: 126: }
+[; ;Main_PowerSense.c: 92: }
+[; ;Main_PowerSense.c: 94: }
 [e $U 830  ]
-"127
+"95
 [e :U 828 ]
-[; ;Main_PowerSense.c: 127: else
-[; ;Main_PowerSense.c: 128: {
-"128
+[; ;Main_PowerSense.c: 95: else
+[; ;Main_PowerSense.c: 96: {
+"96
 {
-[; ;Main_PowerSense.c: 129: oneShot = 0;
-"129
+[; ;Main_PowerSense.c: 97: oneShot = 0;
+"97
 [e = F6704 -> -> 0 `i `uc ]
-"130
+"98
 }
 [e :U 830 ]
-"131
+"99
 }
-"132
+"100
 }
 [e :U 825 ]
-"108
+"76
 [e $U 826  ]
 [e :U 827 ]
-[; ;Main_PowerSense.c: 130: }
-[; ;Main_PowerSense.c: 131: }
-[; ;Main_PowerSense.c: 132: }
-[; ;Main_PowerSense.c: 134: }
-"134
+[; ;Main_PowerSense.c: 98: }
+[; ;Main_PowerSense.c: 99: }
+[; ;Main_PowerSense.c: 100: }
+[; ;Main_PowerSense.c: 102: }
+"102
 [e :UE 821 ]
 }
-"136
+"104
 [v _initOSC `(v ~T0 @X0 1 ef ]
-"137
+"105
 {
-[; ;Main_PowerSense.c: 136: void initOSC( void )
-[; ;Main_PowerSense.c: 137: {
+[; ;Main_PowerSense.c: 104: void initOSC( void )
+[; ;Main_PowerSense.c: 105: {
 [e :U _initOSC ]
 [f ]
-[; ;Main_PowerSense.c: 139: OSCCONbits.IDLEN = 0;
-"139
+[; ;Main_PowerSense.c: 107: OSCCONbits.IDLEN = 0;
+"107
 [e = . . _OSCCONbits 0 4 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 140: OSCCONbits.IRCF = 0b111;
-"140
+[; ;Main_PowerSense.c: 108: OSCCONbits.IRCF = 0b111;
+"108
 [e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
-[; ;Main_PowerSense.c: 141: OSCCONbits.SCS = 0b11;
-"141
+[; ;Main_PowerSense.c: 109: OSCCONbits.SCS = 0b11;
+"109
 [e = . . _OSCCONbits 0 0 -> -> 3 `i `uc ]
-[; ;Main_PowerSense.c: 143: OSCCON2bits.MFIOSEL = 0;
-"143
+[; ;Main_PowerSense.c: 111: OSCCON2bits.MFIOSEL = 0;
+"111
 [e = . . _OSCCON2bits 0 4 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 144: OSCCON2bits.SOSCGO = 0;
-"144
+[; ;Main_PowerSense.c: 112: OSCCON2bits.SOSCGO = 0;
+"112
 [e = . . _OSCCON2bits 0 3 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 145: OSCCON2bits.PRISD = 0;
-"145
+[; ;Main_PowerSense.c: 113: OSCCON2bits.PRISD = 0;
+"113
 [e = . . _OSCCON2bits 0 2 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 147: OSCTUNEbits.INTSRC = 1;
-"147
+[; ;Main_PowerSense.c: 115: OSCTUNEbits.INTSRC = 1;
+"115
 [e = . . _OSCTUNEbits 0 2 -> -> 1 `i `uc ]
-[; ;Main_PowerSense.c: 148: OSCTUNEbits.PLLEN = 0;
-"148
+[; ;Main_PowerSense.c: 116: OSCTUNEbits.PLLEN = 0;
+"116
 [e = . . _OSCTUNEbits 0 1 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 150: return;
-"150
+[; ;Main_PowerSense.c: 118: return;
+"118
 [e $UE 831  ]
-[; ;Main_PowerSense.c: 151: }
-"151
+[; ;Main_PowerSense.c: 119: }
+"119
 [e :UE 831 ]
 }
-"153
+"121
 [v _initIO `(v ~T0 @X0 1 ef ]
-"154
+"122
 {
-[; ;Main_PowerSense.c: 153: void initIO( void )
-[; ;Main_PowerSense.c: 154: {
+[; ;Main_PowerSense.c: 121: void initIO( void )
+[; ;Main_PowerSense.c: 122: {
 [e :U _initIO ]
 [f ]
-[; ;Main_PowerSense.c: 155: ADCON0bits.ADON = 0;
-"155
+[; ;Main_PowerSense.c: 123: ADCON0bits.ADON = 0;
+"123
 [e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 156: ANSELA = 0b00000000;
-"156
+[; ;Main_PowerSense.c: 124: ANSELA = 0b00000000;
+"124
 [e = _ANSELA -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 157: ANSELB = 0b00000000;
-"157
+[; ;Main_PowerSense.c: 125: ANSELB = 0b00000000;
+"125
 [e = _ANSELB -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 158: ANSELC = 0b00000000;
-"158
+[; ;Main_PowerSense.c: 126: ANSELC = 0b00000000;
+"126
 [e = _ANSELC -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 160: return;
-"160
+[; ;Main_PowerSense.c: 128: return;
+"128
 [e $UE 832  ]
-[; ;Main_PowerSense.c: 170: }
-"170
+[; ;Main_PowerSense.c: 129: }
+"129
 [e :UE 832 ]
 }
-"172
+"131
 [v _initInterruptsClear `(v ~T0 @X0 1 ef ]
-"173
+"132
 {
-[; ;Main_PowerSense.c: 172: void initInterruptsClear( void )
-[; ;Main_PowerSense.c: 173: {
+[; ;Main_PowerSense.c: 131: void initInterruptsClear( void )
+[; ;Main_PowerSense.c: 132: {
 [e :U _initInterruptsClear ]
 [f ]
-[; ;Main_PowerSense.c: 175: INTCON = 0b00000000;
-"175
+[; ;Main_PowerSense.c: 134: INTCON = 0b00000000;
+"134
 [e = _INTCON -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 176: INTCON2 = 0b00000000;
-"176
+[; ;Main_PowerSense.c: 135: INTCON2 = 0b00000000;
+"135
 [e = _INTCON2 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 177: INTCON3 = 0b00000000;
-"177
+[; ;Main_PowerSense.c: 136: INTCON3 = 0b00000000;
+"136
 [e = _INTCON3 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 179: RCONbits.IPEN = 0;
-"179
+[; ;Main_PowerSense.c: 138: RCONbits.IPEN = 0;
+"138
 [e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 181: PIR1 = 0b00000000;
-"181
+[; ;Main_PowerSense.c: 140: PIR1 = 0b00000000;
+"140
 [e = _PIR1 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 182: PIR2 = 0b00000000;
-"182
+[; ;Main_PowerSense.c: 141: PIR2 = 0b00000000;
+"141
 [e = _PIR2 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 183: PIR3 = 0b00000000;
-"183
+[; ;Main_PowerSense.c: 142: PIR3 = 0b00000000;
+"142
 [e = _PIR3 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 184: PIR4 = 0b00000000;
-"184
+[; ;Main_PowerSense.c: 143: PIR4 = 0b00000000;
+"143
 [e = _PIR4 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 185: PIR5 = 0b00000000;
-"185
+[; ;Main_PowerSense.c: 144: PIR5 = 0b00000000;
+"144
 [e = _PIR5 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 187: PIE1 = 0b00000000;
-"187
+[; ;Main_PowerSense.c: 146: PIE1 = 0b00000000;
+"146
 [e = _PIE1 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 188: PIE2 = 0b00000000;
-"188
+[; ;Main_PowerSense.c: 147: PIE2 = 0b00000000;
+"147
 [e = _PIE2 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 189: PIE3 = 0b00000000;
-"189
+[; ;Main_PowerSense.c: 148: PIE3 = 0b00000000;
+"148
 [e = _PIE3 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 190: PIE4 = 0b00000000;
-"190
+[; ;Main_PowerSense.c: 149: PIE4 = 0b00000000;
+"149
 [e = _PIE4 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 191: PIE5 = 0b00000000;
-"191
+[; ;Main_PowerSense.c: 150: PIE5 = 0b00000000;
+"150
 [e = _PIE5 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 193: IPR1 = 0b00000000;
-"193
+[; ;Main_PowerSense.c: 152: IPR1 = 0b00000000;
+"152
 [e = _IPR1 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 194: IPR2 = 0b00000000;
-"194
+[; ;Main_PowerSense.c: 153: IPR2 = 0b00000000;
+"153
 [e = _IPR2 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 195: IPR3 = 0b00000000;
-"195
+[; ;Main_PowerSense.c: 154: IPR3 = 0b00000000;
+"154
 [e = _IPR3 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 196: IPR4 = 0b00000000;
-"196
+[; ;Main_PowerSense.c: 155: IPR4 = 0b00000000;
+"155
 [e = _IPR4 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 197: IPR5 = 0b00000000;
-"197
+[; ;Main_PowerSense.c: 156: IPR5 = 0b00000000;
+"156
 [e = _IPR5 -> -> 0 `i `uc ]
-[; ;Main_PowerSense.c: 199: return;
-"199
+[; ;Main_PowerSense.c: 158: return;
+"158
 [e $UE 833  ]
-[; ;Main_PowerSense.c: 200: }
-"200
+[; ;Main_PowerSense.c: 159: }
+"159
 [e :UE 833 ]
 }

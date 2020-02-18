@@ -5,6 +5,7 @@
 
 #include "common.h"
 #include "Main_PowerSense.h"
+#include "LEDControl.h"
 #include <stdlib.h>
 
 /****************
@@ -104,6 +105,7 @@ void com_command_setVersion( struct buffer * send_buffer );
 
 void commInit( void )
 {
+    SPISlaveInit( );
     communications( true );
 
     return;
@@ -129,7 +131,6 @@ void communications( bool firstTime )
 
     if( firstTime == true )
     {
-	SPISlaveInit( );
 	send_buffer.write_position = 0;
 	send_buffer.read_position = 0;
 	resetCommunications( &send_buffer );
@@ -184,6 +185,8 @@ void resetCommunications( struct buffer * send_buffer )
 
     static int commState = 0;
 
+    // TODO testing
+    ledTestToggle( 2 );
 
     SSP2CON1bits.SSPEN = 0; //disable SPI
     __delay_ms( 1 );
@@ -236,6 +239,7 @@ enum receive_status receive_data( struct buffer * receive_buffer )
     {
 	my_status = receive_waiting;
     }
+
 
     if( SPI_receive_data( &data ) == true )
     {
@@ -374,6 +378,7 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
     }
     else if( strmatch( parameters[0], "Conf" ) == true )
     {
+
 	if( strmatch( parameters[1], "Watts" ) == true )
 	{
 	    send_end_of_transmission( send_buffer );
@@ -635,8 +640,7 @@ void com_command_testLED( struct buffer * send_buffer )
 void com_command_setPower( struct buffer * send_buffer )
 {
 
-    // TODO make sure the temp buffer is large enough for the data type
-    char temp[12];
+    char temp[12]; // the max number of characters in an nunsigned long (include the NULL CHAR))
 
     ultoa( temp, meterWatts_global, 10 );
     command_builder3( send_buffer, "Set", "Watts", temp );
@@ -686,27 +690,7 @@ void com_command_setVersion( struct buffer * send_buffer )
 void SPISlaveInit( void )
 {
 
-    TRISAbits.TRISA0 = 0; // pin 2 connected as an output for pulse
-    TRISAbits.TRISA1 = 1; // pin 3 connected as an input for pulse
-    //    LEDDIR = 0; // pin 25 connected as an output for LED
-    TRISCbits.TRISC3 = 0; // pin 14 connected as an output for pulse freq.
-    TRISCbits.TRISC5 = 0; // pin 16 connected as an output for pulse freq.
-    TRISCbits.TRISC6 = 0; // set pin 17 as an output for MCLR
-    TRISCbits.TRISC7 = 0; // set pin 18 as an output for pulse freq.
-    ANSELAbits.ANSA1 = 0b0; // turn off analog to digital conversion
-
-    LATCbits.LATC6 = 1; // set the MCLR of the MCP high
-    LATCbits.LATC3 = 1; // set pin 14 to a 1 to set freq. control F2 for pulse
-    LATCbits.LATC5 = 1; // set pin 16 to a 1 to set freq. control F1 for pulse
-    LATCbits.LATC7 = 1; // set pin 18 to a 1 to set freq. control F0 for pulse
-
-
     SSP2CON1bits.SSPEN = 0; //Synchronous Serial Port Enable bit
-
-    ANSELBbits.ANSB0 = 0b0;
-    ANSELBbits.ANSB1 = 0b0;
-    ANSELBbits.ANSB2 = 0b0;
-    ANSELBbits.ANSB3 = 0b0;
 
     TRISBbits.RB0 = 0b1;
     TRISBbits.RB1 = 0b1;
@@ -721,7 +705,6 @@ void SPISlaveInit( void )
     SSP2CON1bits.SSPEN = 0; //Synchronous Serial Port Enable bit
     SSP2CON1bits.CKP = 1; //Clock Polarity Select bit
     SSP2CON1bits.SSPM = 0b0100; //Synchronous Serial Port Mode Select bits
-
 
     SSP2CON3 = 0x00;
     SSP2CON3bits.BOEN = 0b0; //Buffer Overwrite Enable bit

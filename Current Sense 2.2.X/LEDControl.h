@@ -62,6 +62,7 @@ void ledRunUp( int ledRunDelay );
 void ledRunDown( int ledRunDelay );
 void ledRun( int ledRunDelay );
 
+//void ledShowChar( char showMe );
 
 
 #endif	/* LEDCONTROL_H */

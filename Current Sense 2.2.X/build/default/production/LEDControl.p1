@@ -7086,106 +7086,106 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LEDControl.c: 300: delay10ms = ledRunDelay / 10;
 "300
 [e = _delay10ms / _ledRunDelay -> 10 `i ]
-[; ;LEDControl.c: 304: ledSetAll( 0, 0, 0 );
-"304
+[; ;LEDControl.c: 302: ledSetAll( 0, 0, 0 );
+"302
 [e ( _ledSetAll (3 , , -> 0 `i -> 0 `i -> 0 `i ]
+[; ;LEDControl.c: 303: delayMS10( delay10ms );
+"303
+[e ( _delayMS10 (1 _delay10ms ]
+[; ;LEDControl.c: 304: ledSetAll( 1, 0, 0 );
+"304
+[e ( _ledSetAll (3 , , -> 1 `i -> 0 `i -> 0 `i ]
 [; ;LEDControl.c: 305: delayMS10( delay10ms );
 "305
 [e ( _delayMS10 (1 _delay10ms ]
-[; ;LEDControl.c: 306: ledSetAll( 1, 0, 0 );
+[; ;LEDControl.c: 306: ledSetAll( 0, 1, 0 );
 "306
-[e ( _ledSetAll (3 , , -> 1 `i -> 0 `i -> 0 `i ]
+[e ( _ledSetAll (3 , , -> 0 `i -> 1 `i -> 0 `i ]
 [; ;LEDControl.c: 307: delayMS10( delay10ms );
 "307
 [e ( _delayMS10 (1 _delay10ms ]
-[; ;LEDControl.c: 308: ledSetAll( 0, 1, 0 );
+[; ;LEDControl.c: 308: ledSetAll( 0, 0, 1 );
 "308
-[e ( _ledSetAll (3 , , -> 0 `i -> 1 `i -> 0 `i ]
+[e ( _ledSetAll (3 , , -> 0 `i -> 0 `i -> 1 `i ]
 [; ;LEDControl.c: 309: delayMS10( delay10ms );
 "309
 [e ( _delayMS10 (1 _delay10ms ]
-[; ;LEDControl.c: 310: ledSetAll( 0, 0, 1 );
-"310
-[e ( _ledSetAll (3 , , -> 0 `i -> 0 `i -> 1 `i ]
-[; ;LEDControl.c: 311: delayMS10( delay10ms );
+[; ;LEDControl.c: 311: return;
 "311
-[e ( _delayMS10 (1 _delay10ms ]
-[; ;LEDControl.c: 313: return;
-"313
 [e $UE 865  ]
-[; ;LEDControl.c: 314: }
-"314
+[; ;LEDControl.c: 312: }
+"312
 [e :UE 865 ]
 }
-"316
+"314
 [v _ledRunDown `(v ~T0 @X0 1 ef1`i ]
-"317
+"315
 {
-[; ;LEDControl.c: 316: void ledRunDown( int ledRunDelay )
-[; ;LEDControl.c: 317: {
+[; ;LEDControl.c: 314: void ledRunDown( int ledRunDelay )
+[; ;LEDControl.c: 315: {
 [e :U _ledRunDown ]
-"316
+"314
 [v _ledRunDelay `i ~T0 @X0 1 r1 ]
-"317
+"315
 [f ]
-"319
+"317
 [v _delay10ms `i ~T0 @X0 1 a ]
-[; ;LEDControl.c: 319: int delay10ms;
-[; ;LEDControl.c: 320: delay10ms = ledRunDelay / 10;
-"320
+[; ;LEDControl.c: 317: int delay10ms;
+[; ;LEDControl.c: 318: delay10ms = ledRunDelay / 10;
+"318
 [e = _delay10ms / _ledRunDelay -> 10 `i ]
-[; ;LEDControl.c: 322: ledSetAll( 0, 0, 1 );
-"322
+[; ;LEDControl.c: 320: ledSetAll( 0, 0, 1 );
+"320
 [e ( _ledSetAll (3 , , -> 0 `i -> 0 `i -> 1 `i ]
+[; ;LEDControl.c: 321: delayMS10( delay10ms );
+"321
+[e ( _delayMS10 (1 _delay10ms ]
+[; ;LEDControl.c: 322: ledSetAll( 0, 1, 0 );
+"322
+[e ( _ledSetAll (3 , , -> 0 `i -> 1 `i -> 0 `i ]
 [; ;LEDControl.c: 323: delayMS10( delay10ms );
 "323
 [e ( _delayMS10 (1 _delay10ms ]
-[; ;LEDControl.c: 324: ledSetAll( 0, 1, 0 );
+[; ;LEDControl.c: 324: ledSetAll( 1, 0, 0 );
 "324
-[e ( _ledSetAll (3 , , -> 0 `i -> 1 `i -> 0 `i ]
+[e ( _ledSetAll (3 , , -> 1 `i -> 0 `i -> 0 `i ]
 [; ;LEDControl.c: 325: delayMS10( delay10ms );
 "325
 [e ( _delayMS10 (1 _delay10ms ]
-[; ;LEDControl.c: 326: ledSetAll( 1, 0, 0 );
+[; ;LEDControl.c: 326: ledSetAll( 0, 0, 0 );
 "326
-[e ( _ledSetAll (3 , , -> 1 `i -> 0 `i -> 0 `i ]
+[e ( _ledSetAll (3 , , -> 0 `i -> 0 `i -> 0 `i ]
 [; ;LEDControl.c: 327: delayMS10( delay10ms );
 "327
 [e ( _delayMS10 (1 _delay10ms ]
-[; ;LEDControl.c: 328: ledSetAll( 0, 0, 0 );
-"328
-[e ( _ledSetAll (3 , , -> 0 `i -> 0 `i -> 0 `i ]
-[; ;LEDControl.c: 329: delayMS10( delay10ms );
+[; ;LEDControl.c: 329: return;
 "329
-[e ( _delayMS10 (1 _delay10ms ]
-[; ;LEDControl.c: 331: return;
-"331
 [e $UE 866  ]
-[; ;LEDControl.c: 332: }
-"332
+[; ;LEDControl.c: 330: }
+"330
 [e :UE 866 ]
 }
-"334
+"332
 [v _ledRun `(v ~T0 @X0 1 ef1`i ]
-"335
+"333
 {
-[; ;LEDControl.c: 334: void ledRun( int ledRunDelay )
-[; ;LEDControl.c: 335: {
+[; ;LEDControl.c: 332: void ledRun( int ledRunDelay )
+[; ;LEDControl.c: 333: {
 [e :U _ledRun ]
-"334
+"332
 [v _ledRunDelay `i ~T0 @X0 1 r1 ]
-"335
+"333
 [f ]
-[; ;LEDControl.c: 336: ledRunUp( ledRunDelay );
-"336
+[; ;LEDControl.c: 334: ledRunUp( ledRunDelay );
+"334
 [e ( _ledRunUp (1 _ledRunDelay ]
-[; ;LEDControl.c: 337: ledRunDown( ledRunDelay );
-"337
+[; ;LEDControl.c: 335: ledRunDown( ledRunDelay );
+"335
 [e ( _ledRunDown (1 _ledRunDelay ]
-[; ;LEDControl.c: 339: return;
-"339
+[; ;LEDControl.c: 337: return;
+"337
 [e $UE 867  ]
-[; ;LEDControl.c: 340: }
-"340
+[; ;LEDControl.c: 338: }
+"338
 [e :UE 867 ]
 }

@@ -298,8 +298,6 @@ void ledRunUp( int ledRunDelay )
 
     int delay10ms;
     delay10ms = ledRunDelay / 10;
-    // TODO fix __delay_ms
-    // for XC8 it must take a constant
 
     ledSetAll( 0, 0, 0 );
     delayMS10( delay10ms );
@@ -339,3 +337,34 @@ void ledRun( int ledRunDelay )
     return;
 }
 
+//void ledShowChar( char showMe )
+//{
+//    bool b[8];
+//
+//    for( int j = 0; j < 8; ++j )
+//    {
+//	b [j] = 0 != (showMe & (1 << j));
+//    }
+//
+//    for( int inx = 0; inx < 3; inx++ )
+//    {
+//	ledTestSetAllOn( );
+//	__delay_ms( 250 );
+//	ledTestSetAllOff( );
+//	__delay_ms( 250 );
+//    }
+//
+//    for( int inx = 7; inx > 0; inx -= 2 )
+//    {
+//	ledTestSetAll( b[inx], b[inx - 1], 0 );
+//	delayMS10( 50 );
+//	ledTestSetOn( 3 );
+//	delayMS10( 200 );
+//	ledTestSetOff( 3 );
+//
+//    }
+//
+//    ledTestSetAllOff( );
+//
+//    return;
+//}

@@ -10,11 +10,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S374 . . . ]
 "7610
 [v _TRISAbits `VS374 ~T0 @X0 0 e@3986 ]
-"31 Timer.h
-[v _delayMS10 `(v ~T0 @X0 0 ef1`i ]
-"148 MCP3909_Interface.c
-[v _mcpInitF `(v ~T0 @X0 0 ef ]
-"8033 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f25k22.h
+"8033
 [s S387 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S387 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
 "8043
@@ -36,6 +32,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S371 . . . ]
 "7493
 [v _LATCbits `VS371 ~T0 @X0 0 e@3979 ]
+"31 Timer.h
+[v _delayMS10 `(v ~T0 @X0 0 ef1`i ]
+"146 MCP3909_Interface.c
+[v _mcpInitF `(v ~T0 @X0 0 ef ]
 [v F6620 `(v ~T0 @X0 1 tf1`ul ]
 "164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
 [v __delay `JF6620 ~T0 @X0 0 e ]
@@ -90,13 +90,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _timerGetCount `(ul ~T0 @X0 0 ef1`i ]
 "34
 [v _timerResetCount `(v ~T0 @X0 0 ef1`i ]
-"149 MCP3909_Interface.c
+"147 MCP3909_Interface.c
 [v _powerCalculateWatts `(ul ~T0 @X0 0 ef2`ul`uc ]
 "20 Main_PowerSense.h
 [v _meterEnergyUsed_global `ul ~T0 @X0 0 e ]
 "19
 [v _meterWatts_global `ul ~T0 @X0 0 e ]
-"150 MCP3909_Interface.c
+"148 MCP3909_Interface.c
 [v _powerReduction `(v ~T0 @X0 0 ef1`ul ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -6399,167 +6399,176 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LEDControl.h: 61: void ledRunUp( int ledRunDelay );
 [; ;LEDControl.h: 62: void ledRunDown( int ledRunDelay );
 [; ;LEDControl.h: 63: void ledRun( int ledRunDelay );
-"136 MCP3909_Interface.c
+"134 MCP3909_Interface.c
 [v _meterEnergyUsedPart `ul ~T0 @X0 1 e ]
 [i _meterEnergyUsedPart
 -> -> -> 0 `i `l `ul
 ]
-[; ;MCP3909_Interface.c: 136: unsigned long meterEnergyUsedPart = 0;
-[; ;MCP3909_Interface.c: 148: void mcpInitF( void );
-[; ;MCP3909_Interface.c: 149: unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF );
-[; ;MCP3909_Interface.c: 150: void powerReduction( unsigned long timerLast_ms );
-"155
+[; ;MCP3909_Interface.c: 134: unsigned long meterEnergyUsedPart = 0;
+[; ;MCP3909_Interface.c: 146: void mcpInitF( void );
+[; ;MCP3909_Interface.c: 147: unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF );
+[; ;MCP3909_Interface.c: 148: void powerReduction( unsigned long timerLast_ms );
+"153
 [v _mcpInit `(v ~T0 @X0 1 ef ]
-"156
+"154
 {
-[; ;MCP3909_Interface.c: 155: void mcpInit( void )
-[; ;MCP3909_Interface.c: 156: {
+[; ;MCP3909_Interface.c: 153: void mcpInit( void )
+[; ;MCP3909_Interface.c: 154: {
 [e :U _mcpInit ]
 [f ]
-[; ;MCP3909_Interface.c: 157: TRISAbits.TRISA3 = 1;
-"157
+[; ;MCP3909_Interface.c: 155: TRISAbits.TRISA3 = 1;
+"155
 [e = . . _TRISAbits 0 3 -> -> 1 `i `uc ]
-[; ;MCP3909_Interface.c: 158: TRISAbits.TRISA2 = 1;
-"158
+[; ;MCP3909_Interface.c: 156: TRISAbits.TRISA2 = 1;
+"156
 [e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
-[; ;MCP3909_Interface.c: 159: TRISAbits.TRISA4 = 1;
-"159
+[; ;MCP3909_Interface.c: 157: TRISAbits.TRISA4 = 1;
+"157
 [e = . . _TRISAbits 0 4 -> -> 1 `i `uc ]
-[; ;MCP3909_Interface.c: 161: meterEnergyUsedPart = 0;
+[; ;MCP3909_Interface.c: 159: TRISCbits.TRISC6 = 0;
+"159
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
+[; ;MCP3909_Interface.c: 160: TRISCbits.TRISC7 = 0;
+"160
+[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
+[; ;MCP3909_Interface.c: 161: TRISCbits.TRISC4 = 0;
 "161
+[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
+[; ;MCP3909_Interface.c: 162: TRISCbits.TRISC3 = 0;
+"162
+[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
+[; ;MCP3909_Interface.c: 164: LATCbits.LATC6 = 1;
+"164
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
+[; ;MCP3909_Interface.c: 166: meterEnergyUsedPart = 0;
+"166
 [e = _meterEnergyUsedPart -> -> -> 0 `i `l `ul ]
-[; ;MCP3909_Interface.c: 163: delayMS10( 100 );
-"163
-[e ( _delayMS10 (1 -> 100 `i ]
-[; ;MCP3909_Interface.c: 165: mcpInitF( );
-"165
-[e ( _mcpInitF ..  ]
-[; ;MCP3909_Interface.c: 167: return;
-"167
-[e $UE 821  ]
-[; ;MCP3909_Interface.c: 168: }
+[; ;MCP3909_Interface.c: 168: delayMS10( 100 );
 "168
+[e ( _delayMS10 (1 -> 100 `i ]
+[; ;MCP3909_Interface.c: 170: mcpInitF( );
+"170
+[e ( _mcpInitF ..  ]
+[; ;MCP3909_Interface.c: 172: return;
+"172
+[e $UE 821  ]
+[; ;MCP3909_Interface.c: 173: }
+"173
 [e :UE 821 ]
 }
-"170
+"175
 [v _mcpInitF `(v ~T0 @X0 1 ef ]
-"171
+"176
 {
-[; ;MCP3909_Interface.c: 170: void mcpInitF( void )
-[; ;MCP3909_Interface.c: 171: {
+[; ;MCP3909_Interface.c: 175: void mcpInitF( void )
+[; ;MCP3909_Interface.c: 176: {
 [e :U _mcpInitF ]
 [f ]
-[; ;MCP3909_Interface.c: 175: TRISCbits.TRISC6 = 0;
-"175
-[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-[; ;MCP3909_Interface.c: 176: TRISCbits.TRISC7 = 0;
-"176
-[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
-[; ;MCP3909_Interface.c: 177: TRISCbits.TRISC4 = 0;
-"177
-[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
-[; ;MCP3909_Interface.c: 178: TRISCbits.TRISC3 = 0;
-"178
-[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-[; ;MCP3909_Interface.c: 181: LATCbits.LC7 = 0;
-"181
+[; ;MCP3909_Interface.c: 180: LATCbits.LC7 = 0;
+"180
 [e = . . _LATCbits 1 7 -> -> 0 `i `uc ]
+[; ;MCP3909_Interface.c: 181: LATCbits.LC4 = 0;
+"181
+[e = . . _LATCbits 1 4 -> -> 0 `i `uc ]
 [; ;MCP3909_Interface.c: 182: LATCbits.LC4 = 0;
 "182
 [e = . . _LATCbits 1 4 -> -> 0 `i `uc ]
-[; ;MCP3909_Interface.c: 183: LATCbits.LC4 = 0;
-"183
-[e = . . _LATCbits 1 4 -> -> 0 `i `uc ]
-[; ;MCP3909_Interface.c: 185: _delay((unsigned long)((5)*(16000000UL/4000.0)));
+[; ;MCP3909_Interface.c: 184: _delay((unsigned long)((5)*(16000000UL/4000.0)));
+"184
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `ul `d .4000.0 `ul ]
+[; ;MCP3909_Interface.c: 185: LATCbits.LATC6 = 0;
 "185
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `ul `d .4000.0 `ul ]
-[; ;MCP3909_Interface.c: 186: LATCbits.LATC6 = 0;
-"186
 [e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
-[; ;MCP3909_Interface.c: 187: _delay((unsigned long)((5)*(16000000UL/4000.0)));
-"187
+[; ;MCP3909_Interface.c: 186: _delay((unsigned long)((5)*(16000000UL/4000.0)));
+"186
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `ul `d .4000.0 `ul ]
-[; ;MCP3909_Interface.c: 189: LATCbits.LC7 = 0;
-"189
+[; ;MCP3909_Interface.c: 188: LATCbits.LC7 = 0;
+"188
 [e = . . _LATCbits 1 7 -> -> 0 `i `uc ]
+[; ;MCP3909_Interface.c: 189: LATCbits.LC4 = 0;
+"189
+[e = . . _LATCbits 1 4 -> -> 0 `i `uc ]
 [; ;MCP3909_Interface.c: 190: LATCbits.LC4 = 0;
 "190
 [e = . . _LATCbits 1 4 -> -> 0 `i `uc ]
-[; ;MCP3909_Interface.c: 191: LATCbits.LC4 = 0;
-"191
-[e = . . _LATCbits 1 4 -> -> 0 `i `uc ]
-[; ;MCP3909_Interface.c: 193: _delay((unsigned long)((5)*(16000000UL/4000.0)));
-"193
+[; ;MCP3909_Interface.c: 192: _delay((unsigned long)((5)*(16000000UL/4000.0)));
+"192
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `ul `d .4000.0 `ul ]
-[; ;MCP3909_Interface.c: 195: LATCbits.LC7 = 1;
-"195
+[; ;MCP3909_Interface.c: 194: LATCbits.LC7 = 1;
+"194
 [e = . . _LATCbits 1 7 -> -> 1 `i `uc ]
+[; ;MCP3909_Interface.c: 195: LATCbits.LC4 = 1;
+"195
+[e = . . _LATCbits 1 4 -> -> 1 `i `uc ]
 [; ;MCP3909_Interface.c: 196: LATCbits.LC4 = 1;
 "196
 [e = . . _LATCbits 1 4 -> -> 1 `i `uc ]
-[; ;MCP3909_Interface.c: 197: LATCbits.LC4 = 1;
-"197
-[e = . . _LATCbits 1 4 -> -> 1 `i `uc ]
-[; ;MCP3909_Interface.c: 199: _delay((unsigned long)((5)*(16000000UL/4000.0)));
-"199
+[; ;MCP3909_Interface.c: 198: _delay((unsigned long)((5)*(16000000UL/4000.0)));
+"198
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `ul `d .4000.0 `ul ]
-[; ;MCP3909_Interface.c: 200: LATCbits.LATC6 = 1;
-"200
+[; ;MCP3909_Interface.c: 199: LATCbits.LATC6 = 1;
+"199
 [e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;MCP3909_Interface.c: 201: delayMS10( 10 );
-"201
+[; ;MCP3909_Interface.c: 200: delayMS10( 10 );
+"200
 [e ( _delayMS10 (1 -> 10 `i ]
-[; ;MCP3909_Interface.c: 203: return;
-"203
+[; ;MCP3909_Interface.c: 202: return;
+"202
 [e $UE 822  ]
-[; ;MCP3909_Interface.c: 204: }
-"204
+[; ;MCP3909_Interface.c: 203: }
+"203
 [e :UE 822 ]
 }
-"206
+"205
 [v _mcpUpdatePower `(v ~T0 @X0 1 ef ]
-"207
+"206
 {
-[; ;MCP3909_Interface.c: 206: void mcpUpdatePower( void )
-[; ;MCP3909_Interface.c: 207: {
+[; ;MCP3909_Interface.c: 205: void mcpUpdatePower( void )
+[; ;MCP3909_Interface.c: 206: {
 [e :U _mcpUpdatePower ]
 [f ]
-"220
-[v F6702 `i ~T0 @X0 1 s meterWattsHF ]
+[v F6702 `ul ~T0 @X0 1 s meterEnergyUsedPart ]
 [i F6702
--> 0 `i
-]
-"221
-[v F6703 `ul ~T0 @X0 1 s timerHFoutLast_ms ]
-[i F6703
+"212
 -> -> -> 0 `i `l `ul
 ]
-"223
-[v F6704 `uc ~T0 @X0 1 s oneShotHFout ]
+"221
+[v F6703 `i ~T0 @X0 1 s meterWattsHF ]
+[i F6703
+-> 0 `i
+]
+"222
+[v F6704 `ul ~T0 @X0 1 s timerHFoutLast_ms ]
 [i F6704
+-> -> -> 0 `i `l `ul
+]
+"224
+[v F6705 `uc ~T0 @X0 1 s oneShotHFout ]
+[i F6705
 -> -> 0 `i `uc
 ]
-[; ;MCP3909_Interface.c: 220: static int meterWattsHF = 0;
-[; ;MCP3909_Interface.c: 221: static unsigned long timerHFoutLast_ms = 0;
-[; ;MCP3909_Interface.c: 223: static bool oneShotHFout = 0;
-[; ;MCP3909_Interface.c: 225: if( PORTAbits.RA3 == 0 )
-"225
-[e $ ! == -> . . _PORTAbits 0 3 `i -> 0 `i 824  ]
-[; ;MCP3909_Interface.c: 226: {
+[; ;MCP3909_Interface.c: 212: static unsigned long meterEnergyUsedPart = 0;
+[; ;MCP3909_Interface.c: 221: static int meterWattsHF = 0;
+[; ;MCP3909_Interface.c: 222: static unsigned long timerHFoutLast_ms = 0;
+[; ;MCP3909_Interface.c: 224: static bool oneShotHFout = 0;
+[; ;MCP3909_Interface.c: 226: if( PORTAbits.RA3 == 0 )
 "226
-{
-[; ;MCP3909_Interface.c: 227: if( oneShotHFout == 0 )
+[e $ ! == -> . . _PORTAbits 0 3 `i -> 0 `i 824  ]
+[; ;MCP3909_Interface.c: 227: {
 "227
-[e $ ! == -> F6704 `i -> 0 `i 825  ]
-[; ;MCP3909_Interface.c: 228: {
+{
+[; ;MCP3909_Interface.c: 228: if( oneShotHFout == 0 )
 "228
+[e $ ! == -> F6705 `i -> 0 `i 825  ]
+[; ;MCP3909_Interface.c: 229: {
+"229
 {
 [; ;MCP3909_Interface.c: 230: ledGoToggle( 0 );
 "230
 [e ( _ledGoToggle (1 -> 0 `i ]
 [; ;MCP3909_Interface.c: 232: oneShotHFout = 1;
 "232
-[e = F6704 -> -> 1 `i `uc ]
+[e = F6705 -> -> 1 `i `uc ]
 "234
 [v _timerHFout_ms `ul ~T0 @X0 1 a ]
 [; ;MCP3909_Interface.c: 234: unsigned long timerHFout_ms;
@@ -6574,10 +6583,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _timerResetCount (1 -> 2 `i ]
 [; ;MCP3909_Interface.c: 239: meterWattsHF = powerCalculateWatts( timerHFout_ms, 1 );
 "239
-[e = F6702 -> ( _powerCalculateWatts (2 , _timerHFout_ms -> -> 1 `i `uc `i ]
+[e = F6703 -> ( _powerCalculateWatts (2 , _timerHFout_ms -> -> 1 `i `uc `i ]
 [; ;MCP3909_Interface.c: 241: timerHFoutLast_ms = timerHFout_ms;
 "241
-[e = F6703 _timerHFout_ms ]
+[e = F6704 _timerHFout_ms ]
 "242
 }
 [e :U 825 ]
@@ -6594,18 +6603,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;MCP3909_Interface.c: 246: oneShotHFout = 0;
 "246
-[e = F6704 -> -> 0 `i `uc ]
+[e = F6705 -> -> 0 `i `uc ]
 "247
 }
 [e :U 826 ]
 "251
-[v F6706 `i ~T0 @X0 1 s meterWattsLF ]
-[i F6706
+[v F6707 `i ~T0 @X0 1 s meterWattsLF ]
+[i F6707
 -> 0 `i
 ]
 "253
-[v F6707 `uc ~T0 @X0 1 s oneShotLFout ]
-[i F6707
+[v F6708 `uc ~T0 @X0 1 s oneShotLFout ]
+[i F6708
 -> -> 0 `i `uc
 ]
 [; ;MCP3909_Interface.c: 247: }
@@ -6619,215 +6628,218 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;MCP3909_Interface.c: 257: if( oneShotLFout == 0 )
 "257
-[e $ ! == -> F6707 `i -> 0 `i 828  ]
+[e $ ! == -> F6708 `i -> 0 `i 828  ]
 [; ;MCP3909_Interface.c: 258: {
 "258
 {
-[; ;MCP3909_Interface.c: 260: ledGoToggle( 1 );
-"260
+[; ;MCP3909_Interface.c: 259: ledGoToggle( 1 );
+"259
 [e ( _ledGoToggle (1 -> 1 `i ]
-[; ;MCP3909_Interface.c: 262: oneShotLFout = 1;
-"262
-[e = F6707 -> -> 1 `i `uc ]
-"264
+[; ;MCP3909_Interface.c: 261: oneShotLFout = 1;
+"261
+[e = F6708 -> -> 1 `i `uc ]
+"263
 [v _timerLFout_ms `ul ~T0 @X0 1 a ]
-[; ;MCP3909_Interface.c: 264: unsigned long timerLFout_ms;
-[; ;MCP3909_Interface.c: 265: timerLFout_ms = timerGetCount( 1 );
-"265
+[; ;MCP3909_Interface.c: 263: unsigned long timerLFout_ms;
+[; ;MCP3909_Interface.c: 264: timerLFout_ms = timerGetCount( 1 );
+"264
 [e = _timerLFout_ms ( _timerGetCount (1 -> 1 `i ]
-[; ;MCP3909_Interface.c: 266: timerResetCount( 1 );
-"266
+[; ;MCP3909_Interface.c: 265: timerResetCount( 1 );
+"265
 [e ( _timerResetCount (1 -> 1 `i ]
-[; ;MCP3909_Interface.c: 267: timerResetCount( 2 );
-"267
+[; ;MCP3909_Interface.c: 266: timerResetCount( 2 );
+"266
 [e ( _timerResetCount (1 -> 2 `i ]
-[; ;MCP3909_Interface.c: 270: meterWattsLF = powerCalculateWatts( timerLFout_ms, 0 );
-"270
-[e = F6706 -> ( _powerCalculateWatts (2 , _timerLFout_ms -> -> 0 `i `uc `i ]
-[; ;MCP3909_Interface.c: 273: meterEnergyUsedPart += 27000 * (unsigned long) 16;
-"273
-[e =+ _meterEnergyUsedPart * -> -> -> 27000 `i `l `ul -> -> 16 `i `ul ]
-[; ;MCP3909_Interface.c: 274: while( meterEnergyUsedPart > 100000 )
-"274
+[; ;MCP3909_Interface.c: 268: meterWattsLF = powerCalculateWatts( timerLFout_ms, 0 );
+"268
+[e = F6707 -> ( _powerCalculateWatts (2 , _timerLFout_ms -> -> 0 `i `uc `i ]
+[; ;MCP3909_Interface.c: 271: meterEnergyUsedPart += 27000 * (unsigned long) 16;
+"271
+[e =+ F6702 * -> -> -> 27000 `i `l `ul -> -> 16 `i `ul ]
+[; ;MCP3909_Interface.c: 272: while( meterEnergyUsedPart > 100000 )
+"272
 [e $U 829  ]
 [e :U 830 ]
-[; ;MCP3909_Interface.c: 275: {
-"275
+[; ;MCP3909_Interface.c: 273: {
+"273
 {
-[; ;MCP3909_Interface.c: 276: meterEnergyUsed_global++;
-"276
+[; ;MCP3909_Interface.c: 274: meterEnergyUsed_global++;
+"274
 [e ++ _meterEnergyUsed_global -> -> -> 1 `i `l `ul ]
-[; ;MCP3909_Interface.c: 277: meterEnergyUsedPart -= 100000;
-"277
-[e =- _meterEnergyUsedPart -> -> 100000 `l `ul ]
-"278
+[; ;MCP3909_Interface.c: 275: meterEnergyUsedPart -= 100000;
+"275
+[e =- F6702 -> -> 100000 `l `ul ]
+"276
 }
 [e :U 829 ]
-"274
-[e $ > _meterEnergyUsedPart -> -> 100000 `l `ul 830  ]
+"272
+[e $ > F6702 -> -> 100000 `l `ul 830  ]
 [e :U 831 ]
-"279
+"277
 }
 [e :U 828 ]
-"280
+"278
 }
+[; ;MCP3909_Interface.c: 276: }
+[; ;MCP3909_Interface.c: 277: }
 [; ;MCP3909_Interface.c: 278: }
-[; ;MCP3909_Interface.c: 279: }
-[; ;MCP3909_Interface.c: 280: }
 [e $U 832  ]
-"281
+"279
 [e :U 827 ]
-[; ;MCP3909_Interface.c: 281: else
-[; ;MCP3909_Interface.c: 282: {
-"282
+[; ;MCP3909_Interface.c: 279: else
+[; ;MCP3909_Interface.c: 280: {
+"280
 {
-[; ;MCP3909_Interface.c: 283: oneShotLFout = 0;
-"283
-[e = F6707 -> -> 0 `i `uc ]
-"284
+[; ;MCP3909_Interface.c: 281: oneShotLFout = 0;
+"281
+[e = F6708 -> -> 0 `i `uc ]
+"282
 }
 [e :U 832 ]
-[; ;MCP3909_Interface.c: 284: }
-[; ;MCP3909_Interface.c: 294: if( meterWattsLF > 500 )
+[; ;MCP3909_Interface.c: 282: }
+[; ;MCP3909_Interface.c: 293: if( meterWattsLF > 500 )
+"293
+[e $ ! > F6707 -> 500 `i 833  ]
+[; ;MCP3909_Interface.c: 294: {
 "294
-[e $ ! > F6706 -> 500 `i 833  ]
-[; ;MCP3909_Interface.c: 295: {
+{
+[; ;MCP3909_Interface.c: 295: meterWatts_global = meterWattsLF;
 "295
-{
-[; ;MCP3909_Interface.c: 296: meterWatts_global = meterWattsLF;
+[e = _meterWatts_global -> -> F6707 `l `ul ]
 "296
-[e = _meterWatts_global -> -> F6706 `l `ul ]
-"297
 }
-[; ;MCP3909_Interface.c: 297: }
+[; ;MCP3909_Interface.c: 296: }
 [e $U 834  ]
-"298
+"297
 [e :U 833 ]
-[; ;MCP3909_Interface.c: 298: else
-[; ;MCP3909_Interface.c: 299: {
-"299
+[; ;MCP3909_Interface.c: 297: else
+[; ;MCP3909_Interface.c: 298: {
+"298
 {
-[; ;MCP3909_Interface.c: 300: meterWatts_global = meterWattsHF;
+[; ;MCP3909_Interface.c: 299: meterWatts_global = meterWattsHF;
+"299
+[e = _meterWatts_global -> -> F6703 `l `ul ]
 "300
-[e = _meterWatts_global -> -> F6702 `l `ul ]
-"301
 }
 [e :U 834 ]
-[; ;MCP3909_Interface.c: 301: }
-[; ;MCP3909_Interface.c: 304: powerReduction( timerHFoutLast_ms );
-"304
-[e ( _powerReduction (1 F6703 ]
-[; ;MCP3909_Interface.c: 306: return;
-"306
-[e $UE 823  ]
-[; ;MCP3909_Interface.c: 307: }
+[; ;MCP3909_Interface.c: 300: }
+[; ;MCP3909_Interface.c: 303: powerReduction( timerHFoutLast_ms );
+"303
+[e ( _powerReduction (1 F6704 ]
+[; ;MCP3909_Interface.c: 307: meterWatts_global = 78;
 "307
+[e = _meterWatts_global -> -> -> 78 `i `l `ul ]
+[; ;MCP3909_Interface.c: 309: return;
+"309
+[e $UE 823  ]
+[; ;MCP3909_Interface.c: 310: }
+"310
 [e :UE 823 ]
 }
-"309
+"312
 [v _powerCalculateWatts `(ul ~T0 @X0 1 ef2`ul`uc ]
-"310
+"313
 {
-[; ;MCP3909_Interface.c: 309: unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
-[; ;MCP3909_Interface.c: 310: {
+[; ;MCP3909_Interface.c: 312: unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
+[; ;MCP3909_Interface.c: 313: {
 [e :U _powerCalculateWatts ]
-"309
+"312
 [v _timer_ms `ul ~T0 @X0 1 r1 ]
 [v _outHF `uc ~T0 @X0 1 r2 ]
-"310
+"313
 [f ]
-"315
+"319
 [v _calcWatts `i ~T0 @X0 1 a ]
-[; ;MCP3909_Interface.c: 315: int calcWatts;
-[; ;MCP3909_Interface.c: 317: if( outHF == 1 )
-"317
-[e $ ! == -> _outHF `i -> 1 `i 836  ]
-[; ;MCP3909_Interface.c: 318: {
-"318
-{
-[; ;MCP3909_Interface.c: 320: calcWatts = (((((unsigned long) 27000 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timer_ms;
-"320
-[e = _calcWatts -> / * / * -> -> 27000 `i `ul -> -> 3600 `i `ul / -> -> 100000 `l `ul -> -> 1000 `i `ul -> -> 1 `i `ul _timer_ms `i ]
+[; ;MCP3909_Interface.c: 319: int calcWatts;
+[; ;MCP3909_Interface.c: 321: if( outHF == 1 )
 "321
-}
-[; ;MCP3909_Interface.c: 321: }
-[e $U 837  ]
+[e $ ! == -> _outHF `i -> 1 `i 836  ]
+[; ;MCP3909_Interface.c: 322: {
 "322
-[e :U 836 ]
-[; ;MCP3909_Interface.c: 322: else
-[; ;MCP3909_Interface.c: 323: {
-"323
 {
-[; ;MCP3909_Interface.c: 325: calcWatts = (((((unsigned long) 27000 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timer_ms;
-"325
+[; ;MCP3909_Interface.c: 324: calcWatts = (((((unsigned long) 27000 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timer_ms;
+"324
 [e = _calcWatts -> / * / * -> -> 27000 `i `ul -> -> 3600 `i `ul / -> -> 100000 `l `ul -> -> 1000 `i `ul -> -> 1 `i `ul _timer_ms `i ]
+"325
+}
+[; ;MCP3909_Interface.c: 325: }
+[e $U 837  ]
 "326
+[e :U 836 ]
+[; ;MCP3909_Interface.c: 326: else
+[; ;MCP3909_Interface.c: 327: {
+"327
+{
+[; ;MCP3909_Interface.c: 329: calcWatts = (((((unsigned long) 27000 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timer_ms;
+"329
+[e = _calcWatts -> / * / * -> -> 27000 `i `ul -> -> 3600 `i `ul / -> -> 100000 `l `ul -> -> 1000 `i `ul -> -> 1 `i `ul _timer_ms `i ]
+"330
 }
 [e :U 837 ]
-[; ;MCP3909_Interface.c: 326: }
-[; ;MCP3909_Interface.c: 328: return calcWatts;
-"328
+[; ;MCP3909_Interface.c: 330: }
+[; ;MCP3909_Interface.c: 332: return calcWatts;
+"332
 [e ) -> -> _calcWatts `l `ul ]
 [e $UE 835  ]
-[; ;MCP3909_Interface.c: 329: }
-"329
+[; ;MCP3909_Interface.c: 333: }
+"333
 [e :UE 835 ]
 }
-"331
+"335
 [v _powerReduction `(v ~T0 @X0 1 ef1`ul ]
-"332
+"336
 {
-[; ;MCP3909_Interface.c: 331: void powerReduction( unsigned long timerLast_ms )
-[; ;MCP3909_Interface.c: 332: {
+[; ;MCP3909_Interface.c: 335: void powerReduction( unsigned long timerLast_ms )
+[; ;MCP3909_Interface.c: 336: {
 [e :U _powerReduction ]
-"331
+"335
 [v _timerLast_ms `ul ~T0 @X0 1 r1 ]
-"332
+"336
 [f ]
-"340
+"344
 [v _timerReduce_ms `ul ~T0 @X0 1 a ]
-"341
-[v F6727 `i ~T0 @X0 1 s countReduce ]
-[i F6727
+"345
+[v F6728 `i ~T0 @X0 1 s countReduce ]
+[i F6728
 -> 0 `i
 ]
-[; ;MCP3909_Interface.c: 340: unsigned long timerReduce_ms;
-[; ;MCP3909_Interface.c: 341: static int countReduce = 0;
-[; ;MCP3909_Interface.c: 343: timerReduce_ms = timerGetCount( 2 );
-"343
-[e = _timerReduce_ms ( _timerGetCount (1 -> 2 `i ]
-[; ;MCP3909_Interface.c: 345: if( (timerReduce_ms > 90000) || (timerLast_ms == 0) )
-"345
-[e $ ! || > _timerReduce_ms -> -> 90000 `l `ul == _timerLast_ms -> -> -> 0 `i `l `ul 839  ]
-[; ;MCP3909_Interface.c: 346: {
-"346
-{
-[; ;MCP3909_Interface.c: 347: meterWatts_global = 0;
+[; ;MCP3909_Interface.c: 344: unsigned long timerReduce_ms;
+[; ;MCP3909_Interface.c: 345: static int countReduce = 0;
+[; ;MCP3909_Interface.c: 347: timerReduce_ms = timerGetCount( 2 );
 "347
-[e = _meterWatts_global -> -> -> 0 `i `l `ul ]
-"348
-}
-[; ;MCP3909_Interface.c: 348: }
-[e $U 840  ]
+[e = _timerReduce_ms ( _timerGetCount (1 -> 2 `i ]
+[; ;MCP3909_Interface.c: 349: if( (timerReduce_ms > 90000) || (timerLast_ms == 0) )
 "349
-[e :U 839 ]
-[; ;MCP3909_Interface.c: 349: else if( timerReduce_ms > timerLast_ms )
-[e $ ! > _timerReduce_ms _timerLast_ms 841  ]
+[e $ ! || > _timerReduce_ms -> -> 90000 `l `ul == _timerLast_ms -> -> -> 0 `i `l `ul 839  ]
 [; ;MCP3909_Interface.c: 350: {
 "350
 {
-[; ;MCP3909_Interface.c: 351: meterWatts_global = (((((unsigned long) 27000 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerReduce_ms;
+[; ;MCP3909_Interface.c: 351: meterWatts_global = 0;
 "351
-[e = _meterWatts_global / * / * -> -> 27000 `i `ul -> -> 3600 `i `ul / -> -> 100000 `l `ul -> -> 1000 `i `ul -> -> 1 `i `ul _timerReduce_ms ]
+[e = _meterWatts_global -> -> -> 0 `i `l `ul ]
 "352
 }
-[e :U 841 ]
-"354
-[e :U 840 ]
 [; ;MCP3909_Interface.c: 352: }
-[; ;MCP3909_Interface.c: 354: return;
-[e $UE 838  ]
-[; ;MCP3909_Interface.c: 355: }
+[e $U 840  ]
+"353
+[e :U 839 ]
+[; ;MCP3909_Interface.c: 353: else if( timerReduce_ms > timerLast_ms )
+[e $ ! > _timerReduce_ms _timerLast_ms 841  ]
+[; ;MCP3909_Interface.c: 354: {
+"354
+{
+[; ;MCP3909_Interface.c: 355: meterWatts_global = (((((unsigned long) 27000 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerReduce_ms;
 "355
+[e = _meterWatts_global / * / * -> -> 27000 `i `ul -> -> 3600 `i `ul / -> -> 100000 `l `ul -> -> 1000 `i `ul -> -> 1 `i `ul _timerReduce_ms ]
+"356
+}
+[e :U 841 ]
+"358
+[e :U 840 ]
+[; ;MCP3909_Interface.c: 356: }
+[; ;MCP3909_Interface.c: 358: return;
+[e $UE 838  ]
+[; ;MCP3909_Interface.c: 359: }
+"359
 [e :UE 838 ]
 }
