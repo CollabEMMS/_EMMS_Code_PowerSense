@@ -65,9 +65,11 @@ void communications( bool firstTime );
 bool SPI_receive_data( char* data );
 void set_current_port( unsigned char * );
 enum receive_status receive_data( struct buffer * );
-bool process_data( struct buffer *receive_buffer, struct buffer *send_buffer );
+bool process_data( struct buffer *receive_buffer, struct buffer *send_buffer, bool xSumMatches );
 void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer *buffer_to_parameterize );
 bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer *send_buffer );
+
+bool xSumMatches( struct buffer buffer_to_chk);
 
 void command_builder1( struct buffer *send_buffer, char* data1 );
 void command_builder2( struct buffer *send_buffer, char* data1, char* data2 );
@@ -148,7 +150,7 @@ void communications( bool firstTime )
 		break;
 	    case receive_end_command:
 
-		if( process_data( &receive_buffer, &send_buffer ) == true )
+		if( process_data( &receive_buffer, &send_buffer, xSumMatches(receive_buffer) ) == true )
 		{
 		    end_of_transmission_received = true;
 		}
@@ -266,7 +268,7 @@ enum receive_status receive_data( struct buffer * receive_buffer )
     return my_status;
 }
 
-bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer )
+bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer, bool xSumMatches )
 {
     bool end_of_transmission_received;
 
@@ -277,7 +279,12 @@ bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer )
 
     process_data_parameterize( parameters, receive_buffer );
 
+    if (xSumMatches){
     end_of_transmission_received = process_data_parameters( parameters, send_buffer );
+    }
+    else{
+    end_of_transmission_received = true;
+    }
 
     return end_of_transmission_received;
 
@@ -401,6 +408,55 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
     // see earlier comments about NULLS and dying from old age
 
     return end_of_transmission_received;
+}
+
+bool xSumMatches( struct buffer buffer_to_chk){
+    
+    //xsum vars
+    //XSUM = sum of ascii value of all chars in command EXCEPT start char '!' and final delimeter ';'
+    int xsum = 0;
+    int recXsum = 0;
+    char recXsumbuf[16];
+    int recXsumPointer = 0;
+    bool xsumRecieving = false; //this is true after the xsum delimiter
+    char currentData;  
+    char* data = buffer_to_chk.data_buffer;
+    int i = 1;  
+        //cycle through receive buffer
+        //we start at 1 because the start char '!' is not needed
+        while (currentData != COMMAND_END_CHAR){
+            
+            currentData = data[i];
+            i++;
+
+            if (xsumRecieving){ 
+                recXsumbuf[recXsumPointer] = currentData;
+                recXsumPointer++;
+            }
+            else{
+                //if the next character in line is the delimiter...
+                if (data[i] == XSUM_DELIMETER){
+                    data[i] = CHAR_NULL;
+                    xsumRecieving = true;
+                    recXsumbuf[recXsumPointer] = CHAR_NULL;
+                    i++;
+                }
+                else{
+                    xsum += currentData;
+                }
+
+            }
+
+        }
+
+        bool matches = false;
+
+        recXsum = atoi (recXsumbuf);
+        if (xsum == recXsum){
+            matches = true;
+        }
+
+        return matches;
 }
 
 void command_builder1( struct buffer *send_buffer, char* data1 )

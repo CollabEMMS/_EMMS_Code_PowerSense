@@ -8193,9 +8193,11 @@ void communications( bool firstTime );
 bool SPI_receive_data( char* data );
 void set_current_port( unsigned char * );
 enum receive_status receive_data( struct buffer * );
-bool process_data( struct buffer *receive_buffer, struct buffer *send_buffer );
+bool process_data( struct buffer *receive_buffer, struct buffer *send_buffer, bool xSumMatches );
 void process_data_parameterize( char parameters[5][10], struct buffer *buffer_to_parameterize );
 bool process_data_parameters( char parameters[5][10], struct buffer *send_buffer );
+
+bool xSumMatches( struct buffer buffer_to_chk);
 
 void command_builder1( struct buffer *send_buffer, char* data1 );
 void command_builder2( struct buffer *send_buffer, char* data1, char* data2 );
@@ -8226,7 +8228,7 @@ void com_command_setAmps( struct buffer * send_buffer );
 void com_command_readCalibration( struct buffer * send_buffer );
 void com_command_setVersion( struct buffer * send_buffer );
 
-# 105
+# 107
 void commInit( void )
 {
 communications( 1 );
@@ -8273,7 +8275,7 @@ case receive_in_command:
 break;
 case receive_end_command:
 
-if( process_data( &receive_buffer, &send_buffer ) == 1 )
+if( process_data( &receive_buffer, &send_buffer, xSumMatches(receive_buffer) ) == 1 )
 {
 end_of_transmission_received = 1;
 }
@@ -8335,7 +8337,7 @@ break;
 case 3:
 com_command_setEnergyUsed( send_buffer );
 
-# 222
+# 224
 default:
 commState = 0;
 break;
@@ -8383,7 +8385,7 @@ my_status = receive_end_command;
 return my_status;
 }
 
-bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer )
+bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer, bool xSumMatches )
 {
 bool end_of_transmission_received;
 
@@ -8394,7 +8396,12 @@ char parameters[5][10];
 
 process_data_parameterize( parameters, receive_buffer );
 
+if (xSumMatches){
 end_of_transmission_received = process_data_parameters( parameters, send_buffer );
+}
+else{
+end_of_transmission_received = 1;
+}
 
 return end_of_transmission_received;
 
@@ -8405,7 +8412,7 @@ void process_data_parameterize( char parameters[5][10], struct buffer * buffer_t
 unsigned char parameter_position = 0;
 unsigned char parameter_index = 0;
 
-# 298
+# 305
 for( int inx = 0; inx < 5; inx++ )
 {
 parameters[inx][0] = '\0';
@@ -8507,8 +8514,57 @@ send_end_of_transmission( send_buffer );
 }
 }
 
-# 403
+# 410
 return end_of_transmission_received;
+}
+
+bool xSumMatches( struct buffer buffer_to_chk){
+
+
+
+int xsum = 0;
+int recXsum = 0;
+char recXsumbuf[16];
+int recXsumPointer = 0;
+bool xsumRecieving = 0;
+char currentData;
+char* data = buffer_to_chk.data_buffer;
+int i = 1;
+
+
+while (currentData != '*'){
+
+currentData = data[i];
+i++;
+
+if (xsumRecieving){
+recXsumbuf[recXsumPointer] = currentData;
+recXsumPointer++;
+}
+else{
+
+if (data[i] == '$'){
+data[i] = '\0';
+xsumRecieving = 1;
+recXsumbuf[recXsumPointer] = '\0';
+i++;
+}
+else{
+xsum += currentData;
+}
+
+}
+
+}
+
+bool matches = 0;
+
+recXsum = atoi (recXsumbuf);
+if (xsum == recXsum){
+matches = 1;
+}
+
+return matches;
 }
 
 void command_builder1( struct buffer *send_buffer, char* data1 )

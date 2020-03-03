@@ -4,18 +4,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 "40
 [s S825 `uc -> 40 `i `uc 1 `uc 1 ]
 [n S825 buffer data_buffer write_position read_position ]
-"127
+"129
 [c E6750 0 1 2 .. ]
 [n E6750 receive_status receive_waiting receive_in_command receive_end_command  ]
-"89
+"91
 [v _SPISlaveInit `(v ~T0 @X0 0 ef ]
-"88
+"90
 [v _resetCommunications `(v ~T0 @X0 0 ef1`*S825 ]
 "67
 [v _receive_data `(E6750 ~T0 @X0 0 ef1`*S825 ]
 "68
-[v _process_data `(uc ~T0 @X0 0 ef2`*S825`*S825 ]
-"81
+[v _process_data `(uc ~T0 @X0 0 ef3`*S825`*S825`uc ]
+"72
+[v _xSumMatches `(uc ~T0 @X0 0 ef1`S825 ]
+"83
 [v _send_data `(uc ~T0 @X0 0 ef1`*S825 ]
 "6469 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f25k22.h
 [s S337 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -70,39 +72,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 "164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
 [v __delay `JF6620 ~T0 @X0 0 e ]
 [p i __delay ]
-"99 SlaveComm.c
+"101 SlaveComm.c
 [v _com_command_setVersion `(v ~T0 @X0 0 ef1`*S825 ]
-"94
+"96
 [v _com_command_setPower `(v ~T0 @X0 0 ef1`*S825 ]
-"95
+"97
 [v _com_command_setEnergyUsed `(v ~T0 @X0 0 ef1`*S825 ]
 "65
 [v _SPI_receive_data `(uc ~T0 @X0 0 ef1`*uc ]
-[v F6772 `uc ~T0 @X0 -> 10 `i t ]
+[v F6773 `uc ~T0 @X0 -> 10 `i t ]
 "69
-[v _process_data_parameterize `(v ~T0 @X0 0 ef2`*F6772`*S825 ]
-[v F6776 `uc ~T0 @X0 -> 10 `i t ]
+[v _process_data_parameterize `(v ~T0 @X0 0 ef2`*F6773`*S825 ]
+[v F6777 `uc ~T0 @X0 -> 10 `i t ]
 "70
-[v _process_data_parameters `(uc ~T0 @X0 0 ef2`*F6776`*S825 ]
-"84
+[v _process_data_parameters `(uc ~T0 @X0 0 ef2`*F6777`*S825 ]
+"86
 [v _strmatch `(uc ~T0 @X0 0 ef2`*uc`*uc ]
 "20 Main_PowerSense.h
 [v _meterEnergyUsed_global `ul ~T0 @X0 0 e ]
 "57 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h
 [v _atol `(l ~T0 @X0 0 ef1`*Cuc ]
-"92 SlaveComm.c
+"94 SlaveComm.c
 [v _send_end_of_transmission `(v ~T0 @X0 0 ef1`*S825 ]
-"77
+"55 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h
+[v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
+"79 SlaveComm.c
 [v _command_builder_add_char `(i ~T0 @X0 0 ef2`*S825`uc ]
-"78
+"80
 [v _command_builder_add_string `(i ~T0 @X0 0 ef2`*S825`*uc ]
-"79
+"81
 [v _xsum_builder `(v ~T0 @X0 0 ef2`*S825`i ]
 "95 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h
 [v _itoa `(*uc ~T0 @X0 0 ef3`*uc`i`i ]
-"82 SlaveComm.c
+"84 SlaveComm.c
 [v _SPI_send_data `(uc ~T0 @X0 0 ef1`uc ]
-"85
+"87
 [v _strcmp2 `(i ~T0 @X0 0 ef2`*uc`*uc ]
 "3696 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f25k22.h
 [s S170 :2 `uc 1 :1 `uc 1 ]
@@ -6602,1722 +6606,1877 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SlaveComm.c: 65: bool SPI_receive_data( char* data );
 [; ;SlaveComm.c: 66: void set_current_port( unsigned char * );
 [; ;SlaveComm.c: 67: enum receive_status receive_data( struct buffer * );
-[; ;SlaveComm.c: 68: bool process_data( struct buffer *receive_buffer, struct buffer *send_buffer );
+[; ;SlaveComm.c: 68: bool process_data( struct buffer *receive_buffer, struct buffer *send_buffer, bool xSumMatches );
 [; ;SlaveComm.c: 69: void process_data_parameterize( char parameters[5][10], struct buffer *buffer_to_parameterize );
 [; ;SlaveComm.c: 70: bool process_data_parameters( char parameters[5][10], struct buffer *send_buffer );
-[; ;SlaveComm.c: 72: void command_builder1( struct buffer *send_buffer, char* data1 );
-[; ;SlaveComm.c: 73: void command_builder2( struct buffer *send_buffer, char* data1, char* data2 );
-[; ;SlaveComm.c: 74: void command_builder3( struct buffer *send_buffer, char* data1, char* data2, char* data3 );
-[; ;SlaveComm.c: 75: void command_builder4( struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4 );
-[; ;SlaveComm.c: 77: int command_builder_add_char( struct buffer *send_buffer, char data );
-[; ;SlaveComm.c: 78: int command_builder_add_string( struct buffer *send_buffer, char *data );
-[; ;SlaveComm.c: 79: void xsum_builder( struct buffer *send_buffer, int xsum );
-[; ;SlaveComm.c: 81: bool send_data( struct buffer *send_buffer );
-[; ;SlaveComm.c: 82: bool SPI_send_data( char data );
-[; ;SlaveComm.c: 84: bool strmatch( char* a, char* b );
-[; ;SlaveComm.c: 85: int strcmp2( char* a, char* b );
-[; ;SlaveComm.c: 86: void strcpy2( char* rcv, char* source );
-[; ;SlaveComm.c: 88: void resetCommunications( struct buffer * receive_buffer );
-[; ;SlaveComm.c: 89: void SPISlaveInit( void );
-[; ;SlaveComm.c: 92: void send_end_of_transmission( struct buffer *send_buffer );
-[; ;SlaveComm.c: 93: void com_command_testLED( struct buffer * send_buffer );
-[; ;SlaveComm.c: 94: void com_command_setPower( struct buffer * send_buffer );
-[; ;SlaveComm.c: 95: void com_command_setEnergyUsed( struct buffer * send_buffer );
-[; ;SlaveComm.c: 96: void com_command_setVolts( struct buffer * send_buffer );
-[; ;SlaveComm.c: 97: void com_command_setAmps( struct buffer * send_buffer );
-[; ;SlaveComm.c: 98: void com_command_readCalibration( struct buffer * send_buffer );
-[; ;SlaveComm.c: 99: void com_command_setVersion( struct buffer * send_buffer );
-"105
+[; ;SlaveComm.c: 72: bool xSumMatches( struct buffer buffer_to_chk);
+[; ;SlaveComm.c: 74: void command_builder1( struct buffer *send_buffer, char* data1 );
+[; ;SlaveComm.c: 75: void command_builder2( struct buffer *send_buffer, char* data1, char* data2 );
+[; ;SlaveComm.c: 76: void command_builder3( struct buffer *send_buffer, char* data1, char* data2, char* data3 );
+[; ;SlaveComm.c: 77: void command_builder4( struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4 );
+[; ;SlaveComm.c: 79: int command_builder_add_char( struct buffer *send_buffer, char data );
+[; ;SlaveComm.c: 80: int command_builder_add_string( struct buffer *send_buffer, char *data );
+[; ;SlaveComm.c: 81: void xsum_builder( struct buffer *send_buffer, int xsum );
+[; ;SlaveComm.c: 83: bool send_data( struct buffer *send_buffer );
+[; ;SlaveComm.c: 84: bool SPI_send_data( char data );
+[; ;SlaveComm.c: 86: bool strmatch( char* a, char* b );
+[; ;SlaveComm.c: 87: int strcmp2( char* a, char* b );
+[; ;SlaveComm.c: 88: void strcpy2( char* rcv, char* source );
+[; ;SlaveComm.c: 90: void resetCommunications( struct buffer * receive_buffer );
+[; ;SlaveComm.c: 91: void SPISlaveInit( void );
+[; ;SlaveComm.c: 94: void send_end_of_transmission( struct buffer *send_buffer );
+[; ;SlaveComm.c: 95: void com_command_testLED( struct buffer * send_buffer );
+[; ;SlaveComm.c: 96: void com_command_setPower( struct buffer * send_buffer );
+[; ;SlaveComm.c: 97: void com_command_setEnergyUsed( struct buffer * send_buffer );
+[; ;SlaveComm.c: 98: void com_command_setVolts( struct buffer * send_buffer );
+[; ;SlaveComm.c: 99: void com_command_setAmps( struct buffer * send_buffer );
+[; ;SlaveComm.c: 100: void com_command_readCalibration( struct buffer * send_buffer );
+[; ;SlaveComm.c: 101: void com_command_setVersion( struct buffer * send_buffer );
+"107
 [v _commInit `(v ~T0 @X0 1 ef ]
-"106
+"108
 {
-[; ;SlaveComm.c: 105: void commInit( void )
-[; ;SlaveComm.c: 106: {
+[; ;SlaveComm.c: 107: void commInit( void )
+[; ;SlaveComm.c: 108: {
 [e :U _commInit ]
 [f ]
-[; ;SlaveComm.c: 107: communications( 1 );
-"107
-[e ( _communications (1 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 109: return;
+[; ;SlaveComm.c: 109: communications( 1 );
 "109
+[e ( _communications (1 -> -> 1 `i `uc ]
+[; ;SlaveComm.c: 111: return;
+"111
 [e $UE 826  ]
-[; ;SlaveComm.c: 110: }
-"110
+[; ;SlaveComm.c: 112: }
+"112
 [e :UE 826 ]
 }
-"112
+"114
 [v _commRun `(v ~T0 @X0 1 ef ]
-"113
+"115
 {
-[; ;SlaveComm.c: 112: void commRun( void )
-[; ;SlaveComm.c: 113: {
+[; ;SlaveComm.c: 114: void commRun( void )
+[; ;SlaveComm.c: 115: {
 [e :U _commRun ]
 [f ]
-[; ;SlaveComm.c: 114: communications( 0 );
-"114
-[e ( _communications (1 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 116: return;
+[; ;SlaveComm.c: 116: communications( 0 );
 "116
+[e ( _communications (1 -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 118: return;
+"118
 [e $UE 827  ]
-[; ;SlaveComm.c: 117: }
-"117
+[; ;SlaveComm.c: 119: }
+"119
 [e :UE 827 ]
 }
-"119
-[v _communications `(v ~T0 @X0 1 ef1`uc ]
-"120
-{
-[; ;SlaveComm.c: 119: void communications( bool firstTime )
-[; ;SlaveComm.c: 120: {
-[e :U _communications ]
-"119
-[v _firstTime `uc ~T0 @X0 1 r1 ]
-"120
-[f ]
 "121
-[v F6843 `S825 ~T0 @X0 1 s receive_buffer ]
+[v _communications `(v ~T0 @X0 1 ef1`uc ]
 "122
-[v F6844 `S825 ~T0 @X0 1 s send_buffer ]
+{
+[; ;SlaveComm.c: 121: void communications( bool firstTime )
+[; ;SlaveComm.c: 122: {
+[e :U _communications ]
+"121
+[v _firstTime `uc ~T0 @X0 1 r1 ]
+"122
+[f ]
+"123
+[v F6846 `S825 ~T0 @X0 1 s receive_buffer ]
 "124
-[v F6845 `uc ~T0 @X0 1 s end_of_transmission_received ]
-[i F6845
--> -> 0 `i `uc
-]
-"125
-[v _no_more_to_send `uc ~T0 @X0 1 a ]
-"127
-[v F6847 `E6750 ~T0 @X0 1 s receive_current_state ]
-[; ;SlaveComm.c: 121: static struct buffer receive_buffer;
-[; ;SlaveComm.c: 122: static struct buffer send_buffer;
-[; ;SlaveComm.c: 124: static bool end_of_transmission_received = 0;
-[; ;SlaveComm.c: 125: bool no_more_to_send;
-[; ;SlaveComm.c: 127: static enum receive_status receive_current_state;
-[; ;SlaveComm.c: 130: if( firstTime == 1 )
-"130
-[e $ ! == -> _firstTime `i -> 1 `i 829  ]
-[; ;SlaveComm.c: 131: {
-"131
-{
-[; ;SlaveComm.c: 132: SPISlaveInit( );
-"132
-[e ( _SPISlaveInit ..  ]
-[; ;SlaveComm.c: 133: send_buffer.write_position = 0;
-"133
-[e = . F6844 1 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 134: send_buffer.read_position = 0;
-"134
-[e = . F6844 2 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 135: resetCommunications( &send_buffer );
-"135
-[e ( _resetCommunications (1 &U F6844 ]
-"136
-}
-[; ;SlaveComm.c: 136: }
-[e $U 830  ]
-"137
-[e :U 829 ]
-[; ;SlaveComm.c: 137: else
-[; ;SlaveComm.c: 138: {
-"138
-{
-[; ;SlaveComm.c: 139: receive_current_state = receive_data( &receive_buffer );
-"139
-[e = F6847 ( _receive_data (1 &U F6843 ]
-[; ;SlaveComm.c: 141: switch( receive_current_state )
-"141
-[e $U 832  ]
-[; ;SlaveComm.c: 142: {
-"142
-{
-[; ;SlaveComm.c: 143: case receive_waiting:
-"143
-[e :U 833 ]
-[; ;SlaveComm.c: 145: break;
-"145
-[e $U 831  ]
-[; ;SlaveComm.c: 146: case receive_in_command:
-"146
-[e :U 834 ]
-[; ;SlaveComm.c: 148: break;
-"148
-[e $U 831  ]
-[; ;SlaveComm.c: 149: case receive_end_command:
-"149
-[e :U 835 ]
-[; ;SlaveComm.c: 151: if( process_data( &receive_buffer, &send_buffer ) == 1 )
-"151
-[e $ ! == -> ( _process_data (2 , &U F6843 &U F6844 `i -> 1 `i 836  ]
-[; ;SlaveComm.c: 152: {
-"152
-{
-[; ;SlaveComm.c: 153: end_of_transmission_received = 1;
-"153
-[e = F6845 -> -> 1 `i `uc ]
-"154
-}
-[e :U 836 ]
-[; ;SlaveComm.c: 154: }
-[; ;SlaveComm.c: 156: break;
-"156
-[e $U 831  ]
-"157
-}
-[; ;SlaveComm.c: 157: }
-[e $U 831  ]
-"141
-[e :U 832 ]
-[e [\ F6847 , $ . `E6750 0 833
- , $ . `E6750 1 834
- , $ . `E6750 2 835
- 831 ]
-"157
-[e :U 831 ]
-[; ;SlaveComm.c: 159: no_more_to_send = send_data( &send_buffer );
-"159
-[e = _no_more_to_send ( _send_data (1 &U F6844 ]
-"162
-[v F6848 `uc ~T0 @X0 1 s last_state_active ]
+[v F6847 `S825 ~T0 @X0 1 s send_buffer ]
+"126
+[v F6848 `uc ~T0 @X0 1 s end_of_transmission_received ]
 [i F6848
 -> -> 0 `i `uc
 ]
-[; ;SlaveComm.c: 162: static bool last_state_active = 0;
-[; ;SlaveComm.c: 163: if( PORTBbits.SS2 == 0b1 )
-"163
-[e $ ! == -> . . _PORTBbits 6 0 `i -> 1 `i 837  ]
-[; ;SlaveComm.c: 164: {
-"164
+"127
+[v _no_more_to_send `uc ~T0 @X0 1 a ]
+"129
+[v F6850 `E6750 ~T0 @X0 1 s receive_current_state ]
+[; ;SlaveComm.c: 123: static struct buffer receive_buffer;
+[; ;SlaveComm.c: 124: static struct buffer send_buffer;
+[; ;SlaveComm.c: 126: static bool end_of_transmission_received = 0;
+[; ;SlaveComm.c: 127: bool no_more_to_send;
+[; ;SlaveComm.c: 129: static enum receive_status receive_current_state;
+[; ;SlaveComm.c: 132: if( firstTime == 1 )
+"132
+[e $ ! == -> _firstTime `i -> 1 `i 829  ]
+[; ;SlaveComm.c: 133: {
+"133
 {
-[; ;SlaveComm.c: 165: last_state_active = 0;
-"165
-[e = F6848 -> -> 0 `i `uc ]
-"166
+[; ;SlaveComm.c: 134: SPISlaveInit( );
+"134
+[e ( _SPISlaveInit ..  ]
+[; ;SlaveComm.c: 135: send_buffer.write_position = 0;
+"135
+[e = . F6847 1 -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 136: send_buffer.read_position = 0;
+"136
+[e = . F6847 2 -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 137: resetCommunications( &send_buffer );
+"137
+[e ( _resetCommunications (1 &U F6847 ]
+"138
 }
-[; ;SlaveComm.c: 166: }
-[e $U 838  ]
-"167
-[e :U 837 ]
-[; ;SlaveComm.c: 167: else
-[; ;SlaveComm.c: 168: {
-"168
+[; ;SlaveComm.c: 138: }
+[e $U 830  ]
+"139
+[e :U 829 ]
+[; ;SlaveComm.c: 139: else
+[; ;SlaveComm.c: 140: {
+"140
 {
-[; ;SlaveComm.c: 169: if( last_state_active == 0 )
+[; ;SlaveComm.c: 141: receive_current_state = receive_data( &receive_buffer );
+"141
+[e = F6850 ( _receive_data (1 &U F6846 ]
+[; ;SlaveComm.c: 143: switch( receive_current_state )
+"143
+[e $U 832  ]
+[; ;SlaveComm.c: 144: {
+"144
+{
+[; ;SlaveComm.c: 145: case receive_waiting:
+"145
+[e :U 833 ]
+[; ;SlaveComm.c: 147: break;
+"147
+[e $U 831  ]
+[; ;SlaveComm.c: 148: case receive_in_command:
+"148
+[e :U 834 ]
+[; ;SlaveComm.c: 150: break;
+"150
+[e $U 831  ]
+[; ;SlaveComm.c: 151: case receive_end_command:
+"151
+[e :U 835 ]
+[; ;SlaveComm.c: 153: if( process_data( &receive_buffer, &send_buffer, xSumMatches(receive_buffer) ) == 1 )
+"153
+[e $ ! == -> ( _process_data (3 , , &U F6846 &U F6847 ( _xSumMatches (1 F6846 `i -> 1 `i 836  ]
+[; ;SlaveComm.c: 154: {
+"154
+{
+[; ;SlaveComm.c: 155: end_of_transmission_received = 1;
+"155
+[e = F6848 -> -> 1 `i `uc ]
+"156
+}
+[e :U 836 ]
+[; ;SlaveComm.c: 156: }
+[; ;SlaveComm.c: 158: break;
+"158
+[e $U 831  ]
+"159
+}
+[; ;SlaveComm.c: 159: }
+[e $U 831  ]
+"143
+[e :U 832 ]
+[e [\ F6850 , $ . `E6750 0 833
+ , $ . `E6750 1 834
+ , $ . `E6750 2 835
+ 831 ]
+"159
+[e :U 831 ]
+[; ;SlaveComm.c: 161: no_more_to_send = send_data( &send_buffer );
+"161
+[e = _no_more_to_send ( _send_data (1 &U F6847 ]
+"164
+[v F6851 `uc ~T0 @X0 1 s last_state_active ]
+[i F6851
+-> -> 0 `i `uc
+]
+[; ;SlaveComm.c: 164: static bool last_state_active = 0;
+[; ;SlaveComm.c: 165: if( PORTBbits.SS2 == 0b1 )
+"165
+[e $ ! == -> . . _PORTBbits 6 0 `i -> 1 `i 837  ]
+[; ;SlaveComm.c: 166: {
+"166
+{
+[; ;SlaveComm.c: 167: last_state_active = 0;
+"167
+[e = F6851 -> -> 0 `i `uc ]
+"168
+}
+[; ;SlaveComm.c: 168: }
+[e $U 838  ]
 "169
-[e $ ! == -> F6848 `i -> 0 `i 839  ]
+[e :U 837 ]
+[; ;SlaveComm.c: 169: else
 [; ;SlaveComm.c: 170: {
 "170
 {
-[; ;SlaveComm.c: 171: resetCommunications( &send_buffer );
+[; ;SlaveComm.c: 171: if( last_state_active == 0 )
 "171
-[e ( _resetCommunications (1 &U F6844 ]
+[e $ ! == -> F6851 `i -> 0 `i 839  ]
+[; ;SlaveComm.c: 172: {
 "172
+{
+[; ;SlaveComm.c: 173: resetCommunications( &send_buffer );
+"173
+[e ( _resetCommunications (1 &U F6847 ]
+"174
 }
 [e :U 839 ]
-[; ;SlaveComm.c: 172: }
-[; ;SlaveComm.c: 174: last_state_active = 1;
-"174
-[e = F6848 -> -> 1 `i `uc ]
-"175
-}
-[e :U 838 ]
+[; ;SlaveComm.c: 174: }
+[; ;SlaveComm.c: 176: last_state_active = 1;
+"176
+[e = F6851 -> -> 1 `i `uc ]
 "177
 }
-[e :U 830 ]
-[; ;SlaveComm.c: 175: }
-[; ;SlaveComm.c: 177: }
-[; ;SlaveComm.c: 179: return;
+[e :U 838 ]
 "179
+}
+[e :U 830 ]
+[; ;SlaveComm.c: 177: }
+[; ;SlaveComm.c: 179: }
+[; ;SlaveComm.c: 181: return;
+"181
 [e $UE 828  ]
-[; ;SlaveComm.c: 180: }
-"180
+[; ;SlaveComm.c: 182: }
+"182
 [e :UE 828 ]
 }
-"182
+"184
 [v _resetCommunications `(v ~T0 @X0 1 ef1`*S825 ]
-"183
-{
-[; ;SlaveComm.c: 182: void resetCommunications( struct buffer * send_buffer )
-[; ;SlaveComm.c: 183: {
-[e :U _resetCommunications ]
-"182
-[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"183
-[f ]
 "185
-[v F6850 `i ~T0 @X0 1 s commState ]
-[i F6850
+{
+[; ;SlaveComm.c: 184: void resetCommunications( struct buffer * send_buffer )
+[; ;SlaveComm.c: 185: {
+[e :U _resetCommunications ]
+"184
+[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
+"185
+[f ]
+"187
+[v F6853 `i ~T0 @X0 1 s commState ]
+[i F6853
 -> 0 `i
 ]
-[; ;SlaveComm.c: 185: static int commState = 0;
-[; ;SlaveComm.c: 188: SSP2CON1bits.SSPEN = 0;
-"188
-[e = . . _SSP2CON1bits 0 2 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 189: _delay((unsigned long)((1)*(16000000UL/4000.0)));
-"189
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `ul `d .4000.0 `ul ]
-[; ;SlaveComm.c: 190: SSP2CON1bits.SSPEN = 1;
+[; ;SlaveComm.c: 187: static int commState = 0;
+[; ;SlaveComm.c: 190: SSP2CON1bits.SSPEN = 0;
 "190
-[e = . . _SSP2CON1bits 0 2 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 192: SSP2CON1bits.WCOL = 0;
+[e = . . _SSP2CON1bits 0 2 -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 191: _delay((unsigned long)((1)*(16000000UL/4000.0)));
+"191
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `ul `d .4000.0 `ul ]
+[; ;SlaveComm.c: 192: SSP2CON1bits.SSPEN = 1;
 "192
+[e = . . _SSP2CON1bits 0 2 -> -> 1 `i `uc ]
+[; ;SlaveComm.c: 194: SSP2CON1bits.WCOL = 0;
+"194
 [e = . . _SSP2CON1bits 0 4 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 193: SPI_transmit_wait = 0;
-"193
-[e = _SPI_transmit_wait -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 195: send_buffer->read_position = 0;
+[; ;SlaveComm.c: 195: SPI_transmit_wait = 0;
 "195
+[e = _SPI_transmit_wait -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 197: send_buffer->read_position = 0;
+"197
 [e = . *U _send_buffer 2 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 196: send_buffer->write_position = 0;
-"196
+[; ;SlaveComm.c: 198: send_buffer->write_position = 0;
+"198
 [e = . *U _send_buffer 1 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 201: commState++;
-"201
-[e ++ F6850 -> 1 `i ]
-[; ;SlaveComm.c: 202: switch( commState )
-"202
-[e $U 842  ]
-[; ;SlaveComm.c: 203: {
+[; ;SlaveComm.c: 203: commState++;
 "203
-{
-[; ;SlaveComm.c: 204: case 1:
+[e ++ F6853 -> 1 `i ]
+[; ;SlaveComm.c: 204: switch( commState )
 "204
-[e :U 843 ]
-[; ;SlaveComm.c: 205: com_command_setVersion( send_buffer );
+[e $U 842  ]
+[; ;SlaveComm.c: 205: {
 "205
-[e ( _com_command_setVersion (1 _send_buffer ]
-[; ;SlaveComm.c: 206: break;
+{
+[; ;SlaveComm.c: 206: case 1:
 "206
-[e $U 841  ]
-[; ;SlaveComm.c: 207: case 2:
+[e :U 843 ]
+[; ;SlaveComm.c: 207: com_command_setVersion( send_buffer );
 "207
-[e :U 844 ]
-[; ;SlaveComm.c: 208: com_command_setPower( send_buffer );
+[e ( _com_command_setVersion (1 _send_buffer ]
+[; ;SlaveComm.c: 208: break;
 "208
-[e ( _com_command_setPower (1 _send_buffer ]
-[; ;SlaveComm.c: 209: break;
+[e $U 841  ]
+[; ;SlaveComm.c: 209: case 2:
 "209
-[e $U 841  ]
-[; ;SlaveComm.c: 210: case 3:
+[e :U 844 ]
+[; ;SlaveComm.c: 210: com_command_setPower( send_buffer );
 "210
-[e :U 845 ]
-[; ;SlaveComm.c: 211: com_command_setEnergyUsed( send_buffer );
+[e ( _com_command_setPower (1 _send_buffer ]
+[; ;SlaveComm.c: 211: break;
 "211
+[e $U 841  ]
+[; ;SlaveComm.c: 212: case 3:
+"212
+[e :U 845 ]
+[; ;SlaveComm.c: 213: com_command_setEnergyUsed( send_buffer );
+"213
 [e ( _com_command_setEnergyUsed (1 _send_buffer ]
-[; ;SlaveComm.c: 222: default:
-"222
-[e :U 846 ]
-[; ;SlaveComm.c: 223: commState = 0;
-"223
-[e = F6850 -> 0 `i ]
-[; ;SlaveComm.c: 224: break;
+[; ;SlaveComm.c: 224: default:
 "224
-[e $U 841  ]
+[e :U 846 ]
+[; ;SlaveComm.c: 225: commState = 0;
 "225
-}
-[; ;SlaveComm.c: 225: }
+[e = F6853 -> 0 `i ]
+[; ;SlaveComm.c: 226: break;
+"226
 [e $U 841  ]
-"202
+"227
+}
+[; ;SlaveComm.c: 227: }
+[e $U 841  ]
+"204
 [e :U 842 ]
-[e [\ F6850 , $ -> 1 `i 843
+[e [\ F6853 , $ -> 1 `i 843
  , $ -> 2 `i 844
  , $ -> 3 `i 845
  846 ]
-"225
-[e :U 841 ]
-[; ;SlaveComm.c: 226: return;
-"226
-[e $UE 840  ]
-[; ;SlaveComm.c: 227: }
 "227
+[e :U 841 ]
+[; ;SlaveComm.c: 228: return;
+"228
+[e $UE 840  ]
+[; ;SlaveComm.c: 229: }
+"229
 [e :UE 840 ]
 }
-"229
-[v _receive_data `(E6750 ~T0 @X0 1 ef1`*S825 ]
-"230
-{
-[; ;SlaveComm.c: 229: enum receive_status receive_data( struct buffer * receive_buffer )
-[; ;SlaveComm.c: 230: {
-[e :U _receive_data ]
-"229
-[v _receive_buffer `*S825 ~T0 @X0 1 r1 ]
-"230
-[f ]
 "231
-[v _data `uc ~T0 @X0 1 a ]
+[v _receive_data `(E6750 ~T0 @X0 1 ef1`*S825 ]
+"232
+{
+[; ;SlaveComm.c: 231: enum receive_status receive_data( struct buffer * receive_buffer )
+[; ;SlaveComm.c: 232: {
+[e :U _receive_data ]
+"231
+[v _receive_buffer `*S825 ~T0 @X0 1 r1 ]
+"232
+[f ]
 "233
-[v F6854 `E6750 ~T0 @X0 1 s my_status ]
-[i F6854
+[v _data `uc ~T0 @X0 1 a ]
+"235
+[v F6857 `E6750 ~T0 @X0 1 s my_status ]
+[i F6857
 . `E6750 0
 ]
-[; ;SlaveComm.c: 231: char data;
-[; ;SlaveComm.c: 233: static enum receive_status my_status = receive_waiting;
-[; ;SlaveComm.c: 235: if( my_status == receive_end_command )
-"235
-[e $ ! == -> F6854 `i -> . `E6750 2 `i 848  ]
-[; ;SlaveComm.c: 236: {
-"236
-{
-[; ;SlaveComm.c: 237: my_status = receive_waiting;
+[; ;SlaveComm.c: 233: char data;
+[; ;SlaveComm.c: 235: static enum receive_status my_status = receive_waiting;
+[; ;SlaveComm.c: 237: if( my_status == receive_end_command )
 "237
-[e = F6854 . `E6750 0 ]
+[e $ ! == -> F6857 `i -> . `E6750 2 `i 848  ]
+[; ;SlaveComm.c: 238: {
 "238
+{
+[; ;SlaveComm.c: 239: my_status = receive_waiting;
+"239
+[e = F6857 . `E6750 0 ]
+"240
 }
 [e :U 848 ]
-[; ;SlaveComm.c: 238: }
-[; ;SlaveComm.c: 240: if( SPI_receive_data( &data ) == 1 )
-"240
-[e $ ! == -> ( _SPI_receive_data (1 &U _data `i -> 1 `i 849  ]
-[; ;SlaveComm.c: 241: {
-"241
-{
-[; ;SlaveComm.c: 242: if( (data == '!') && (my_status != receive_in_command) )
+[; ;SlaveComm.c: 240: }
+[; ;SlaveComm.c: 242: if( SPI_receive_data( &data ) == 1 )
 "242
-[e $ ! && == -> _data `ui -> 33 `ui != -> F6854 `i -> . `E6750 1 `i 850  ]
+[e $ ! == -> ( _SPI_receive_data (1 &U _data `i -> 1 `i 849  ]
 [; ;SlaveComm.c: 243: {
 "243
 {
-[; ;SlaveComm.c: 244: my_status = receive_in_command;
+[; ;SlaveComm.c: 244: if( (data == '!') && (my_status != receive_in_command) )
 "244
-[e = F6854 . `E6750 1 ]
-[; ;SlaveComm.c: 245: receive_buffer->read_position = 0;
+[e $ ! && == -> _data `ui -> 33 `ui != -> F6857 `i -> . `E6750 1 `i 850  ]
+[; ;SlaveComm.c: 245: {
 "245
-[e = . *U _receive_buffer 2 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 246: receive_buffer->write_position = 0;
+{
+[; ;SlaveComm.c: 246: my_status = receive_in_command;
 "246
-[e = . *U _receive_buffer 1 -> -> 0 `i `uc ]
+[e = F6857 . `E6750 1 ]
+[; ;SlaveComm.c: 247: receive_buffer->read_position = 0;
 "247
+[e = . *U _receive_buffer 2 -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 248: receive_buffer->write_position = 0;
+"248
+[e = . *U _receive_buffer 1 -> -> 0 `i `uc ]
+"249
 }
 [e :U 850 ]
-[; ;SlaveComm.c: 247: }
-[; ;SlaveComm.c: 249: if( my_status == receive_in_command )
-"249
-[e $ ! == -> F6854 `i -> . `E6750 1 `i 851  ]
-[; ;SlaveComm.c: 250: {
-"250
-{
-[; ;SlaveComm.c: 251: receive_buffer->data_buffer[ receive_buffer->write_position] = data;
+[; ;SlaveComm.c: 249: }
+[; ;SlaveComm.c: 251: if( my_status == receive_in_command )
 "251
-[e = *U + &U . *U _receive_buffer 0 * -> . *U _receive_buffer 1 `ux -> -> # *U &U . *U _receive_buffer 0 `ui `ux _data ]
-[; ;SlaveComm.c: 253: receive_buffer->write_position++;
-"253
-[e ++ . *U _receive_buffer 1 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 254: if( receive_buffer->write_position >= 40 )
-"254
-[e $ ! >= -> . *U _receive_buffer 1 `i -> 40 `i 852  ]
-[; ;SlaveComm.c: 255: {
-"255
+[e $ ! == -> F6857 `i -> . `E6750 1 `i 851  ]
+[; ;SlaveComm.c: 252: {
+"252
 {
-[; ;SlaveComm.c: 256: receive_buffer->write_position = (40 - 1);
+[; ;SlaveComm.c: 253: receive_buffer->data_buffer[ receive_buffer->write_position] = data;
+"253
+[e = *U + &U . *U _receive_buffer 0 * -> . *U _receive_buffer 1 `ux -> -> # *U &U . *U _receive_buffer 0 `ui `ux _data ]
+[; ;SlaveComm.c: 255: receive_buffer->write_position++;
+"255
+[e ++ . *U _receive_buffer 1 -> -> 1 `i `uc ]
+[; ;SlaveComm.c: 256: if( receive_buffer->write_position >= 40 )
 "256
-[e = . *U _receive_buffer 1 -> - -> 40 `i -> 1 `i `uc ]
+[e $ ! >= -> . *U _receive_buffer 1 `i -> 40 `i 852  ]
+[; ;SlaveComm.c: 257: {
 "257
+{
+[; ;SlaveComm.c: 258: receive_buffer->write_position = (40 - 1);
+"258
+[e = . *U _receive_buffer 1 -> - -> 40 `i -> 1 `i `uc ]
+"259
 }
 [e :U 852 ]
-"258
+"260
 }
 [e :U 851 ]
-[; ;SlaveComm.c: 257: }
-[; ;SlaveComm.c: 258: }
-[; ;SlaveComm.c: 260: if( (my_status == receive_in_command) && (data == '*') )
-"260
-[e $ ! && == -> F6854 `i -> . `E6750 1 `i == -> _data `ui -> 42 `ui 853  ]
-[; ;SlaveComm.c: 261: {
-"261
-{
-[; ;SlaveComm.c: 262: my_status = receive_end_command;
+[; ;SlaveComm.c: 259: }
+[; ;SlaveComm.c: 260: }
+[; ;SlaveComm.c: 262: if( (my_status == receive_in_command) && (data == '*') )
 "262
-[e = F6854 . `E6750 2 ]
+[e $ ! && == -> F6857 `i -> . `E6750 1 `i == -> _data `ui -> 42 `ui 853  ]
+[; ;SlaveComm.c: 263: {
 "263
+{
+[; ;SlaveComm.c: 264: my_status = receive_end_command;
+"264
+[e = F6857 . `E6750 2 ]
+"265
 }
 [e :U 853 ]
-"264
+"266
 }
 [e :U 849 ]
-[; ;SlaveComm.c: 263: }
-[; ;SlaveComm.c: 264: }
-[; ;SlaveComm.c: 266: return my_status;
-"266
-[e ) F6854 ]
+[; ;SlaveComm.c: 265: }
+[; ;SlaveComm.c: 266: }
+[; ;SlaveComm.c: 268: return my_status;
+"268
+[e ) F6857 ]
 [e $UE 847  ]
-[; ;SlaveComm.c: 267: }
-"267
+[; ;SlaveComm.c: 269: }
+"269
 [e :UE 847 ]
 }
-"269
-[v _process_data `(uc ~T0 @X0 1 ef2`*S825`*S825 ]
-"270
+"271
+[v _process_data `(uc ~T0 @X0 1 ef3`*S825`*S825`uc ]
+"272
 {
-[; ;SlaveComm.c: 269: bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer )
-[; ;SlaveComm.c: 270: {
+[; ;SlaveComm.c: 271: bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer, bool xSumMatches )
+[; ;SlaveComm.c: 272: {
 [e :U _process_data ]
-"269
+"271
 [v _receive_buffer `*S825 ~T0 @X0 1 r1 ]
 [v _send_buffer `*S825 ~T0 @X0 1 r2 ]
-"270
+[v _xSumMatches `uc ~T0 @X0 1 r3 ]
+"272
 [f ]
-"271
+"273
 [v _end_of_transmission_received `uc ~T0 @X0 1 a ]
-[v F6859 `uc ~T0 @X0 -> 10 `i t ]
-"276
-[v _parameters `F6859 ~T0 @X0 -> 5 `i a ]
-[; ;SlaveComm.c: 271: bool end_of_transmission_received;
-[; ;SlaveComm.c: 276: char parameters[5][10];
-[; ;SlaveComm.c: 278: process_data_parameterize( parameters, receive_buffer );
+[v F6863 `uc ~T0 @X0 -> 10 `i t ]
 "278
-[e ( _process_data_parameterize (2 , &U _parameters _receive_buffer ]
-[; ;SlaveComm.c: 280: end_of_transmission_received = process_data_parameters( parameters, send_buffer );
+[v _parameters `F6863 ~T0 @X0 -> 5 `i a ]
+[; ;SlaveComm.c: 273: bool end_of_transmission_received;
+[; ;SlaveComm.c: 278: char parameters[5][10];
+[; ;SlaveComm.c: 280: process_data_parameterize( parameters, receive_buffer );
 "280
-[e = _end_of_transmission_received ( _process_data_parameters (2 , &U _parameters _send_buffer ]
-[; ;SlaveComm.c: 282: return end_of_transmission_received;
+[e ( _process_data_parameterize (2 , &U _parameters _receive_buffer ]
+[; ;SlaveComm.c: 282: if (xSumMatches){
 "282
+[e $ ! != -> _xSumMatches `i -> -> -> 0 `i `uc `i 855  ]
+{
+[; ;SlaveComm.c: 283: end_of_transmission_received = process_data_parameters( parameters, send_buffer );
+"283
+[e = _end_of_transmission_received ( _process_data_parameters (2 , &U _parameters _send_buffer ]
+"284
+}
+[; ;SlaveComm.c: 284: }
+[e $U 856  ]
+"285
+[e :U 855 ]
+[; ;SlaveComm.c: 285: else{
+{
+[; ;SlaveComm.c: 286: end_of_transmission_received = 1;
+"286
+[e = _end_of_transmission_received -> -> 1 `i `uc ]
+"287
+}
+[e :U 856 ]
+[; ;SlaveComm.c: 287: }
+[; ;SlaveComm.c: 289: return end_of_transmission_received;
+"289
 [e ) _end_of_transmission_received ]
 [e $UE 854  ]
-[; ;SlaveComm.c: 284: }
-"284
+[; ;SlaveComm.c: 291: }
+"291
 [e :UE 854 ]
 }
-"286
-[v _process_data_parameterize `(v ~T0 @X0 1 ef2`*F6772`*S825 ]
-"287
+"293
+[v _process_data_parameterize `(v ~T0 @X0 1 ef2`*F6773`*S825 ]
+"294
 {
-[; ;SlaveComm.c: 286: void process_data_parameterize( char parameters[5][10], struct buffer * buffer_to_parameterize )
-[; ;SlaveComm.c: 287: {
+[; ;SlaveComm.c: 293: void process_data_parameterize( char parameters[5][10], struct buffer * buffer_to_parameterize )
+[; ;SlaveComm.c: 294: {
 [e :U _process_data_parameterize ]
-[v F6861 `uc ~T0 @X0 -> 10 `i t ]
-"286
-[v _parameters `*F6861 ~T0 @X0 1 r1 ]
+[v F6865 `uc ~T0 @X0 -> 10 `i t ]
+"293
+[v _parameters `*F6865 ~T0 @X0 1 r1 ]
 [v _buffer_to_parameterize `*S825 ~T0 @X0 1 r2 ]
-"287
+"294
 [f ]
-"288
+"295
 [v _parameter_position `uc ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 288: unsigned char parameter_position = 0;
+[; ;SlaveComm.c: 295: unsigned char parameter_position = 0;
 [e = _parameter_position -> -> 0 `i `uc ]
-"289
+"296
 [v _parameter_index `uc ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 289: unsigned char parameter_index = 0;
+[; ;SlaveComm.c: 296: unsigned char parameter_index = 0;
 [e = _parameter_index -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 298: for( int inx = 0; inx < 5; inx++ )
-"298
+[; ;SlaveComm.c: 305: for( int inx = 0; inx < 5; inx++ )
+"305
 {
 [v _inx `i ~T0 @X0 1 a ]
 [e = _inx -> 0 `i ]
-[e $ < _inx -> 5 `i 856  ]
-[e $U 857  ]
-"299
-[e :U 856 ]
-[; ;SlaveComm.c: 299: {
-{
-[; ;SlaveComm.c: 300: parameters[inx][0] = '\0';
-"300
-[e = *U + &U *U + _parameters * -> _inx `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + _parameters * -> _inx `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x `ui `ux -> -> 0 `ui `uc ]
-"301
-}
-"298
-[e ++ _inx -> 1 `i ]
-[e $ < _inx -> 5 `i 856  ]
-[e :U 857 ]
-"301
-}
-[; ;SlaveComm.c: 301: }
-[; ;SlaveComm.c: 303: while( (buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != '*') && (buffer_to_parameterize->read_position < 40) && (buffer_to_parameterize->read_position != buffer_to_parameterize->write_position) )
-"303
+[e $ < _inx -> 5 `i 858  ]
 [e $U 859  ]
-[e :U 860 ]
-[; ;SlaveComm.c: 304: {
-"304
-{
-[; ;SlaveComm.c: 305: switch( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position] )
-"305
-[e $U 863  ]
-[; ;SlaveComm.c: 306: {
 "306
+[e :U 858 ]
+[; ;SlaveComm.c: 306: {
 {
-[; ;SlaveComm.c: 307: case '!':
+[; ;SlaveComm.c: 307: parameters[inx][0] = '\0';
 "307
-[e :U 864 ]
-[; ;SlaveComm.c: 309: break;
-"309
-[e $U 862  ]
-[; ;SlaveComm.c: 310: case ';':
-"310
-[e :U 865 ]
-[; ;SlaveComm.c: 312: parameter_position = 0;
-"312
-[e = _parameter_position -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 313: parameter_index++;
-"313
-[e ++ _parameter_index -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 315: if( parameter_index >= 5 )
-"315
-[e $ ! >= -> _parameter_index `i -> 5 `i 866  ]
-[; ;SlaveComm.c: 316: {
-"316
-{
-[; ;SlaveComm.c: 319: parameter_index = (5 - 1);
-"319
-[e = _parameter_index -> - -> 5 `i -> 1 `i `uc ]
-"320
+[e = *U + &U *U + _parameters * -> _inx `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + _parameters * -> _inx `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x `ui `ux -> -> 0 `ui `uc ]
+"308
 }
-[e :U 866 ]
-[; ;SlaveComm.c: 320: }
-[; ;SlaveComm.c: 322: break;
-"322
-[e $U 862  ]
-[; ;SlaveComm.c: 323: default:
-"323
-[e :U 867 ]
-[; ;SlaveComm.c: 325: parameters[parameter_index][parameter_position] = buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position];
-"325
-[e = *U + &U *U + _parameters * -> _parameter_index `ux -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `ux * -> _parameter_position `ux -> -> # *U &U *U + _parameters * -> _parameter_index `ux -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `ux `ui `ux *U + &U . *U _buffer_to_parameterize 0 * -> . *U _buffer_to_parameterize 2 `ux -> -> # *U &U . *U _buffer_to_parameterize 0 `ui `ux ]
-[; ;SlaveComm.c: 326: parameter_position++;
-"326
-[e ++ _parameter_position -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 327: if( parameter_position >= 10 )
-"327
-[e $ ! >= -> _parameter_position `i -> 10 `i 868  ]
-[; ;SlaveComm.c: 328: {
-"328
+"305
+[e ++ _inx -> 1 `i ]
+[e $ < _inx -> 5 `i 858  ]
+[e :U 859 ]
+"308
+}
+[; ;SlaveComm.c: 308: }
+[; ;SlaveComm.c: 310: while( (buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != '*') && (buffer_to_parameterize->read_position < 40) && (buffer_to_parameterize->read_position != buffer_to_parameterize->write_position) )
+"310
+[e $U 861  ]
+[e :U 862 ]
+[; ;SlaveComm.c: 311: {
+"311
 {
-[; ;SlaveComm.c: 331: parameter_position = (10 - 1);
-"331
-[e = _parameter_position -> - -> 10 `i -> 1 `i `uc ]
-"332
+[; ;SlaveComm.c: 312: switch( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position] )
+"312
+[e $U 865  ]
+[; ;SlaveComm.c: 313: {
+"313
+{
+[; ;SlaveComm.c: 314: case '!':
+"314
+[e :U 866 ]
+[; ;SlaveComm.c: 316: break;
+"316
+[e $U 864  ]
+[; ;SlaveComm.c: 317: case ';':
+"317
+[e :U 867 ]
+[; ;SlaveComm.c: 319: parameter_position = 0;
+"319
+[e = _parameter_position -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 320: parameter_index++;
+"320
+[e ++ _parameter_index -> -> 1 `i `uc ]
+[; ;SlaveComm.c: 322: if( parameter_index >= 5 )
+"322
+[e $ ! >= -> _parameter_index `i -> 5 `i 868  ]
+[; ;SlaveComm.c: 323: {
+"323
+{
+[; ;SlaveComm.c: 326: parameter_index = (5 - 1);
+"326
+[e = _parameter_index -> - -> 5 `i -> 1 `i `uc ]
+"327
 }
 [e :U 868 ]
-[; ;SlaveComm.c: 332: }
-[; ;SlaveComm.c: 335: parameters[parameter_index][parameter_position] = '\0';
+[; ;SlaveComm.c: 327: }
+[; ;SlaveComm.c: 329: break;
+"329
+[e $U 864  ]
+[; ;SlaveComm.c: 330: default:
+"330
+[e :U 869 ]
+[; ;SlaveComm.c: 332: parameters[parameter_index][parameter_position] = buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position];
+"332
+[e = *U + &U *U + _parameters * -> _parameter_index `ux -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `ux * -> _parameter_position `ux -> -> # *U &U *U + _parameters * -> _parameter_index `ux -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `ux `ui `ux *U + &U . *U _buffer_to_parameterize 0 * -> . *U _buffer_to_parameterize 2 `ux -> -> # *U &U . *U _buffer_to_parameterize 0 `ui `ux ]
+[; ;SlaveComm.c: 333: parameter_position++;
+"333
+[e ++ _parameter_position -> -> 1 `i `uc ]
+[; ;SlaveComm.c: 334: if( parameter_position >= 10 )
+"334
+[e $ ! >= -> _parameter_position `i -> 10 `i 870  ]
+[; ;SlaveComm.c: 335: {
 "335
-[e = *U + &U *U + _parameters * -> _parameter_index `ux -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `ux * -> _parameter_position `ux -> -> # *U &U *U + _parameters * -> _parameter_index `ux -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `ux `ui `ux -> -> 0 `ui `uc ]
-[; ;SlaveComm.c: 336: break;
-"336
-[e $U 862  ]
-"337
-}
-[; ;SlaveComm.c: 337: }
-[e $U 862  ]
-"305
-[e :U 863 ]
-[e [\ *U + &U . *U _buffer_to_parameterize 0 * -> . *U _buffer_to_parameterize 2 `ux -> -> # *U &U . *U _buffer_to_parameterize 0 `ui `ux , $ -> -> 33 `ui `uc 864
- , $ -> -> 59 `ui `uc 865
- 867 ]
-"337
-[e :U 862 ]
-[; ;SlaveComm.c: 339: buffer_to_parameterize->read_position++;
+{
+[; ;SlaveComm.c: 338: parameter_position = (10 - 1);
+"338
+[e = _parameter_position -> - -> 10 `i -> 1 `i `uc ]
 "339
-[e ++ . *U _buffer_to_parameterize 2 -> -> 1 `i `uc ]
-"340
 }
-[e :U 859 ]
-"303
-[e $ && && != -> *U + &U . *U _buffer_to_parameterize 0 * -> . *U _buffer_to_parameterize 2 `ux -> -> # *U &U . *U _buffer_to_parameterize 0 `ui `ux `ui -> 42 `ui < -> . *U _buffer_to_parameterize 2 `i -> 40 `i != -> . *U _buffer_to_parameterize 2 `i -> . *U _buffer_to_parameterize 1 `i 860  ]
-[e :U 861 ]
-[; ;SlaveComm.c: 340: }
-[; ;SlaveComm.c: 342: return;
-"342
-[e $UE 855  ]
-[; ;SlaveComm.c: 343: }
-"343
-[e :UE 855 ]
-}
-"345
-[v _process_data_parameters `(uc ~T0 @X0 1 ef2`*F6776`*S825 ]
-"346
-{
-[; ;SlaveComm.c: 345: bool process_data_parameters( char parameters[5][10], struct buffer * send_buffer )
-[; ;SlaveComm.c: 346: {
-[e :U _process_data_parameters ]
-[v F6867 `uc ~T0 @X0 -> 10 `i t ]
-"345
-[v _parameters `*F6867 ~T0 @X0 1 r1 ]
-[v _send_buffer `*S825 ~T0 @X0 1 r2 ]
-"346
-[f ]
-"347
-[v _end_of_transmission_received `uc ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 347: bool end_of_transmission_received = 0;
-[e = _end_of_transmission_received -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 350: if( strmatch( parameters[0], "END" ) == 1 )
-"350
-[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 1C `*uc `i -> 1 `i 870  ]
-[; ;SlaveComm.c: 351: {
-"351
-{
-[; ;SlaveComm.c: 352: end_of_transmission_received = 1;
-"352
-[e = _end_of_transmission_received -> -> 1 `i `uc ]
-"353
-}
-[; ;SlaveComm.c: 353: }
-[e $U 871  ]
-"354
 [e :U 870 ]
-[; ;SlaveComm.c: 354: else if( strmatch( parameters[0], "Set" ) == 1 )
-[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 2C `*uc `i -> 1 `i 872  ]
-[; ;SlaveComm.c: 355: {
-"355
+[; ;SlaveComm.c: 339: }
+[; ;SlaveComm.c: 342: parameters[parameter_index][parameter_position] = '\0';
+"342
+[e = *U + &U *U + _parameters * -> _parameter_index `ux -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `ux * -> _parameter_position `ux -> -> # *U &U *U + _parameters * -> _parameter_index `ux -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `ux `ui `ux -> -> 0 `ui `uc ]
+[; ;SlaveComm.c: 343: break;
+"343
+[e $U 864  ]
+"344
+}
+[; ;SlaveComm.c: 344: }
+[e $U 864  ]
+"312
+[e :U 865 ]
+[e [\ *U + &U . *U _buffer_to_parameterize 0 * -> . *U _buffer_to_parameterize 2 `ux -> -> # *U &U . *U _buffer_to_parameterize 0 `ui `ux , $ -> -> 33 `ui `uc 866
+ , $ -> -> 59 `ui `uc 867
+ 869 ]
+"344
+[e :U 864 ]
+[; ;SlaveComm.c: 346: buffer_to_parameterize->read_position++;
+"346
+[e ++ . *U _buffer_to_parameterize 2 -> -> 1 `i `uc ]
+"347
+}
+[e :U 861 ]
+"310
+[e $ && && != -> *U + &U . *U _buffer_to_parameterize 0 * -> . *U _buffer_to_parameterize 2 `ux -> -> # *U &U . *U _buffer_to_parameterize 0 `ui `ux `ui -> 42 `ui < -> . *U _buffer_to_parameterize 2 `i -> 40 `i != -> . *U _buffer_to_parameterize 2 `i -> . *U _buffer_to_parameterize 1 `i 862  ]
+[e :U 863 ]
+[; ;SlaveComm.c: 347: }
+[; ;SlaveComm.c: 349: return;
+"349
+[e $UE 857  ]
+[; ;SlaveComm.c: 350: }
+"350
+[e :UE 857 ]
+}
+"352
+[v _process_data_parameters `(uc ~T0 @X0 1 ef2`*F6777`*S825 ]
+"353
 {
-[; ;SlaveComm.c: 356: if( strmatch( parameters[1], "Calibration" ) == 1 )
-"356
-[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 3C `*uc `i -> 1 `i 873  ]
-[; ;SlaveComm.c: 357: {
+[; ;SlaveComm.c: 352: bool process_data_parameters( char parameters[5][10], struct buffer * send_buffer )
+[; ;SlaveComm.c: 353: {
+[e :U _process_data_parameters ]
+[v F6871 `uc ~T0 @X0 -> 10 `i t ]
+"352
+[v _parameters `*F6871 ~T0 @X0 1 r1 ]
+[v _send_buffer `*S825 ~T0 @X0 1 r2 ]
+"353
+[f ]
+"354
+[v _end_of_transmission_received `uc ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 354: bool end_of_transmission_received = 0;
+[e = _end_of_transmission_received -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 357: if( strmatch( parameters[0], "END" ) == 1 )
 "357
+[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 1C `*uc `i -> 1 `i 872  ]
+[; ;SlaveComm.c: 358: {
+"358
 {
+[; ;SlaveComm.c: 359: end_of_transmission_received = 1;
 "359
-}
-[; ;SlaveComm.c: 359: }
-[e $U 874  ]
+[e = _end_of_transmission_received -> -> 1 `i `uc ]
 "360
-[e :U 873 ]
-[; ;SlaveComm.c: 360: else if( strmatch( parameters[1], "EnUsed" ) == 1 )
-[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 4C `*uc `i -> 1 `i 875  ]
-[; ;SlaveComm.c: 361: {
+}
+[; ;SlaveComm.c: 360: }
+[e $U 873  ]
 "361
-{
-[; ;SlaveComm.c: 366: meterEnergyUsed_global = atol( parameters[2] );
-"366
-[e = _meterEnergyUsed_global -> ( _atol (1 -> &U *U + _parameters * -> -> 2 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x `*Cuc `ul ]
-[; ;SlaveComm.c: 367: com_command_setEnergyUsed( send_buffer );
-"367
-[e ( _com_command_setEnergyUsed (1 _send_buffer ]
-"368
-}
-[e :U 875 ]
-"369
-[e :U 874 ]
-}
-[; ;SlaveComm.c: 368: }
-[; ;SlaveComm.c: 369: }
-[e $U 876  ]
-"370
 [e :U 872 ]
-[; ;SlaveComm.c: 370: else if( strmatch( parameters[0], "Read" ) == 1 )
-[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 5C `*uc `i -> 1 `i 877  ]
-[; ;SlaveComm.c: 371: {
-"371
+[; ;SlaveComm.c: 361: else if( strmatch( parameters[0], "Set" ) == 1 )
+[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 2C `*uc `i -> 1 `i 874  ]
+[; ;SlaveComm.c: 362: {
+"362
 {
-"374
+[; ;SlaveComm.c: 363: if( strmatch( parameters[1], "Calibration" ) == 1 )
+"363
+[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 3C `*uc `i -> 1 `i 875  ]
+[; ;SlaveComm.c: 364: {
+"364
+{
+"366
 }
-[; ;SlaveComm.c: 374: }
-[e $U 878  ]
-"375
-[e :U 877 ]
-[; ;SlaveComm.c: 375: else if( strmatch( parameters[0], "Conf" ) == 1 )
-[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 6C `*uc `i -> 1 `i 879  ]
-[; ;SlaveComm.c: 376: {
-"376
+[; ;SlaveComm.c: 366: }
+[e $U 876  ]
+"367
+[e :U 875 ]
+[; ;SlaveComm.c: 367: else if( strmatch( parameters[1], "EnUsed" ) == 1 )
+[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 4C `*uc `i -> 1 `i 877  ]
+[; ;SlaveComm.c: 368: {
+"368
 {
-[; ;SlaveComm.c: 377: if( strmatch( parameters[1], "Watts" ) == 1 )
+[; ;SlaveComm.c: 373: meterEnergyUsed_global = atol( parameters[2] );
+"373
+[e = _meterEnergyUsed_global -> ( _atol (1 -> &U *U + _parameters * -> -> 2 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x `*Cuc `ul ]
+[; ;SlaveComm.c: 374: com_command_setEnergyUsed( send_buffer );
+"374
+[e ( _com_command_setEnergyUsed (1 _send_buffer ]
+"375
+}
+[e :U 877 ]
+"376
+[e :U 876 ]
+}
+[; ;SlaveComm.c: 375: }
+[; ;SlaveComm.c: 376: }
+[e $U 878  ]
 "377
-[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 7C `*uc `i -> 1 `i 880  ]
+[e :U 874 ]
+[; ;SlaveComm.c: 377: else if( strmatch( parameters[0], "Read" ) == 1 )
+[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 5C `*uc `i -> 1 `i 879  ]
 [; ;SlaveComm.c: 378: {
 "378
 {
-[; ;SlaveComm.c: 379: send_end_of_transmission( send_buffer );
-"379
-[e ( _send_end_of_transmission (1 _send_buffer ]
-"380
-}
-[; ;SlaveComm.c: 380: }
-[e $U 881  ]
 "381
-[e :U 880 ]
-[; ;SlaveComm.c: 381: else if( strmatch( parameters[1], "EnUsed" ) == 1 )
-[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 8C `*uc `i -> 1 `i 882  ]
-[; ;SlaveComm.c: 382: {
+}
+[; ;SlaveComm.c: 381: }
+[e $U 880  ]
 "382
-{
-[; ;SlaveComm.c: 383: send_end_of_transmission( send_buffer );
+[e :U 879 ]
+[; ;SlaveComm.c: 382: else if( strmatch( parameters[0], "Conf" ) == 1 )
+[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 0 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 6C `*uc `i -> 1 `i 881  ]
+[; ;SlaveComm.c: 383: {
 "383
-[e ( _send_end_of_transmission (1 _send_buffer ]
+{
+[; ;SlaveComm.c: 384: if( strmatch( parameters[1], "Watts" ) == 1 )
 "384
-}
-[; ;SlaveComm.c: 384: }
-[e $U 883  ]
+[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 7C `*uc `i -> 1 `i 882  ]
+[; ;SlaveComm.c: 385: {
 "385
-[e :U 882 ]
-[; ;SlaveComm.c: 385: else if( strmatch( parameters[1], "Volts" ) == 1 )
-[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 9C `*uc `i -> 1 `i 884  ]
-[; ;SlaveComm.c: 386: {
+{
+[; ;SlaveComm.c: 386: send_end_of_transmission( send_buffer );
 "386
-{
-[; ;SlaveComm.c: 387: send_end_of_transmission( send_buffer );
+[e ( _send_end_of_transmission (1 _send_buffer ]
 "387
-[e ( _send_end_of_transmission (1 _send_buffer ]
+}
+[; ;SlaveComm.c: 387: }
+[e $U 883  ]
 "388
-}
-[; ;SlaveComm.c: 388: }
-[e $U 885  ]
+[e :U 882 ]
+[; ;SlaveComm.c: 388: else if( strmatch( parameters[1], "EnUsed" ) == 1 )
+[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 8C `*uc `i -> 1 `i 884  ]
+[; ;SlaveComm.c: 389: {
 "389
-[e :U 884 ]
-[; ;SlaveComm.c: 389: else if( strmatch( parameters[1], "Amps" ) == 1 )
-[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 10C `*uc `i -> 1 `i 886  ]
-[; ;SlaveComm.c: 390: {
+{
+[; ;SlaveComm.c: 390: send_end_of_transmission( send_buffer );
 "390
-{
-[; ;SlaveComm.c: 391: send_end_of_transmission( send_buffer );
+[e ( _send_end_of_transmission (1 _send_buffer ]
 "391
-[e ( _send_end_of_transmission (1 _send_buffer ]
+}
+[; ;SlaveComm.c: 391: }
+[e $U 885  ]
 "392
-}
-[; ;SlaveComm.c: 392: }
-[e $U 887  ]
+[e :U 884 ]
+[; ;SlaveComm.c: 392: else if( strmatch( parameters[1], "Volts" ) == 1 )
+[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 9C `*uc `i -> 1 `i 886  ]
+[; ;SlaveComm.c: 393: {
 "393
-[e :U 886 ]
-[; ;SlaveComm.c: 393: else if( strmatch( parameters[1], "PSVersion" ) == 1 )
-[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 11C `*uc `i -> 1 `i 888  ]
-[; ;SlaveComm.c: 394: {
-"394
 {
-[; ;SlaveComm.c: 395: send_end_of_transmission( send_buffer );
-"395
+[; ;SlaveComm.c: 394: send_end_of_transmission( send_buffer );
+"394
 [e ( _send_end_of_transmission (1 _send_buffer ]
-"396
+"395
 }
-[e :U 888 ]
+[; ;SlaveComm.c: 395: }
+[e $U 887  ]
+"396
+[e :U 886 ]
+[; ;SlaveComm.c: 396: else if( strmatch( parameters[1], "Amps" ) == 1 )
+[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 10C `*uc `i -> 1 `i 888  ]
+[; ;SlaveComm.c: 397: {
 "397
+{
+[; ;SlaveComm.c: 398: send_end_of_transmission( send_buffer );
+"398
+[e ( _send_end_of_transmission (1 _send_buffer ]
+"399
+}
+[; ;SlaveComm.c: 399: }
+[e $U 889  ]
+"400
+[e :U 888 ]
+[; ;SlaveComm.c: 400: else if( strmatch( parameters[1], "PSVersion" ) == 1 )
+[e $ ! == -> ( _strmatch (2 , &U *U + _parameters * -> -> 1 `i `x -> * -> # *U &U *U _parameters `ui -> -> 10 `i `ui `x -> :s 11C `*uc `i -> 1 `i 890  ]
+[; ;SlaveComm.c: 401: {
+"401
+{
+[; ;SlaveComm.c: 402: send_end_of_transmission( send_buffer );
+"402
+[e ( _send_end_of_transmission (1 _send_buffer ]
+"403
+}
+[e :U 890 ]
+"404
+[e :U 889 ]
 [e :U 887 ]
 [e :U 885 ]
 [e :U 883 ]
+}
 [e :U 881 ]
-}
-[e :U 879 ]
-"403
+"410
+[e :U 880 ]
 [e :U 878 ]
-[e :U 876 ]
-[e :U 871 ]
-[; ;SlaveComm.c: 396: }
-[; ;SlaveComm.c: 397: }
-[; ;SlaveComm.c: 403: return end_of_transmission_received;
-[e ) _end_of_transmission_received ]
-[e $UE 869  ]
+[e :U 873 ]
+[; ;SlaveComm.c: 403: }
 [; ;SlaveComm.c: 404: }
-"404
-[e :UE 869 ]
+[; ;SlaveComm.c: 410: return end_of_transmission_received;
+[e ) _end_of_transmission_received ]
+[e $UE 871  ]
+[; ;SlaveComm.c: 411: }
+"411
+[e :UE 871 ]
 }
-"406
-[v _command_builder1 `(v ~T0 @X0 1 ef2`*S825`*uc ]
-"407
+"413
+[v _xSumMatches `(uc ~T0 @X0 1 ef1`S825 ]
 {
-[; ;SlaveComm.c: 406: void command_builder1( struct buffer *send_buffer, char* data1 )
-[; ;SlaveComm.c: 407: {
+[; ;SlaveComm.c: 413: bool xSumMatches( struct buffer buffer_to_chk){
+[e :U _xSumMatches ]
+[v _buffer_to_chk `S825 ~T0 @X0 1 r1 ]
+[f ]
+"417
+[v _xsum `i ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 417: int xsum = 0;
+[e = _xsum -> 0 `i ]
+"418
+[v _recXsum `i ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 418: int recXsum = 0;
+[e = _recXsum -> 0 `i ]
+"419
+[v _recXsumbuf `uc ~T0 @X0 -> 16 `i a ]
+"420
+[v _recXsumPointer `i ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 419: char recXsumbuf[16];
+[; ;SlaveComm.c: 420: int recXsumPointer = 0;
+[e = _recXsumPointer -> 0 `i ]
+"421
+[v _xsumRecieving `uc ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 421: bool xsumRecieving = 0;
+[e = _xsumRecieving -> -> 0 `i `uc ]
+"422
+[v _currentData `uc ~T0 @X0 1 a ]
+"423
+[v _data `*uc ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 422: char currentData;
+[; ;SlaveComm.c: 423: char* data = buffer_to_chk.data_buffer;
+[e = _data &U . _buffer_to_chk 0 ]
+"424
+[v _i `i ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 424: int i = 1;
+[e = _i -> 1 `i ]
+[; ;SlaveComm.c: 427: while (currentData != '*'){
+"427
+[e $U 892  ]
+[e :U 893 ]
+{
+[; ;SlaveComm.c: 429: currentData = data[i];
+"429
+[e = _currentData *U + _data * -> _i `x -> -> # *U _data `i `x ]
+[; ;SlaveComm.c: 430: i++;
+"430
+[e ++ _i -> 1 `i ]
+[; ;SlaveComm.c: 432: if (xsumRecieving){
+"432
+[e $ ! != -> _xsumRecieving `i -> -> -> 0 `i `uc `i 895  ]
+{
+[; ;SlaveComm.c: 433: recXsumbuf[recXsumPointer] = currentData;
+"433
+[e = *U + &U _recXsumbuf * -> -> _recXsumPointer `ui `ux -> -> # *U &U _recXsumbuf `ui `ux _currentData ]
+[; ;SlaveComm.c: 434: recXsumPointer++;
+"434
+[e ++ _recXsumPointer -> 1 `i ]
+"435
+}
+[; ;SlaveComm.c: 435: }
+[e $U 896  ]
+"436
+[e :U 895 ]
+[; ;SlaveComm.c: 436: else{
+{
+[; ;SlaveComm.c: 438: if (data[i] == '$'){
+"438
+[e $ ! == -> *U + _data * -> _i `x -> -> # *U _data `i `x `ui -> 36 `ui 897  ]
+{
+[; ;SlaveComm.c: 439: data[i] = '\0';
+"439
+[e = *U + _data * -> _i `x -> -> # *U _data `i `x -> -> 0 `ui `uc ]
+[; ;SlaveComm.c: 440: xsumRecieving = 1;
+"440
+[e = _xsumRecieving -> -> 1 `i `uc ]
+[; ;SlaveComm.c: 441: recXsumbuf[recXsumPointer] = '\0';
+"441
+[e = *U + &U _recXsumbuf * -> -> _recXsumPointer `ui `ux -> -> # *U &U _recXsumbuf `ui `ux -> -> 0 `ui `uc ]
+[; ;SlaveComm.c: 442: i++;
+"442
+[e ++ _i -> 1 `i ]
+"443
+}
+[; ;SlaveComm.c: 443: }
+[e $U 898  ]
+"444
+[e :U 897 ]
+[; ;SlaveComm.c: 444: else{
+{
+[; ;SlaveComm.c: 445: xsum += currentData;
+"445
+[e =+ _xsum -> _currentData `i ]
+"446
+}
+[e :U 898 ]
+"448
+}
+[e :U 896 ]
+"450
+}
+[e :U 892 ]
+"427
+[e $ != -> _currentData `ui -> 42 `ui 893  ]
+[e :U 894 ]
+"452
+[v _matches `uc ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 446: }
+[; ;SlaveComm.c: 448: }
+[; ;SlaveComm.c: 450: }
+[; ;SlaveComm.c: 452: bool matches = 0;
+[e = _matches -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 454: recXsum = atoi (recXsumbuf);
+"454
+[e = _recXsum ( _atoi (1 -> &U _recXsumbuf `*Cuc ]
+[; ;SlaveComm.c: 455: if (xsum == recXsum){
+"455
+[e $ ! == _xsum _recXsum 899  ]
+{
+[; ;SlaveComm.c: 456: matches = 1;
+"456
+[e = _matches -> -> 1 `i `uc ]
+"457
+}
+[e :U 899 ]
+[; ;SlaveComm.c: 457: }
+[; ;SlaveComm.c: 459: return matches;
+"459
+[e ) _matches ]
+[e $UE 891  ]
+[; ;SlaveComm.c: 460: }
+"460
+[e :UE 891 ]
+}
+"462
+[v _command_builder1 `(v ~T0 @X0 1 ef2`*S825`*uc ]
+"463
+{
+[; ;SlaveComm.c: 462: void command_builder1( struct buffer *send_buffer, char* data1 )
+[; ;SlaveComm.c: 463: {
 [e :U _command_builder1 ]
-"406
+"462
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
 [v _data1 `*uc ~T0 @X0 1 r2 ]
-"407
+"463
 [f ]
-[; ;SlaveComm.c: 408: command_builder_add_char( send_buffer, '#' );
-"408
+[; ;SlaveComm.c: 464: command_builder_add_char( send_buffer, '#' );
+"464
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 35 `ui `uc ]
-[; ;SlaveComm.c: 409: command_builder_add_char( send_buffer, '!' );
-"409
+[; ;SlaveComm.c: 465: command_builder_add_char( send_buffer, '!' );
+"465
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 33 `ui `uc ]
-"410
+"466
 [v _xsum `i ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 410: int xsum = 0;
+[; ;SlaveComm.c: 466: int xsum = 0;
 [e = _xsum -> 0 `i ]
-[; ;SlaveComm.c: 411: xsum += command_builder_add_string( send_buffer, data1 );
-"411
+[; ;SlaveComm.c: 467: xsum += command_builder_add_string( send_buffer, data1 );
+"467
 [e =+ _xsum ( _command_builder_add_string (2 , _send_buffer _data1 ]
-[; ;SlaveComm.c: 412: xsum_builder( send_buffer, xsum );
-"412
+[; ;SlaveComm.c: 468: xsum_builder( send_buffer, xsum );
+"468
 [e ( _xsum_builder (2 , _send_buffer _xsum ]
-[; ;SlaveComm.c: 414: return;
-"414
-[e $UE 889  ]
-[; ;SlaveComm.c: 415: }
-"415
-[e :UE 889 ]
+[; ;SlaveComm.c: 470: return;
+"470
+[e $UE 900  ]
+[; ;SlaveComm.c: 471: }
+"471
+[e :UE 900 ]
 }
-"417
+"473
 [v _command_builder2 `(v ~T0 @X0 1 ef3`*S825`*uc`*uc ]
-"418
+"474
 {
-[; ;SlaveComm.c: 417: void command_builder2( struct buffer *send_buffer, char* data1, char* data2 )
-[; ;SlaveComm.c: 418: {
+[; ;SlaveComm.c: 473: void command_builder2( struct buffer *send_buffer, char* data1, char* data2 )
+[; ;SlaveComm.c: 474: {
 [e :U _command_builder2 ]
-"417
+"473
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
 [v _data1 `*uc ~T0 @X0 1 r2 ]
 [v _data2 `*uc ~T0 @X0 1 r3 ]
-"418
+"474
 [f ]
-[; ;SlaveComm.c: 419: command_builder_add_char( send_buffer, '#' );
-"419
+[; ;SlaveComm.c: 475: command_builder_add_char( send_buffer, '#' );
+"475
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 35 `ui `uc ]
-[; ;SlaveComm.c: 420: command_builder_add_char( send_buffer, '!' );
-"420
+[; ;SlaveComm.c: 476: command_builder_add_char( send_buffer, '!' );
+"476
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 33 `ui `uc ]
-"421
+"477
 [v _xsum `i ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 421: int xsum = 0;
+[; ;SlaveComm.c: 477: int xsum = 0;
 [e = _xsum -> 0 `i ]
-[; ;SlaveComm.c: 422: xsum += command_builder_add_string( send_buffer, data1 );
-"422
+[; ;SlaveComm.c: 478: xsum += command_builder_add_string( send_buffer, data1 );
+"478
 [e =+ _xsum ( _command_builder_add_string (2 , _send_buffer _data1 ]
-[; ;SlaveComm.c: 423: xsum += command_builder_add_char( send_buffer, ';' );
-"423
+[; ;SlaveComm.c: 479: xsum += command_builder_add_char( send_buffer, ';' );
+"479
 [e =+ _xsum ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm.c: 424: xsum += command_builder_add_string( send_buffer, data2 );
-"424
+[; ;SlaveComm.c: 480: xsum += command_builder_add_string( send_buffer, data2 );
+"480
 [e =+ _xsum ( _command_builder_add_string (2 , _send_buffer _data2 ]
-[; ;SlaveComm.c: 426: xsum_builder( send_buffer, xsum );
-"426
+[; ;SlaveComm.c: 482: xsum_builder( send_buffer, xsum );
+"482
 [e ( _xsum_builder (2 , _send_buffer _xsum ]
-[; ;SlaveComm.c: 428: return;
-"428
-[e $UE 890  ]
-[; ;SlaveComm.c: 429: }
-"429
-[e :UE 890 ]
+[; ;SlaveComm.c: 484: return;
+"484
+[e $UE 901  ]
+[; ;SlaveComm.c: 485: }
+"485
+[e :UE 901 ]
 }
-"431
+"487
 [v _command_builder3 `(v ~T0 @X0 1 ef4`*S825`*uc`*uc`*uc ]
-"432
+"488
 {
-[; ;SlaveComm.c: 431: void command_builder3( struct buffer *send_buffer, char* data1, char* data2, char* data3 )
-[; ;SlaveComm.c: 432: {
+[; ;SlaveComm.c: 487: void command_builder3( struct buffer *send_buffer, char* data1, char* data2, char* data3 )
+[; ;SlaveComm.c: 488: {
 [e :U _command_builder3 ]
-"431
+"487
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
 [v _data1 `*uc ~T0 @X0 1 r2 ]
 [v _data2 `*uc ~T0 @X0 1 r3 ]
 [v _data3 `*uc ~T0 @X0 1 r4 ]
-"432
+"488
 [f ]
-[; ;SlaveComm.c: 433: command_builder_add_char( send_buffer, '#' );
-"433
+[; ;SlaveComm.c: 489: command_builder_add_char( send_buffer, '#' );
+"489
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 35 `ui `uc ]
-[; ;SlaveComm.c: 434: command_builder_add_char( send_buffer, '!' );
-"434
+[; ;SlaveComm.c: 490: command_builder_add_char( send_buffer, '!' );
+"490
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 33 `ui `uc ]
-"435
+"491
 [v _xsum `i ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 435: int xsum = 0;
+[; ;SlaveComm.c: 491: int xsum = 0;
 [e = _xsum -> 0 `i ]
-[; ;SlaveComm.c: 436: xsum += command_builder_add_string( send_buffer, data1 );
-"436
+[; ;SlaveComm.c: 492: xsum += command_builder_add_string( send_buffer, data1 );
+"492
 [e =+ _xsum ( _command_builder_add_string (2 , _send_buffer _data1 ]
-[; ;SlaveComm.c: 437: xsum += command_builder_add_char( send_buffer, ';' );
-"437
+[; ;SlaveComm.c: 493: xsum += command_builder_add_char( send_buffer, ';' );
+"493
 [e =+ _xsum ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm.c: 438: xsum += command_builder_add_string( send_buffer, data2 );
-"438
+[; ;SlaveComm.c: 494: xsum += command_builder_add_string( send_buffer, data2 );
+"494
 [e =+ _xsum ( _command_builder_add_string (2 , _send_buffer _data2 ]
-[; ;SlaveComm.c: 439: xsum += command_builder_add_char( send_buffer, ';' );
-"439
+[; ;SlaveComm.c: 495: xsum += command_builder_add_char( send_buffer, ';' );
+"495
 [e =+ _xsum ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm.c: 440: xsum += command_builder_add_string( send_buffer, data3 );
-"440
+[; ;SlaveComm.c: 496: xsum += command_builder_add_string( send_buffer, data3 );
+"496
 [e =+ _xsum ( _command_builder_add_string (2 , _send_buffer _data3 ]
-[; ;SlaveComm.c: 441: xsum_builder( send_buffer, xsum );
-"441
+[; ;SlaveComm.c: 497: xsum_builder( send_buffer, xsum );
+"497
 [e ( _xsum_builder (2 , _send_buffer _xsum ]
-[; ;SlaveComm.c: 443: return;
-"443
-[e $UE 891  ]
-[; ;SlaveComm.c: 444: }
-"444
-[e :UE 891 ]
+[; ;SlaveComm.c: 499: return;
+"499
+[e $UE 902  ]
+[; ;SlaveComm.c: 500: }
+"500
+[e :UE 902 ]
 }
-"446
+"502
 [v _command_builder4 `(v ~T0 @X0 1 ef5`*S825`*uc`*uc`*uc`*uc ]
-"447
+"503
 {
-[; ;SlaveComm.c: 446: void command_builder4( struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4 )
-[; ;SlaveComm.c: 447: {
+[; ;SlaveComm.c: 502: void command_builder4( struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4 )
+[; ;SlaveComm.c: 503: {
 [e :U _command_builder4 ]
-"446
+"502
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
 [v _data1 `*uc ~T0 @X0 1 r2 ]
 [v _data2 `*uc ~T0 @X0 1 r3 ]
 [v _data3 `*uc ~T0 @X0 1 r4 ]
 [v _data4 `*uc ~T0 @X0 1 r5 ]
-"447
+"503
 [f ]
-[; ;SlaveComm.c: 448: command_builder_add_char( send_buffer, '#' );
-"448
+[; ;SlaveComm.c: 504: command_builder_add_char( send_buffer, '#' );
+"504
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 35 `ui `uc ]
-[; ;SlaveComm.c: 449: command_builder_add_char( send_buffer, '!' );
-"449
+[; ;SlaveComm.c: 505: command_builder_add_char( send_buffer, '!' );
+"505
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 33 `ui `uc ]
-"450
+"506
 [v _xsum `i ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 450: int xsum = 0;
+[; ;SlaveComm.c: 506: int xsum = 0;
 [e = _xsum -> 0 `i ]
-[; ;SlaveComm.c: 451: xsum += command_builder_add_string( send_buffer, data1 );
-"451
+[; ;SlaveComm.c: 507: xsum += command_builder_add_string( send_buffer, data1 );
+"507
 [e =+ _xsum ( _command_builder_add_string (2 , _send_buffer _data1 ]
-[; ;SlaveComm.c: 452: xsum += command_builder_add_char( send_buffer, ';' );
-"452
+[; ;SlaveComm.c: 508: xsum += command_builder_add_char( send_buffer, ';' );
+"508
 [e =+ _xsum ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm.c: 453: xsum += command_builder_add_string( send_buffer, data2 );
-"453
+[; ;SlaveComm.c: 509: xsum += command_builder_add_string( send_buffer, data2 );
+"509
 [e =+ _xsum ( _command_builder_add_string (2 , _send_buffer _data2 ]
-[; ;SlaveComm.c: 454: xsum += command_builder_add_char( send_buffer, ';' );
-"454
+[; ;SlaveComm.c: 510: xsum += command_builder_add_char( send_buffer, ';' );
+"510
 [e =+ _xsum ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm.c: 455: xsum += command_builder_add_string( send_buffer, data3 );
-"455
+[; ;SlaveComm.c: 511: xsum += command_builder_add_string( send_buffer, data3 );
+"511
 [e =+ _xsum ( _command_builder_add_string (2 , _send_buffer _data3 ]
-[; ;SlaveComm.c: 456: xsum += command_builder_add_char( send_buffer, ';' );
-"456
+[; ;SlaveComm.c: 512: xsum += command_builder_add_char( send_buffer, ';' );
+"512
 [e =+ _xsum ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm.c: 457: xsum += command_builder_add_string( send_buffer, data4 );
-"457
+[; ;SlaveComm.c: 513: xsum += command_builder_add_string( send_buffer, data4 );
+"513
 [e =+ _xsum ( _command_builder_add_string (2 , _send_buffer _data4 ]
-[; ;SlaveComm.c: 458: xsum_builder( send_buffer, xsum );
-"458
+[; ;SlaveComm.c: 514: xsum_builder( send_buffer, xsum );
+"514
 [e ( _xsum_builder (2 , _send_buffer _xsum ]
-[; ;SlaveComm.c: 460: return;
-"460
-[e $UE 892  ]
-[; ;SlaveComm.c: 461: }
-"461
-[e :UE 892 ]
+[; ;SlaveComm.c: 516: return;
+"516
+[e $UE 903  ]
+[; ;SlaveComm.c: 517: }
+"517
+[e :UE 903 ]
 }
-"463
+"519
 [v _xsum_builder `(v ~T0 @X0 1 ef2`*S825`i ]
-"464
+"520
 {
-[; ;SlaveComm.c: 463: void xsum_builder( struct buffer *send_buffer, int xsum )
-[; ;SlaveComm.c: 464: {
+[; ;SlaveComm.c: 519: void xsum_builder( struct buffer *send_buffer, int xsum )
+[; ;SlaveComm.c: 520: {
 [e :U _xsum_builder ]
-"463
+"519
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
 [v _xsum `i ~T0 @X0 1 r2 ]
-"464
+"520
 [f ]
-[; ;SlaveComm.c: 466: command_builder_add_char( send_buffer, ';' );
-"466
+[; ;SlaveComm.c: 522: command_builder_add_char( send_buffer, ';' );
+"522
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 59 `ui `uc ]
-[; ;SlaveComm.c: 467: command_builder_add_char( send_buffer, '$' );
-"467
+[; ;SlaveComm.c: 523: command_builder_add_char( send_buffer, '$' );
+"523
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 36 `ui `uc ]
-"468
+"524
 [v _xsumBuf `uc ~T0 @X0 -> 16 `i a ]
-[; ;SlaveComm.c: 468: char xsumBuf[16];
-[; ;SlaveComm.c: 469: itoa( xsumBuf, xsum, 10 );
-"469
+[; ;SlaveComm.c: 524: char xsumBuf[16];
+[; ;SlaveComm.c: 525: itoa( xsumBuf, xsum, 10 );
+"525
 [e ( _itoa (3 , , &U _xsumBuf _xsum -> 10 `i ]
-[; ;SlaveComm.c: 470: command_builder_add_string( send_buffer, xsumBuf );
-"470
+[; ;SlaveComm.c: 526: command_builder_add_string( send_buffer, xsumBuf );
+"526
 [e ( _command_builder_add_string (2 , _send_buffer &U _xsumBuf ]
-[; ;SlaveComm.c: 472: command_builder_add_char( send_buffer, '*' );
-"472
+[; ;SlaveComm.c: 528: command_builder_add_char( send_buffer, '*' );
+"528
 [e ( _command_builder_add_char (2 , _send_buffer -> -> 42 `ui `uc ]
-[; ;SlaveComm.c: 474: return;
-"474
-[e $UE 893  ]
-[; ;SlaveComm.c: 475: }
-"475
-[e :UE 893 ]
+[; ;SlaveComm.c: 530: return;
+"530
+[e $UE 904  ]
+[; ;SlaveComm.c: 531: }
+"531
+[e :UE 904 ]
 }
-"477
+"533
 [v _command_builder_add_char `(i ~T0 @X0 1 ef2`*S825`uc ]
-"478
+"534
 {
-[; ;SlaveComm.c: 477: int command_builder_add_char( struct buffer *send_buffer, char data )
-[; ;SlaveComm.c: 478: {
+[; ;SlaveComm.c: 533: int command_builder_add_char( struct buffer *send_buffer, char data )
+[; ;SlaveComm.c: 534: {
 [e :U _command_builder_add_char ]
-"477
+"533
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
-"478
+"534
 [f ]
-[; ;SlaveComm.c: 479: send_buffer->data_buffer[send_buffer->write_position] = data;
-"479
+[; ;SlaveComm.c: 535: send_buffer->data_buffer[send_buffer->write_position] = data;
+"535
 [e = *U + &U . *U _send_buffer 0 * -> . *U _send_buffer 1 `ux -> -> # *U &U . *U _send_buffer 0 `ui `ux _data ]
-[; ;SlaveComm.c: 481: send_buffer->write_position++;
-"481
+[; ;SlaveComm.c: 537: send_buffer->write_position++;
+"537
 [e ++ . *U _send_buffer 1 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 482: if( send_buffer->write_position >= 40 )
-"482
-[e $ ! >= -> . *U _send_buffer 1 `i -> 40 `i 895  ]
-[; ;SlaveComm.c: 483: {
-"483
+[; ;SlaveComm.c: 538: if( send_buffer->write_position >= 40 )
+"538
+[e $ ! >= -> . *U _send_buffer 1 `i -> 40 `i 906  ]
+[; ;SlaveComm.c: 539: {
+"539
 {
-[; ;SlaveComm.c: 484: send_buffer->write_position = 0;
-"484
+[; ;SlaveComm.c: 540: send_buffer->write_position = 0;
+"540
 [e = . *U _send_buffer 1 -> -> 0 `i `uc ]
-"485
+"541
 }
-[e :U 895 ]
-[; ;SlaveComm.c: 485: }
-[; ;SlaveComm.c: 487: return data;
-"487
+[e :U 906 ]
+[; ;SlaveComm.c: 541: }
+[; ;SlaveComm.c: 543: return data;
+"543
 [e ) -> _data `i ]
-[e $UE 894  ]
-[; ;SlaveComm.c: 488: }
-"488
-[e :UE 894 ]
+[e $UE 905  ]
+[; ;SlaveComm.c: 544: }
+"544
+[e :UE 905 ]
 }
-"490
+"546
 [v _command_builder_add_string `(i ~T0 @X0 1 ef2`*S825`*uc ]
-"491
+"547
 {
-[; ;SlaveComm.c: 490: int command_builder_add_string( struct buffer *send_buffer, char *data_string )
-[; ;SlaveComm.c: 491: {
+[; ;SlaveComm.c: 546: int command_builder_add_string( struct buffer *send_buffer, char *data_string )
+[; ;SlaveComm.c: 547: {
 [e :U _command_builder_add_string ]
-"490
+"546
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
 [v _data_string `*uc ~T0 @X0 1 r2 ]
-"491
-[f ]
-"492
-[v _xsumAdd `i ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 492: int xsumAdd = 0;
-[e = _xsumAdd -> 0 `i ]
-[; ;SlaveComm.c: 494: for( int inx = 0; data_string[inx] != '\0'; inx++ )
-"494
-{
-[v _inx `i ~T0 @X0 1 a ]
-[e = _inx -> 0 `i ]
-[e $U 900  ]
-"495
-[e :U 897 ]
-[; ;SlaveComm.c: 495: {
-{
-[; ;SlaveComm.c: 496: xsumAdd += command_builder_add_char( send_buffer, data_string[inx] );
-"496
-[e =+ _xsumAdd ( _command_builder_add_char (2 , _send_buffer *U + _data_string * -> _inx `x -> -> # *U _data_string `i `x ]
-"497
-}
-"494
-[e ++ _inx -> 1 `i ]
-[e :U 900 ]
-[e $ != -> *U + _data_string * -> _inx `x -> -> # *U _data_string `i `x `ui -> 0 `ui 897  ]
-[e :U 898 ]
-"497
-}
-[; ;SlaveComm.c: 497: }
-[; ;SlaveComm.c: 499: return xsumAdd;
-"499
-[e ) _xsumAdd ]
-[e $UE 896  ]
-[; ;SlaveComm.c: 500: }
-"500
-[e :UE 896 ]
-}
-"502
-[v _send_data `(uc ~T0 @X0 1 ef1`*S825 ]
-"503
-{
-[; ;SlaveComm.c: 502: bool send_data( struct buffer * send_buffer )
-[; ;SlaveComm.c: 503: {
-[e :U _send_data ]
-"502
-[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"503
-[f ]
-"504
-[v _send_end `uc ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 504: bool send_end;
-[; ;SlaveComm.c: 506: if( send_buffer->read_position == send_buffer->write_position )
-"506
-[e $ ! == -> . *U _send_buffer 2 `i -> . *U _send_buffer 1 `i 902  ]
-[; ;SlaveComm.c: 507: {
-"507
-{
-[; ;SlaveComm.c: 508: send_end = 1;
-"508
-[e = _send_end -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 509: SPI_send_data( '\0' );
-"509
-[e ( _SPI_send_data (1 -> -> 0 `ui `uc ]
-"510
-}
-[; ;SlaveComm.c: 510: }
-[e $U 903  ]
-"511
-[e :U 902 ]
-[; ;SlaveComm.c: 511: else
-[; ;SlaveComm.c: 512: {
-"512
-{
-[; ;SlaveComm.c: 513: send_end = 0;
-"513
-[e = _send_end -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 516: if( SPI_send_data( send_buffer->data_buffer[send_buffer->read_position] ) == 1 )
-"516
-[e $ ! == -> ( _SPI_send_data (1 *U + &U . *U _send_buffer 0 * -> . *U _send_buffer 2 `ux -> -> # *U &U . *U _send_buffer 0 `ui `ux `i -> 1 `i 904  ]
-[; ;SlaveComm.c: 517: {
-"517
-{
-[; ;SlaveComm.c: 519: send_buffer->read_position++;
-"519
-[e ++ . *U _send_buffer 2 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 520: if( send_buffer->read_position >= 40 )
-"520
-[e $ ! >= -> . *U _send_buffer 2 `i -> 40 `i 905  ]
-[; ;SlaveComm.c: 521: {
-"521
-{
-[; ;SlaveComm.c: 522: send_buffer->read_position = 0;
-"522
-[e = . *U _send_buffer 2 -> -> 0 `i `uc ]
-"523
-}
-[e :U 905 ]
-"524
-}
-[e :U 904 ]
-"525
-}
-[e :U 903 ]
-[; ;SlaveComm.c: 523: }
-[; ;SlaveComm.c: 524: }
-[; ;SlaveComm.c: 525: }
-[; ;SlaveComm.c: 527: return send_end;
-"527
-[e ) _send_end ]
-[e $UE 901  ]
-[; ;SlaveComm.c: 528: }
-"528
-[e :UE 901 ]
-}
-"530
-[v _strmatch `(uc ~T0 @X0 1 ef2`*uc`*uc ]
-"531
-{
-[; ;SlaveComm.c: 530: bool strmatch( char* a, char* b )
-[; ;SlaveComm.c: 531: {
-[e :U _strmatch ]
-"530
-[v _a `*uc ~T0 @X0 1 r1 ]
-[v _b `*uc ~T0 @X0 1 r2 ]
-"531
-[f ]
-"532
-[v _result `i ~T0 @X0 1 a ]
-"533
-[v _match `uc ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 532: int result;
-[; ;SlaveComm.c: 533: bool match;
-[; ;SlaveComm.c: 535: result = strcmp2( a, b );
-"535
-[e = _result ( _strcmp2 (2 , _a _b ]
-[; ;SlaveComm.c: 537: match = (result == 0) ? 1 : 0;
-"537
-[e = _match -> ? == _result -> 0 `i : -> 1 `i -> 0 `i `uc ]
-[; ;SlaveComm.c: 539: return match;
-"539
-[e ) _match ]
-[e $UE 906  ]
-[; ;SlaveComm.c: 540: }
-"540
-[e :UE 906 ]
-}
-"542
-[v _strcmp2 `(i ~T0 @X0 1 ef2`*uc`*uc ]
-"543
-{
-[; ;SlaveComm.c: 542: int strcmp2( char* a, char* b )
-[; ;SlaveComm.c: 543: {
-[e :U _strcmp2 ]
-"542
-[v _a `*uc ~T0 @X0 1 r1 ]
-[v _b `*uc ~T0 @X0 1 r2 ]
-"543
-[f ]
-"544
-[v _inx `i ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 544: int inx = 0;
-[e = _inx -> 0 `i ]
-"545
-[v _match `i ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 545: int match = 0;
-[e = _match -> 0 `i ]
-[; ;SlaveComm.c: 547: while( (a[inx] != '\0') && (b[inx] != '\0') && (match == 0) )
 "547
-[e $U 908  ]
-[e :U 909 ]
-[; ;SlaveComm.c: 548: {
+[f ]
 "548
-{
-[; ;SlaveComm.c: 549: if( a[inx] > b[inx] )
-"549
-[e $ ! > -> *U + _a * -> _inx `x -> -> # *U _a `i `x `i -> *U + _b * -> _inx `x -> -> # *U _b `i `x `i 911  ]
-[; ;SlaveComm.c: 550: {
+[v _xsumAdd `i ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 548: int xsumAdd = 0;
+[e = _xsumAdd -> 0 `i ]
+[; ;SlaveComm.c: 550: for( int inx = 0; data_string[inx] != '\0'; inx++ )
 "550
 {
-[; ;SlaveComm.c: 551: match = 1;
+[v _inx `i ~T0 @X0 1 a ]
+[e = _inx -> 0 `i ]
+[e $U 911  ]
 "551
-[e = _match -> 1 `i ]
-"552
-}
-[; ;SlaveComm.c: 552: }
-[e $U 912  ]
-"553
-[e :U 911 ]
-[; ;SlaveComm.c: 553: else if( a[inx] < b[inx] )
-[e $ ! < -> *U + _a * -> _inx `x -> -> # *U _a `i `x `i -> *U + _b * -> _inx `x -> -> # *U _b `i `x `i 913  ]
-[; ;SlaveComm.c: 554: {
-"554
-{
-[; ;SlaveComm.c: 555: match = -1;
-"555
-[e = _match -U -> 1 `i ]
-"556
-}
-[; ;SlaveComm.c: 556: }
-[e $U 914  ]
-"557
-[e :U 913 ]
-[; ;SlaveComm.c: 557: else if( a[inx] == b[inx] )
-[e $ ! == -> *U + _a * -> _inx `x -> -> # *U _a `i `x `i -> *U + _b * -> _inx `x -> -> # *U _b `i `x `i 915  ]
-[; ;SlaveComm.c: 558: {
-"558
-{
-"560
-}
-[e :U 915 ]
-"562
-[e :U 914 ]
-[e :U 912 ]
-[; ;SlaveComm.c: 560: }
-[; ;SlaveComm.c: 562: inx++;
-[e ++ _inx -> 1 `i ]
-"563
-}
 [e :U 908 ]
-"547
-[e $ && && != -> *U + _a * -> _inx `x -> -> # *U _a `i `x `ui -> 0 `ui != -> *U + _b * -> _inx `x -> -> # *U _b `i `x `ui -> 0 `ui == _match -> 0 `i 909  ]
-[e :U 910 ]
-[; ;SlaveComm.c: 563: }
-[; ;SlaveComm.c: 566: if( (a[inx] == '\0') && (b[inx] != '\0') )
-"566
-[e $ ! && == -> *U + _a * -> _inx `x -> -> # *U _a `i `x `ui -> 0 `ui != -> *U + _b * -> _inx `x -> -> # *U _b `i `x `ui -> 0 `ui 916  ]
-[; ;SlaveComm.c: 567: {
-"567
+[; ;SlaveComm.c: 551: {
 {
-[; ;SlaveComm.c: 568: match = -1;
-"568
-[e = _match -U -> 1 `i ]
-"569
+[; ;SlaveComm.c: 552: xsumAdd += command_builder_add_char( send_buffer, data_string[inx] );
+"552
+[e =+ _xsumAdd ( _command_builder_add_char (2 , _send_buffer *U + _data_string * -> _inx `x -> -> # *U _data_string `i `x ]
+"553
 }
-[; ;SlaveComm.c: 569: }
-[e $U 917  ]
-"570
-[e :U 916 ]
-[; ;SlaveComm.c: 570: else if( (a[inx] != '\0') && (b[inx] == '\0') )
-[e $ ! && != -> *U + _a * -> _inx `x -> -> # *U _a `i `x `ui -> 0 `ui == -> *U + _b * -> _inx `x -> -> # *U _b `i `x `ui -> 0 `ui 918  ]
-[; ;SlaveComm.c: 571: {
-"571
-{
-[; ;SlaveComm.c: 572: match = 1;
-"572
-[e = _match -> 1 `i ]
-"573
+"550
+[e ++ _inx -> 1 `i ]
+[e :U 911 ]
+[e $ != -> *U + _data_string * -> _inx `x -> -> # *U _data_string `i `x `ui -> 0 `ui 908  ]
+[e :U 909 ]
+"553
 }
-[e :U 918 ]
-"575
-[e :U 917 ]
-[; ;SlaveComm.c: 573: }
-[; ;SlaveComm.c: 575: return match;
-[e ) _match ]
+[; ;SlaveComm.c: 553: }
+[; ;SlaveComm.c: 555: return xsumAdd;
+"555
+[e ) _xsumAdd ]
 [e $UE 907  ]
-[; ;SlaveComm.c: 577: }
-"577
+[; ;SlaveComm.c: 556: }
+"556
 [e :UE 907 ]
 }
-"579
-[v _SPI_receive_data `(uc ~T0 @X0 1 ef1`*uc ]
-"580
+"558
+[v _send_data `(uc ~T0 @X0 1 ef1`*S825 ]
+"559
 {
-[; ;SlaveComm.c: 579: bool SPI_receive_data( char *data )
-[; ;SlaveComm.c: 580: {
-[e :U _SPI_receive_data ]
-"579
-[v _data `*uc ~T0 @X0 1 r1 ]
-"580
+[; ;SlaveComm.c: 558: bool send_data( struct buffer * send_buffer )
+[; ;SlaveComm.c: 559: {
+[e :U _send_data ]
+"558
+[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
+"559
 [f ]
-"582
-[v _recvGood `uc ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 582: bool recvGood = 0;
-[e = _recvGood -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 584: if( SSP2STATbits.BF == 1 )
+"560
+[v _send_end `uc ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 560: bool send_end;
+[; ;SlaveComm.c: 562: if( send_buffer->read_position == send_buffer->write_position )
+"562
+[e $ ! == -> . *U _send_buffer 2 `i -> . *U _send_buffer 1 `i 913  ]
+[; ;SlaveComm.c: 563: {
+"563
+{
+[; ;SlaveComm.c: 564: send_end = 1;
+"564
+[e = _send_end -> -> 1 `i `uc ]
+[; ;SlaveComm.c: 565: SPI_send_data( '\0' );
+"565
+[e ( _SPI_send_data (1 -> -> 0 `ui `uc ]
+"566
+}
+[; ;SlaveComm.c: 566: }
+[e $U 914  ]
+"567
+[e :U 913 ]
+[; ;SlaveComm.c: 567: else
+[; ;SlaveComm.c: 568: {
+"568
+{
+[; ;SlaveComm.c: 569: send_end = 0;
+"569
+[e = _send_end -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 572: if( SPI_send_data( send_buffer->data_buffer[send_buffer->read_position] ) == 1 )
+"572
+[e $ ! == -> ( _SPI_send_data (1 *U + &U . *U _send_buffer 0 * -> . *U _send_buffer 2 `ux -> -> # *U &U . *U _send_buffer 0 `ui `ux `i -> 1 `i 915  ]
+[; ;SlaveComm.c: 573: {
+"573
+{
+[; ;SlaveComm.c: 575: send_buffer->read_position++;
+"575
+[e ++ . *U _send_buffer 2 -> -> 1 `i `uc ]
+[; ;SlaveComm.c: 576: if( send_buffer->read_position >= 40 )
+"576
+[e $ ! >= -> . *U _send_buffer 2 `i -> 40 `i 916  ]
+[; ;SlaveComm.c: 577: {
+"577
+{
+[; ;SlaveComm.c: 578: send_buffer->read_position = 0;
+"578
+[e = . *U _send_buffer 2 -> -> 0 `i `uc ]
+"579
+}
+[e :U 916 ]
+"580
+}
+[e :U 915 ]
+"581
+}
+[e :U 914 ]
+[; ;SlaveComm.c: 579: }
+[; ;SlaveComm.c: 580: }
+[; ;SlaveComm.c: 581: }
+[; ;SlaveComm.c: 583: return send_end;
+"583
+[e ) _send_end ]
+[e $UE 912  ]
+[; ;SlaveComm.c: 584: }
 "584
-[e $ ! == -> . . _SSP2STATbits 2 0 `i -> 1 `i 920  ]
-[; ;SlaveComm.c: 585: {
-"585
-{
-[; ;SlaveComm.c: 586: *data = SSP2BUF;
+[e :UE 912 ]
+}
 "586
-[e = *U _data _SSP2BUF ]
-[; ;SlaveComm.c: 587: recvGood = 1;
+[v _strmatch `(uc ~T0 @X0 1 ef2`*uc`*uc ]
 "587
-[e = _recvGood -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 588: SSP2CON1bits.WCOL = 0;
+{
+[; ;SlaveComm.c: 586: bool strmatch( char* a, char* b )
+[; ;SlaveComm.c: 587: {
+[e :U _strmatch ]
+"586
+[v _a `*uc ~T0 @X0 1 r1 ]
+[v _b `*uc ~T0 @X0 1 r2 ]
+"587
+[f ]
 "588
-[e = . . _SSP2CON1bits 0 4 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 589: SPI_transmit_wait = 0;
+[v _result `i ~T0 @X0 1 a ]
 "589
-[e = _SPI_transmit_wait -> -> 0 `i `uc ]
-"590
-}
-[; ;SlaveComm.c: 590: }
-[e $U 921  ]
+[v _match `uc ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 588: int result;
+[; ;SlaveComm.c: 589: bool match;
+[; ;SlaveComm.c: 591: result = strcmp2( a, b );
 "591
-[e :U 920 ]
-[; ;SlaveComm.c: 591: else
-[; ;SlaveComm.c: 592: {
-"592
-{
-[; ;SlaveComm.c: 593: recvGood = 0;
+[e = _result ( _strcmp2 (2 , _a _b ]
+[; ;SlaveComm.c: 593: match = (result == 0) ? 1 : 0;
 "593
-[e = _recvGood -> -> 0 `i `uc ]
-"594
-}
-[e :U 921 ]
-[; ;SlaveComm.c: 594: }
-[; ;SlaveComm.c: 596: return recvGood;
+[e = _match -> ? == _result -> 0 `i : -> 1 `i -> 0 `i `uc ]
+[; ;SlaveComm.c: 595: return match;
+"595
+[e ) _match ]
+[e $UE 917  ]
+[; ;SlaveComm.c: 596: }
 "596
-[e ) _recvGood ]
-[e $UE 919  ]
-[; ;SlaveComm.c: 598: }
+[e :UE 917 ]
+}
 "598
-[e :UE 919 ]
-}
-"600
-[v _SPI_send_data `(uc ~T0 @X0 1 ef1`uc ]
-"601
+[v _strcmp2 `(i ~T0 @X0 1 ef2`*uc`*uc ]
+"599
 {
-[; ;SlaveComm.c: 600: bool SPI_send_data( char data )
-[; ;SlaveComm.c: 601: {
-[e :U _SPI_send_data ]
-"600
-[v _data `uc ~T0 @X0 1 r1 ]
-"601
+[; ;SlaveComm.c: 598: int strcmp2( char* a, char* b )
+[; ;SlaveComm.c: 599: {
+[e :U _strcmp2 ]
+"598
+[v _a `*uc ~T0 @X0 1 r1 ]
+[v _b `*uc ~T0 @X0 1 r2 ]
+"599
 [f ]
-"602
-[v _sendGood `uc ~T0 @X0 1 a ]
-[; ;SlaveComm.c: 602: bool sendGood = 0;
-[e = _sendGood -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 604: if( SPI_transmit_wait == 0 )
+"600
+[v _inx `i ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 600: int inx = 0;
+[e = _inx -> 0 `i ]
+"601
+[v _match `i ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 601: int match = 0;
+[e = _match -> 0 `i ]
+[; ;SlaveComm.c: 603: while( (a[inx] != '\0') && (b[inx] != '\0') && (match == 0) )
+"603
+[e $U 919  ]
+[e :U 920 ]
+[; ;SlaveComm.c: 604: {
 "604
-[e $ ! == -> _SPI_transmit_wait `i -> 0 `i 923  ]
-[; ;SlaveComm.c: 605: {
+{
+[; ;SlaveComm.c: 605: if( a[inx] > b[inx] )
 "605
-{
-[; ;SlaveComm.c: 606: SSP2BUF = data;
+[e $ ! > -> *U + _a * -> _inx `x -> -> # *U _a `i `x `i -> *U + _b * -> _inx `x -> -> # *U _b `i `x `i 922  ]
+[; ;SlaveComm.c: 606: {
 "606
-[e = _SSP2BUF _data ]
-[; ;SlaveComm.c: 607: SPI_transmit_wait = 1;
+{
+[; ;SlaveComm.c: 607: match = 1;
 "607
-[e = _SPI_transmit_wait -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 608: sendGood = 1;
+[e = _match -> 1 `i ]
 "608
-[e = _sendGood -> -> 1 `i `uc ]
+}
+[; ;SlaveComm.c: 608: }
+[e $U 923  ]
 "609
-}
-[; ;SlaveComm.c: 609: }
-[e $U 924  ]
+[e :U 922 ]
+[; ;SlaveComm.c: 609: else if( a[inx] < b[inx] )
+[e $ ! < -> *U + _a * -> _inx `x -> -> # *U _a `i `x `i -> *U + _b * -> _inx `x -> -> # *U _b `i `x `i 924  ]
+[; ;SlaveComm.c: 610: {
 "610
-[e :U 923 ]
-[; ;SlaveComm.c: 610: else
-[; ;SlaveComm.c: 611: {
+{
+[; ;SlaveComm.c: 611: match = -1;
 "611
-{
-[; ;SlaveComm.c: 612: sendGood = 0;
+[e = _match -U -> 1 `i ]
 "612
-[e = _sendGood -> -> 0 `i `uc ]
+}
+[; ;SlaveComm.c: 612: }
+[e $U 925  ]
 "613
-}
 [e :U 924 ]
-[; ;SlaveComm.c: 613: }
-[; ;SlaveComm.c: 615: return sendGood;
-"615
-[e ) _sendGood ]
-[e $UE 922  ]
-[; ;SlaveComm.c: 616: }
+[; ;SlaveComm.c: 613: else if( a[inx] == b[inx] )
+[e $ ! == -> *U + _a * -> _inx `x -> -> # *U _a `i `x `i -> *U + _b * -> _inx `x -> -> # *U _b `i `x `i 926  ]
+[; ;SlaveComm.c: 614: {
+"614
+{
 "616
-[e :UE 922 ]
 }
-"621
-[v _send_end_of_transmission `(v ~T0 @X0 1 ef1`*S825 ]
+[e :U 926 ]
+"618
+[e :U 925 ]
+[e :U 923 ]
+[; ;SlaveComm.c: 616: }
+[; ;SlaveComm.c: 618: inx++;
+[e ++ _inx -> 1 `i ]
+"619
+}
+[e :U 919 ]
+"603
+[e $ && && != -> *U + _a * -> _inx `x -> -> # *U _a `i `x `ui -> 0 `ui != -> *U + _b * -> _inx `x -> -> # *U _b `i `x `ui -> 0 `ui == _match -> 0 `i 920  ]
+[e :U 921 ]
+[; ;SlaveComm.c: 619: }
+[; ;SlaveComm.c: 622: if( (a[inx] == '\0') && (b[inx] != '\0') )
 "622
-{
-[; ;SlaveComm.c: 621: void send_end_of_transmission( struct buffer * send_buffer )
-[; ;SlaveComm.c: 622: {
-[e :U _send_end_of_transmission ]
-"621
-[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"622
-[f ]
-[; ;SlaveComm.c: 623: command_builder1( send_buffer, "END" );
+[e $ ! && == -> *U + _a * -> _inx `x -> -> # *U _a `i `x `ui -> 0 `ui != -> *U + _b * -> _inx `x -> -> # *U _b `i `x `ui -> 0 `ui 927  ]
+[; ;SlaveComm.c: 623: {
 "623
-[e ( _command_builder1 (2 , _send_buffer -> :s 12C `*uc ]
-[; ;SlaveComm.c: 625: return;
-"625
-[e $UE 925  ]
-[; ;SlaveComm.c: 626: }
-"626
-[e :UE 925 ]
-}
-"628
-[v _com_command_testLED `(v ~T0 @X0 1 ef1`*S825 ]
-"629
 {
-[; ;SlaveComm.c: 628: void com_command_testLED( struct buffer * send_buffer )
-[; ;SlaveComm.c: 629: {
-[e :U _com_command_testLED ]
+[; ;SlaveComm.c: 624: match = -1;
+"624
+[e = _match -U -> 1 `i ]
+"625
+}
+[; ;SlaveComm.c: 625: }
+[e $U 928  ]
+"626
+[e :U 927 ]
+[; ;SlaveComm.c: 626: else if( (a[inx] != '\0') && (b[inx] == '\0') )
+[e $ ! && != -> *U + _a * -> _inx `x -> -> # *U _a `i `x `ui -> 0 `ui == -> *U + _b * -> _inx `x -> -> # *U _b `i `x `ui -> 0 `ui 929  ]
+[; ;SlaveComm.c: 627: {
+"627
+{
+[; ;SlaveComm.c: 628: match = 1;
 "628
-[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
+[e = _match -> 1 `i ]
 "629
-[f ]
-[; ;SlaveComm.c: 630: command_builder2( send_buffer, "Read", "LEDB" );
-"630
-[e ( _command_builder2 (3 , , _send_buffer -> :s 13C `*uc -> :s 14C `*uc ]
-[; ;SlaveComm.c: 632: return;
-"632
-[e $UE 926  ]
+}
+[e :U 929 ]
+"631
+[e :U 928 ]
+[; ;SlaveComm.c: 629: }
+[; ;SlaveComm.c: 631: return match;
+[e ) _match ]
+[e $UE 918  ]
 [; ;SlaveComm.c: 633: }
 "633
-[e :UE 926 ]
+[e :UE 918 ]
 }
 "635
-[v _com_command_setPower `(v ~T0 @X0 1 ef1`*S825 ]
+[v _SPI_receive_data `(uc ~T0 @X0 1 ef1`*uc ]
 "636
 {
-[; ;SlaveComm.c: 635: void com_command_setPower( struct buffer * send_buffer )
+[; ;SlaveComm.c: 635: bool SPI_receive_data( char *data )
 [; ;SlaveComm.c: 636: {
-[e :U _com_command_setPower ]
+[e :U _SPI_receive_data ]
 "635
-[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
+[v _data `*uc ~T0 @X0 1 r1 ]
 "636
 [f ]
-"639
-[v _temp `uc ~T0 @X0 -> 12 `i a ]
-[; ;SlaveComm.c: 639: char temp[12];
-[; ;SlaveComm.c: 641: ultoa( temp, meterWatts_global, 10 );
+"638
+[v _recvGood `uc ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 638: bool recvGood = 0;
+[e = _recvGood -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 640: if( SSP2STATbits.BF == 1 )
+"640
+[e $ ! == -> . . _SSP2STATbits 2 0 `i -> 1 `i 931  ]
+[; ;SlaveComm.c: 641: {
 "641
-[e ( _ultoa (3 , , &U _temp _meterWatts_global -> 10 `i ]
-[; ;SlaveComm.c: 642: command_builder3( send_buffer, "Set", "Watts", temp );
+{
+[; ;SlaveComm.c: 642: *data = SSP2BUF;
 "642
-[e ( _command_builder3 (4 , , , _send_buffer -> :s 15C `*uc -> :s 16C `*uc &U _temp ]
-[; ;SlaveComm.c: 644: return;
+[e = *U _data _SSP2BUF ]
+[; ;SlaveComm.c: 643: recvGood = 1;
+"643
+[e = _recvGood -> -> 1 `i `uc ]
+[; ;SlaveComm.c: 644: SSP2CON1bits.WCOL = 0;
 "644
-[e $UE 927  ]
-[; ;SlaveComm.c: 645: }
+[e = . . _SSP2CON1bits 0 4 -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 645: SPI_transmit_wait = 0;
 "645
-[e :UE 927 ]
+[e = _SPI_transmit_wait -> -> 0 `i `uc ]
+"646
 }
+[; ;SlaveComm.c: 646: }
+[e $U 932  ]
 "647
-[v _com_command_setEnergyUsed `(v ~T0 @X0 1 ef1`*S825 ]
-"648
-{
-[; ;SlaveComm.c: 647: void com_command_setEnergyUsed( struct buffer * send_buffer )
+[e :U 931 ]
+[; ;SlaveComm.c: 647: else
 [; ;SlaveComm.c: 648: {
-[e :U _com_command_setEnergyUsed ]
-"647
-[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
 "648
-[f ]
+{
+[; ;SlaveComm.c: 649: recvGood = 0;
 "649
-[v _temp `uc ~T0 @X0 -> 12 `i a ]
-[; ;SlaveComm.c: 649: char temp[12];
-[; ;SlaveComm.c: 651: ultoa( temp, meterEnergyUsed_global, 10 );
-"651
-[e ( _ultoa (3 , , &U _temp _meterEnergyUsed_global -> 10 `i ]
-[; ;SlaveComm.c: 653: command_builder3( send_buffer, "Set", "EnUsed", temp );
-"653
-[e ( _command_builder3 (4 , , , _send_buffer -> :s 17C `*uc -> :s 18C `*uc &U _temp ]
-[; ;SlaveComm.c: 655: return;
-"655
-[e $UE 928  ]
-[; ;SlaveComm.c: 656: }
-"656
-[e :UE 928 ]
+[e = _recvGood -> -> 0 `i `uc ]
+"650
 }
-"658
-[v _com_command_setVolts `(v ~T0 @X0 1 ef1`*S825 ]
-"659
-{
-[; ;SlaveComm.c: 658: void com_command_setVolts( struct buffer * send_buffer )
-[; ;SlaveComm.c: 659: {
-[e :U _com_command_setVolts ]
-"658
-[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"659
-[f ]
-[; ;SlaveComm.c: 660: command_builder3( send_buffer, "Set", "Volts", "222" );
-"660
-[e ( _command_builder3 (4 , , , _send_buffer -> :s 19C `*uc -> :s 20C `*uc -> :s 21C `*uc ]
-[; ;SlaveComm.c: 662: return;
-"662
-[e $UE 929  ]
-[; ;SlaveComm.c: 663: }
-"663
-[e :UE 929 ]
-}
-"665
-[v _com_command_setAmps `(v ~T0 @X0 1 ef1`*S825 ]
-"666
-{
-[; ;SlaveComm.c: 665: void com_command_setAmps( struct buffer * send_buffer )
-[; ;SlaveComm.c: 666: {
-[e :U _com_command_setAmps ]
-"665
-[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"666
-[f ]
-[; ;SlaveComm.c: 667: command_builder3( send_buffer, "Set", "Amps", "333" );
-"667
-[e ( _command_builder3 (4 , , , _send_buffer -> :s 22C `*uc -> :s 23C `*uc -> :s 24C `*uc ]
-[; ;SlaveComm.c: 669: return;
-"669
+[e :U 932 ]
+[; ;SlaveComm.c: 650: }
+[; ;SlaveComm.c: 652: return recvGood;
+"652
+[e ) _recvGood ]
 [e $UE 930  ]
-[; ;SlaveComm.c: 670: }
-"670
+[; ;SlaveComm.c: 654: }
+"654
 [e :UE 930 ]
 }
-"672
-[v _com_command_readCalibration `(v ~T0 @X0 1 ef1`*S825 ]
-"673
+"656
+[v _SPI_send_data `(uc ~T0 @X0 1 ef1`uc ]
+"657
 {
-[; ;SlaveComm.c: 672: void com_command_readCalibration( struct buffer * send_buffer )
-[; ;SlaveComm.c: 673: {
-[e :U _com_command_readCalibration ]
-"672
-[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"673
+[; ;SlaveComm.c: 656: bool SPI_send_data( char data )
+[; ;SlaveComm.c: 657: {
+[e :U _SPI_send_data ]
+"656
+[v _data `uc ~T0 @X0 1 r1 ]
+"657
 [f ]
-[; ;SlaveComm.c: 674: command_builder2( send_buffer, "Read", "Calibration" );
-"674
-[e ( _command_builder2 (3 , , _send_buffer -> :s 25C `*uc -> :s 26C `*uc ]
-[; ;SlaveComm.c: 676: return;
-"676
-[e $UE 931  ]
-[; ;SlaveComm.c: 677: }
+"658
+[v _sendGood `uc ~T0 @X0 1 a ]
+[; ;SlaveComm.c: 658: bool sendGood = 0;
+[e = _sendGood -> -> 0 `i `uc ]
+[; ;SlaveComm.c: 660: if( SPI_transmit_wait == 0 )
+"660
+[e $ ! == -> _SPI_transmit_wait `i -> 0 `i 934  ]
+[; ;SlaveComm.c: 661: {
+"661
+{
+[; ;SlaveComm.c: 662: SSP2BUF = data;
+"662
+[e = _SSP2BUF _data ]
+[; ;SlaveComm.c: 663: SPI_transmit_wait = 1;
+"663
+[e = _SPI_transmit_wait -> -> 1 `i `uc ]
+[; ;SlaveComm.c: 664: sendGood = 1;
+"664
+[e = _sendGood -> -> 1 `i `uc ]
+"665
+}
+[; ;SlaveComm.c: 665: }
+[e $U 935  ]
+"666
+[e :U 934 ]
+[; ;SlaveComm.c: 666: else
+[; ;SlaveComm.c: 667: {
+"667
+{
+[; ;SlaveComm.c: 668: sendGood = 0;
+"668
+[e = _sendGood -> -> 0 `i `uc ]
+"669
+}
+[e :U 935 ]
+[; ;SlaveComm.c: 669: }
+[; ;SlaveComm.c: 671: return sendGood;
+"671
+[e ) _sendGood ]
+[e $UE 933  ]
+[; ;SlaveComm.c: 672: }
+"672
+[e :UE 933 ]
+}
 "677
-[e :UE 931 ]
-}
-"679
-[v _com_command_setVersion `(v ~T0 @X0 1 ef1`*S825 ]
-"680
+[v _send_end_of_transmission `(v ~T0 @X0 1 ef1`*S825 ]
+"678
 {
-[; ;SlaveComm.c: 679: void com_command_setVersion( struct buffer * send_buffer )
-[; ;SlaveComm.c: 680: {
-[e :U _com_command_setVersion ]
-"679
+[; ;SlaveComm.c: 677: void send_end_of_transmission( struct buffer * send_buffer )
+[; ;SlaveComm.c: 678: {
+[e :U _send_end_of_transmission ]
+"677
 [v _send_buffer `*S825 ~T0 @X0 1 r1 ]
-"680
+"678
 [f ]
-[; ;SlaveComm.c: 681: command_builder3( send_buffer, "Set", "PSVersion", "444" );
+[; ;SlaveComm.c: 679: command_builder1( send_buffer, "END" );
+"679
+[e ( _command_builder1 (2 , _send_buffer -> :s 12C `*uc ]
+[; ;SlaveComm.c: 681: return;
 "681
-[e ( _command_builder3 (4 , , , _send_buffer -> :s 27C `*uc -> :s 28C `*uc -> :s 29C `*uc ]
-[; ;SlaveComm.c: 683: return;
-"683
-[e $UE 932  ]
-[; ;SlaveComm.c: 684: }
-"684
-[e :UE 932 ]
+[e $UE 936  ]
+[; ;SlaveComm.c: 682: }
+"682
+[e :UE 936 ]
 }
-"686
-[v _SPISlaveInit `(v ~T0 @X0 1 ef ]
-"687
+"684
+[v _com_command_testLED `(v ~T0 @X0 1 ef1`*S825 ]
+"685
 {
-[; ;SlaveComm.c: 686: void SPISlaveInit( void )
-[; ;SlaveComm.c: 687: {
+[; ;SlaveComm.c: 684: void com_command_testLED( struct buffer * send_buffer )
+[; ;SlaveComm.c: 685: {
+[e :U _com_command_testLED ]
+"684
+[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
+"685
+[f ]
+[; ;SlaveComm.c: 686: command_builder2( send_buffer, "Read", "LEDB" );
+"686
+[e ( _command_builder2 (3 , , _send_buffer -> :s 13C `*uc -> :s 14C `*uc ]
+[; ;SlaveComm.c: 688: return;
+"688
+[e $UE 937  ]
+[; ;SlaveComm.c: 689: }
+"689
+[e :UE 937 ]
+}
+"691
+[v _com_command_setPower `(v ~T0 @X0 1 ef1`*S825 ]
+"692
+{
+[; ;SlaveComm.c: 691: void com_command_setPower( struct buffer * send_buffer )
+[; ;SlaveComm.c: 692: {
+[e :U _com_command_setPower ]
+"691
+[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
+"692
+[f ]
+"695
+[v _temp `uc ~T0 @X0 -> 12 `i a ]
+[; ;SlaveComm.c: 695: char temp[12];
+[; ;SlaveComm.c: 697: ultoa( temp, meterWatts_global, 10 );
+"697
+[e ( _ultoa (3 , , &U _temp _meterWatts_global -> 10 `i ]
+[; ;SlaveComm.c: 698: command_builder3( send_buffer, "Set", "Watts", temp );
+"698
+[e ( _command_builder3 (4 , , , _send_buffer -> :s 15C `*uc -> :s 16C `*uc &U _temp ]
+[; ;SlaveComm.c: 700: return;
+"700
+[e $UE 938  ]
+[; ;SlaveComm.c: 701: }
+"701
+[e :UE 938 ]
+}
+"703
+[v _com_command_setEnergyUsed `(v ~T0 @X0 1 ef1`*S825 ]
+"704
+{
+[; ;SlaveComm.c: 703: void com_command_setEnergyUsed( struct buffer * send_buffer )
+[; ;SlaveComm.c: 704: {
+[e :U _com_command_setEnergyUsed ]
+"703
+[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
+"704
+[f ]
+"705
+[v _temp `uc ~T0 @X0 -> 12 `i a ]
+[; ;SlaveComm.c: 705: char temp[12];
+[; ;SlaveComm.c: 707: ultoa( temp, meterEnergyUsed_global, 10 );
+"707
+[e ( _ultoa (3 , , &U _temp _meterEnergyUsed_global -> 10 `i ]
+[; ;SlaveComm.c: 709: command_builder3( send_buffer, "Set", "EnUsed", temp );
+"709
+[e ( _command_builder3 (4 , , , _send_buffer -> :s 17C `*uc -> :s 18C `*uc &U _temp ]
+[; ;SlaveComm.c: 711: return;
+"711
+[e $UE 939  ]
+[; ;SlaveComm.c: 712: }
+"712
+[e :UE 939 ]
+}
+"714
+[v _com_command_setVolts `(v ~T0 @X0 1 ef1`*S825 ]
+"715
+{
+[; ;SlaveComm.c: 714: void com_command_setVolts( struct buffer * send_buffer )
+[; ;SlaveComm.c: 715: {
+[e :U _com_command_setVolts ]
+"714
+[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
+"715
+[f ]
+[; ;SlaveComm.c: 716: command_builder3( send_buffer, "Set", "Volts", "222" );
+"716
+[e ( _command_builder3 (4 , , , _send_buffer -> :s 19C `*uc -> :s 20C `*uc -> :s 21C `*uc ]
+[; ;SlaveComm.c: 718: return;
+"718
+[e $UE 940  ]
+[; ;SlaveComm.c: 719: }
+"719
+[e :UE 940 ]
+}
+"721
+[v _com_command_setAmps `(v ~T0 @X0 1 ef1`*S825 ]
+"722
+{
+[; ;SlaveComm.c: 721: void com_command_setAmps( struct buffer * send_buffer )
+[; ;SlaveComm.c: 722: {
+[e :U _com_command_setAmps ]
+"721
+[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
+"722
+[f ]
+[; ;SlaveComm.c: 723: command_builder3( send_buffer, "Set", "Amps", "333" );
+"723
+[e ( _command_builder3 (4 , , , _send_buffer -> :s 22C `*uc -> :s 23C `*uc -> :s 24C `*uc ]
+[; ;SlaveComm.c: 725: return;
+"725
+[e $UE 941  ]
+[; ;SlaveComm.c: 726: }
+"726
+[e :UE 941 ]
+}
+"728
+[v _com_command_readCalibration `(v ~T0 @X0 1 ef1`*S825 ]
+"729
+{
+[; ;SlaveComm.c: 728: void com_command_readCalibration( struct buffer * send_buffer )
+[; ;SlaveComm.c: 729: {
+[e :U _com_command_readCalibration ]
+"728
+[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
+"729
+[f ]
+[; ;SlaveComm.c: 730: command_builder2( send_buffer, "Read", "Calibration" );
+"730
+[e ( _command_builder2 (3 , , _send_buffer -> :s 25C `*uc -> :s 26C `*uc ]
+[; ;SlaveComm.c: 732: return;
+"732
+[e $UE 942  ]
+[; ;SlaveComm.c: 733: }
+"733
+[e :UE 942 ]
+}
+"735
+[v _com_command_setVersion `(v ~T0 @X0 1 ef1`*S825 ]
+"736
+{
+[; ;SlaveComm.c: 735: void com_command_setVersion( struct buffer * send_buffer )
+[; ;SlaveComm.c: 736: {
+[e :U _com_command_setVersion ]
+"735
+[v _send_buffer `*S825 ~T0 @X0 1 r1 ]
+"736
+[f ]
+[; ;SlaveComm.c: 737: command_builder3( send_buffer, "Set", "PSVersion", "444" );
+"737
+[e ( _command_builder3 (4 , , , _send_buffer -> :s 27C `*uc -> :s 28C `*uc -> :s 29C `*uc ]
+[; ;SlaveComm.c: 739: return;
+"739
+[e $UE 943  ]
+[; ;SlaveComm.c: 740: }
+"740
+[e :UE 943 ]
+}
+"742
+[v _SPISlaveInit `(v ~T0 @X0 1 ef ]
+"743
+{
+[; ;SlaveComm.c: 742: void SPISlaveInit( void )
+[; ;SlaveComm.c: 743: {
 [e :U _SPISlaveInit ]
 [f ]
-[; ;SlaveComm.c: 689: TRISAbits.TRISA0 = 0;
-"689
+[; ;SlaveComm.c: 745: TRISAbits.TRISA0 = 0;
+"745
 [e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 690: TRISAbits.TRISA1 = 1;
-"690
+[; ;SlaveComm.c: 746: TRISAbits.TRISA1 = 1;
+"746
 [e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 692: TRISCbits.TRISC3 = 0;
-"692
+[; ;SlaveComm.c: 748: TRISCbits.TRISC3 = 0;
+"748
 [e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 693: TRISCbits.TRISC5 = 0;
-"693
+[; ;SlaveComm.c: 749: TRISCbits.TRISC5 = 0;
+"749
 [e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 694: TRISCbits.TRISC6 = 0;
-"694
+[; ;SlaveComm.c: 750: TRISCbits.TRISC6 = 0;
+"750
 [e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 695: TRISCbits.TRISC7 = 0;
-"695
+[; ;SlaveComm.c: 751: TRISCbits.TRISC7 = 0;
+"751
 [e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 696: ANSELAbits.ANSA1 = 0b0;
-"696
+[; ;SlaveComm.c: 752: ANSELAbits.ANSA1 = 0b0;
+"752
 [e = . . _ANSELAbits 0 1 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 698: LATCbits.LATC6 = 1;
-"698
+[; ;SlaveComm.c: 754: LATCbits.LATC6 = 1;
+"754
 [e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 699: LATCbits.LATC3 = 1;
-"699
+[; ;SlaveComm.c: 755: LATCbits.LATC3 = 1;
+"755
 [e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 700: LATCbits.LATC5 = 1;
-"700
+[; ;SlaveComm.c: 756: LATCbits.LATC5 = 1;
+"756
 [e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 701: LATCbits.LATC7 = 1;
-"701
+[; ;SlaveComm.c: 757: LATCbits.LATC7 = 1;
+"757
 [e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 704: SSP2CON1bits.SSPEN = 0;
-"704
+[; ;SlaveComm.c: 760: SSP2CON1bits.SSPEN = 0;
+"760
 [e = . . _SSP2CON1bits 0 2 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 706: ANSELBbits.ANSB0 = 0b0;
-"706
+[; ;SlaveComm.c: 762: ANSELBbits.ANSB0 = 0b0;
+"762
 [e = . . _ANSELBbits 0 0 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 707: ANSELBbits.ANSB1 = 0b0;
-"707
+[; ;SlaveComm.c: 763: ANSELBbits.ANSB1 = 0b0;
+"763
 [e = . . _ANSELBbits 0 1 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 708: ANSELBbits.ANSB2 = 0b0;
-"708
+[; ;SlaveComm.c: 764: ANSELBbits.ANSB2 = 0b0;
+"764
 [e = . . _ANSELBbits 0 2 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 709: ANSELBbits.ANSB3 = 0b0;
-"709
+[; ;SlaveComm.c: 765: ANSELBbits.ANSB3 = 0b0;
+"765
 [e = . . _ANSELBbits 0 3 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 711: TRISBbits.RB0 = 0b1;
-"711
+[; ;SlaveComm.c: 767: TRISBbits.RB0 = 0b1;
+"767
 [e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 712: TRISBbits.RB1 = 0b1;
-"712
+[; ;SlaveComm.c: 768: TRISBbits.RB1 = 0b1;
+"768
 [e = . . _TRISBbits 1 1 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 713: TRISBbits.RB2 = 0b1;
-"713
+[; ;SlaveComm.c: 769: TRISBbits.RB2 = 0b1;
+"769
 [e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 714: TRISBbits.RB3 = 0b0;
-"714
+[; ;SlaveComm.c: 770: TRISBbits.RB3 = 0b0;
+"770
 [e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 716: SSP2STATbits.SMP = 0;
-"716
+[; ;SlaveComm.c: 772: SSP2STATbits.SMP = 0;
+"772
 [e = . . _SSP2STATbits 2 7 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 717: SSP2STATbits.CKE = 1;
-"717
+[; ;SlaveComm.c: 773: SSP2STATbits.CKE = 1;
+"773
 [e = . . _SSP2STATbits 2 6 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 719: SSP2CON1bits.WCOL = 0;
-"719
+[; ;SlaveComm.c: 775: SSP2CON1bits.WCOL = 0;
+"775
 [e = . . _SSP2CON1bits 0 4 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 720: SSP2CON1bits.SSPOV = 0;
-"720
+[; ;SlaveComm.c: 776: SSP2CON1bits.SSPOV = 0;
+"776
 [e = . . _SSP2CON1bits 0 3 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 721: SSP2CON1bits.SSPEN = 0;
-"721
+[; ;SlaveComm.c: 777: SSP2CON1bits.SSPEN = 0;
+"777
 [e = . . _SSP2CON1bits 0 2 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 722: SSP2CON1bits.CKP = 1;
-"722
+[; ;SlaveComm.c: 778: SSP2CON1bits.CKP = 1;
+"778
 [e = . . _SSP2CON1bits 0 1 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 723: SSP2CON1bits.SSPM = 0b0100;
-"723
+[; ;SlaveComm.c: 779: SSP2CON1bits.SSPM = 0b0100;
+"779
 [e = . . _SSP2CON1bits 0 0 -> -> 4 `i `uc ]
-[; ;SlaveComm.c: 726: SSP2CON3 = 0x00;
-"726
+[; ;SlaveComm.c: 782: SSP2CON3 = 0x00;
+"782
 [e = _SSP2CON3 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 727: SSP2CON3bits.BOEN = 0b0;
-"727
+[; ;SlaveComm.c: 783: SSP2CON3bits.BOEN = 0b0;
+"783
 [e = . . _SSP2CON3bits 0 4 -> -> 0 `i `uc ]
-[; ;SlaveComm.c: 729: SSP2CON1bits.SSPEN = 1;
-"729
+[; ;SlaveComm.c: 785: SSP2CON1bits.SSPEN = 1;
+"785
 [e = . . _SSP2CON1bits 0 2 -> -> 1 `i `uc ]
-[; ;SlaveComm.c: 731: return;
-"731
-[e $UE 933  ]
-[; ;SlaveComm.c: 732: }
-"732
-[e :UE 933 ]
+[; ;SlaveComm.c: 787: return;
+"787
+[e $UE 944  ]
+[; ;SlaveComm.c: 788: }
+"788
+[e :UE 944 ]
 }
 [a 2C 83 101 116 0 ]
 [a 15C 83 101 116 0 ]
