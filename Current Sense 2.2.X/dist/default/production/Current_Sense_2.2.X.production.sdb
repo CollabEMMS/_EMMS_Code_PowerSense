@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F25K22 ]
 [d frameptr 4065 ]
-"129 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+"129 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 [e E6750 receive_status `uc
 receive_waiting 0
 receive_in_command 1
@@ -53,7 +53,7 @@ receive_end_command 2
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"71 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+"71 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
 [v _ledInit ledInit `(v  1 e 1 0 ]
 "82
 [v _ledSet ledSet `(v  1 e 1 0 ]
@@ -79,7 +79,7 @@ receive_end_command 2
 [v _ledRunDown ledRunDown `(v  1 e 1 0 ]
 "334
 [v _ledRun ledRun `(v  1 e 1 0 ]
-"48 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+"48 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
 [v _main main `(v  1 e 1 0 ]
 "136
 [v _initOSC initOSC `(v  1 e 1 0 ]
@@ -87,17 +87,17 @@ receive_end_command 2
 [v _initIO initIO `(v  1 e 1 0 ]
 "172
 [v _initInterruptsClear initInterruptsClear `(v  1 e 1 0 ]
-"155 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+"155 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
 [v _mcpInit mcpInit `(v  1 e 1 0 ]
 "170
 [v _mcpInitF mcpInitF `(v  1 e 1 0 ]
 "206
 [v _mcpUpdatePower mcpUpdatePower `(v  1 e 1 0 ]
-"309
+"311
 [v _powerCalculateWatts powerCalculateWatts `(ul  1 e 4 0 ]
-"331
+"334
 [v _powerReduction powerReduction `(v  1 e 1 0 ]
-"107 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+"107 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 [v _commInit commInit `(v  1 e 1 0 ]
 "114
 [v _commRun commRun `(v  1 e 1 0 ]
@@ -147,7 +147,7 @@ receive_end_command 2
 [v _com_command_setVersion com_command_setVersion `(v  1 e 1 0 ]
 "742
 [v _SPISlaveInit SPISlaveInit `(v  1 e 1 0 ]
-"53 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+"53 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
 [v _timerInit timerInit `(v  1 e 1 0 ]
 "80
 [v _Timer0_ISR Timer0_ISR `II(v  1 e 1 0 ]
@@ -757,7 +757,7 @@ receive_end_command 2
 ]
 [u S1552 . 1 `S1538 1 . 1 0 `S1544 1 . 1 0 ]
 [v _OSCCONbits OSCCONbits `VES1552  1 e 1 @4051 ]
-[s S2096 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S2097 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -765,12 +765,12 @@ receive_end_command 2
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "15316
-[s S2103 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2104 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S2107 . 1 `S2096 1 . 1 0 `S2103 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES2107  1 e 1 @4053 ]
+[u S2108 . 1 `S2097 1 . 1 0 `S2104 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES2108  1 e 1 @4053 ]
 "15373
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "15393
@@ -781,7 +781,7 @@ receive_end_command 2
 [v _INTCON2 INTCON2 `VEuc  1 e 1 @4081 ]
 "16093
 [v _INTCON INTCON `VEuc  1 e 1 @4082 ]
-[s S2122 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S2123 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -791,7 +791,7 @@ receive_end_command 2
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "16125
-[s S2131 . 1 `uc 1 . 1 0 :1:0 
+[s S2132 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -800,23 +800,23 @@ receive_end_command 2
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S2140 . 1 `uc 1 . 1 0 :6:0 
+[s S2141 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S2144 . 1 `S2122 1 . 1 0 `S2131 1 . 1 0 `S2140 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES2144  1 e 1 @4082 ]
-"24 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+[u S2145 . 1 `S2123 1 . 1 0 `S2132 1 . 1 0 `S2141 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES2145  1 e 1 @4082 ]
+"24 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
 [v _meterWatts_global meterWatts_global `ul  1 e 4 0 ]
 "25
 [v _meterEnergyUsed_global meterEnergyUsed_global `ul  1 e 4 0 ]
-"136 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+"136 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
 [v _meterEnergyUsedPart meterEnergyUsedPart `ul  1 e 4 0 ]
-"51 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+"51 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 [v _SPI_transmit_wait SPI_transmit_wait `uc  1 e 1 0 ]
-"34 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+"34 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
 [v _timerCount_ms timerCount_ms `VE[4]ul  1 e 16 0 ]
-"48 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+"48 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
 [v _main main `(v  1 e 1 0 ]
 {
 "116
@@ -827,18 +827,18 @@ receive_end_command 2
 [v main@oneShot oneShot `uc  1 s 1 oneShot ]
 "134
 } 0
-"53 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+"53 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
 [v _timerInit timerInit `(v  1 e 1 0 ]
 {
 "78
 } 0
-"206 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+"206 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
 [v _mcpUpdatePower mcpUpdatePower `(v  1 e 1 0 ]
 {
-"264
-[v mcpUpdatePower@timerLFout_ms timerLFout_ms `ul  1 a 4 39 ]
+"265
+[v mcpUpdatePower@timerLFout_ms timerLFout_ms `ul  1 a 4 41 ]
 "234
-[v mcpUpdatePower@timerHFout_ms timerHFout_ms `ul  1 a 4 43 ]
+[v mcpUpdatePower@timerHFout_ms timerHFout_ms `ul  1 a 4 45 ]
 "220
 [v mcpUpdatePower@meterWattsHF meterWattsHF `i  1 s 2 meterWattsHF ]
 "221
@@ -849,60 +849,50 @@ receive_end_command 2
 [v mcpUpdatePower@meterWattsLF meterWattsLF `i  1 s 2 meterWattsLF ]
 "253
 [v mcpUpdatePower@oneShotLFout oneShotLFout `uc  1 s 1 oneShotLFout ]
-"307
+"309
 } 0
-"100 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+"100 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
 [v _timerResetCount timerResetCount `(v  1 e 1 0 ]
 {
 [v timerResetCount@timerIndex timerIndex `i  1 p 2 18 ]
 "105
 } 0
-"331 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+"334 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
 [v _powerReduction powerReduction `(v  1 e 1 0 ]
 {
-"340
+"343
 [v powerReduction@timerReduce_ms timerReduce_ms `ul  1 a 4 35 ]
-"331
+"334
 [v powerReduction@timerLast_ms timerLast_ms `ul  1 p 4 31 ]
-"355
+"358
 } 0
-"95 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+"95 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
 [v _timerGetCount timerGetCount `(ul  1 e 4 0 ]
 {
 [v timerGetCount@timerIndex timerIndex `i  1 p 2 18 ]
 "98
 } 0
-"309 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+"311 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
 [v _powerCalculateWatts powerCalculateWatts `(ul  1 e 4 0 ]
 {
-"315
-[v powerCalculateWatts@calcWatts calcWatts `i  1 a 2 36 ]
-"309
-[v powerCalculateWatts@timer_ms timer_ms `ul  1 p 4 31 ]
-[v powerCalculateWatts@outHF outHF `uc  1 p 1 35 ]
-"329
+"317
+[v powerCalculateWatts@calcWatts calcWatts `i  1 a 2 39 ]
+"311
+[v powerCalculateWatts@timer_ms timer_ms `ul  1 p 4 34 ]
+[v powerCalculateWatts@outHF outHF `uc  1 p 1 38 ]
+"332
 } 0
-"286 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
-[v _ledGoToggle ledGoToggle `(v  1 e 1 0 ]
-{
-[v ledGoToggle@ledNum ledNum `i  1 p 2 32 ]
-"294
-} 0
-"155 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
-[v _mcpInit mcpInit `(v  1 e 1 0 ]
-{
-"168
-} 0
-"170
-[v _mcpInitF mcpInitF `(v  1 e 1 0 ]
-{
-"204
-} 0
-"276 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+"276 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
 [v _ledTestToggle ledTestToggle `(v  1 e 1 0 ]
 {
 [v ledTestToggle@ledNum ledNum `i  1 p 2 32 ]
 "284
+} 0
+"286
+[v _ledGoToggle ledGoToggle `(v  1 e 1 0 ]
+{
+[v ledGoToggle@ledNum ledNum `i  1 p 2 32 ]
+"294
 } 0
 "243
 [v _ledToggle ledToggle `(v  1 e 1 0 ]
@@ -915,7 +905,17 @@ receive_end_command 2
 [v ledToggle@ledNum ledNum `i  1 p 2 24 ]
 "274
 } 0
-"187
+"155 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\MCP3909_Interface.c
+[v _mcpInit mcpInit `(v  1 e 1 0 ]
+{
+"168
+} 0
+"170
+[v _mcpInitF mcpInitF `(v  1 e 1 0 ]
+{
+"204
+} 0
+"187 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
 [v _ledSetAllOn ledSetAllOn `(v  1 e 1 0 ]
 {
 "192
@@ -944,7 +944,7 @@ receive_end_command 2
 [v ledRunDown@ledRunDelay ledRunDelay `i  1 p 2 30 ]
 "332
 } 0
-"111 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+"111 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
 [v _delayMS10 delayMS10 `(v  1 e 1 0 ]
 {
 "113
@@ -966,7 +966,7 @@ receive_end_command 2
 [v ___awdiv@divisor divisor `i  1 p 2 20 ]
 "42
 } 0
-"71 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
+"71 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\LEDControl.c
 [v _ledInit ledInit `(v  1 e 1 0 ]
 {
 "80
@@ -991,7 +991,7 @@ receive_end_command 2
 [v ledSet@setValue setValue `i  1 p 2 20 ]
 "98
 } 0
-"136 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
+"136 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Main_PowerSense.c
 [v _initOSC initOSC `(v  1 e 1 0 ]
 {
 "151
@@ -1006,7 +1006,7 @@ receive_end_command 2
 {
 "170
 } 0
-"114 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+"114 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 [v _commRun commRun `(v  1 e 1 0 ]
 {
 "119
@@ -1076,7 +1076,7 @@ receive_end_command 2
 [v atoi@s s `*.39Cuc  1 p 2 24 ]
 "24
 } 0
-"558 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+"558 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 [v _send_data send_data `(uc  1 e 1 0 ]
 {
 "560
@@ -1257,7 +1257,7 @@ receive_end_command 2
 [v ___lldiv@divisor divisor `ul  1 p 4 22 ]
 "31
 } 0
-"487 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+"487 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 [v _command_builder3 command_builder3 `(v  1 e 1 0 ]
 {
 "491
@@ -1327,7 +1327,7 @@ receive_end_command 2
 [v ___lwdiv@divisor divisor `ui  1 p 2 20 ]
 "31
 } 0
-"546 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+"546 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 [v _command_builder_add_string command_builder_add_string `(i  1 e 2 0 ]
 {
 "550
@@ -1379,7 +1379,7 @@ receive_end_command 2
 [v ___lmul@multiplicand multiplicand `ul  1 p 4 22 ]
 "129
 } 0
-"293 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+"293 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 [v _process_data_parameterize process_data_parameterize `(v  1 e 1 0 ]
 {
 "305
@@ -1404,12 +1404,12 @@ receive_end_command 2
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 20 ]
 "53
 } 0
-"742 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
+"742 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\SlaveComm.c
 [v _SPISlaveInit SPISlaveInit `(v  1 e 1 0 ]
 {
 "788
 } 0
-"80 C:\Users\Nate\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
+"80 C:\Users\mathk\Documents\GitHub\_EMMS_Code_PowerSense\Current Sense 2.2.X\Timer.c
 [v _Timer0_ISR Timer0_ISR `II(v  1 e 1 0 ]
 {
 "93

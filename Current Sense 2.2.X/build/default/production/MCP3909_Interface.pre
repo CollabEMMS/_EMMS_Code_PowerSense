@@ -8231,12 +8231,13 @@ static int meterWattsLF = 0;
 
 static bool oneShotLFout = 0;
 
-if( (PORTAbits.RA2 == 0) || (PORTAbits.RA4 == 0) )
+
+if((PORTAbits.RA2 == 0))
 {
 if( oneShotLFout == 0 )
 {
 
-ledGoToggle( 1 );
+
 
 oneShotLFout = 1;
 
@@ -8249,11 +8250,12 @@ timerResetCount( 2 );
 meterWattsLF = powerCalculateWatts( timerLFout_ms, 0 );
 
 
-meterEnergyUsedPart += 27000 * (unsigned long) 16;
+meterEnergyUsedPart += 3467 * (unsigned long) 16;
 while( meterEnergyUsedPart > 100000 )
 {
 meterEnergyUsed_global++;
 meterEnergyUsedPart -= 100000;
+ledTestToggle( 3 );
 }
 }
 }
@@ -8262,7 +8264,7 @@ else
 oneShotLFout = 0;
 }
 
-# 294
+# 296
 if( meterWattsLF > 500 )
 {
 meterWatts_global = meterWattsLF;
@@ -8289,12 +8291,13 @@ int calcWatts;
 if( outHF == 1 )
 {
 
-calcWatts = (((((unsigned long) 27000 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timer_ms;
+calcWatts = (((((unsigned long) 3467 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timer_ms;
 }
 else
 {
 
-calcWatts = (((((unsigned long) 27000 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timer_ms;
+calcWatts = (((((unsigned long) 3467 * (unsigned long) 3600 * (unsigned long) 16) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timer_ms;
+ledTestToggle( 2 );
 }
 
 return calcWatts;
@@ -8303,7 +8306,7 @@ return calcWatts;
 void powerReduction( unsigned long timerLast_ms )
 {
 
-# 340
+# 343
 unsigned long timerReduce_ms;
 static int countReduce = 0;
 
@@ -8315,7 +8318,7 @@ meterWatts_global = 0;
 }
 else if( timerReduce_ms > timerLast_ms )
 {
-meterWatts_global = (((((unsigned long) 27000 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerReduce_ms;
+meterWatts_global = (((((unsigned long) 3467 * (unsigned long) 3600) / ((unsigned long) 100000 / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerReduce_ms;
 }
 
 return;

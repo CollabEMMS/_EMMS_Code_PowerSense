@@ -206,7 +206,7 @@ void mcpInitF( void )
 void mcpUpdatePower( void )
 {
 
-#define ENERGY_PER_PULSE 27000 //(221.24 mWh per pulse)
+#define ENERGY_PER_PULSE 3467 //(221.24 mWh per pulse)
 #define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh
 #define HF_TO_LF_WATTS_THRESHOLD 500 // at what level do we switch from using HF to LF to show and calc watts
 
@@ -252,12 +252,13 @@ void mcpUpdatePower( void )
 
     static bool oneShotLFout = false;
 
-    if( (MCP_LFOUT0_READ == 0) || (MCP_LFOUT1_READ == 0) )
+    // if( (MCP_LFOUT0_READ == 0) || (MCP_LFOUT1_READ == 0) )
+    if((MCP_LFOUT0_READ == 0))
     {
 	if( oneShotLFout == false )
 	{
 	    // TODO testing
-	    ledGoToggle( 1 );
+	    
 
 	    oneShotLFout = true;
 
@@ -275,6 +276,7 @@ void mcpUpdatePower( void )
 	    {
 		meterEnergyUsed_global++;
 		meterEnergyUsedPart -= ENERGY_PER_PULSE_UNIT;
+        ledTestToggle( 3 );
 	    }
 	}
     }
@@ -322,7 +324,8 @@ unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
     else
     {
 	// timer is from LFout
-	calcWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timer_ms;
+	calcWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600 * (unsigned long) 16) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timer_ms;
+    ledTestToggle( 2 );
     }
 
     return calcWatts;
