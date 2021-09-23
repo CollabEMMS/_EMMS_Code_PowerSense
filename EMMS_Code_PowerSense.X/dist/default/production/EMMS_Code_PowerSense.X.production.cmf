@@ -1,0 +1,1702 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$dist/default/production\EMMS_Code_PowerSense.X.production.obj
+cinit CODE 0 1ED8 1ED8 32 1
+text0 CODE 0 F62 F62 F0 1
+text1 CODE 0 1A8E 1A8E 64 1
+text2 CODE 0 9C6 9C6 184 1
+text3 CODE 0 1FD0 1FD0 2A 1
+text4 CODE 0 1616 1616 9A 1
+text5 CODE 0 1F0A 1F0A 32 1
+text6 CODE 0 1950 1950 6C 1
+text7 CODE 0 2196 2196 2 1
+text8 CODE 0 1FFA 1FFA 2A 1
+text9 CODE 0 19BC 19BC 6C 1
+text10 CODE 0 216C 216C E 1
+text11 CODE 0 18DA 18DA 76 1
+text12 CODE 0 20B8 20B8 1E 1
+text13 CODE 0 2112 2112 1A 1
+text14 CODE 0 12A2 12A2 BE 1
+text15 CODE 0 1360 1360 BE 1
+text16 CODE 0 1F3C 1F3C 32 1
+text17 CODE 0 17D4 17D4 84 1
+text18 CODE 0 217A 217A C 1
+text19 CODE 0 20D6 20D6 1E 1
+text20 CODE 0 1E9A 1E9A 3E 1
+text21 CODE 0 1CA2 1CA2 4C 1
+text22 CODE 0 212C 212C 18 1
+text23 CODE 0 1CEE 1CEE 4C 1
+text24 CODE 0 215A 215A 12 1
+text25 CODE 0 2186 2186 8 1
+text26 CODE 0 218E 218E 8 1
+text27 CODE 0 141E 141E B8 1
+text28 CODE 0 C76 C76 102 1
+text29 CODE 0 1052 1052 CE 1
+text30 CODE 0 1744 1744 90 1
+text31 CODE 0 2098 2098 20 1
+text32 CODE 0 157A 157A 9C 1
+text33 CODE 0 204C 204C 26 1
+text34 CODE 0 1D3A 1D3A 4A 1
+text35 CODE 0 11E2 11E2 C0 1
+text36 CODE 0 2024 2024 28 1
+text37 CODE 0 1F6E 1F6E 32 1
+text38 CODE 0 654 654 1CA 1
+text39 CODE 0 1FA0 1FA0 30 1
+text40 CODE 0 B4A B4A 12C 1
+text41 CODE 0 2144 2144 16 1
+text42 CODE 0 1B4E 1B4E 5A 1
+text43 CODE 0 1D84 1D84 4A 1
+text44 CODE 0 D78 D78 F6 1
+text45 CODE 0 1A28 1A28 66 1
+text46 CODE 0 1858 1858 82 1
+text47 CODE 0 1120 1120 C2 1
+text48 CODE 0 1BFE 1BFE 52 1
+text49 CODE 0 1E16 1E16 42 1
+text50 CODE 0 14D6 14D6 A4 1
+text51 CODE 0 1E58 1E58 42 1
+text52 CODE 0 1C50 1C50 52 1
+text53 CODE 0 16B0 16B0 94 1
+text54 CODE 0 1AF2 1AF2 5C 1
+text55 CODE 0 E6E E6E F4 1
+text56 CODE 0 20F4 20F4 1E 1
+text57 CODE 0 1BA8 1BA8 56 1
+text58 CODE 0 81E 81E 1A8 1
+text59 CODE 0 2072 2072 26 1
+text60 CODE 0 1DCE 1DCE 48 1
+cstackCOMRAM COMRAM 1 1 1 3C 1
+cstackBANK0 BANK0 1 60 60 2D 1
+cstackBANK1 BANK1 1 100 100 6A 1
+temp COMRAM 1 4D 4D 1 1
+bssBANK0 BANK0 1 8D 8D 18 1
+bssBANK1 BANK1 1 16A 16A 5C 1
+intcode CODE 0 8 8 D2 1
+smallconst SMALLCONST 0 600 600 54 1
+bssCOMRAM COMRAM 1 3D 3D 10 1
+$C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+idloc IDLOC 0 200000 200000 8 1
+init CODE 0 DA DA 4 1
+reset_vec CODE 0 0 0 4 1
+config CONFIG 0 300000 300000 E 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM A5-FF 1
+RAM 1C6-5FF 1
+SFR F38-FFF 1
+BANK0 A5-FF 1
+BANK1 1C6-1FF 1
+BANK2 200-2FF 1
+BANK3 300-3FF 1
+BANK4 400-4FF 1
+BANK5 500-5FF 1
+CONST 4-7 1
+CONST DE-5FF 1
+CONST 2198-7FFF 1
+STACK 1C6-5FF 1
+SMALLCONST 2198-7FFF 1
+CODE 4-7 1
+CODE DE-5FF 1
+CODE 2198-7FFF 1
+BIGRAM 4E-5F 1
+BIGRAM A5-FF 1
+BIGRAM 1C6-5FF 1
+COMRAM 4E-5F 1
+EEDATA F00000-F000FF 1
+MEDIUMCONST 2198-7FFF 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\EMMS_Code_PowerSense.X.production.obj
+8 intcode CODE >780:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+8 intcode CODE >80:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+52 intcode CODE >82:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+54 intcode CODE >84:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+58 intcode CODE >85:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+5C intcode CODE >87:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+6A intcode CODE >88:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+76 intcode CODE >89:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+82 intcode CODE >90:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+8E intcode CODE >93:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1DCE text60 CODE >734:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DCE text60 CODE >737:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DD0 text60 CODE >738:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DD2 text60 CODE >740:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DD4 text60 CODE >741:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DD6 text60 CODE >742:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DD8 text60 CODE >743:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DDA text60 CODE >744:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DDE text60 CODE >746:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DE0 text60 CODE >747:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DE2 text60 CODE >748:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DE4 text60 CODE >749:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DE6 text60 CODE >752:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DE8 text60 CODE >754:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DEA text60 CODE >755:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DEC text60 CODE >756:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DEE text60 CODE >757:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DF0 text60 CODE >759:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DF2 text60 CODE >760:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DF4 text60 CODE >761:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DF6 text60 CODE >762:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DF8 text60 CODE >764:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DFA text60 CODE >765:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DFC text60 CODE >767:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DFE text60 CODE >768:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1E00 text60 CODE >769:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1E02 text60 CODE >770:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1E04 text60 CODE >771:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1E0C text60 CODE >774:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1E10 text60 CODE >775:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1E12 text60 CODE >777:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2072 text59 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+2072 text59 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+207E text59 CODE >38:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+2086 text59 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+208E text59 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul16.c
+81E text58 CODE >287:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+81E text58 CODE >289:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+822 text58 CODE >290:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+826 text58 CODE >299:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+842 text58 CODE >300:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+842 text58 CODE >301:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+866 text58 CODE >299:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+874 text58 CODE >316:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+874 text58 CODE >318:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+878 text58 CODE >319:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+87A text58 CODE >321:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+880 text58 CODE >325:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+884 text58 CODE >328:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+886 text58 CODE >329:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+886 text58 CODE >331:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+8CE text58 CODE >332:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+8D0 text58 CODE >333:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+8D6 text58 CODE >337:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+8DA text58 CODE >338:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+8DA text58 CODE >341:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+902 text58 CODE >343:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+904 text58 CODE >311:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+934 text58 CODE >343:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+934 text58 CODE >345:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+942 text58 CODE >304:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+942 text58 CODE >346:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1BA8 text57 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+1BA8 text57 CODE >119:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+1BB8 text57 CODE >120:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+1BB8 text57 CODE >121:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+1BBC text57 CODE >122:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+1BCC text57 CODE >123:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+1BD6 text57 CODE >124:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+1BE0 text57 CODE >125:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+1BEC text57 CODE >128:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+1BFC text57 CODE >129:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
+20F4 text56 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\isdigit.c
+20F6 text56 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\isdigit.c
+E6E text55 CODE >5:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+E6E text55 CODE >11:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+E7E text55 CODE >12:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+E8E text55 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+E9E text55 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+EA2 text55 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+EAA text55 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+EAC text55 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+EAE text55 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+EB8 text55 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+EB8 text55 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+EFC text55 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+F0C text55 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+F0C text55 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+F16 text55 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+F1C text55 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+F50 text55 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+F60 text55 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atol.c
+1AF2 text54 CODE >540:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1AF2 text54 CODE >542:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1B16 text54 CODE >544:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1B24 text54 CODE >545:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1B36 text54 CODE >547:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1B46 text54 CODE >548:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1B46 text54 CODE >550:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+16B0 text53 CODE >552:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+16B0 text53 CODE >554:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+16B8 text53 CODE >556:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+16C2 text53 CODE >557:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+16C2 text53 CODE >558:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1704 text53 CODE >556:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+173A text53 CODE >561:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1742 text53 CODE >562:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1C50 text52 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C50 text52 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C58 text52 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C60 text52 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C64 text52 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C66 text52 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C6C text52 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C6E text52 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C6E text52 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C72 text52 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C78 text52 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C84 text52 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C8C text52 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C8E text52 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C8E text52 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C94 text52 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1C98 text52 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1CA0 text52 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+1E58 text51 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E58 text51 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E60 text51 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E64 text51 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E66 text51 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E6C text51 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E6E text51 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E6E text51 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E72 text51 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E7E text51 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E86 text51 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E8C text51 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E90 text51 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+1E98 text51 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c
+14D6 text50 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+14D6 text50 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+14DE text50 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+14DE text50 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+14FA text50 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+14FE text50 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1506 text50 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1518 text50 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1518 text50 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1530 text50 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+154C text50 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1552 text50 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1556 text50 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+155A text50 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+156C text50 CODE >35:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1574 text50 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1E16 text49 CODE >4:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1E16 text49 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1E1E text49 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1E22 text49 CODE >9:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1E32 text49 CODE >10:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1E3A text49 CODE >11:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1E3A text49 CODE >12:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\itoa.c
+1BFE text48 CODE >527:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1BFE text48 CODE >531:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1C0E text48 CODE >533:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1C2A text48 CODE >534:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1C3E text48 CODE >536:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1120 text47 CODE >493:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1120 text47 CODE >495:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1130 text47 CODE >496:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1140 text47 CODE >498:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1148 text47 CODE >499:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1164 text47 CODE >500:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+117C text47 CODE >501:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1198 text47 CODE >502:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+11B0 text47 CODE >503:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+11CC text47 CODE >505:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1858 text46 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1858 text46 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1868 text46 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1874 text46 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1878 text46 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+187A text46 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1884 text46 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1886 text46 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1886 text46 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+188A text46 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1894 text46 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+18A8 text46 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+18B8 text46 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+18BA text46 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+18BA text46 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+18C4 text46 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+18C8 text46 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+18D8 text46 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lldiv.c
+1A28 text45 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A28 text45 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A34 text45 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A38 text45 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A3A text45 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A44 text45 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A46 text45 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A46 text45 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A4A text45 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A5E text45 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A6E text45 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A78 text45 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A7C text45 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+1A8C text45 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\llmod.c
+D78 text44 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+D78 text44 CODE >38:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+D88 text44 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+D88 text44 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+DBE text44 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+DC2 text44 CODE >42:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+DCE text44 CODE >43:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+DE0 text44 CODE >44:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+DE0 text44 CODE >45:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+E0A text44 CODE >46:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+E40 text44 CODE >47:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+E46 text44 CODE >48:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+E4A text44 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+E4E text44 CODE >50:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+E60 text44 CODE >51:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ltoa.c
+1D84 text43 CODE >700:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1D84 text43 CODE >704:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1DA8 text43 CODE >706:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1B4E text42 CODE >467:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1B4E text42 CODE >469:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1B5E text42 CODE >470:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1B6E text42 CODE >472:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1B76 text42 CODE >473:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1B92 text42 CODE >475:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2144 text41 CODE >677:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2144 text41 CODE >679:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+B4A text40 CODE >601:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+B4A text40 CODE >603:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+B52 text40 CODE >604:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+B5A text40 CODE >606:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+B5C text40 CODE >608:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+B86 text40 CODE >610:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+B8E text40 CODE >611:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+B90 text40 CODE >612:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+BBE text40 CODE >614:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+BC2 text40 CODE >616:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+BC2 text40 CODE >621:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+BC6 text40 CODE >606:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+BC6 text40 CODE >622:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+BFE text40 CODE >625:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+C2E text40 CODE >627:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+C32 text40 CODE >628:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+C34 text40 CODE >629:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+C64 text40 CODE >631:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+C6C text40 CODE >632:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+C6C text40 CODE >634:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1FA0 text39 CODE >590:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1FA0 text39 CODE >595:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1FBC text39 CODE >597:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1FCC text39 CODE >599:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+654 text38 CODE >350:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+654 text38 CODE >352:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+658 text38 CODE >355:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+672 text38 CODE >357:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+676 text38 CODE >358:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+678 text38 CODE >359:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+692 text38 CODE >361:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+6B2 text38 CODE >365:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+6D2 text38 CODE >371:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+6F4 text38 CODE >372:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+700 text38 CODE >374:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+702 text38 CODE >375:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+71C text38 CODE >380:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+736 text38 CODE >382:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+756 text38 CODE >384:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+762 text38 CODE >385:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+764 text38 CODE >386:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+784 text38 CODE >388:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+790 text38 CODE >389:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+792 text38 CODE >390:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+7B2 text38 CODE >392:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+7BE text38 CODE >393:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+7C0 text38 CODE >394:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+7E0 text38 CODE >396:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+7EC text38 CODE >397:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+7EE text38 CODE >398:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+80E text38 CODE >400:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+81A text38 CODE >401:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+81A text38 CODE >408:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1F6E text37 CODE >269:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1F6E text37 CODE >278:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1F82 text37 CODE >281:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1F9C text37 CODE >284:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2024 text36 CODE >637:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2024 text36 CODE >640:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2028 text36 CODE >642:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+202C text36 CODE >644:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2038 text36 CODE >645:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+203C text36 CODE >646:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+203E text36 CODE >647:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2042 text36 CODE >648:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2044 text36 CODE >649:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2044 text36 CODE >651:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2048 text36 CODE >652:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2048 text36 CODE >654:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+11E2 text35 CODE >230:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+11E2 text35 CODE >236:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+11EA text35 CODE >238:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+11EE text35 CODE >239:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+11EE text35 CODE >241:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1200 text35 CODE >243:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+120E text35 CODE >245:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1212 text35 CODE >246:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1222 text35 CODE >247:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1232 text35 CODE >248:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1232 text35 CODE >250:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1238 text35 CODE >252:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+125C text35 CODE >254:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+126A text35 CODE >255:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+127C text35 CODE >257:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+128C text35 CODE >258:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+128C text35 CODE >261:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+129A text35 CODE >263:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+129E text35 CODE >264:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+129E text35 CODE >267:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1D3A text34 CODE >689:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1D3A text34 CODE >695:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1D5E text34 CODE >696:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+204C text33 CODE >728:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+204C text33 CODE >730:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+157A text32 CODE >184:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+157A text32 CODE >190:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+157C text32 CODE >191:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+158E text32 CODE >192:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1590 text32 CODE >194:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1592 text32 CODE >195:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1596 text32 CODE >197:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15A6 text32 CODE >198:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15B6 text32 CODE >203:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15BA text32 CODE >204:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15BC text32 CODE >206:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15BC text32 CODE >207:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15C8 text32 CODE >208:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15CA text32 CODE >209:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15CA text32 CODE >210:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15D6 text32 CODE >211:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15D8 text32 CODE >212:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15D8 text32 CODE >213:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15E4 text32 CODE >224:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15E4 text32 CODE >225:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15EC text32 CODE >227:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+15EE text32 CODE >204:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2098 text31 CODE >657:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+209A text31 CODE >659:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+209E text31 CODE >661:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+20A4 text31 CODE >663:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+20A8 text31 CODE >664:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+20AC text31 CODE >665:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+20B0 text31 CODE >667:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+20B0 text31 CODE >669:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+20B4 text31 CODE >672:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1744 text30 CODE >563:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1744 text30 CODE >567:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1764 text30 CODE >569:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1768 text30 CODE >570:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+176E text30 CODE >571:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1770 text30 CODE >572:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1770 text30 CODE >574:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1774 text30 CODE >577:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+17A0 text30 CODE >580:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+17AE text30 CODE >581:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+17C0 text30 CODE >583:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+17D0 text30 CODE >584:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+17D0 text30 CODE >588:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1052 text29 CODE >5:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+1052 text29 CODE >10:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+1054 text29 CODE >11:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+1058 text29 CODE >10:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+1078 text29 CODE >12:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+1080 text29 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+1084 text29 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+1094 text29 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+1098 text29 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+10A8 text29 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+10AA text29 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+10AA text29 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+10E4 text29 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+10F6 text29 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+10FC text29 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+1116 text29 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+111E text29 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\atoi.c
+C76 text28 CODE >414:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+C76 text28 CODE >431:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+C7E text28 CODE >432:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+C86 text28 CODE >433:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+C8E text28 CODE >439:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+C90 text28 CODE >441:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+CA8 text28 CODE >442:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+CAC text28 CODE >435:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+CAC text28 CODE >443:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+CE4 text28 CODE >445:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+CE8 text28 CODE >446:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+CF0 text28 CODE >450:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+CF2 text28 CODE >452:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+D0E text28 CODE >453:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+D12 text28 CODE >454:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+D22 text28 CODE >455:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+D26 text28 CODE >447:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+D26 text28 CODE >456:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+D4A text28 CODE >458:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+D5E text28 CODE >462:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+D74 text28 CODE >464:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+141E text27 CODE >119:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1422 text27 CODE >130:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+142A text27 CODE >132:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+142E text27 CODE >133:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1434 text27 CODE >134:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1438 text27 CODE >135:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1444 text27 CODE >136:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1446 text27 CODE >137:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1446 text27 CODE >139:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1456 text27 CODE >141:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1458 text27 CODE >149:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1458 text27 CODE >151:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+146A text27 CODE >153:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+1486 text27 CODE >155:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+148C text27 CODE >160:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+148E text27 CODE >141:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+14A2 text27 CODE >160:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+14A2 text27 CODE >162:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+14B2 text27 CODE >166:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+14B6 text27 CODE >168:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+14BA text27 CODE >169:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+14BC text27 CODE >170:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+14BC text27 CODE >172:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+14C2 text27 CODE >174:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+14CE text27 CODE >175:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+14CE text27 CODE >177:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+14D4 text27 CODE >180:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+218E text26 CODE >107:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+218E text26 CODE >109:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2186 text25 CODE >113:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+2186 text25 CODE >115:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\SlaveComm.c
+215A text24 CODE >153:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+215A text24 CODE >155:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+215C text24 CODE >156:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+2162 text24 CODE >157:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+2166 text24 CODE >158:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1CEE text23 CODE >172:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1CEE text23 CODE >175:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1CF2 text23 CODE >176:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1CF6 text23 CODE >177:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1CFA text23 CODE >179:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1CFC text23 CODE >181:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D00 text23 CODE >182:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D04 text23 CODE >183:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D08 text23 CODE >184:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D0C text23 CODE >185:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D10 text23 CODE >187:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D14 text23 CODE >188:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D18 text23 CODE >189:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D1C text23 CODE >190:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D20 text23 CODE >191:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D24 text23 CODE >193:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D28 text23 CODE >194:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D2C text23 CODE >195:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D30 text23 CODE >196:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1D34 text23 CODE >197:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+212C text22 CODE >136:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+212C text22 CODE >139:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+212E text22 CODE >140:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+2134 text22 CODE >141:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+2138 text22 CODE >143:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+213A text22 CODE >144:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+213C text22 CODE >145:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+213E text22 CODE >147:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+2140 text22 CODE >148:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1CA2 text21 CODE >82:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1CA2 text21 CODE >84:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1CA4 text21 CODE >86:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1CA4 text21 CODE >87:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1CAE text21 CODE >88:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1CB0 text21 CODE >89:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1CB0 text21 CODE >90:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1CBA text21 CODE >91:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1CBC text21 CODE >92:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1CBC text21 CODE >93:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1CC6 text21 CODE >95:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1CC8 text21 CODE >84:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1E9A text20 CODE >158:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1E9A text20 CODE >160:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1EAE text20 CODE >161:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1EC2 text20 CODE >162:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+20D6 text19 CODE >194:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+20D6 text19 CODE >196:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+217A text18 CODE >71:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+217A text18 CODE >73:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+217C text18 CODE >74:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+217E text18 CODE >75:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+2180 text18 CODE >77:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+17D4 text17 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+17D4 text17 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+17D8 text17 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+17DC text17 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+17E4 text17 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+17E8 text17 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+17E8 text17 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+17EC text17 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+17F4 text17 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+17F8 text17 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+17F8 text17 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+1800 text17 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+1808 text17 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+180C text17 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+180E text17 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+1814 text17 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+1816 text17 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+1816 text17 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+181A text17 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+1820 text17 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+182C text17 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+1834 text17 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+1836 text17 CODE >35:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+1836 text17 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+183C text17 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+1840 text17 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+1846 text17 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+184E text17 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+1F3C text16 CODE >111:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1F3C text16 CODE >113:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1F46 text16 CODE >114:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1F46 text16 CODE >115:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1F54 text16 CODE >113:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1360 text15 CODE >316:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1360 text15 CODE >320:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+137C text15 CODE >322:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1398 text15 CODE >323:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+13A4 text15 CODE >324:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+13C0 text15 CODE >325:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+13CC text15 CODE >326:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+13E8 text15 CODE >327:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+13F4 text15 CODE >328:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1410 text15 CODE >329:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+12A2 text14 CODE >296:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+12A2 text14 CODE >300:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+12BE text14 CODE >304:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+12DA text14 CODE >305:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+12E6 text14 CODE >306:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1302 text14 CODE >307:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+130E text14 CODE >308:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+132A text14 CODE >309:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1336 text14 CODE >310:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1352 text14 CODE >311:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+2112 text13 CODE >334:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+2112 text13 CODE >336:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+211E text13 CODE >337:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+20B8 text12 CODE >187:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+20B8 text12 CODE >189:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+18DA text11 CODE >243:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+18DA text11 CODE >249:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+18DC text11 CODE >251:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+18DC text11 CODE >252:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+18E8 text11 CODE >253:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+18EA text11 CODE >254:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+18EA text11 CODE >255:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+18F0 text11 CODE >257:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+18F0 text11 CODE >258:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+18FE text11 CODE >249:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1922 text11 CODE >260:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1922 text11 CODE >262:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+192A text11 CODE >264:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1932 text11 CODE >266:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1932 text11 CODE >268:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+193A text11 CODE >271:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+216C text10 CODE >276:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+216C text10 CODE >280:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+2178 text10 CODE >281:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+19BC text9 CODE >168:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19BC text9 CODE >173:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19BE text9 CODE >174:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19C0 text9 CODE >175:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19C2 text9 CODE >176:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19C4 text9 CODE >179:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19C6 text9 CODE >180:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19C8 text9 CODE >181:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19CA text9 CODE >183:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19DA text9 CODE >184:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19DC text9 CODE >185:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19EC text9 CODE >187:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19EE text9 CODE >188:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19F0 text9 CODE >189:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19F2 text9 CODE >191:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1A02 text9 CODE >193:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1A04 text9 CODE >194:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1A06 text9 CODE >195:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1A08 text9 CODE >197:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1A18 text9 CODE >198:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1A1A text9 CODE >199:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1FFA text8 CODE >154:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1FFA text8 CODE >156:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1FFC text8 CODE >157:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1FFE text8 CODE >158:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+2000 text8 CODE >160:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+2012 text8 CODE >162:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+201E text8 CODE >164:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+2196 text7 CODE >286:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+2196 text7 CODE >288:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\LEDControl.c
+1950 text6 CODE >305:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1950 text6 CODE >313:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1956 text6 CODE >316:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+197C text6 CODE >318:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+197C text6 CODE >321:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+19A8 text6 CODE >324:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1F0A text5 CODE >95:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1F0A text5 CODE >97:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1616 text4 CODE >326:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1616 text4 CODE >338:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1632 text4 CODE >340:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1652 text4 CODE >342:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1664 text4 CODE >343:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1666 text4 CODE >344:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+167A text4 CODE >346:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+16AE text4 CODE >349:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1FD0 text3 CODE >100:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1FD0 text3 CODE >102:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+9C6 text2 CODE >203:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+9C6 text2 CODE >222:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+9CA text2 CODE >224:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+9D0 text2 CODE >227:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+9DC text2 CODE >229:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+9E0 text2 CODE >232:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+9FC text2 CODE >233:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A08 text2 CODE >234:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A14 text2 CODE >236:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A34 text2 CODE >238:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A44 text2 CODE >240:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A46 text2 CODE >241:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A46 text2 CODE >243:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A4A text2 CODE >244:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A4A text2 CODE >252:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A52 text2 CODE >254:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A58 text2 CODE >257:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A64 text2 CODE >259:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A68 text2 CODE >262:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A84 text2 CODE >263:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A90 text2 CODE >264:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+A9C text2 CODE >267:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+ABC text2 CODE >270:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+ACE text2 CODE >271:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+AD0 text2 CODE >273:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+ADC text2 CODE >274:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+AEC text2 CODE >271:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+AEC text2 CODE >275:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+B02 text2 CODE >278:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+B02 text2 CODE >280:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+B06 text2 CODE >281:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+B06 text2 CODE >291:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+B16 text2 CODE >293:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+B20 text2 CODE >295:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+B20 text2 CODE >297:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+B34 text2 CODE >301:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\MCP3909_Interface.c
+1A8E text1 CODE >53:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1A8E text1 CODE >56:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1A90 text1 CODE >57:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1A92 text1 CODE >58:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1A94 text1 CODE >59:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1A96 text1 CODE >60:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1A9E text1 CODE >62:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1AA0 text1 CODE >63:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1AA2 text1 CODE >64:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1AA4 text1 CODE >68:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1AB6 text1 CODE >69:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1AC6 text1 CODE >70:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1AD6 text1 CODE >71:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1AE6 text1 CODE >73:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1AE8 text1 CODE >75:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1AEC text1 CODE >76:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+1AF0 text1 CODE >78:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Timer.c
+F62 text0 CODE >48:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+F62 text0 CODE >83:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+F66 text0 CODE >84:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+F6A text0 CODE >85:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+F6E text0 CODE >87:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+F72 text0 CODE >89:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+F76 text0 CODE >90:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+F7A text0 CODE >92:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+F7E text0 CODE >95:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+F98 text0 CODE >96:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+F98 text0 CODE >97:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+F9C text0 CODE >98:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+FAE text0 CODE >99:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+FB2 text0 CODE >100:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+FC4 text0 CODE >95:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+FCC text0 CODE >104:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+FD0 text0 CODE >106:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+FDC text0 CODE >108:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+FDC text0 CODE >110:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+FE0 text0 CODE >111:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+FE4 text0 CODE >117:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1000 text0 CODE >118:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1030 text0 CODE >120:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1038 text0 CODE >122:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+103C text0 CODE >123:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1048 text0 CODE >126:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+104A text0 CODE >127:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+104A text0 CODE >129:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1050 text0 CODE >108:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
+1ED8 cinit CODE >2910:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1ED8 cinit CODE >2912:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1ED8 cinit CODE >2915:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1ED8 cinit CODE >2973:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EDC cinit CODE >2974:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EDE cinit CODE >2975:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EDE cinit CODE >2976:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EE0 cinit CODE >2977:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EE2 cinit CODE >2978:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EE4 cinit CODE >2981:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EE8 cinit CODE >2982:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EEA cinit CODE >2983:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EEA cinit CODE >2984:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EEC cinit CODE >2985:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EEE cinit CODE >2986:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EF0 cinit CODE >2989:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EF4 cinit CODE >2990:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EF6 cinit CODE >2991:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EF6 cinit CODE >2992:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EF8 cinit CODE >2993:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EFA cinit CODE >2994:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EFC cinit CODE >3000:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EFC cinit CODE >3002:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1EFE cinit CODE >3003:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1F00 cinit CODE >3005:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1F02 cinit CODE >3006:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1F04 cinit CODE >3007:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1F06 cinit CODE >3008:C:\Users\Austin\AppData\Local\Temp\sdpo.
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___awdiv@counter 17 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lwmod@counter 17 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_command_builder_add_char 1AF2 0 CODE 0 text54 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+xSumCheck@xSumAdderValue 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hspace_0 30000E 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hspace_1 1C6 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hspace_2 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+xSumCheck@xSumCharsValue 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+process_data_parameterize@parameters 19 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ledTestToggle 216C 0 CODE 0 text10 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_ledRunUp 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hibigdata 0 0 CODE 0 ibigdata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+__size_of_ledInit 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?_timerGetCount 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_initInterruptsClear 1CEE 0 CODE 0 text23 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+communications@last_state_active A2 0 BANK0 1 bssBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_xSumCheck D78 0 CODE 0 text28 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder_add_string@xsumAdd 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+itoa@base 27 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lsmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_xSumCheck 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_IPR1 F9F 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_IPR2 FA2 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_IPR3 FA5 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_IPR4 F7C 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_IPR5 F7F 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PIE1 F9D 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PIE2 FA0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PIE3 FA3 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PIE4 F7A 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PIE5 F7D 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PIR1 F9E 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PIR2 FA1 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PIR3 FA4 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PIR4 F7B 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PIR5 F7E 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+_atoi 1052 0 CODE 0 text29 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_atol E6E 0 CODE 0 text55 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_itoa 1E16 0 CODE 0 text49 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_main F62 0 CODE 0 text0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_utoa 14D6 0 CODE 0 text50 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+btemp 4D 0 COMRAM 1 temp dist/default/production\EMMS_Code_PowerSense.X.production.obj
+start DA 0 CODE 0 init C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+__end_of_timerInit 1AF2 0 CODE 0 text1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of___awdiv 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_com_command_setEnergyUsed 1D84 0 CODE 0 text43 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_atoi 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_atol 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_itoa 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_main 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_utoa 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of___lldiv 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of___llmod 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of___lwdiv 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of___lwmod 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+delayMS10@count 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_timerResetCount 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+delayMS10@inx 16 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_timerInit 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_DEBUG$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder1@data1 31 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?___lmul 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?___wmul 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+communications@receive_buffer 19C 0 BANK1 1 bssBANK1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder_add_string@data_string 19 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+com_command_setEnergyUsed@send_buffer 39 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+com_command_setPower@send_buffer 39 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+receive_data@receive_buffer 16 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+powerReduction@timerReduce_ms 24 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_resetCommunications 1616 0 CODE 0 text32 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_CCP2MX$PORTC1 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_xSumCheck C76 0 CODE 0 text28 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_com_command_setVersion 2072 0 CODE 0 text33 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hpowerup DA 0 CODE 0 powerup dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ledRunDown 1360 0 CODE 0 text15 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+communications@send_buffer 172 0 BANK1 1 bssBANK1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_T0CONbits FD5 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_CCP3MX$PORTB5 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+process_data_parameterize@inx 20 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_timerInit 1A8E 0 CODE 0 text1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+utoa@c 22 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+utoa@v 20 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_strmatch 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+xSumCheck@xSumCharsPos 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__accesstop 60 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+intlevel0 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+intlevel1 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+intlevel2 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+intlevel3 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+ledRunDown@ledRunDelay 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_send_end_of_transmission 2144 0 CODE 0 text41 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_meterEnergyUsedPart 16E 0 BANK1 1 bssBANK1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_powerCalculateWatts 19BC 0 CODE 0 text6 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_process_data_parameters 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_OSCCONbits FD3 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_receive_data 11E2 0 CODE 0 text35 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+wtemp6 4E 0 COMRAM 1 temp dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_EBTR0$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_EBTR1$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___llmod@divisor 17 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_SPI_send_data 2098 0 CODE 0 text31 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_EBTR2$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ledRunUp 12A2 0 CODE 0 text14 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_EBTR3$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?_command_builder_add_char 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_P2BMX$PORTB5 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hifardata 0 0 CODE 0 ifardata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+mcpUpdatePower@meterWattsHF 45 0 COMRAM 1 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+mcpUpdatePower@meterWattsLF 43 0 COMRAM 1 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+timerResetCount@timerIndex 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___awdiv@sign 18 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hclrtext 0 0 ABS 0 clrtext dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_meterEnergyUsed_global 3D 0 COMRAM 1 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_command_builder_add_string 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_ledRunUp 1360 0 CODE 0 text14 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_communications 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder1@xsum 33 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___wmul@multiplicand 15 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_FOSC$INTIO67 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder_add_char@send_buffer 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ANSELA F38 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ANSELB F39 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ANSELC F3A 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___awdiv@dividend 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+process_data_parameters@parameters 7C 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+ledRunUp@ledRunDelay 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder3@xsum 37 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+__end_of_send_data 17D4 0 CODE 0 text30 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ledSetAllOff 20D6 0 CODE 0 text19 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+communications@firstTime 85 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_initOSC 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ultoa@c 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ultoa@v 28 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_send_data 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_ledInit 2186 0 CODE 0 text18 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_ledTestToggle 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_meterWatts_global 9D 0 BANK0 1 bssBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of___lmul 1BFE 0 CODE 0 text57 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of___wmul 2098 0 CODE 0 text59 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\EMMS_Code_PowerSense.X.production.obj
+main@inx 8B 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+receive_data@data 19 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+process_data_parameterize@buffer_to_parameterize 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_ledGoToggle 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+xsum_builder@xsumBuf 60 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_receive_data 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_initInterruptsClear 1D3A 0 CODE 0 text23 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+SPI_receive_data@recvGood 15 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hintcodelo DA 0 CODE 0 intcodelo dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_ledRunDown 141E 0 CODE 0 text15 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_command_builder_add_char 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___awdiv@divisor 15 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lwmod@divisor 15 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of___awdiv 1858 0 CODE 0 text17 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_strmatch 1FA0 0 CODE 0 text39 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of___lldiv 18DA 0 CODE 0 text46 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of___llmod 1A8E 0 CODE 0 text45 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of___lwdiv 1CA2 0 CODE 0 text52 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of___lwmod 1E9A 0 CODE 0 text51 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_isdigit 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_com_command_setPower 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_send_data 1744 0 CODE 0 text30 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+process_data_parameters@end_of_transmission_received 3B 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+powerCalculateWatts@timer_ms 20 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_INTCON FF2 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_OSCTUNEbits F9B 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_strcmp2 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_strmatch 1FD0 0 CODE 0 text39 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_command_builder_add_string 16B0 0 CODE 0 text53 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+process_data_parameterize@parameter_position 23 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_SPISlaveInit 1DCE 0 CODE 0 text60 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lwdiv@quotient 18 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_ledTestToggle 217A 0 CODE 0 text10 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_ultoa 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+xsum_builder@xsum 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_timerGetCount 1F0A 0 CODE 0 text5 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+communications@no_more_to_send 84 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledSetAll@led1Value 19 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_ledSetAllOff 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_com_command_setPower 1D84 0 CODE 0 text34 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+itoa@buf 23 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+itoa@val 25 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_receive_data 12A2 0 CODE 0 text35 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_SPI_transmit_wait 4C 0 COMRAM 1 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lwmod@dividend 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lldiv@counter 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lintcodelo DA 0 CODE 0 intcodelo dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledSetAll@led2Value 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_ledSetAllOn 20D6 0 CODE 0 text12 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_initIO 216C 0 CODE 0 text24 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_SSP2CON1bits F6C 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+start_initialization 1ED8 0 CODE 0 cinit dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_SSP2CON3bits F69 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_process_data_parameterize 9C6 0 CODE 0 text58 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_mcpInit 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_PBADEN$ON 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledSetAll@led3Value 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_TRISAbits F92 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_TRISBbits F93 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_TRISCbits F94 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lldiv@dividend 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_ledRun 212C 0 CODE 0 text13 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_ledSet 1CEE 0 CODE 0 text21 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___rparam_used 1 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_SPI_send_data 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_process_data 1F6E 0 CODE 0 text37 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_WDTPS$32768 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__pcstackBANK1 100 0 BANK1 1 cstackBANK1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+powerCalculateWatts@calcWatts 25 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_ledSetAllOff 20F4 0 CODE 0 text19 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_send_end_of_transmission 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+resetCommunications@commState 47 0 COMRAM 1 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+utoa@buf 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+utoa@val 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_powerReduction 1616 0 CODE 0 text4 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_SPISlaveInit 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+mcpUpdatePower@timerHFoutLast_ms 16A 0 BANK1 1 bssBANK1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_initOSC 2144 0 CODE 0 text22 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hbank0 0 0 ABS 0 bank0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hbank1 0 0 ABS 0 bank1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hbank2 0 0 ABS 0 bank2 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hbank3 0 0 ABS 0 bank3 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hbank4 0 0 ABS 0 bank4 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hbank5 0 0 ABS 0 bank5 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hcinit 0 0 ABS 0 cinit dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hconst 0 0 CONST 0 const dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hidata 0 0 CODE 0 idata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hidloc 200008 0 IDLOC 0 idloc dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hparam 0 0 COMRAM 1 rparam dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hrdata 0 0 COMRAM 1 rdata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hstack 0 0 STACK 2 stack dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext0 0 0 ABS 0 text0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext1 0 0 ABS 0 text1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext2 0 0 ABS 0 text2 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext3 0 0 ABS 0 text3 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext4 0 0 ABS 0 text4 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext5 0 0 ABS 0 text5 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext6 0 0 ABS 0 text6 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext7 0 0 ABS 0 text7 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext8 0 0 ABS 0 text8 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext9 0 0 ABS 0 text9 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lwdiv@counter 17 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_xsum_builder 1BFE 0 CODE 0 text48 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_commRun 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hbigram 0 0 ABS 0 bigram dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+_mcpUpdatePower 9C6 0 CODE 0 text2 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_com_command_setVersion 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_command_builder_add_char 1B4E 0 CODE 0 text54 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_SPI_send_data 20B8 0 CODE 0 text31 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hcomram 0 0 ABS 0 comram dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hconfig 30000E 0 CONFIG 0 config dist/default/production\EMMS_Code_PowerSense.X.production.obj
+send_data@send_end 19 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lbank0 0 0 ABS 0 bank0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lbank1 0 0 ABS 0 bank1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lbank2 0 0 ABS 0 bank2 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lbank3 0 0 ABS 0 bank3 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lbank4 0 0 ABS 0 bank4 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lbank5 0 0 ABS 0 bank5 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_isdigit 2112 0 CODE 0 text56 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lcinit 0 0 ABS 0 cinit dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lconst 0 0 CONST 0 const dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lidata 0 0 CODE 0 idata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lidloc 200000 0 IDLOC 0 idloc dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_process_data 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\EMMS_Code_PowerSense.X.production.obj
+com_command_setPower@temp 70 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lparam 0 0 COMRAM 1 rparam dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lrdata 0 0 COMRAM 1 rdata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_SPISlaveInit 1E16 0 CODE 0 text60 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lstack 0 0 STACK 2 stack dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext0 0 0 ABS 0 text0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext1 0 0 ABS 0 text1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext2 0 0 ABS 0 text2 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext3 0 0 ABS 0 text3 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext4 0 0 ABS 0 text4 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext5 0 0 ABS 0 text5 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext6 0 0 ABS 0 text6 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext7 0 0 ABS 0 text7 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext8 0 0 ABS 0 text8 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext9 0 0 ABS 0 text9 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hfarbss 0 0 FARRAM 0 farbss dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_mcpInitF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+mcpUpdatePower@timerLFout_ms 28 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PORTAbits F80 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PORTBbits F81 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_PORTCbits F82 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_T3CMX$PORTC0 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_strcmp2 C76 0 CODE 0 text40 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_INTCONbits FF2 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Habs1 0 0 ABS 0 abs1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hdata 0 0 ABS 0 data dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hinit DE 0 CODE 0 init dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hrbit 0 0 COMRAM 1 rbit dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hrbss 0 0 COMRAM 1 rbss dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htemp 4E 0 COMRAM 1 temp dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext 0 0 ABS 0 text dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Labs1 0 0 ABS 0 abs1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ldata 0 0 ABS 0 data dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Linit DA 0 CODE 0 init dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lrbit 0 0 COMRAM 1 rbit dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lrbss 0 0 COMRAM 1 rbss dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltemp 4D 0 COMRAM 1 temp dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext 0 0 ABS 0 text dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_XINST$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+xSumCheck@check_buffer 20 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_SSP2CON3 F69 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lmul 1BA8 0 CODE 0 text57 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___wmul 2072 0 CODE 0 text59 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__LcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_process_data_parameterize 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_SSP2STATbits F6D 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+int$flags 4D 0 COMRAM 1 temp dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledRun@ledRunDelay 23 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder_add_char@data 15 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hintret 0 0 ABS 0 intret dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hirdata 0 0 CODE 0 irdata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__S0 30000E 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__S1 1C6 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__S2 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+atoi@sign 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_timerGetCount 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_powerReduction 16B0 0 CODE 0 text4 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_mcpInit 2024 0 CODE 0 text8 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_process_data 1FA0 0 CODE 0 text37 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_xsum_builder 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+atol@sign 27 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+utoa@base 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_Timer0_ISR 8 0 CODE 0 intcode dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ultoa@base 26 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+strcmp2@a 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+strcmp2@b 15 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_mcpUpdatePower B4A 0 CODE 0 text2 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?_command_builder_add_string 17 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_BORV$190 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_send_end_of_transmission 215A 0 CODE 0 text41 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lintentry 0 0 ABS 0 intentry dist/default/production\EMMS_Code_PowerSense.X.production.obj
+process_data@parameters 100 0 BANK1 1 cstackBANK1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lldiv@divisor 17 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_ledRunDown 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_SPI_receive_data 2024 0 CODE 0 text36 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hramtop 600 0 RAM 0 ramtop dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hrparam 0 0 COMRAM 1 rparam dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_initIO 215A 0 CODE 0 text24 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ledGoToggle 2196 0 CODE 0 text7 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_PWRTEN$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__activetblptr 2 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_timerGetCount 1F3C 0 CODE 0 text5 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_xsum_builder 1C50 0 CODE 0 text48 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+process_data_parameterize@parameter_index 22 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_mcpInitF 19BC 0 CODE 0 text9 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hstruct 0 0 COMRAM 1 struct dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of___lmul 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of___wmul 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__LbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ledInit 217A 0 CODE 0 text18 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext10 0 0 ABS 0 text10 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext11 0 0 ABS 0 text11 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext12 0 0 ABS 0 text12 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext13 0 0 ABS 0 text13 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext14 0 0 ABS 0 text14 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext15 0 0 ABS 0 text15 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext16 0 0 ABS 0 text16 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext17 0 0 ABS 0 text17 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext18 0 0 ABS 0 text18 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext19 0 0 ABS 0 text19 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext20 0 0 ABS 0 text20 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext21 0 0 ABS 0 text21 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext22 0 0 ABS 0 text22 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext23 0 0 ABS 0 text23 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext24 0 0 ABS 0 text24 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext25 0 0 ABS 0 text25 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext26 0 0 ABS 0 text26 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext27 0 0 ABS 0 text27 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext28 0 0 ABS 0 text28 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext29 0 0 ABS 0 text29 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext30 0 0 ABS 0 text30 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext31 0 0 ABS 0 text31 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext32 0 0 ABS 0 text32 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext33 0 0 ABS 0 text33 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext34 0 0 ABS 0 text34 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext35 0 0 ABS 0 text35 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext36 0 0 ABS 0 text36 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext37 0 0 ABS 0 text37 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext38 0 0 ABS 0 text38 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext39 0 0 ABS 0 text39 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext40 0 0 ABS 0 text40 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext41 0 0 ABS 0 text41 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext42 0 0 ABS 0 text42 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext43 0 0 ABS 0 text43 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext44 0 0 ABS 0 text44 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext45 0 0 ABS 0 text45 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext46 0 0 ABS 0 text46 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext47 0 0 ABS 0 text47 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext48 0 0 ABS 0 text48 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext49 0 0 ABS 0 text49 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext50 0 0 ABS 0 text50 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext51 0 0 ABS 0 text51 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext52 0 0 ABS 0 text52 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext53 0 0 ABS 0 text53 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext54 0 0 ABS 0 text54 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext55 0 0 ABS 0 text55 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext56 0 0 ABS 0 text56 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext57 0 0 ABS 0 text57 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext58 0 0 ABS 0 text58 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext59 0 0 ABS 0 text59 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Htext60 0 0 ABS 0 text60 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_ledSetAllOn 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ledRun 2112 0 CODE 0 text13 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ledSet 1CA2 0 CODE 0 text21 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_HFOFST$ON 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_commRun 218E 0 CODE 0 text25 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_mcpInitF 1A28 0 CODE 0 text9 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext10 216C 0 CODE 0 text10 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext11 18DA 0 CODE 0 text11 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext12 20B8 0 CODE 0 text12 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext13 2112 0 CODE 0 text13 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext14 12A2 0 CODE 0 text14 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext15 1360 0 CODE 0 text15 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext16 1F3C 0 CODE 0 text16 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext17 17D4 0 CODE 0 text17 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext18 217A 0 CODE 0 text18 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext19 20D6 0 CODE 0 text19 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext20 1E9A 0 CODE 0 text20 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext21 1CA2 0 CODE 0 text21 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext22 212C 0 CODE 0 text22 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext23 1CEE 0 CODE 0 text23 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext24 215A 0 CODE 0 text24 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext25 2186 0 CODE 0 text25 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext26 218E 0 CODE 0 text26 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext27 141E 0 CODE 0 text27 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext28 C76 0 CODE 0 text28 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext29 1052 0 CODE 0 text29 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext30 1744 0 CODE 0 text30 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext31 2098 0 CODE 0 text31 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext32 157A 0 CODE 0 text32 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext33 204C 0 CODE 0 text33 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext34 1D3A 0 CODE 0 text34 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext35 11E2 0 CODE 0 text35 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext36 2024 0 CODE 0 text36 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext37 1F6E 0 CODE 0 text37 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext38 654 0 CODE 0 text38 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext39 1FA0 0 CODE 0 text39 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext40 B4A 0 CODE 0 text40 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext41 2144 0 CODE 0 text41 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext42 1B4E 0 CODE 0 text42 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext43 1D84 0 CODE 0 text43 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext44 D78 0 CODE 0 text44 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext45 1A28 0 CODE 0 text45 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext46 1858 0 CODE 0 text46 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext47 1120 0 CODE 0 text47 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext48 1BFE 0 CODE 0 text48 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext49 1E16 0 CODE 0 text49 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext50 14D6 0 CODE 0 text50 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext51 1E58 0 CODE 0 text51 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext52 1C50 0 CODE 0 text52 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext53 16B0 0 CODE 0 text53 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext54 1AF2 0 CODE 0 text54 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext55 E6E 0 CODE 0 text55 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext56 20F4 0 CODE 0 text56 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext57 1BA8 0 CODE 0 text57 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext58 81E 0 CODE 0 text58 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext59 2072 0 CODE 0 text59 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext60 1DCE 0 CODE 0 text60 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder3@send_buffer 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?_powerCalculateWatts 20 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___awdiv 17D4 0 CODE 0 text17 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledToggle@ledNum 19 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+xSumCheck@xSumMatches 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lldiv 1858 0 CODE 0 text46 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___llmod 1A28 0 CODE 0 text45 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lwdiv 1C50 0 CODE 0 text52 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lwmod 1E58 0 CODE 0 text51 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lbigram 0 0 ABS 0 bigram dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lmul@multiplier 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+process_data@end_of_transmission_received 169 0 BANK1 1 cstackBANK1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+powerReduction@timerLast_ms 20 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_communications 141E 0 CODE 0 text27 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?_atoi 19 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?_atol 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lcomram 0 0 ABS 0 comram dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lconfig 300000 0 CONFIG 0 config dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_timerCount_ms 8D 0 BANK0 1 bssBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___wmul@multiplier 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_LATBbits F8A 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_LATCbits F8B 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_process_data_parameters 654 0 CODE 0 text38 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledRunDown@delay10ms 21 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledGoToggle@ledNum 21 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lfarbss 0 0 FARRAM 0 farbss dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lwdiv@divisor 15 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lfardata 0 0 FARRAM 0 fardata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_Timer0_ISR DA 0 CODE 0 intcode dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_process_data_parameters 81E 0 CODE 0 text38 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+process_data@send_buffer 82 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_initIO 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+itoa@cp 29 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+stackhi 5FF 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+stacklo 1C6 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+receive_data@my_status 4B 0 COMRAM 1 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+strmatch@result 22 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lintcode 8 0 CODE 0 intcode dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder3@data1 31 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder3@data2 33 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder3@data3 35 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lintret 0 0 ABS 0 intret dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lirdata 0 0 CODE 0 irdata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ADCON0bits FC2 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_process_data_parameterize 81E 0 CODE 0 text58 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_com_command_setEnergyUsed 1DCE 0 CODE 0 text43 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_ledRun 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_ledSet 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lspace_0 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lspace_1 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lspace_2 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__pbssCOMRAM 3D 0 COMRAM 1 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+strcmp2@inx 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+strmatch@a 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+strmatch@b 20 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__HcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledRunUp@delay10ms 21 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+end_of_initialization 1EFC 0 CODE 0 cinit dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_com_command_setPower 1D3A 0 CODE 0 text34 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+SPI_send_data@sendGood 14 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hintentry 0 0 ABS 0 intentry dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_SPI_receive_data 204C 0 CODE 0 text36 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_RCONbits FD0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+com_command_setEnergyUsed@temp 70 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___awdiv@quotient 19 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?___awdiv 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lwdiv@dividend 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+process_data@receive_buffer 80 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?___lldiv 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?___llmod 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?___lwdiv 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?___lwmod 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_communications 14D6 0 CODE 0 text27 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_delayMS10 1F6E 0 CODE 0 text16 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_SPI_receive_data 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__HbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_initOSC 212C 0 CODE 0 text22 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+mcpUpdatePower@timerHFout_ms 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lramtop 600 0 RAM 0 ramtop dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_delayMS10 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_timerResetCount 1FFA 0 CODE 0 text3 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lrparam 0 0 COMRAM 1 rparam dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_command_builder1 1B4E 0 CODE 0 text42 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_command_builder3 1120 0 CODE 0 text47 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__pcinit 1ED8 0 CODE 0 cinit dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ultoa@buf 20 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ultoa@val 22 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext0 F62 0 CODE 0 text0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext1 1A8E 0 CODE 0 text1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext2 9C6 0 CODE 0 text2 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext3 1FD0 0 CODE 0 text3 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext4 1616 0 CODE 0 text4 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext5 1F0A 0 CODE 0 text5 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext6 1950 0 CODE 0 text6 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext7 2196 0 CODE 0 text7 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext8 1FFA 0 CODE 0 text8 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ptext9 19BC 0 CODE 0 text9 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_OSCCON2bits FD2 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+strmatch@match 24 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lstruct 0 0 COMRAM 1 struct dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext10 0 0 ABS 0 text10 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext11 0 0 ABS 0 text11 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext12 0 0 ABS 0 text12 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext13 0 0 ABS 0 text13 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext14 0 0 ABS 0 text14 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext15 0 0 ABS 0 text15 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext16 0 0 ABS 0 text16 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext17 0 0 ABS 0 text17 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext18 0 0 ABS 0 text18 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext19 0 0 ABS 0 text19 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext20 0 0 ABS 0 text20 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext21 0 0 ABS 0 text21 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext22 0 0 ABS 0 text22 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext23 0 0 ABS 0 text23 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext24 0 0 ABS 0 text24 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext25 0 0 ABS 0 text25 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext26 0 0 ABS 0 text26 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext27 0 0 ABS 0 text27 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext28 0 0 ABS 0 text28 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext29 0 0 ABS 0 text29 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext30 0 0 ABS 0 text30 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext31 0 0 ABS 0 text31 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext32 0 0 ABS 0 text32 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext33 0 0 ABS 0 text33 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext34 0 0 ABS 0 text34 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext35 0 0 ABS 0 text35 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext36 0 0 ABS 0 text36 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext37 0 0 ABS 0 text37 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext38 0 0 ABS 0 text38 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext39 0 0 ABS 0 text39 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext40 0 0 ABS 0 text40 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext41 0 0 ABS 0 text41 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext42 0 0 ABS 0 text42 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext43 0 0 ABS 0 text43 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext44 0 0 ABS 0 text44 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext45 0 0 ABS 0 text45 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext46 0 0 ABS 0 text46 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext47 0 0 ABS 0 text47 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext48 0 0 ABS 0 text48 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext49 0 0 ABS 0 text49 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext50 0 0 ABS 0 text50 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext51 0 0 ABS 0 text51 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext52 0 0 ABS 0 text52 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext53 0 0 ABS 0 text53 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext54 0 0 ABS 0 text54 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext55 0 0 ABS 0 text55 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext56 0 0 ABS 0 text56 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext57 0 0 ABS 0 text57 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext58 0 0 ABS 0 text58 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext59 0 0 ABS 0 text59 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Ltext60 0 0 ABS 0 text60 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+__size_of_resetCommunications 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lpowerup DA 0 CODE 0 powerup dist/default/production\EMMS_Code_PowerSense.X.production.obj
+timerGetCount@timerIndex 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\EMMS_Code_PowerSense.X.production.obj
+xSumCheck@xSumChars 23 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_com_command_setVersion 204C 0 CODE 0 text33 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_isdigit 20F4 0 CODE 0 text56 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__psmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_delayMS10 1F3C 0 CODE 0 text16 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_commInit 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\EMMS_Code_PowerSense.X.production.obj
+strcmp2@match 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+communications@receive_current_state A3 0 BANK0 1 bssBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_strcmp2 B4A 0 CODE 0 text40 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___param_bank 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_powerCalculateWatts 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of__initialization 1EFC 0 CODE 0 cinit dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_INTCON2 FF1 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_INTCON3 FF0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_WRT0$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_WRT1$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_WRT2$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_WRT3$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+com_command_setVersion@send_buffer 39 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_WRTB$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Libigdata 0 0 CODE 0 ibigdata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder_add_string@send_buffer 17 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_com_command_setEnergyUsed 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lclrtext 0 0 ABS 0 clrtext dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_ledSetAll 1ED8 0 CODE 0 text20 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_mcpInit 1FFA 0 CODE 0 text8 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lmul@product 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_ledSetAll 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_ledToggle 1950 0 CODE 0 text11 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lmul@multiplicand 17 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___lldiv@quotient 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_ledToggle 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+main@timerHeartbeat 87 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledSet@setValue 15 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_timerResetCount 1FD0 0 CODE 0 text3 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+SPI_send_data@data 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_SSP2BUF F6F 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledSet@ledNum 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___llmod@dividend 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_BOREN$SBORDIS 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_resetCommunications 157A 0 CODE 0 text32 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledToggle@getValue 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___llmod@counter 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+main@oneShot A1 0 BANK0 1 bssBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_command_builder_add_string 1744 0 CODE 0 text53 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_atoi 1120 0 CODE 0 text29 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_atol F62 0 CODE 0 text55 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_itoa 1E58 0 CODE 0 text49 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_main 1052 0 CODE 0 text0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_utoa 157A 0 CODE 0 text50 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__pintcode 8 0 CODE 0 intcode dist/default/production\EMMS_Code_PowerSense.X.production.obj
+isdigit@c 15 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledTestToggle@ledNum 21 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ledSetAllOn 20B8 0 CODE 0 text12 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ledSetAll 1E9A 0 CODE 0 text20 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_isdigit$2432 14 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_TMR0H FD7 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_TMR0L FD6 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_ultoa E6E 0 CODE 0 text44 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_CP0$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_CP1$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__HRAM 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hbss 0 0 RAM 1 bss dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hram 0 0 ABS 0 ram dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hsfr 0 0 ABS 0 sfr dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__LRAM 1 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lbss 0 0 RAM 1 bss dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lram 0 0 ABS 0 ram dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lsfr 0 0 ABS 0 sfr dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_CP2$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_CP3$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+powerCalculateWatts@outHF 24 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_PLLCFG$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_CPB$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ledToggle 18DA 0 CODE 0 text11 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ultoa D78 0 CODE 0 text44 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_powerReduction 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+xsum_builder@send_buffer 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_initInterruptsClear 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_commInit 218E 0 CODE 0 text26 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder_add_string@inx 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_PRICLKEN$OFF 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_powerCalculateWatts 1950 0 CODE 0 text6 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_command_builder1 1BA8 0 CODE 0 text42 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_command_builder3 11E2 0 CODE 0 text47 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+atoi@a 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+atoi@s 19 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+atol@a 28 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+atol@c 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+atol@s 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+send_data@send_buffer 15 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+send_end_of_transmission@send_buffer 35 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+?_strcmp2 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__initialization 1ED8 0 CODE 0 cinit dist/default/production\EMMS_Code_PowerSense.X.production.obj
+mcpUpdatePower@oneShotHFout 4A 0 COMRAM 1 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+mcpUpdatePower@oneShotLFout 49 0 COMRAM 1 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__pbssBANK0 8D 0 BANK0 1 bssBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__pbssBANK1 16A 0 BANK1 1 bssBANK1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_commInit 2196 0 CODE 0 text26 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__end_of_ledGoToggle 2198 0 CODE 0 text7 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_commRun 2186 0 CODE 0 text25 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+communications@end_of_transmission_received A4 0 BANK0 1 bssBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_command_builder1 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_command_builder3 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hfardata 0 0 FARRAM 0 fardata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+___wmul@product 17 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hsmallconst 654 0 SMALLCONST 0 smallconst dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_mcpUpdatePower 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__size_of_Timer0_ISR 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+ledToggle@setValue 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Lifardata 0 0 CODE 0 ifardata dist/default/production\EMMS_Code_PowerSense.X.production.obj
+xSumCheck@receiveBufferPos 31 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+process_data_parameters@send_buffer 7E 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
+resetCommunications@send_buffer 3B 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ANSELAbits F38 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+_ANSELBbits F39 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\EMMS_Code_PowerSense.X.production.obj
+command_builder1@send_buffer 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__CFG_MCLRE$EXTMCLR 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
+__Hintcode DA 0 CODE 0 intcode dist/default/production\EMMS_Code_PowerSense.X.production.obj
+SPI_receive_data@data 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+idloc 0 200000 200000 8 1
+text38 0 654 654 1B44 1
+cstackCOMRAM 1 1 1 4D 1
+cstackBANK0 1 60 60 45 1
+cstackBANK1 1 100 100 C6 1
+reset_vec 0 0 0 4 1
+intcode 0 8 8 D6 1
+smallconst 0 600 600 54 1
+config 0 300000 300000 E 1
