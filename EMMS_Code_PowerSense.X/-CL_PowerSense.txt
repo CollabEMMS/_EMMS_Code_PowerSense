@@ -1,8 +1,10 @@
 open issues
 
 
-
-
+12/3/2021	TBA
+	BugFix
+		xSumCheck had potential buffer overrun issue
+		parameter processing also had a potential buffer overrun
 
 9/22/2021   TBA
      XSum had some issues
