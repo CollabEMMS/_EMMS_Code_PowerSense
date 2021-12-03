@@ -303,7 +303,7 @@ void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_M
 	}
 
 	while(
-		 ( buffer_to_parameterize->read_position < BUFFER_LENGTH )
+		 ( buffer_to_parameterize->read_position < BUFFER_LENGTH )	 // this check first - if it fails the other checks are not done - this makes sure the receiveBufferPos is never out of bounds
 		 &&( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != COMMAND_END_CHAR )
 		 && ( buffer_to_parameterize->read_position != buffer_to_parameterize->write_position )
 		 && ( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != COMMAND_XSUM_CHAR )
