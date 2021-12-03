@@ -303,10 +303,10 @@ void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_M
 	}
 
 	while(
-		 (buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != COMMAND_END_CHAR)
-		 && (buffer_to_parameterize->read_position < BUFFER_LENGTH)
-		 && (buffer_to_parameterize->read_position != buffer_to_parameterize->write_position)
-		 && (buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != COMMAND_XSUM_CHAR)
+		 ( buffer_to_parameterize->read_position < BUFFER_LENGTH )
+		 &&( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != COMMAND_END_CHAR )
+		 && ( buffer_to_parameterize->read_position != buffer_to_parameterize->write_position )
+		 && ( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != COMMAND_XSUM_CHAR )
 		 )
 	{
 		switch( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position] )
