@@ -43,7 +43,7 @@ volatile unsigned long timerCount_ms[4]; // set the number of timers here
  external functions should be in the header
  ideally these are in the same order as in the code listing
  any functions used internally and externally (prototype here and in the .h file)
-     should be marked
+	 should be marked
  *****************/
 
 /****************
@@ -53,55 +53,55 @@ volatile unsigned long timerCount_ms[4]; // set the number of timers here
 void timerInit( void )
 {
 
-    T0CONbits.TMR0ON = 0; // turn off while configuring
-    T0CONbits.T08BIT = 0; // 16 bit
-    T0CONbits.T0CS = 0; // clock source internal
-    T0CONbits.PSA = 0; // 0= use prescaler
-    T0CONbits.T0PS = 0b001; // prescaler = 4 - gives us about 1Mhz since timer is already clocked at fosc/4
+	T0CONbits.TMR0ON = 0; // turn off while configuring
+	T0CONbits.T08BIT = 0; // 16 bit
+	T0CONbits.T0CS = 0; // clock source internal
+	T0CONbits.PSA = 0; // 0= use prescaler
+	T0CONbits.T0PS = 0b001; // prescaler = 4 - gives us about 1Mhz since timer is already clocked at fosc/4
 
-    INTCONbits.TMR0IE = 1; // enable timer 0 overflow interrupt
-    INTCONbits.GIE = 1; // enable interrupts
-    T0CONbits.TMR0ON = 1;
+	INTCONbits.TMR0IE = 1; // enable timer 0 overflow interrupt
+	INTCONbits.GIE = 1; // enable interrupts
+	T0CONbits.TMR0ON = 1;
 
-    // each interrupt should be ~1ms
+	// each interrupt should be ~1ms
 
-    timerCount_ms[0] = 0;
-    timerCount_ms[1] = 0;
-    timerCount_ms[2] = 0;
-    timerCount_ms[3] = 0;
+	timerCount_ms[0] = 0;
+	timerCount_ms[1] = 0;
+	timerCount_ms[2] = 0;
+	timerCount_ms[3] = 0;
 
-    INTCONbits.TMR0IF = 0;
+	INTCONbits.TMR0IF = 0;
 
-    TMR0H = TIMER_PRESET_HIGH;
-    TMR0L = TIMER_PRESET_LOW;
+	TMR0H = TIMER_PRESET_HIGH;
+	TMR0L = TIMER_PRESET_LOW;
 
 }
 
 void interrupt Timer0_ISR( void )
 {
-    INTCONbits.TMR0IF = 0;
+	INTCONbits.TMR0IF = 0;
 
-    TMR0H = TIMER_PRESET_HIGH;
-    TMR0L = TIMER_PRESET_LOW;
+	TMR0H = TIMER_PRESET_HIGH;
+	TMR0L = TIMER_PRESET_LOW;
 
-    timerCount_ms[0]++;
-    timerCount_ms[1]++;
-    timerCount_ms[2]++;
-    timerCount_ms[3]++;
+	timerCount_ms[0]++;
+	timerCount_ms[1]++;
+	timerCount_ms[2]++;
+	timerCount_ms[3]++;
 
-    return;
+	return;
 }
 
 unsigned long timerGetCount( int timerIndex )
 {
-    return timerCount_ms[timerIndex];
+	return timerCount_ms[timerIndex];
 }
 
 void timerResetCount( int timerIndex )
 {
-    timerCount_ms[timerIndex] = 0;
+	timerCount_ms[timerIndex] = 0;
 
-    return;
+	return;
 }
 
 
@@ -110,8 +110,8 @@ void timerResetCount( int timerIndex )
 
 void delayMS10( int count )
 {
-    for( int inx = 0; inx < count; inx++ )
-    {
-	__delay_ms( 10 );
-    }
+	for( int inx = 0; inx < count; inx++ )
+	{
+		__delay_ms( 10 );
+	}
 }

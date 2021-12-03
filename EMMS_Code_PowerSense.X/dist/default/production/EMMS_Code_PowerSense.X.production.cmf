@@ -83,7 +83,7 @@ bssBANK1 BANK1 1 16A 16A 5C 1
 intcode CODE 0 8 8 D2 1
 smallconst SMALLCONST 0 600 600 54 1
 bssCOMRAM COMRAM 1 3D 3D 10 1
-$C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+$C:\Users\Austin\AppData\Local\Temp\sdo8.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 DA DA 4 1
 reset_vec CODE 0 0 0 4 1
@@ -847,34 +847,34 @@ FE4 text0 CODE >117:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSe
 104A text0 CODE >127:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
 104A text0 CODE >129:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
 1050 text0 CODE >108:E:\Documents\Tom\Messiah_Collab\emms\code\_EMMS_Code_PowerSense\EMMS_Code_PowerSense.X\Main_PowerSense.c
-1ED8 cinit CODE >2910:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1ED8 cinit CODE >2912:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1ED8 cinit CODE >2915:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1ED8 cinit CODE >2973:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EDC cinit CODE >2974:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EDE cinit CODE >2975:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EDE cinit CODE >2976:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EE0 cinit CODE >2977:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EE2 cinit CODE >2978:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EE4 cinit CODE >2981:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EE8 cinit CODE >2982:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EEA cinit CODE >2983:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EEA cinit CODE >2984:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EEC cinit CODE >2985:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EEE cinit CODE >2986:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EF0 cinit CODE >2989:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EF4 cinit CODE >2990:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EF6 cinit CODE >2991:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EF6 cinit CODE >2992:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EF8 cinit CODE >2993:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EFA cinit CODE >2994:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EFC cinit CODE >3000:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EFC cinit CODE >3002:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1EFE cinit CODE >3003:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1F00 cinit CODE >3005:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1F02 cinit CODE >3006:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1F04 cinit CODE >3007:C:\Users\Austin\AppData\Local\Temp\sdpo.
-1F06 cinit CODE >3008:C:\Users\Austin\AppData\Local\Temp\sdpo.
+1ED8 cinit CODE >2910:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1ED8 cinit CODE >2912:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1ED8 cinit CODE >2915:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1ED8 cinit CODE >2973:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EDC cinit CODE >2974:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EDE cinit CODE >2975:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EDE cinit CODE >2976:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EE0 cinit CODE >2977:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EE2 cinit CODE >2978:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EE4 cinit CODE >2981:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EE8 cinit CODE >2982:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EEA cinit CODE >2983:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EEA cinit CODE >2984:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EEC cinit CODE >2985:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EEE cinit CODE >2986:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EF0 cinit CODE >2989:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EF4 cinit CODE >2990:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EF6 cinit CODE >2991:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EF6 cinit CODE >2992:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EF8 cinit CODE >2993:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EFA cinit CODE >2994:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EFC cinit CODE >3000:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EFC cinit CODE >3002:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1EFE cinit CODE >3003:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1F00 cinit CODE >3005:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1F02 cinit CODE >3006:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1F04 cinit CODE >3007:C:\Users\Austin\AppData\Local\Temp\sdo8.
+1F06 cinit CODE >3008:C:\Users\Austin\AppData\Local\Temp\sdo8.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -901,7 +901,7 @@ process_data_parameterize@parameters 19 0 COMRAM 1 cstackCOMRAM dist/default/pro
 _ledTestToggle 216C 0 CODE 0 text10 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __size_of_ledRunUp 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\EMMS_Code_PowerSense.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Austin\AppData\Local\Temp\sdo8.obj
 __size_of_ledInit 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
 ?_timerGetCount 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\EMMS_Code_PowerSense.X.production.obj
@@ -927,14 +927,14 @@ _PIR2 FA1 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.ob
 _PIR3 FA4 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
 _PIR4 F7B 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
 _PIR5 F7E 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+___sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sdo8.obj
 _atoi 1052 0 CODE 0 text29 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 _atol E6E 0 CODE 0 text55 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 _itoa 1E16 0 CODE 0 text49 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 _main F62 0 CODE 0 text0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 _utoa 14D6 0 CODE 0 text50 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 btemp 4D 0 COMRAM 1 temp dist/default/production\EMMS_Code_PowerSense.X.production.obj
-start DA 0 CODE 0 init C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+start DA 0 CODE 0 init C:\Users\Austin\AppData\Local\Temp\sdo8.obj
 __end_of_timerInit 1AF2 0 CODE 0 text1 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
 _com_command_setEnergyUsed 1D84 0 CODE 0 text43 dist/default/production\EMMS_Code_PowerSense.X.production.obj
@@ -978,11 +978,11 @@ utoa@c 22 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X
 utoa@v 20 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __size_of_strmatch 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
 xSumCheck@xSumCharsPos 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sdpo.obj
-intlevel0 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdpo.obj
-intlevel1 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdpo.obj
-intlevel2 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdpo.obj
-intlevel3 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+__accesstop 60 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sdo8.obj
+intlevel0 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdo8.obj
+intlevel1 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdo8.obj
+intlevel2 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdo8.obj
+intlevel3 0 0 CODE 0 text C:\Users\Austin\AppData\Local\Temp\sdo8.obj
 ledRunDown@ledRunDelay 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
 _send_end_of_transmission 2144 0 CODE 0 text41 dist/default/production\EMMS_Code_PowerSense.X.production.obj
@@ -1022,10 +1022,10 @@ _ANSELB F39 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.
 _ANSELC F3A 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
 ___awdiv@dividend 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
 process_data_parameters@parameters 7C 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sdo8.obj
 ledRunUp@ledRunDelay 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
 command_builder3@xsum 37 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Austin\AppData\Local\Temp\sdo8.obj
 __end_of_send_data 17D4 0 CODE 0 text30 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 _ledSetAllOff 20D6 0 CODE 0 text19 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 communications@firstTime 85 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
@@ -1151,7 +1151,7 @@ _xsum_builder 1BFE 0 CODE 0 text48 dist/default/production\EMMS_Code_PowerSense.
 __size_of_commRun 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\EMMS_Code_PowerSense.X.production.obj
-__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\Austin\AppData\Local\Temp\sdo8.obj
 _mcpUpdatePower 9C6 0 CODE 0 text2 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __size_of_com_command_setVersion 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __end_of_command_builder_add_char 1B4E 0 CODE 0 text54 dist/default/production\EMMS_Code_PowerSense.X.production.obj
@@ -1410,8 +1410,8 @@ __end_of_process_data_parameters 81E 0 CODE 0 text38 dist/default/production\EMM
 process_data@send_buffer 82 0 BANK0 1 cstackBANK0 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __size_of_initIO 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
 itoa@cp 29 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
-stackhi 5FF 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sdpo.obj
-stacklo 1C6 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+stackhi 5FF 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sdo8.obj
+stacklo 1C6 0 ABS 0 - C:\Users\Austin\AppData\Local\Temp\sdo8.obj
 receive_data@my_status 4B 0 COMRAM 1 bssCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
 strmatch@result 22 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\EMMS_Code_PowerSense.X.production.obj
@@ -1535,7 +1535,7 @@ __Ltext57 0 0 ABS 0 text57 dist/default/production\EMMS_Code_PowerSense.X.produc
 __Ltext58 0 0 ABS 0 text58 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __Ltext59 0 0 ABS 0 text59 dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __Ltext60 0 0 ABS 0 text60 dist/default/production\EMMS_Code_PowerSense.X.production.obj
-__ramtop 600 0 RAM 0 ramtop C:\Users\Austin\AppData\Local\Temp\sdpo.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\Austin\AppData\Local\Temp\sdo8.obj
 __size_of_resetCommunications 0 0 ABS 0 - dist/default/production\EMMS_Code_PowerSense.X.production.obj
 __Lpowerup DA 0 CODE 0 powerup dist/default/production\EMMS_Code_PowerSense.X.production.obj
 timerGetCount@timerIndex 13 0 COMRAM 1 cstackCOMRAM dist/default/production\EMMS_Code_PowerSense.X.production.obj

@@ -1,10 +1,10 @@
 /******
  Common Header File
  Only put something in here if:
-    it is required for all C files
-    and
-    it is not best included in any other header file
-*/
+	it is required for all C files
+	and
+	it is not best included in any other header file
+ */
 
 
 /**********************
@@ -39,7 +39,7 @@
 
 
 #ifndef COMMON_H
-#define	COMMON_H
+#    define	COMMON_H
 
 
 /****************
@@ -48,11 +48,11 @@
  this list here should be very limited
  things like stdlib should be included in the c module where it is needed
  not all c modules really need stdlib
-****************/
+ ****************/
 
 //#include <xc.h>
-#include <p18f25k22.h>
-#include <stdbool.h>
+#    include <p18f25k22.h>
+#    include <stdbool.h>
 
 
 /****************
@@ -63,20 +63,20 @@
 
 // operating frequency
 // the UL postfix stipulates that the number is unsigned long
-#define _XTAL_FREQ 16000000UL  //16 Mhz
+#    define _XTAL_FREQ 16000000UL  //16 Mhz
 
 
 // if DEBUG == true, turn off "Go" turn on "Debug" LED functions
-#define LEDS_FOR_DEBUG true
+#    define LEDS_FOR_DEBUG true
 
 
-#define CHAR_NULL '\0'   //yes, used in many many places
+#    define CHAR_NULL '\0'   //yes, used in many many places
 
 
 /****************
  STRUCTS
  define the structures here
-***************/
+ ***************/
 
 
 #endif	/* COMMON_H */
@@ -129,7 +129,7 @@
  external functions should be in the header
  ideally these are in the same order as in the code listing
  any functions used internally and externally (prototype here and in the .h file)
-     should be marked
+	 should be marked
  *****************/
 
 
@@ -164,7 +164,7 @@
  these are the globals required by external c files
  there should be as few of these as possible to help keep things clean
  these are all 'extern' and require that the variable is declared in the c file
-  ****************/
+ ****************/
 
 
 /****************

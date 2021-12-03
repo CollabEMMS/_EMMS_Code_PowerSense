@@ -11,8 +11,6 @@
       <itemPath>MCP3909_Interface.h</itemPath>
       <itemPath>Timer.h</itemPath>
       <itemPath>Main_PowerSense.h</itemPath>
-      <itemPath>DELETE_config.h</itemPath>
-      <itemPath>DELETE_MCPspi.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

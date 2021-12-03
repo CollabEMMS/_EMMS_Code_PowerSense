@@ -6,7 +6,7 @@
  */
 
 #ifndef LEDCONTROL_H
-#define	LEDCONTROL_H
+#    define	LEDCONTROL_H
 
 /****************
  MACROS
@@ -19,7 +19,7 @@
  these are the globals required by external c files
  there should be as few of these as possible to help keep things clean
  these are all 'extern' and require that the variable is declared in the c file
-  ****************/
+ ****************/
 
 
 /****************

@@ -49,7 +49,7 @@
  external functions should be in the header
  ideally these are in the same order as in the code listing
  any functions used internally and externally (prototype here and in the .h file)
-     should be marked
+	 should be marked
  *****************/
 
 // internal only
@@ -70,272 +70,272 @@ void ledSetAllOff( void );
 
 void ledInit( void )
 {
-    LED1_DIR = 0;
-    LED2_DIR = 0;
-    LED3_DIR = 0;
+	LED1_DIR = 0;
+	LED2_DIR = 0;
+	LED3_DIR = 0;
 
-    ledSetAllOff( );
+	ledSetAllOff( );
 
-    return;
+	return;
 }
 
 void ledSet( int ledNum, int setValue )
 {
-    switch( ledNum )
-    {
-	case 1:
-	    LED1_SET = setValue;
-	    break;
-	case 2:
-	    LED2_SET = setValue;
-	    break;
-	case 3:
-	    LED3_SET = setValue;
-	    break;
-    }
+	switch( ledNum )
+	{
+		case 1:
+			LED1_SET = setValue;
+			break;
+		case 2:
+			LED2_SET = setValue;
+			break;
+		case 3:
+			LED3_SET = setValue;
+			break;
+	}
 
-    return;
+	return;
 }
 
 void ledSetOn( int ledNum )
 {
-    int setValue = 1;
+	int setValue = 1;
 
-    ledSet( ledNum, setValue );
+	ledSet( ledNum, setValue );
 
-    return;
+	return;
 }
 
 void ledSetOff( int ledNum )
 {
-    int setValue = 0;
+	int setValue = 0;
 
-    ledSet( ledNum, setValue );
+	ledSet( ledNum, setValue );
 
-    return;
+	return;
 }
 
 void ledTestSetOn( int ledNum )
 {
-    if( LEDS_FOR_DEBUG == true )
-    {
-	ledSetOn( ledNum );
-    }
+	if( LEDS_FOR_DEBUG == true )
+	{
+		ledSetOn( ledNum );
+	}
 
-    return;
+	return;
 }
 
 void ledGoSetOn( int ledNum )
 {
-    if( LEDS_FOR_DEBUG != true )
-    {
-	ledSetOn( ledNum );
-    }
+	if( LEDS_FOR_DEBUG != true )
+	{
+		ledSetOn( ledNum );
+	}
 
-    return;
+	return;
 }
 
 void ledTestSetOff( int ledNum )
 {
-    if( LEDS_FOR_DEBUG == true )
-    {
-	ledSetOff( ledNum );
-    }
+	if( LEDS_FOR_DEBUG == true )
+	{
+		ledSetOff( ledNum );
+	}
 
-    return;
+	return;
 }
 
 void ledGoSetOff( int ledNum )
 {
-    if( LEDS_FOR_DEBUG != true )
-    {
-	ledSetOff( ledNum );
-    }
+	if( LEDS_FOR_DEBUG != true )
+	{
+		ledSetOff( ledNum );
+	}
 
-    return;
+	return;
 }
 
 void ledSetAll( int led1Value, int led2Value, int led3Value )
 {
-    ledSet( 1, led1Value );
-    ledSet( 2, led2Value );
-    ledSet( 3, led3Value );
+	ledSet( 1, led1Value );
+	ledSet( 2, led2Value );
+	ledSet( 3, led3Value );
 
-    return;
+	return;
 }
 
 void ledTestSetAll( int led1Value, int led2Value, int led3Value )
 {
-    if( LEDS_FOR_DEBUG == true )
-    {
-	ledSetAll( led1Value, led2Value, led3Value );
-    }
+	if( LEDS_FOR_DEBUG == true )
+	{
+		ledSetAll( led1Value, led2Value, led3Value );
+	}
 
-    return;
+	return;
 }
 
 void ledGoSetAll( int led1Value, int led2Value, int led3Value )
 {
-    if( LEDS_FOR_DEBUG != true )
-    {
-	ledSetAll( led1Value, led2Value, led3Value );
-    }
+	if( LEDS_FOR_DEBUG != true )
+	{
+		ledSetAll( led1Value, led2Value, led3Value );
+	}
 
-    return;
+	return;
 }
 
 void ledSetAllOn( void )
 {
-    ledSetAll( 1, 1, 1 );
+	ledSetAll( 1, 1, 1 );
 
-    return;
+	return;
 }
 
 void ledSetAllOff( void )
 {
-    ledSetAll( 0, 0, 0 );
+	ledSetAll( 0, 0, 0 );
 
-    return;
+	return;
 }
 
 void ledTestSetAllOn( void )
 {
-    if( LEDS_FOR_DEBUG == true )
-    {
-	ledSetAllOn( );
-    }
+	if( LEDS_FOR_DEBUG == true )
+	{
+		ledSetAllOn( );
+	}
 
-    return;
+	return;
 }
 
 void ledGoSetAllOn( void )
 {
-    if( LEDS_FOR_DEBUG != true )
-    {
-	ledSetAllOn( );
-    }
+	if( LEDS_FOR_DEBUG != true )
+	{
+		ledSetAllOn( );
+	}
 
-    return;
+	return;
 }
 
 void ledTestSetAllOff( void )
 {
-    if( LEDS_FOR_DEBUG == true )
-    {
-	ledSetAllOff( );
+	if( LEDS_FOR_DEBUG == true )
+	{
+		ledSetAllOff( );
 
-    }
+	}
 
-    return;
+	return;
 }
 
 void ledGoSetAllOff( void )
 {
-    if( LEDS_FOR_DEBUG != true )
-    {
-	ledSetAllOff( );
+	if( LEDS_FOR_DEBUG != true )
+	{
+		ledSetAllOff( );
 
-    }
+	}
 
-    return;
+	return;
 }
 
 void ledToggle( int ledNum )
 {
 
-    int getValue;
-    int setValue;
+	int getValue;
+	int setValue;
 
-    switch( ledNum )
-    {
-	case 1:
-	    getValue = LED1_READ;
-	    break;
-	case 2:
-	    getValue = LED2_READ;
-	    break;
-	case 3:
-	    getValue = LED3_READ;
-	    break;
-    }
+	switch( ledNum )
+	{
+		case 1:
+			getValue = LED1_READ;
+			break;
+		case 2:
+			getValue = LED2_READ;
+			break;
+		case 3:
+			getValue = LED3_READ;
+			break;
+	}
 
-    if( getValue == 0 )
-    {
-	setValue = 1;
-    }
-    else
-    {
-	setValue = 0;
-    }
+	if( getValue == 0 )
+	{
+		setValue = 1;
+	}
+	else
+	{
+		setValue = 0;
+	}
 
-    ledSet( ledNum, setValue );
+	ledSet( ledNum, setValue );
 
-    return;
+	return;
 }
 
 void ledTestToggle( int ledNum )
 {
-    if( LEDS_FOR_DEBUG == true )
-    {
-	ledToggle( ledNum );
-    }
+	if( LEDS_FOR_DEBUG == true )
+	{
+		ledToggle( ledNum );
+	}
 
-    return;
+	return;
 }
 
 void ledGoToggle( int ledNum )
 {
-    if( LEDS_FOR_DEBUG != true )
-    {
-	ledToggle( ledNum );
-    }
+	if( LEDS_FOR_DEBUG != true )
+	{
+		ledToggle( ledNum );
+	}
 
-    return;
+	return;
 }
 
 void ledRunUp( int ledRunDelay )
 {
 
-    int delay10ms;
-    delay10ms = ledRunDelay / 10;
-    // TODO fix __delay_ms
-    // for XC8 it must take a constant
+	int delay10ms;
+	delay10ms = ledRunDelay / 10;
+	// TODO fix __delay_ms
+	// for XC8 it must take a constant
 
-    ledSetAll( 0, 0, 0 );
-    delayMS10( delay10ms );
-    ledSetAll( 1, 0, 0 );
-    delayMS10( delay10ms );
-    ledSetAll( 0, 1, 0 );
-    delayMS10( delay10ms );
-    ledSetAll( 0, 0, 1 );
-    delayMS10( delay10ms );
+	ledSetAll( 0, 0, 0 );
+	delayMS10( delay10ms );
+	ledSetAll( 1, 0, 0 );
+	delayMS10( delay10ms );
+	ledSetAll( 0, 1, 0 );
+	delayMS10( delay10ms );
+	ledSetAll( 0, 0, 1 );
+	delayMS10( delay10ms );
 
-    return;
+	return;
 }
 
 void ledRunDown( int ledRunDelay )
 {
 
-    int delay10ms;
-    delay10ms = ledRunDelay / 10;
+	int delay10ms;
+	delay10ms = ledRunDelay / 10;
 
-    ledSetAll( 0, 0, 1 );
-    delayMS10( delay10ms );
-    ledSetAll( 0, 1, 0 );
-    delayMS10( delay10ms );
-    ledSetAll( 1, 0, 0 );
-    delayMS10( delay10ms );
-    ledSetAll( 0, 0, 0 );
-    delayMS10( delay10ms );
+	ledSetAll( 0, 0, 1 );
+	delayMS10( delay10ms );
+	ledSetAll( 0, 1, 0 );
+	delayMS10( delay10ms );
+	ledSetAll( 1, 0, 0 );
+	delayMS10( delay10ms );
+	ledSetAll( 0, 0, 0 );
+	delayMS10( delay10ms );
 
-    return;
+	return;
 }
 
 void ledRun( int ledRunDelay )
 {
-    ledRunUp( ledRunDelay );
-    ledRunDown( ledRunDelay );
+	ledRunUp( ledRunDelay );
+	ledRunDown( ledRunDelay );
 
-    return;
+	return;
 }
 

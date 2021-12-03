@@ -33,7 +33,7 @@ unsigned long meterEnergyUsed_global = 0;
  external functions should be in the header
  ideally these are in the same order as in the code listing
  any functions used internally and externally (prototype here and in the .h file)
-     should be marked
+	 should be marked
  *****************/
 
 void initOSC( void );
@@ -47,124 +47,124 @@ void initInterruptsClear( void );
 
 void main( void )
 {
-    // TODO Testing
-    //    ANSELA = 0;
-    //    ANSELB = 0;
-    //    ANSELC = 0;
-    //
-    //
-    //
-    //#define LED1_DIR    TRISBbits.TRISB4
-    //#define LED1_SET    LATBbits.LATB4
-    //#define LED1_READ   PORTBbits.RB4
-    //
-    //#define LED2_DIR    TRISCbits.TRISC0
-    //#define LED2_SET    LATCbits.LATC0
-    //#define LED2_READ   PORTCbits.RC0
-    //
-    //#define LED3_DIR    TRISCbits.TRISC1
-    //#define LED3_SET    LATCbits.LATC1
-    //#define LED3_READ   PORTCbits.RC1
-    //
-    //    LED1_DIR = 0;
-    //    LED2_DIR = 0;
-    //    LED3_DIR = 0;
-    //
-    //    LED1_SET = 0;
-    //    LED2_SET = 1;
-    //    LED3_SET = 0;
-    //
-    //
-    //    while( 1 );
+	// TODO Testing
+	//    ANSELA = 0;
+	//    ANSELB = 0;
+	//    ANSELC = 0;
+	//
+	//
+	//
+	//#define LED1_DIR    TRISBbits.TRISB4
+	//#define LED1_SET    LATBbits.LATB4
+	//#define LED1_READ   PORTBbits.RB4
+	//
+	//#define LED2_DIR    TRISCbits.TRISC0
+	//#define LED2_SET    LATCbits.LATC0
+	//#define LED2_READ   PORTCbits.RC0
+	//
+	//#define LED3_DIR    TRISCbits.TRISC1
+	//#define LED3_SET    LATCbits.LATC1
+	//#define LED3_READ   PORTCbits.RC1
+	//
+	//    LED1_DIR = 0;
+	//    LED2_DIR = 0;
+	//    LED3_DIR = 0;
+	//
+	//    LED1_SET = 0;
+	//    LED2_SET = 1;
+	//    LED3_SET = 0;
+	//
+	//
+	//    while( 1 );
 
 
-    // TODO end testing
+	// TODO end testing
 
-    initOSC( );
-    initIO( );
-    ledInit( );
+	initOSC( );
+	initIO( );
+	ledInit( );
 
-    ledSetAllOff( );
-
-    initInterruptsClear( );
-    timerInit( );
-
-    mcpInit( );
-
-
-    for( int inx = 0; inx < 5; inx++ )
-    {
-	ledSetAllOn( );
-	__delay_ms( 10 );
 	ledSetAllOff( );
-	__delay_ms( 10 );
-    }
+
+	initInterruptsClear( );
+	timerInit( );
+
+	mcpInit( );
 
 
-    commInit( );
-
-    ledRun( 100 );
-
-    while( 1 )
-    {
-	mcpUpdatePower( );
-	commRun( );
-
-	// TODO testing heartbeat
+	for( int inx = 0; inx < 5; inx++ )
 	{
-	    static bool oneShot = false;
-	    unsigned long timerHeartbeat;
-	    timerHeartbeat = timerGetCount( 3 );
-	    if( (timerHeartbeat % 500) == 0 )
-	    {
-		if( oneShot == false )
-		{
-		    oneShot = true;
-		    ledTestToggle( 1 );
-		}
-
-	    }
-	    else
-	    {
-		oneShot = false;
-	    }
+		ledSetAllOn( );
+		__delay_ms( 10 );
+		ledSetAllOff( );
+		__delay_ms( 10 );
 	}
-    }
+
+
+	commInit( );
+
+	ledRun( 100 );
+
+	while( 1 )
+	{
+		mcpUpdatePower( );
+		commRun( );
+
+		// TODO testing heartbeat
+		{
+			static bool oneShot = false;
+			unsigned long timerHeartbeat;
+			timerHeartbeat = timerGetCount( 3 );
+			if( ( timerHeartbeat % 500 ) == 0 )
+			{
+				if( oneShot == false )
+				{
+					oneShot = true;
+					ledTestToggle( 1 );
+				}
+
+			}
+			else
+			{
+				oneShot = false;
+			}
+		}
+	}
 
 }
 
 void initOSC( void )
 {
-    // 16 Mhz internal
-    OSCCONbits.IDLEN = 0;
-    OSCCONbits.IRCF = 0b111;
-    OSCCONbits.SCS = 0b11;
+	// 16 Mhz internal
+	OSCCONbits.IDLEN = 0;
+	OSCCONbits.IRCF = 0b111;
+	OSCCONbits.SCS = 0b11;
 
-    OSCCON2bits.MFIOSEL = 0;
-    OSCCON2bits.SOSCGO = 0;
-    OSCCON2bits.PRISD = 0;
+	OSCCON2bits.MFIOSEL = 0;
+	OSCCON2bits.SOSCGO = 0;
+	OSCCON2bits.PRISD = 0;
 
-    OSCTUNEbits.INTSRC = 1;
-    OSCTUNEbits.PLLEN = 0;
+	OSCTUNEbits.INTSRC = 1;
+	OSCTUNEbits.PLLEN = 0;
 
-    return;
+	return;
 }
 
 void initIO( void )
 {
-    ADCON0bits.ADON = 0;
-    ANSELA = 0b00000000;
-    ANSELB = 0b00000000;
-    ANSELC = 0b00000000;
+	ADCON0bits.ADON = 0;
+	ANSELA = 0b00000000;
+	ANSELB = 0b00000000;
+	ANSELC = 0b00000000;
 
-    return;
+	return;
 
-    // TODO verify this is taken care of elsewhere
-    //    MCP_HFOUT_DIR = 1;
-    //    MCP_LFOUT_DIR = 1;
-    //    MCP_LFOUT_PASS_DIR = 0;
-    //    MCP_LFOUT_PASS_SET = 0;
-    //
+	// TODO verify this is taken care of elsewhere
+	//    MCP_HFOUT_DIR = 1;
+	//    MCP_LFOUT_DIR = 1;
+	//    MCP_LFOUT_PASS_DIR = 0;
+	//    MCP_LFOUT_PASS_SET = 0;
+	//
 
 
 }
@@ -172,31 +172,31 @@ void initIO( void )
 void initInterruptsClear( void )
 {
 
-    INTCON = 0b00000000;
-    INTCON2 = 0b00000000;
-    INTCON3 = 0b00000000;
+	INTCON = 0b00000000;
+	INTCON2 = 0b00000000;
+	INTCON3 = 0b00000000;
 
-    RCONbits.IPEN = 0;
+	RCONbits.IPEN = 0;
 
-    PIR1 = 0b00000000;
-    PIR2 = 0b00000000;
-    PIR3 = 0b00000000;
-    PIR4 = 0b00000000;
-    PIR5 = 0b00000000;
+	PIR1 = 0b00000000;
+	PIR2 = 0b00000000;
+	PIR3 = 0b00000000;
+	PIR4 = 0b00000000;
+	PIR5 = 0b00000000;
 
-    PIE1 = 0b00000000;
-    PIE2 = 0b00000000;
-    PIE3 = 0b00000000;
-    PIE4 = 0b00000000;
-    PIE5 = 0b00000000;
+	PIE1 = 0b00000000;
+	PIE2 = 0b00000000;
+	PIE3 = 0b00000000;
+	PIE4 = 0b00000000;
+	PIE5 = 0b00000000;
 
-    IPR1 = 0b00000000;
-    IPR2 = 0b00000000;
-    IPR3 = 0b00000000;
-    IPR4 = 0b00000000;
-    IPR5 = 0b00000000;
+	IPR1 = 0b00000000;
+	IPR2 = 0b00000000;
+	IPR3 = 0b00000000;
+	IPR4 = 0b00000000;
+	IPR5 = 0b00000000;
 
-    return;
+	return;
 }
 
 

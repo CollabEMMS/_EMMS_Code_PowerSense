@@ -8185,7 +8185,7 @@ commRun( );
 static bool oneShot = 0;
 unsigned long timerHeartbeat;
 timerHeartbeat = timerGetCount( 3 );
-if( (timerHeartbeat % 500) == 0 )
+if( ( timerHeartbeat % 500 ) == 0 )
 {
 if( oneShot == 0 )
 {

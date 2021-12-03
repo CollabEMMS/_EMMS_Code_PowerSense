@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Thu Sep 23 08:08:23 2021
+                                                                                               Fri Dec 03 09:58:26 2021
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F25K22
@@ -1074,7 +1074,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   1060  000FF8  C015  F089         	movff	?_timerGetCount+2,main@timerHeartbeat+2
   1061  000FFC  C016  F08A         	movff	?_timerGetCount+3,main@timerHeartbeat+3
   1062                           
-  1063                           ;Main_PowerSense.c: 118: if( (timerHeartbeat % 500) == 0 )
+  1063                           ;Main_PowerSense.c: 118: if( ( timerHeartbeat % 500 ) == 0 )
   1064  001000  C087  F013         	movff	main@timerHeartbeat,___llmod@dividend
   1065  001004  C088  F014         	movff	main@timerHeartbeat+1,___llmod@dividend+1
   1066  001008  C089  F015         	movff	main@timerHeartbeat+2,___llmod@dividend+2
@@ -9677,7 +9677,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Thu Sep 23 08:08:23 2021
+Symbol Table                                                                                   Fri Dec 03 09:58:26 2021
 
                                        _SPISlaveInit 1DCE                                                   l22 1CC8  
                                                  l23 1CA4                                                   l25 1CB0  
