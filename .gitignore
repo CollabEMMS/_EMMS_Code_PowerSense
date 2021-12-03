@@ -10,8 +10,8 @@
 *.sdb
 *.obj.dmp
 html/
-nbproject/private/
-nbproject/Package-*
+**/nbproject/private/
+**/nbproject/Package-*
 build/
 nbbuild/
 dist/
@@ -19,6 +19,7 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 funclist
-nbproject/Makefile-*
+**/nbproject/Makefile-*
 disassembly/
 *.map
+.generated_files/
