@@ -148,6 +148,7 @@ unsigned long meterEnergyUsedPart = 0; // this does not need to be global
 void mcpInitF( void );
 unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF );
 void powerReduction( unsigned long timerLast_ms );
+
 /****************
  CODE
  ****************/
@@ -165,6 +166,7 @@ void mcpInit( void )
 
 	return;
 }
+
 void mcpInitF( void )
 {
 	// reset the MCP
@@ -200,6 +202,7 @@ void mcpInitF( void )
 
 	return;
 }
+
 void mcpUpdatePower( void )
 {
 
@@ -249,7 +252,7 @@ void mcpUpdatePower( void )
 
 	static bool oneShotLFout = false;
 
-	if( (MCP_LFOUT0_READ == 0) || (MCP_LFOUT1_READ == 0) )
+	if( ( MCP_LFOUT0_READ == 0 ) || ( MCP_LFOUT1_READ == 0 ) )
 	{
 		if( oneShotLFout == false )
 		{
@@ -302,6 +305,7 @@ void mcpUpdatePower( void )
 
 	return;
 }
+
 unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
 {
 
@@ -313,16 +317,17 @@ unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
 	if( outHF == true )
 	{
 		// timer is from HFout
-		calcWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timer_ms;
+		calcWatts = ( ( ( ( (unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600 ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000 ) ) ) * (unsigned long) 1 ) / (unsigned long) timer_ms;
 	}
 	else
 	{
 		// timer is from LFout
-		calcWatts = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timer_ms;
+		calcWatts = ( ( ( ( (unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600 ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000 ) ) ) * (unsigned long) 1 ) / (unsigned long) timer_ms;
 	}
 
 	return calcWatts;
 }
+
 void powerReduction( unsigned long timerLast_ms )
 {
 	// if there are no pulses we need a way to reflect that the power is lower
@@ -337,13 +342,13 @@ void powerReduction( unsigned long timerLast_ms )
 
 	timerReduce_ms = timerGetCount( 2 );
 
-	if( (timerReduce_ms > POWER_REDUCTION_MAX_TIME) || (timerLast_ms == 0) )
+	if( ( timerReduce_ms > POWER_REDUCTION_MAX_TIME ) || ( timerLast_ms == 0 ) )
 	{
 		meterWatts_global = 0;
 	}
 	else if( timerReduce_ms > timerLast_ms ) // we need to wait until the time is longer than the last pulse
 	{
-		meterWatts_global = (((((unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600) / ((unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000))) * (unsigned long) 1) / (unsigned long) timerReduce_ms;
+		meterWatts_global = ( ( ( ( (unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600 ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000 ) ) ) * (unsigned long) 1 ) / (unsigned long) timerReduce_ms;
 	}
 
 	return;

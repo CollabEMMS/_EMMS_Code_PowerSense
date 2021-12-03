@@ -34,16 +34,16 @@
  ****************/
 enum receive_status
 {
-  receive_waiting,
-  receive_in_command,
-  receive_end_command
+	receive_waiting,
+	receive_in_command,
+	receive_end_command
 };
 
 struct buffer
 {
-  char data_buffer[ BUFFER_LENGTH];
-  unsigned char write_position;
-  unsigned char read_position;
+	char data_buffer[ BUFFER_LENGTH];
+	unsigned char write_position;
+	unsigned char read_position;
 };
 
 
@@ -101,6 +101,7 @@ void com_command_setVolts( struct buffer * send_buffer );
 void com_command_setAmps( struct buffer * send_buffer );
 void com_command_readCalibration( struct buffer * send_buffer );
 void com_command_setVersion( struct buffer * send_buffer );
+
 /****************
  CODE
  ****************/
@@ -111,12 +112,14 @@ void commInit( void )
 
 	return;
 }
+
 void commRun( void )
 {
 	communications( false );
 
 	return;
 }
+
 void communications( bool firstTime )
 {
 	static struct buffer receive_buffer;
@@ -182,6 +185,7 @@ void communications( bool firstTime )
 
 	return;
 }
+
 void resetCommunications( struct buffer * send_buffer )
 {
 
@@ -228,6 +232,7 @@ void resetCommunications( struct buffer * send_buffer )
 	}
 	return;
 }
+
 enum receive_status receive_data( struct buffer * receive_buffer )
 {
 	char data;
@@ -241,7 +246,7 @@ enum receive_status receive_data( struct buffer * receive_buffer )
 
 	if( SPI_receive_data( &data ) == true )
 	{
-		if( (data == COMMAND_START_CHAR) && (my_status != receive_in_command) )
+		if( ( data == COMMAND_START_CHAR ) && ( my_status != receive_in_command ) )
 		{
 			my_status = receive_in_command;
 			receive_buffer->read_position = 0;
@@ -255,11 +260,11 @@ enum receive_status receive_data( struct buffer * receive_buffer )
 			receive_buffer->write_position++;
 			if( receive_buffer->write_position >= BUFFER_LENGTH )
 			{
-				receive_buffer->write_position = (BUFFER_LENGTH - 1);
+				receive_buffer->write_position = ( BUFFER_LENGTH - 1 );
 			}
 		}
 
-		if( (my_status == receive_in_command) && (data == COMMAND_END_CHAR) )
+		if( ( my_status == receive_in_command ) && ( data == COMMAND_END_CHAR ) )
 		{
 			my_status = receive_end_command;
 		}
@@ -267,6 +272,7 @@ enum receive_status receive_data( struct buffer * receive_buffer )
 
 	return my_status;
 }
+
 bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer )
 {
 	bool end_of_transmission_received;
@@ -285,6 +291,7 @@ bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer )
 	return end_of_transmission_received;
 
 }
+
 void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer * buffer_to_parameterize )
 {
 	unsigned char parameter_position = 0;
@@ -303,7 +310,7 @@ void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_M
 	}
 
 	while(
-		 ( buffer_to_parameterize->read_position < BUFFER_LENGTH )	 // this check first - if it fails the other checks are not done - this makes sure the receiveBufferPos is never out of bounds
+		 ( buffer_to_parameterize->read_position < BUFFER_LENGTH ) // this check first - if it fails the other checks are not done - this makes sure the receiveBufferPos is never out of bounds
 		 &&( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != COMMAND_END_CHAR )
 		 && ( buffer_to_parameterize->read_position != buffer_to_parameterize->write_position )
 		 && ( buffer_to_parameterize->data_buffer[buffer_to_parameterize->read_position ] != COMMAND_XSUM_CHAR )
@@ -323,7 +330,7 @@ void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_M
 				{
 					// if we run out of parameters just overwrite the last one
 					// we should never have this case, but this keeps us from crashing and burning
-					parameter_index = (PARAMETER_MAX_COUNT - 1);
+					parameter_index = ( PARAMETER_MAX_COUNT - 1 );
 				}
 
 				break;
@@ -335,7 +342,7 @@ void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_M
 				{
 					// if our parameter is too long, just overwrite the last character
 					// we should never have this case, but this keeps us from crashing and burning
-					parameter_position = (PARAMETER_MAX_LENGTH - 1);
+					parameter_position = ( PARAMETER_MAX_LENGTH - 1 );
 				}
 
 				// always make the last character a null
@@ -348,6 +355,7 @@ void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_M
 
 	return;
 }
+
 bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer * send_buffer )
 {
 	bool end_of_transmission_received = false;
@@ -488,6 +496,7 @@ void command_builder1( struct buffer *send_buffer, char* data1 )
 
 	return;
 }
+
 void command_builder2( struct buffer *send_buffer, char* data1, char* data2 )
 {
 	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
@@ -502,6 +511,7 @@ void command_builder2( struct buffer *send_buffer, char* data1, char* data2 )
 
 	return;
 }
+
 void command_builder3( struct buffer *send_buffer, char* data1, char* data2, char* data3 )
 {
 	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
@@ -518,6 +528,7 @@ void command_builder3( struct buffer *send_buffer, char* data1, char* data2, cha
 
 	return;
 }
+
 void command_builder4( struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4 )
 {
 	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
@@ -536,6 +547,7 @@ void command_builder4( struct buffer *send_buffer, char* data1, char* data2, cha
 
 	return;
 }
+
 void xsum_builder( struct buffer *send_buffer, int xsum )
 {
 
@@ -549,6 +561,7 @@ void xsum_builder( struct buffer *send_buffer, int xsum )
 
 	return;
 }
+
 int command_builder_add_char( struct buffer *send_buffer, char data )
 {
 	send_buffer->data_buffer[send_buffer->write_position] = data;
@@ -561,6 +574,7 @@ int command_builder_add_char( struct buffer *send_buffer, char data )
 
 	return data;
 }
+
 int command_builder_add_string( struct buffer *send_buffer, char *data_string )
 {
 	int xsumAdd = 0;
@@ -572,6 +586,7 @@ int command_builder_add_string( struct buffer *send_buffer, char *data_string )
 
 	return xsumAdd;
 }
+
 bool send_data( struct buffer * send_buffer )
 {
 	bool send_end;
@@ -599,6 +614,7 @@ bool send_data( struct buffer * send_buffer )
 
 	return send_end;
 }
+
 bool strmatch( char* a, char* b )
 {
 	int result;
@@ -606,16 +622,17 @@ bool strmatch( char* a, char* b )
 
 	result = strcmp2( a, b );
 
-	match = (result == 0) ? true : false;
+	match = ( result == 0 ) ? true : false;
 
 	return match;
 }
+
 int strcmp2( char* a, char* b )
 {
 	int inx = 0;
 	int match = 0;
 
-	while( (a[inx] != CHAR_NULL) && (b[inx] != CHAR_NULL) && (match == 0) )
+	while( ( a[inx] != CHAR_NULL ) && ( b[inx] != CHAR_NULL ) && ( match == 0 ) )
 	{
 		if( a[inx] > b[inx] )
 		{
@@ -634,11 +651,11 @@ int strcmp2( char* a, char* b )
 	}
 
 
-	if( (a[inx] == CHAR_NULL) && (b[inx] != CHAR_NULL) )
+	if( ( a[inx] == CHAR_NULL ) && ( b[inx] != CHAR_NULL ) )
 	{
 		match = -1;
 	}
-	else if( (a[inx] != CHAR_NULL) && (b[inx] == CHAR_NULL) )
+	else if( ( a[inx] != CHAR_NULL ) && ( b[inx] == CHAR_NULL ) )
 	{
 		match = 1;
 	}
@@ -646,6 +663,7 @@ int strcmp2( char* a, char* b )
 	return match;
 
 }
+
 bool SPI_receive_data( char *data )
 {
 
@@ -666,6 +684,7 @@ bool SPI_receive_data( char *data )
 	return recvGood;
 
 }
+
 bool SPI_send_data( char data )
 {
 	bool sendGood = false;
@@ -686,18 +705,21 @@ bool SPI_send_data( char data )
 
 /************************/
 // RESPONSES
+
 void send_end_of_transmission( struct buffer * send_buffer )
 {
 	command_builder1( send_buffer, "END" );
 
 	return;
 }
+
 void com_command_testLED( struct buffer * send_buffer )
 {
 	command_builder2( send_buffer, "Read", "LEDB" );
 
 	return;
 }
+
 void com_command_setPower( struct buffer * send_buffer )
 {
 
@@ -709,6 +731,7 @@ void com_command_setPower( struct buffer * send_buffer )
 
 	return;
 }
+
 void com_command_setEnergyUsed( struct buffer * send_buffer )
 {
 	char temp[12];
@@ -719,30 +742,35 @@ void com_command_setEnergyUsed( struct buffer * send_buffer )
 
 	return;
 }
+
 void com_command_setVolts( struct buffer * send_buffer )
 {
 	command_builder3( send_buffer, "Set", "Volts", "222" );
 
 	return;
 }
+
 void com_command_setAmps( struct buffer * send_buffer )
 {
 	command_builder3( send_buffer, "Set", "Amps", "333" );
 
 	return;
 }
+
 void com_command_readCalibration( struct buffer * send_buffer )
 {
 	command_builder2( send_buffer, "Read", "Calibration" );
 
 	return;
 }
+
 void com_command_setVersion( struct buffer * send_buffer )
 {
 	command_builder3( send_buffer, "Set", "PSVersion", "444" );
 
 	return;
 }
+
 void SPISlaveInit( void )
 {
 
