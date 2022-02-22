@@ -222,7 +222,59 @@ void mcpUpdatePower( void )
 
 	static bool oneShotHFout = false;
 
-	if( MCP_HFOUT_READ == 0 )
+/***************/
+/***************/
+/***************/
+// Set up test pulses to mimic changing input pulses    
+    static int testPulseTimerMax = 500;
+    static int testPulseTimerMin = 100;
+    static int testPulseTimerStep = 10;
+    static int testPulseTimerChangeWait = 2000;
+    static int testPulseTimerEndWait = 10000;
+    static int testPulseTimerEndWaitNewTime = 0;
+    static int testPulseTimerWidth = 500;
+    static unsigned long testPulseTimerChangeTimeLast = 0;
+    unsigned long testPulseTimerChangeTimeThis;
+    static unsigned long testPulseTimerTimeLast = 0;
+    unsigned long testPulseTimerTimeThis;
+
+    bool testPulseTimerKick;
+    
+    testPulseTimerTimeThis = timerGetCount(3);
+    testPulseTimerChangeTimeThis = testPulseTimerTimeThis;
+    
+    if( testPulseTimerChangeTimeThis >= testPulseTimerEndWaitNewTime )
+    {
+        testPulseTimerEndWaitNewTime = 0;
+        
+        if( ( testPulseTimerChangeTimeThis - testPulseTimerChangeTimeLast ) >= testPulseTimerChangeWait )
+        {
+            testPulseTimerChangeTimeLast = testPulseTimerChangeTimeThis;
+            testPulseTimerWidth += testPulseTimerStep;
+            
+            if(( testPulseTimerWidth >= testPulseTimerMax ) || (testPulseTimerWidth <= testPulseTimerMin ) )
+            {
+                testPulseTimerStep *= -1;
+                testPulseTimerEndWaitNewTime = testPulseTimerChangeTimeThis + testPulseTimerEndWait;
+            }
+        }
+    }
+
+    if( (testPulseTimerTimeThis - testPulseTimerTimeLast) >=  testPulseTimerWidth  )
+    {
+        testPulseTimerKick = true;
+        testPulseTimerTimeLast = testPulseTimerTimeThis;
+    }
+    else
+    {
+        testPulseTimerKick = false;
+    }
+/***************/
+/***************/
+/***************/
+    
+   
+	if( (MCP_HFOUT_READ == 0) || (testPulseTimerKick == true) )
 	{
 		if( oneShotHFout == false )
 		{
