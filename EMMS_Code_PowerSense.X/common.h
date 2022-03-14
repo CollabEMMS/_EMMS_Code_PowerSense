@@ -50,6 +50,10 @@
  not all c modules really need stdlib
  ****************/
 
+// operating frequency
+// the UL postfix stipulates that the number is unsigned long
+#    define _XTAL_FREQ 16000000UL  //16 Mhz
+
 //#include <xc.h>
 #    include <p18f25k22.h>
 #    include <stdbool.h>
@@ -61,10 +65,13 @@
  do not include macros that are only used internally within this module
  ****************/
 
-// operating frequency
-// the UL postfix stipulates that the number is unsigned long
-#    define _XTAL_FREQ 16000000UL  //16 Mhz
+#define MODULE_INFO_THIS_0	"Power"			// name
+#define MODULE_INFO_THIS_1	"Ver: 2.6"			// version
+#define MODULE_INFO_THIS_2	""					// info
+#define MODULE_INFO_THIS_3	""					// info
+#define MODULE_INFO_THIS_4	"Have a nice day!"	// info
 
+#define MODULE_INFO_COUNT	5	// number of module info items
 
 // if DEBUG == true, turn off "Go" turn on "Debug" LED functions
 #    define LEDS_FOR_DEBUG true

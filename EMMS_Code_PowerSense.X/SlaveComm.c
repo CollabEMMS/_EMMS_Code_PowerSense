@@ -4,19 +4,20 @@
  ****************/
 
 #include "common.h"
-#include "Main_PowerSense.h"
 #include <stdlib.h>
+#include "Main_PowerSense.h"
+#include "LEDControl.h"
 
 /****************
  MACROS
  ****************/
-#define BUFFER_LENGTH 40  // max size is positive signed character size
+#define BUFFER_LENGTH 250
 #define BUF_SIZE_CHAR 5
 #define BUF_SIZE_INT 7
 #define BUF_SIZE_LONG 12
 
 #define PARAMETER_MAX_COUNT 7
-#define PARAMETER_MAX_LENGTH 15
+#define PARAMETER_MAX_LENGTH 20
 
 #define CHAR_NULL '\0'
 #define COMMAND_SEND_RECEIVE_PRIMER_CHAR '#' // something to run the SPI clock so data can be received
@@ -39,9 +40,9 @@ enum receive_status
 	receive_end_command
 };
 
-struct buffer
+struct buffer_struct
 {
-	char data_buffer[ BUFFER_LENGTH];
+	char data_buffer[ BUFFER_LENGTH ];
 	unsigned char write_position;
 	unsigned char read_position;
 };
@@ -66,41 +67,45 @@ void communications( bool firstTime );
 
 bool SPI_receive_data( char* data );
 void set_current_port( unsigned char * );
-enum receive_status receive_data( struct buffer * );
+enum receive_status receive_data( struct buffer_struct * );
 bool xSumCheck( char* check_buffer );
-bool process_data( struct buffer *receive_buffer, struct buffer *send_buffer );
-void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer *buffer_to_parameterize );
-bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer *send_buffer );
+bool process_data( struct buffer_struct *receive_buffer, struct buffer_struct *send_buffer );
+void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer_struct *buffer_to_parameterize );
+bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer_struct *send_buffer );
 
 
-void command_builder1( struct buffer *send_buffer, char* data1 );
-void command_builder2( struct buffer *send_buffer, char* data1, char* data2 );
-void command_builder3( struct buffer *send_buffer, char* data1, char* data2, char* data3 );
-void command_builder4( struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4 );
+void command_builder1( struct buffer_struct *send_buffer, char* data1 );
+void command_builder2( struct buffer_struct *send_buffer, char* data1, char* data2 );
+void command_builder3( struct buffer_struct *send_buffer, char* data1, char* data2, char* data3 );
+void command_builder4( struct buffer_struct *send_buffer, char* data1, char* data2, char* data3, char* data4 );
+void command_builder5( struct buffer_struct *send_buffer, char* data1, char* data2, char* data3, char* data4, char* data5 );
 
-int command_builder_add_char( struct buffer *send_buffer, char data );
-int command_builder_add_string( struct buffer *send_buffer, char *data );
-void xsum_builder( struct buffer *send_buffer, int xsum );
+int command_builder_add_char( struct buffer_struct *send_buffer, char data );
+int command_builder_add_string( struct buffer_struct *send_buffer, char *data );
+void xsum_builder( struct buffer_struct *send_buffer, int xsum );
 
-bool send_data( struct buffer *send_buffer );
+bool send_data( struct buffer_struct *send_buffer );
 bool SPI_send_data( char data );
 
 bool strmatch( char* a, char* b );
 int strcmp2( char* a, char* b );
 void strcpy2( char* rcv, char* source );
 
-void resetCommunications( struct buffer * receive_buffer );
+void resetCommunications( struct buffer_struct * receive_buffer );
+void periodicMessage( struct buffer_struct * send_buffer );
+void sendModuleInfoThis( struct buffer_struct * send_buffer );
 void SPISlaveInit( void );
 
 
-void send_end_of_transmission( struct buffer *send_buffer );
-void com_command_testLED( struct buffer * send_buffer );
-void com_command_setPower( struct buffer * send_buffer );
-void com_command_setEnergyUsed( struct buffer * send_buffer );
-void com_command_setVolts( struct buffer * send_buffer );
-void com_command_setAmps( struct buffer * send_buffer );
-void com_command_readCalibration( struct buffer * send_buffer );
-void com_command_setVersion( struct buffer * send_buffer );
+void send_end_of_transmission( struct buffer_struct *send_buffer );
+void com_command_testLED( struct buffer_struct * send_buffer );
+void com_command_setPower( struct buffer_struct * send_buffer );
+void com_command_setEnergyUsed( struct buffer_struct * send_buffer );
+void com_command_setVolts( struct buffer_struct * send_buffer );
+void com_command_setAmps( struct buffer_struct * send_buffer );
+void com_command_readCalibration( struct buffer_struct * send_buffer );
+void com_command_setVersion( struct buffer_struct * send_buffer );
+void com_command_setModuleInfo( struct buffer_struct * send_buffer, int moduleInfoNumber );
 
 /****************
  CODE
@@ -122,8 +127,8 @@ void commRun( void )
 
 void communications( bool firstTime )
 {
-	static struct buffer receive_buffer;
-	static struct buffer send_buffer;
+	static struct buffer_struct receive_buffer;
+	static struct buffer_struct send_buffer;
 
 	static bool end_of_transmission_received = false;
 	bool no_more_to_send; // here to make this more readable
@@ -186,12 +191,8 @@ void communications( bool firstTime )
 	return;
 }
 
-void resetCommunications( struct buffer * send_buffer )
+void resetCommunications( struct buffer_struct *send_buffer )
 {
-
-	static int commState = 0;
-
-
 	SSP2CON1bits.SSPEN = 0; //disable SPI
 	__delay_ms( 1 );
 	SSP2CON1bits.SSPEN = 1; //enable SPI
@@ -202,38 +203,87 @@ void resetCommunications( struct buffer * send_buffer )
 	send_buffer->read_position = 0;
 	send_buffer->write_position = 0;
 
+	periodicMessage( send_buffer );
 
-	// set up command state machine
-	// each time the chip select goes active set up a new message
-	commState++;
-	switch( commState )
-	{
-		case 1:
-			com_command_setVersion( send_buffer );
-			break;
-		case 2:
-			com_command_setPower( send_buffer );
-			break;
-		case 3:
-			com_command_setEnergyUsed( send_buffer );
-			//	break;
-			//    case 4:
-			//	com_command_setAmps( send_buffer );
-			//	break;
-			//    case 5:
-			//	com_command_setVolts( send_buffer );
-			//	break;
-			//    case 6:
-			//	com_command_readCalibration( send_buffer );
-			//	break;
-		default:
-			commState = 0;
-			break;
-	}
 	return;
 }
 
-enum receive_status receive_data( struct buffer * receive_buffer )
+void periodicMessage( struct buffer_struct *send_buffer )
+{
+	static int messageCounterMain = 0;
+	static int messageCounterRateLow = 0;
+	static int messageCounterRateHigh = 0;
+
+	//TODO testing
+	ledTestToggle( 2 );
+
+	// set up command state machine
+	// each time the chip select goes active set up a new message
+	messageCounterMain++;
+	if( messageCounterMain >= 1000 )
+	{
+		messageCounterMain = 0;
+	}
+
+	if( ( messageCounterMain % 10 ) == 0 ) // every 10th message
+	{
+		messageCounterRateLow++;
+
+		switch( messageCounterRateLow )
+		{
+			case 0:
+				// never happens
+				break;
+			case 1:
+				sendModuleInfoThis( send_buffer );
+
+			default:
+				messageCounterRateLow = 0;
+				break;
+		}
+	}
+	else // every time a lower rate message is not sent
+	{
+		messageCounterRateHigh++;
+
+		switch( messageCounterRateHigh )
+		{
+			case 0:
+				// never happens
+				break;
+			case 1:
+				com_command_setPower( send_buffer );
+				break;
+			case 2:
+				com_command_setEnergyUsed( send_buffer );
+				break;
+
+			default:
+				messageCounterRateHigh = 0;
+				break;
+		}
+	}
+
+	return;
+}
+
+void sendModuleInfoThis( struct buffer_struct *send_buffer )
+{
+	static int moduleInfoIndex = 0;
+
+	com_command_setModuleInfo( send_buffer, moduleInfoIndex );
+	com_command_setModuleInfo( send_buffer, moduleInfoIndex );
+
+	moduleInfoIndex++;
+	if( moduleInfoIndex >= MODULE_INFO_COUNT )
+	{
+		moduleInfoIndex = 0;
+	}
+
+	return;
+}
+
+enum receive_status receive_data( struct buffer_struct *receive_buffer )
 {
 	char data;
 
@@ -273,7 +323,7 @@ enum receive_status receive_data( struct buffer * receive_buffer )
 	return my_status;
 }
 
-bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer )
+bool process_data( struct buffer_struct *receive_buffer, struct buffer_struct *send_buffer )
 {
 	bool end_of_transmission_received;
 
@@ -292,7 +342,7 @@ bool process_data( struct buffer *receive_buffer, struct buffer * send_buffer )
 
 }
 
-void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer * buffer_to_parameterize )
+void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer_struct * buffer_to_parameterize )
 {
 	unsigned char parameter_position = 0;
 	unsigned char parameter_index = 0;
@@ -356,7 +406,7 @@ void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_M
 	return;
 }
 
-bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer * send_buffer )
+bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer_struct * send_buffer )
 {
 	bool end_of_transmission_received = false;
 
@@ -383,8 +433,7 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 	}
 	else if( strmatch( parameters[0], "Read" ) == true )
 	{
-		// nothing to read right now
-		// the slave drives the data - so we send the values from another place
+		// there are currently no read commands to respond to 
 	}
 	else if( strmatch( parameters[0], "Conf" ) == true )
 	{
@@ -484,7 +533,7 @@ bool xSumCheck( char* checkBuffer )
 	return xSumMatches;
 }
 
-void command_builder1( struct buffer *send_buffer, char* data1 )
+void command_builder1( struct buffer_struct *send_buffer, char* data1 )
 {
 	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
 	command_builder_add_char( send_buffer, COMMAND_START_CHAR );
@@ -497,7 +546,7 @@ void command_builder1( struct buffer *send_buffer, char* data1 )
 	return;
 }
 
-void command_builder2( struct buffer *send_buffer, char* data1, char* data2 )
+void command_builder2( struct buffer_struct *send_buffer, char* data1, char* data2 )
 {
 	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
 	command_builder_add_char( send_buffer, COMMAND_START_CHAR );
@@ -512,7 +561,7 @@ void command_builder2( struct buffer *send_buffer, char* data1, char* data2 )
 	return;
 }
 
-void command_builder3( struct buffer *send_buffer, char* data1, char* data2, char* data3 )
+void command_builder3( struct buffer_struct *send_buffer, char* data1, char* data2, char* data3 )
 {
 	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
 	command_builder_add_char( send_buffer, COMMAND_START_CHAR );
@@ -529,7 +578,7 @@ void command_builder3( struct buffer *send_buffer, char* data1, char* data2, cha
 	return;
 }
 
-void command_builder4( struct buffer *send_buffer, char* data1, char* data2, char* data3, char* data4 )
+void command_builder4( struct buffer_struct *send_buffer, char* data1, char* data2, char* data3, char* data4 )
 {
 	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
 	command_builder_add_char( send_buffer, COMMAND_START_CHAR );
@@ -548,7 +597,28 @@ void command_builder4( struct buffer *send_buffer, char* data1, char* data2, cha
 	return;
 }
 
-void xsum_builder( struct buffer *send_buffer, int xsum )
+void command_builder5( struct buffer_struct *send_buffer, char* data1, char* data2, char* data3, char* data4, char* data5 )
+{
+	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
+	command_builder_add_char( send_buffer, COMMAND_START_CHAR );
+
+	int xsum = 0;
+	xsum += command_builder_add_string( send_buffer, data1 );
+	xsum += command_builder_add_char( send_buffer, COMMAND_DELIMETER );
+	xsum += command_builder_add_string( send_buffer, data2 );
+	xsum += command_builder_add_char( send_buffer, COMMAND_DELIMETER );
+	xsum += command_builder_add_string( send_buffer, data3 );
+	xsum += command_builder_add_char( send_buffer, COMMAND_DELIMETER );
+	xsum += command_builder_add_string( send_buffer, data4 );
+	xsum += command_builder_add_char( send_buffer, COMMAND_DELIMETER );
+	xsum += command_builder_add_string( send_buffer, data5 );
+
+	xsum_builder( send_buffer, xsum );
+
+	return;
+}
+
+void xsum_builder( struct buffer_struct *send_buffer, int xsum )
 {
 
 	//command_builder_add_char( send_buffer, COMMAND_DELIMETER ); // REMOVE THIS ONCE XSUM CHECK IS IMPLEMENTED
@@ -562,7 +632,7 @@ void xsum_builder( struct buffer *send_buffer, int xsum )
 	return;
 }
 
-int command_builder_add_char( struct buffer *send_buffer, char data )
+int command_builder_add_char( struct buffer_struct *send_buffer, char data )
 {
 	send_buffer->data_buffer[send_buffer->write_position] = data;
 
@@ -575,7 +645,7 @@ int command_builder_add_char( struct buffer *send_buffer, char data )
 	return data;
 }
 
-int command_builder_add_string( struct buffer *send_buffer, char *data_string )
+int command_builder_add_string( struct buffer_struct *send_buffer, char *data_string )
 {
 	int xsumAdd = 0;
 
@@ -587,7 +657,7 @@ int command_builder_add_string( struct buffer *send_buffer, char *data_string )
 	return xsumAdd;
 }
 
-bool send_data( struct buffer * send_buffer )
+bool send_data( struct buffer_struct * send_buffer )
 {
 	bool send_end;
 
@@ -706,21 +776,21 @@ bool SPI_send_data( char data )
 /************************/
 // RESPONSES
 
-void send_end_of_transmission( struct buffer * send_buffer )
+void send_end_of_transmission( struct buffer_struct * send_buffer )
 {
 	command_builder1( send_buffer, "END" );
 
 	return;
 }
 
-void com_command_testLED( struct buffer * send_buffer )
+void com_command_testLED( struct buffer_struct * send_buffer )
 {
 	command_builder2( send_buffer, "Read", "LEDB" );
 
 	return;
 }
 
-void com_command_setPower( struct buffer * send_buffer )
+void com_command_setPower( struct buffer_struct * send_buffer )
 {
 
 	// TODO make sure the temp buffer is large enough for the data type
@@ -732,7 +802,7 @@ void com_command_setPower( struct buffer * send_buffer )
 	return;
 }
 
-void com_command_setEnergyUsed( struct buffer * send_buffer )
+void com_command_setEnergyUsed( struct buffer_struct * send_buffer )
 {
 	char temp[12];
 
@@ -743,30 +813,59 @@ void com_command_setEnergyUsed( struct buffer * send_buffer )
 	return;
 }
 
-void com_command_setVolts( struct buffer * send_buffer )
+void com_command_setVolts( struct buffer_struct * send_buffer )
 {
 	command_builder3( send_buffer, "Set", "Volts", "222" );
 
 	return;
 }
 
-void com_command_setAmps( struct buffer * send_buffer )
+void com_command_setAmps( struct buffer_struct * send_buffer )
 {
 	command_builder3( send_buffer, "Set", "Amps", "333" );
 
 	return;
 }
 
-void com_command_readCalibration( struct buffer * send_buffer )
+void com_command_readCalibration( struct buffer_struct * send_buffer )
 {
 	command_builder2( send_buffer, "Read", "Calibration" );
 
 	return;
 }
 
-void com_command_setVersion( struct buffer * send_buffer )
+void com_command_setVersion( struct buffer_struct * send_buffer )
 {
 	command_builder3( send_buffer, "Set", "PSVersion", "444" );
+
+	return;
+}
+
+void com_command_setModuleInfo( struct buffer_struct *send_buffer, int moduleInfoNumber )
+{
+	char moduleInfoNumberBuf[ BUF_SIZE_INT];
+
+	itoa( moduleInfoNumberBuf, moduleInfoNumber, 10 );
+
+	switch( moduleInfoNumber )
+	{
+		case 0:
+			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, MODULE_INFO_THIS_0 );
+			ledTestToggle( 3 );
+			break;
+		case 1:
+			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, MODULE_INFO_THIS_1 );
+			break;
+		case 2:
+			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, MODULE_INFO_THIS_2 );
+			break;
+		case 3:
+			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, MODULE_INFO_THIS_3 );
+			break;
+		case 4:
+			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, MODULE_INFO_THIS_4 );
+			break;
+	}
 
 	return;
 }
