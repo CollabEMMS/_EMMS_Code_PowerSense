@@ -65,11 +65,14 @@
  do not include macros that are only used internally within this module
  ****************/
 
-#define MODULE_INFO_THIS_0	"Power"			// name
-#define MODULE_INFO_THIS_1	"Ver: 2.6"			// version
-#define MODULE_INFO_THIS_2	""					// info
-#define MODULE_INFO_THIS_3	""					// info
-#define MODULE_INFO_THIS_4	"Have a nice day!"	// info
+//							"          "  10 character spacing reference - do not exceed or the system will crash
+#define MODULE_INFO_THIS_0	"Power Sen"			// 10 chars max name
+#define MODULE_INFO_THIS_1	"v2.1.0"				// 10 chars max version
+#define MODULE_INFO_THIS_2	""					// 10 chars max info
+#define MODULE_INFO_THIS_3	""					// 10 chars max info
+#define MODULE_INFO_THIS_4	""					// 20 chars max info (only 18 will show on UI)
+
+
 
 #define MODULE_INFO_COUNT	5	// number of module info items
 
