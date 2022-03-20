@@ -7,6 +7,11 @@ MPLAB X Project
 - nothing at this time
 
 # Changelog
+### NEXT
+- Cleanup - removed some items no longer used
+  - PSVersion
+
+
 ### v2.1.1
 March 19, 2022<br />
 Tom Austin
