@@ -104,7 +104,6 @@ void com_command_setEnergyUsed( struct buffer_struct * send_buffer );
 void com_command_setVolts( struct buffer_struct * send_buffer );
 void com_command_setAmps( struct buffer_struct * send_buffer );
 void com_command_readCalibration( struct buffer_struct * send_buffer );
-void com_command_setVersion( struct buffer_struct * send_buffer );
 void com_command_setModuleInfo( struct buffer_struct * send_buffer, int moduleInfoNumber );
 
 /****************
@@ -450,10 +449,6 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 			send_end_of_transmission( send_buffer );
 		}
 		else if( strmatch( parameters[1], "Amps" ) == true )
-		{
-			send_end_of_transmission( send_buffer );
-		}
-		else if( strmatch( parameters[1], "PSVersion" ) == true )
 		{
 			send_end_of_transmission( send_buffer );
 		}
@@ -830,13 +825,6 @@ void com_command_setAmps( struct buffer_struct * send_buffer )
 void com_command_readCalibration( struct buffer_struct * send_buffer )
 {
 	command_builder2( send_buffer, "Read", "Calibration" );
-
-	return;
-}
-
-void com_command_setVersion( struct buffer_struct * send_buffer )
-{
-	command_builder3( send_buffer, "Set", "PSVersion", "444" );
 
 	return;
 }
