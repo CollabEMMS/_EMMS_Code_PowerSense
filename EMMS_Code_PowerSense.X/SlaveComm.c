@@ -75,10 +75,10 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 
 
 void command_builder1( struct buffer_struct *send_buffer, const char* data1 );
-void command_builder2( struct buffer_struct *send_buffer, const char* data1,const  char* data2 );
+void command_builder2( struct buffer_struct *send_buffer, const char* data1, const char* data2 );
 void command_builder3( struct buffer_struct *send_buffer, const char* data1, const char* data2, const char* data3 );
-void command_builder4( struct buffer_struct *send_buffer, const char* data1, const char* data2, const char* data3,const  char* data4 );
-void command_builder5( struct buffer_struct *send_buffer, const char* data1,const  char* data2, const char* data3,const  char* data4, const char* data5 );
+void command_builder4( struct buffer_struct *send_buffer, const char* data1, const char* data2, const char* data3, const char* data4 );
+void command_builder5( struct buffer_struct *send_buffer, const char* data1, const char* data2, const char* data3, const char* data4, const char* data5 );
 
 int command_builder_add_char( struct buffer_struct *send_buffer, char data );
 int command_builder_add_string( struct buffer_struct *send_buffer, const char *data );
@@ -787,9 +787,7 @@ void com_command_testLED( struct buffer_struct * send_buffer )
 
 void com_command_setPower( struct buffer_struct * send_buffer )
 {
-
-	// TODO make sure the temp buffer is large enough for the data type
-	char temp[12];
+	char temp[ BUF_SIZE_LONG ];
 
 	ultoa( temp, meterWatts_global, 10 );
 	command_builder3( send_buffer, "Set", "Watts", temp );
@@ -799,7 +797,7 @@ void com_command_setPower( struct buffer_struct * send_buffer )
 
 void com_command_setEnergyUsed( struct buffer_struct * send_buffer )
 {
-	char temp[12];
+	char temp[ BUF_SIZE_LONG ];
 
 	ultoa( temp, meterEnergyUsed_global, 10 );
 
