@@ -17,7 +17,7 @@
 #define BUF_SIZE_LONG 12
 
 #define PARAMETER_MAX_COUNT 7
-#define PARAMETER_MAX_LENGTH 20
+#define PARAMETER_MAX_LENGTH 21	// account for NULL_CHAR as well
 
 #define CHAR_NULL '\0'
 #define COMMAND_SEND_RECEIVE_PRIMER_CHAR '#' // something to run the SPI clock so data can be received

@@ -8,7 +8,7 @@ MPLAB X Project
 
 # Changelog
 ### NEXT
-
+- Parameter length increased to account for NULL_CHAR
 
 ### v2.1.2
 March 20, 2022<br />
