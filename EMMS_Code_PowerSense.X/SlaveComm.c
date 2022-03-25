@@ -74,21 +74,21 @@ void process_data_parameterize( char parameters[PARAMETER_MAX_COUNT][PARAMETER_M
 bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX_LENGTH], struct buffer_struct *send_buffer );
 
 
-void command_builder1( struct buffer_struct *send_buffer, char* data1 );
-void command_builder2( struct buffer_struct *send_buffer, char* data1, char* data2 );
-void command_builder3( struct buffer_struct *send_buffer, char* data1, char* data2, char* data3 );
-void command_builder4( struct buffer_struct *send_buffer, char* data1, char* data2, char* data3, char* data4 );
-void command_builder5( struct buffer_struct *send_buffer, char* data1, char* data2, char* data3, char* data4, char* data5 );
+void command_builder1( struct buffer_struct *send_buffer, const char* data1 );
+void command_builder2( struct buffer_struct *send_buffer, const char* data1,const  char* data2 );
+void command_builder3( struct buffer_struct *send_buffer, const char* data1, const char* data2, const char* data3 );
+void command_builder4( struct buffer_struct *send_buffer, const char* data1, const char* data2, const char* data3,const  char* data4 );
+void command_builder5( struct buffer_struct *send_buffer, const char* data1,const  char* data2, const char* data3,const  char* data4, const char* data5 );
 
 int command_builder_add_char( struct buffer_struct *send_buffer, char data );
-int command_builder_add_string( struct buffer_struct *send_buffer, char *data );
+int command_builder_add_string( struct buffer_struct *send_buffer, const char *data );
 void xsum_builder( struct buffer_struct *send_buffer, int xsum );
 
 bool send_data( struct buffer_struct *send_buffer );
 bool SPI_send_data( char data );
 
-bool strmatch( char* a, char* b );
-int strcmp2( char* a, char* b );
+bool strmatch( char* a, const char* b );
+int strcmp2( char* a, const char* b );
 void strcpy2( char* rcv, char* source );
 
 void resetCommunications( struct buffer_struct * receive_buffer );
@@ -528,7 +528,7 @@ bool xSumCheck( char* checkBuffer )
 	return xSumMatches;
 }
 
-void command_builder1( struct buffer_struct *send_buffer, char* data1 )
+void command_builder1( struct buffer_struct *send_buffer, const char* data1 )
 {
 	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
 	command_builder_add_char( send_buffer, COMMAND_START_CHAR );
@@ -541,7 +541,7 @@ void command_builder1( struct buffer_struct *send_buffer, char* data1 )
 	return;
 }
 
-void command_builder2( struct buffer_struct *send_buffer, char* data1, char* data2 )
+void command_builder2( struct buffer_struct *send_buffer, const char* data1, const char* data2 )
 {
 	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
 	command_builder_add_char( send_buffer, COMMAND_START_CHAR );
@@ -556,7 +556,7 @@ void command_builder2( struct buffer_struct *send_buffer, char* data1, char* dat
 	return;
 }
 
-void command_builder3( struct buffer_struct *send_buffer, char* data1, char* data2, char* data3 )
+void command_builder3( struct buffer_struct *send_buffer, const char* data1, const char* data2, const char* data3 )
 {
 	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
 	command_builder_add_char( send_buffer, COMMAND_START_CHAR );
@@ -573,7 +573,7 @@ void command_builder3( struct buffer_struct *send_buffer, char* data1, char* dat
 	return;
 }
 
-void command_builder4( struct buffer_struct *send_buffer, char* data1, char* data2, char* data3, char* data4 )
+void command_builder4( struct buffer_struct *send_buffer, const char* data1, const char* data2, const char* data3, const char* data4 )
 {
 	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
 	command_builder_add_char( send_buffer, COMMAND_START_CHAR );
@@ -592,7 +592,7 @@ void command_builder4( struct buffer_struct *send_buffer, char* data1, char* dat
 	return;
 }
 
-void command_builder5( struct buffer_struct *send_buffer, char* data1, char* data2, char* data3, char* data4, char* data5 )
+void command_builder5( struct buffer_struct *send_buffer, const char* data1, const char* data2, const char* data3, const char* data4, const char* data5 )
 {
 	command_builder_add_char( send_buffer, COMMAND_SEND_RECEIVE_PRIMER_CHAR );
 	command_builder_add_char( send_buffer, COMMAND_START_CHAR );
@@ -640,7 +640,7 @@ int command_builder_add_char( struct buffer_struct *send_buffer, char data )
 	return data;
 }
 
-int command_builder_add_string( struct buffer_struct *send_buffer, char *data_string )
+int command_builder_add_string( struct buffer_struct *send_buffer, const char *data_string )
 {
 	int xsumAdd = 0;
 
@@ -680,7 +680,7 @@ bool send_data( struct buffer_struct * send_buffer )
 	return send_end;
 }
 
-bool strmatch( char* a, char* b )
+bool strmatch( char* a, const char* b )
 {
 	int result;
 	bool match;
@@ -692,7 +692,7 @@ bool strmatch( char* a, char* b )
 	return match;
 }
 
-int strcmp2( char* a, char* b )
+int strcmp2( char* a, const char* b )
 {
 	int inx = 0;
 	int match = 0;

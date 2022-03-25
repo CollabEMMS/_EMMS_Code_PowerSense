@@ -12,7 +12,10 @@ MPLAB X Project
 - main loop oneshots might not run as expected
   - if a previous oneshot lined up with a subsequent one it might prevent the subsequent one from firing if the runtime took too long
   - change to use explicit time to run so the function is never skipped
-
+- lots of compile warnings "pointer to const unsigned char -> pointer to unsigned char"
+  - updated functions to use "const char*" instead of just "char*"
+  - char* can be changed to const char* but not vice versa
+  - the program ran fine with the issue, but this makes the compile cleaner and makes sure everything works
 ### v2.1.2
 March 20, 2022<br />
 Tom Austin
