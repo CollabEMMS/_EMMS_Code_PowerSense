@@ -83,6 +83,9 @@
 #    define CHAR_NULL '\0'   //yes, used in many many places
 
 
+#define TIMER_ROLLOVER			4000000000	// maximum timer value before we force a rollover back to 0
+#define TIMER_ROLLOVER_CHECK	100000000	// if the difference between the timer and our check is greater than this then our check time has rolled over and we need to wait
+
 /****************
  STRUCTS
  define the structures here

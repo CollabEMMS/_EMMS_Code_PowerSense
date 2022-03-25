@@ -17,7 +17,6 @@
 #define TIMER_PRESET_LOW LOW_BYTE( TIMER_PRESET )
 #define TIMER_PRESET_HIGH HIGH_BYTE( TIMER_PRESET)
 
-#define TIMER_ROLLOVER 1000UL  // 1000ms in 1s
 
 
 /****************
@@ -84,10 +83,17 @@ void interrupt Timer0_ISR( void )
 	TMR0H = TIMER_PRESET_HIGH;
 	TMR0L = TIMER_PRESET_LOW;
 
+	// these timers are reset by code when used
 	timerCount_ms[0]++;
 	timerCount_ms[1]++;
 	timerCount_ms[2]++;
+
+	// timer 3 needs to be rolled over manually
 	timerCount_ms[3]++;
+	if( timerCount_ms[3] > TIMER_ROLLOVER )
+	{
+		 timerCount_ms[3] = 0;
+	}
 
 	return;
 }

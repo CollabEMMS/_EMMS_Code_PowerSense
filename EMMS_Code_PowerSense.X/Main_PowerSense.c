@@ -110,25 +110,40 @@ void main( void )
 		mcpUpdatePower( );
 		commRun( );
 
-		// TODO testing heartbeat
+		// in the following, code blocks {} are used
+		// to encapsulate the nextRunTime variable
+		// why
+		// - otherwise we would need to declare separately named
+		// nextRunTime variables outside the while(true) loop
+		// the nextRunTime variables are local to each block
+		// and self contained which makes the code leaner
+		//
+		// in the test to see if the timer is triggered we need to check for timer rollover
+		// if the difference is really large then we rolled over and need to wait until the internal timer rolls over as well
+
+
+		// isolate nextRunTime block
 		{
-			static bool oneShot = false;
-			unsigned long timerHeartbeat;
-			timerHeartbeat = timerGetCount( 3 );
-			if( ( timerHeartbeat % 500 ) == 0 )
+			static unsigned long nextRunTime = 0;
+			static unsigned long thisTimer;
+
+			thisTimer = timerGetCount( 3 );
+
+			// need to also check for timer rollover - that's the 10000000
+			if( ( thisTimer > nextRunTime ) && ( ( thisTimer - nextRunTime ) < TIMER_ROLLOVER_CHECK ) )
 			{
-				if( oneShot == false )
+				nextRunTime = thisTimer + 500;
+				if( nextRunTime > TIMER_ROLLOVER )
 				{
-					oneShot = true;
-					ledTestToggle( 1 );
+					nextRunTime -= TIMER_ROLLOVER;
 				}
 
+				ledTestToggle( 1 );
+
 			}
-			else
-			{
-				oneShot = false;
-			}
-		}
+
+		} // isolate nextRunTime block
+
 	}
 
 }
