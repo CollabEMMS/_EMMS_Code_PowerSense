@@ -7,6 +7,7 @@
 #include "Timer.h"
 #include "MCP3909_Interface.h"
 #include "SlaveComm.h"
+#include "eeprom.h"
 
 /****************
  MACROS
@@ -23,6 +24,9 @@
 // external
 unsigned long meterWatts_global = 0;
 unsigned long meterEnergyUsed_global = 0;
+
+unsigned long energyCalibration1_global = 0;
+unsigned long energyCalibration2_global = 0;
 
 // internal only
 
@@ -44,41 +48,31 @@ void initInterruptsClear( void );
  CODE
  ****************/
 
-
 void main( void )
 {
-	// TODO Testing
-	//    ANSELA = 0;
-	//    ANSELB = 0;
-	//    ANSELC = 0;
-	//
-	//
-	//
-	//#define LED1_DIR    TRISBbits.TRISB4
-	//#define LED1_SET    LATBbits.LATB4
-	//#define LED1_READ   PORTBbits.RB4
-	//
-	//#define LED2_DIR    TRISCbits.TRISC0
-	//#define LED2_SET    LATCbits.LATC0
-	//#define LED2_READ   PORTCbits.RC0
-	//
-	//#define LED3_DIR    TRISCbits.TRISC1
-	//#define LED3_SET    LATCbits.LATC1
-	//#define LED3_READ   PORTCbits.RC1
-	//
-	//    LED1_DIR = 0;
-	//    LED2_DIR = 0;
-	//    LED3_DIR = 0;
-	//
-	//    LED1_SET = 0;
-	//    LED2_SET = 1;
-	//    LED3_SET = 0;
-	//
-	//
-	//    while( 1 );
+//	unsigned char eepromAddress;
+//	volatile unsigned char x;
+//	volatile unsigned char y;
+//
+//	eepromAddress = 0xE5;
+//
+//	x = eepromReadMy( eepromAddress );
+//
+//
+//
+//	y = 19;
+//	eepromWriteMy( eepromAddress, y );
+//
+//	int a;
+//	a = 0;
 
 
-	// TODO end testing
+
+
+
+
+
+
 
 	initOSC( );
 	initIO( );
@@ -87,6 +81,10 @@ void main( void )
 	ledSetAllOff( );
 
 	initInterruptsClear( );
+	
+	energyCalibration1_global = eepromCalibrate1Read();
+	energyCalibration2_global = eepromCalibrate2Read();
+	
 	timerInit( );
 
 	mcpInit( );

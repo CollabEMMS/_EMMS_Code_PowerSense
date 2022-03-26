@@ -84,9 +84,9 @@ void interrupt Timer0_ISR( void )
 	TMR0L = TIMER_PRESET_LOW;
 
 	// these timers are reset by code when used
-	timerCount_ms[0]++;
-	timerCount_ms[1]++;
-	timerCount_ms[2]++;
+	timerCount_ms[0]++;	// HF pulse
+	timerCount_ms[1]++;	// LF pulse
+	timerCount_ms[2]++;	// power reduce if no pulse
 
 	// timer 3 needs to be rolled over manually
 	timerCount_ms[3]++;

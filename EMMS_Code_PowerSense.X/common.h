@@ -54,7 +54,7 @@
 // the UL postfix stipulates that the number is unsigned long
 #    define _XTAL_FREQ 16000000UL  //16 Mhz
 
-//#include <xc.h>
+#include <xc.h>
 #    include <p18f25k22.h>
 #    include <stdbool.h>
 
@@ -67,7 +67,7 @@
 
 //							"          "  10 character spacing reference - do not exceed or the system will crash
 #define MODULE_INFO_THIS_0	"Power Sens"			// 10 chars max name
-#define MODULE_INFO_THIS_1	"v2.1.2"				// 10 chars max version
+#define MODULE_INFO_THIS_1	"v3.1.2"				// 10 chars max version
 #define MODULE_INFO_THIS_2	""					// 10 chars max info
 #define MODULE_INFO_THIS_3	""					// 10 chars max info
 #define MODULE_INFO_THIS_4	""					// 20 chars max info (only 18 will show on UI)

@@ -1,6 +1,6 @@
-#ifndef MAIN_POWERSENSE_H
-#    define	MAIN_POWERSENSE_H
 
+#ifndef EEPROM_H
+#    define	EEPROM_H
 
 
 /****************
@@ -16,11 +16,6 @@
  these are all 'extern' and require that the variable is declared in the c file
  ****************/
 
-extern unsigned long meterWatts_global;
-extern unsigned long meterEnergyUsed_global;
-
-extern unsigned long energyCalibration1_global;
-extern unsigned long energyCalibration2_global;
 
 /****************
  FUNCTION PROTOTYPES
@@ -34,16 +29,12 @@ extern unsigned long energyCalibration2_global;
 // external and internal
 
 // external only
+unsigned long eepromCalibrate1Read( void );
+void eepromCalibrate1Write( unsigned long value );
+unsigned long eepromCalibrate2Read( void );
+void eepromCalibrate2Write( unsigned long value );
 
 
 
-
-
-
-
-
-
-
-
-#endif	/* MAIN_POWERSENSE_H */
+#endif	/* EEPROM_H */
 

@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include "Main_PowerSense.h"
 #include "LEDControl.h"
+#include "eeprom.h"
 
 /****************
  MACROS
@@ -103,7 +104,8 @@ void com_command_setPower( struct buffer_struct * send_buffer );
 void com_command_setEnergyUsed( struct buffer_struct * send_buffer );
 void com_command_setVolts( struct buffer_struct * send_buffer );
 void com_command_setAmps( struct buffer_struct * send_buffer );
-void com_command_readCalibration( struct buffer_struct * send_buffer );
+void com_command_readCalibration1( struct buffer_struct * send_buffer );
+void com_command_readCalibration2( struct buffer_struct * send_buffer );
 void com_command_setModuleInfo( struct buffer_struct * send_buffer, int moduleInfoNumber );
 
 /****************
@@ -235,7 +237,13 @@ void periodicMessage( struct buffer_struct *send_buffer )
 				break;
 			case 1:
 				sendModuleInfoThis( send_buffer );
-
+				break;
+			case 2:
+				com_command_readCalibration1( send_buffer );
+				break;
+			case 3:
+				com_command_readCalibration2( send_buffer );
+				break;
 			default:
 				messageCounterRateLow = 0;
 				break;
@@ -255,6 +263,10 @@ void periodicMessage( struct buffer_struct *send_buffer )
 				break;
 			case 2:
 				com_command_setEnergyUsed( send_buffer );
+				break;
+			case 3:
+				//TODO testing
+				sendModuleInfoThis( send_buffer );
 				break;
 
 			default:
@@ -416,9 +428,37 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 	}
 	else if( strmatch( parameters[0], "Set" ) == true )
 	{
-		if( strmatch( parameters[1], "Calibration" ) == true )
+		if( strmatch( parameters[1], "Cal1" ) == true )
 		{
-			// set the calibration value for the current sense, if required
+			unsigned long temp;
+
+			temp = strtoul( parameters[2], NULL, 0 );
+
+			// only save it is not zero and if it changed
+			if( ( temp > 0 ) && ( temp != energyCalibration1_global ) )
+			{
+				energyCalibration1_global = temp;
+				eepromCalibrate1Write( energyCalibration1_global );
+			}
+
+			command_builder2( send_buffer, "Conf", "Cal1" );
+
+		}
+		else if( strmatch( parameters[1], "Cal2" ) == true )
+		{
+			unsigned long temp;
+
+			temp = strtoul( parameters[2], NULL, 0 );
+
+			// only save it is not zero and if it changed
+			if( ( temp > 0 ) && ( temp != energyCalibration2_global ) )
+			{
+				energyCalibration2_global = temp;
+				eepromCalibrate1Write( energyCalibration2_global );
+			}
+
+			command_builder2( send_buffer, "Conf", "Cal2" );
+
 		}
 		else if( strmatch( parameters[1], "EnUsed" ) == true )
 		{
@@ -428,6 +468,7 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 
 			meterEnergyUsed_global = atol( parameters[2] );
 			com_command_setEnergyUsed( send_buffer );
+
 		}
 	}
 	else if( strmatch( parameters[0], "Read" ) == true )
@@ -820,9 +861,16 @@ void com_command_setAmps( struct buffer_struct * send_buffer )
 	return;
 }
 
-void com_command_readCalibration( struct buffer_struct * send_buffer )
+void com_command_readCalibration1( struct buffer_struct * send_buffer )
 {
-	command_builder2( send_buffer, "Read", "Calibration" );
+	command_builder2( send_buffer, "Read", "Cal1" );
+
+	return;
+}
+
+void com_command_readCalibration2( struct buffer_struct * send_buffer )
+{
+	command_builder2( send_buffer, "Read", "Cal2" );
 
 	return;
 }
@@ -830,8 +878,11 @@ void com_command_readCalibration( struct buffer_struct * send_buffer )
 void com_command_setModuleInfo( struct buffer_struct *send_buffer, int moduleInfoNumber )
 {
 	char moduleInfoNumberBuf[ BUF_SIZE_INT];
+	char tempBuf[ BUF_SIZE_LONG ];
 
 	itoa( moduleInfoNumberBuf, moduleInfoNumber, 10 );
+
+
 
 	switch( moduleInfoNumber )
 	{
@@ -843,10 +894,12 @@ void com_command_setModuleInfo( struct buffer_struct *send_buffer, int moduleInf
 			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, MODULE_INFO_THIS_1 );
 			break;
 		case 2:
-			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, MODULE_INFO_THIS_2 );
+			ultoa( tempBuf, energyCalibration1_global, 10 );
+			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, tempBuf );
 			break;
 		case 3:
-			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, MODULE_INFO_THIS_3 );
+			ultoa( tempBuf, energyCalibration2_global, 10 );
+			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, tempBuf );
 			break;
 		case 4:
 			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, MODULE_INFO_THIS_4 );
@@ -861,7 +914,7 @@ void SPISlaveInit( void )
 
 	TRISAbits.TRISA0 = 0; // pin 2 connected as an output for pulse
 	TRISAbits.TRISA1 = 1; // pin 3 connected as an input for pulse
-	//    LEDDIR = 0; // pin 25 connected as an output for LED
+	//    LEDDIR = 0;		// pin 25 connected as an output for LED
 	TRISCbits.TRISC3 = 0; // pin 14 connected as an output for pulse freq.
 	TRISCbits.TRISC5 = 0; // pin 16 connected as an output for pulse freq.
 	TRISCbits.TRISC6 = 0; // set pin 17 as an output for MCLR

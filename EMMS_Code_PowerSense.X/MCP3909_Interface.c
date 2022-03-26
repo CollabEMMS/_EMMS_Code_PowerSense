@@ -206,8 +206,8 @@ void mcpInitF( void )
 void mcpUpdatePower( void )
 {
 
-#define ENERGY_PER_PULSE 27000 //(221.24 mWh per pulse)
-#define ENERGY_PER_PULSE_UNIT 100000 // energy per pulse is divided by this to get Wh
+	//#define ENERGY_PER_PULSE 22124 //(221.24 mWh per pulse)
+#define ENERGY_PER_PULSE_UNIT 100000UL // energy per pulse is divided by this to get Wh
 #define HF_TO_LF_WATTS_THRESHOLD 500 // at what level do we switch from using HF to LF to show and calc watts
 
 	// check each of the pulse outputs from the MCP
@@ -270,7 +270,7 @@ void mcpUpdatePower( void )
 			meterWattsLF = powerCalculateWatts( timerLFout_ms, false );
 
 			// with every pulse we add to energy used
-			meterEnergyUsedPart += ENERGY_PER_PULSE * (unsigned long) 16;
+			meterEnergyUsedPart += energyCalibration1_global * (unsigned long) 16;
 			while( meterEnergyUsedPart > ENERGY_PER_PULSE_UNIT )
 			{
 				meterEnergyUsed_global++;
@@ -317,12 +317,12 @@ unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
 	if( outHF == true )
 	{
 		// timer is from HFout
-		calcWatts = ( ( ( ( (unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600 ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000 ) ) ) * (unsigned long) 1 ) / (unsigned long) timer_ms;
+		calcWatts = ( ( ( ( energyCalibration2_global * (unsigned long) 3600UL ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000UL ) ) ) * (unsigned long) 1UL ) / (unsigned long) timer_ms;
 	}
 	else
 	{
 		// timer is from LFout
-		calcWatts = ( ( ( ( (unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600 ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000 ) ) ) * (unsigned long) 1 ) / (unsigned long) timer_ms;
+		calcWatts = ( ( ( ( energyCalibration1_global * (unsigned long) 3600UL ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000UL ) ) ) * (unsigned long) 1UL ) / (unsigned long) timer_ms;
 	}
 
 	return calcWatts;
@@ -348,7 +348,7 @@ void powerReduction( unsigned long timerLast_ms )
 	}
 	else if( timerReduce_ms > timerLast_ms ) // we need to wait until the time is longer than the last pulse
 	{
-		meterWatts_global = ( ( ( ( (unsigned long) ENERGY_PER_PULSE * (unsigned long) 3600 ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000 ) ) ) * (unsigned long) 1 ) / (unsigned long) timerReduce_ms;
+		meterWatts_global = ( ( ( ( (unsigned long) energyCalibration1_global * (unsigned long) 3600UL ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000UL ) ) ) * (unsigned long) 1UL ) / (unsigned long) timerReduce_ms;
 	}
 
 	return;

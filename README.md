@@ -16,7 +16,12 @@ MPLAB X Project
   - updated functions to use "const char*" instead of just "char*"
   - char* can be changed to const char* but not vice versa
   - the program ran fine with the issue, but this makes the compile cleaner and makes sure everything works
-### v2.1.2
+- added calibration_1 and calibration_2
+  - these are used for the HF and LF pulse outputs for now
+  - they can be redesignated as necessary
+  - shown in the ModInfo
+
+### v3.1.2
 March 20, 2022<br />
 Tom Austin
 #### Changes
@@ -24,11 +29,11 @@ Tom Austin
   - PSVersion
 
 
-### v2.1.1
+### v3.1.1
 March 19, 2022<br />
 Tom Austin
 #### Changes
 - New versioning and changelog scheme
 ## 
-### Pre v2.1.1
+### Pre v3.1.1
 #### Previous changes are not currently listed
