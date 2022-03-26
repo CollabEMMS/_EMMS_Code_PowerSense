@@ -8,6 +8,12 @@ MPLAB X Project
 
 # Changelog
 ### NEXT
+- none yet
+
+### v3.1.3
+March 26, 2022<br />
+Tom Austin
+#### Changes
 - Parameter length increased to account for NULL_CHAR
 - main loop oneshots might not run as expected
   - if a previous oneshot lined up with a subsequent one it might prevent the subsequent one from firing if the runtime took too long
