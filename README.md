@@ -20,6 +20,12 @@ MPLAB X Project
   - these are used for the HF and LF pulse outputs for now
   - they can be redesignated as necessary
   - shown in the ModInfo
+  - stored in local eeprom (yay)
+- tweaked the Watts calculations
+- tweaked how to choose between LF and HF watts
+- cleaned out lots of commented obsolete old code
+- test pulse code exists but is commented for normal use
+
 
 ### v3.1.2
 March 20, 2022<br />
