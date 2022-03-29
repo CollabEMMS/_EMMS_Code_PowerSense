@@ -144,7 +144,6 @@ unsigned long meterEnergyUsedPart_module = 0; // this does not need to be global
 
 void mcpInitF( void );
 unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF );
-void powerReduction( unsigned long timerLast_ms );
 
 /****************
  CODE
@@ -204,8 +203,10 @@ void mcpUpdatePower( void )
 {
 
 	//#define ENERGY_PER_PULSE 22124 //(221.24 mWh per pulse) - NOW CALIBRATION FACTOR VARIABLE
-#define ENERGY_PER_PULSE_UNIT 100000UL // energy per pulse is divided by this to get Wh
-#define HF_TO_LF_TIME_MS_THRESHOLD 1000 // at what level do we switch from using HF to LF to show and calc watts
+#define ENERGY_PER_PULSE_UNIT		100000UL // energy per pulse is divided by this to get Wh
+#define HF_TO_LF_TIME_MS_THRESHOLD	1000 // at what level do we switch from using HF to LF to show and calc watts
+#define POWER_REDUCTION_RATE		250			// if no pulse, update the power based on timer every X ms
+#define POWER_REDUCTION_MAX_TIME	90000		//just zero the power after this much time without a pulse - no calcs needed
 
 	// check each of the pulse outputs from the MCP
 	// 1 = inactive
@@ -214,14 +215,15 @@ void mcpUpdatePower( void )
 
 	unsigned long timerHFout_ms;
 	unsigned long timerLFout_ms;
-
 	static int meterWattsHF = 0;
+	static unsigned long timerPowerReductionNextTime = 0;
 	static unsigned long timerHFoutLast_ms = 0;
 	static bool oneShotHFout = false;
 
 	static int meterWattsLF = 0;
 	static bool oneShotLFout = false;
 
+	unsigned long timerReduce_ms;
 
 	//	//TODO testing
 	//	// generate a pulse for testing
@@ -254,11 +256,15 @@ void mcpUpdatePower( void )
 	//		testPulseTriggerLF = false;
 	//	}
 	//
-
-
+	//	if( testThisTime > 10000 )
+	//	{
+	//		testPulseTriggerHF = false;
+	//		testPulseTriggerLF = false;
+	//	}
+	//
 
 	//	if( ( MCP_HFOUT_READ == 0 ) || ( testPulseTrigger == true ) )
-	//if( ( testPulseTriggerHF == true ) )
+	//	if( ( testPulseTriggerHF == true ) )
 	if( MCP_HFOUT_READ == 0 )
 	{
 
@@ -276,6 +282,7 @@ void mcpUpdatePower( void )
 			meterWattsHF = powerCalculateWatts( timerHFout_ms, true );
 
 			timerHFoutLast_ms = timerHFout_ms; // store the last time for a pulse - if we go longer than this without a pulse, calc a new power value
+			timerPowerReductionNextTime = timerHFout_ms + POWER_REDUCTION_RATE;
 		}
 	}
 	else
@@ -286,8 +293,8 @@ void mcpUpdatePower( void )
 	// get a power from the LF Output
 	// read both outputs
 
-	//if( ( testPulseTriggerLF == true ) )
 	//	if( ( MCP_LFOUT0_READ == 0 ) || ( MCP_LFOUT1_READ == 0 ) || ( testPulseTriggerLF == true ) )
+	//if( ( testPulseTriggerLF == true ) )
 	if( ( MCP_LFOUT0_READ == 0 ) || ( MCP_LFOUT1_READ == 0 ) )
 	{
 		if( oneShotLFout == false )
@@ -319,26 +326,52 @@ void mcpUpdatePower( void )
 		oneShotLFout = false;
 	}
 
-	// to prevent too much lag in showing power (watts) use the high frequency pulse when the
-	// pulse rate is slow
-	// switch to the low frequency pulse once within reasonable update time since it is more accurate
-	// the meterWattsLF and meterWattsHF are static variables, so they always have values, even if not triggered on this loop
-	if( timerLFout_ms < HF_TO_LF_TIME_MS_THRESHOLD )
+
+	// if no power is used, there are no pulses and the wattage will never be updated
+	// if the current time is longer than the last pulse, then calculate a new power based on this time
+	// we cannot just drop to zero because there may be some power being used - very low wattage. 4 watts can take 10-15 seconds between pulses
+	// the power displayed, while not calculated on pulse time,is the most accurate depiction  of the power that could be used at this time
+	//	for example
+	//		if we are using 100 watts and then drop to 4 watts then a pulse will not come in until only 4 watts is used, which can take a long time
+	//		if we calculate based on the no pulse time then the power will slowly drop down to 4 watts
+	//	this also applies for 0 watts being used - slowly drops to 0
+	//	on a maximum timeout we stop calculating and just use 0
+
+	timerReduce_ms = timerGetCount( 2 );
+
+	if( timerReduce_ms > timerHFout_ms )
 	{
-		meterWatts_global = meterWattsLF;
-		// TODO testing
-		ledGoSetOn( 3 );
+		if( ( timerReduce_ms > POWER_REDUCTION_MAX_TIME ) || ( timerHFoutLast_ms == 0 ) )
+		{
+			meterWatts_global = 0;
+		}
+		else if( timerReduce_ms > timerPowerReductionNextTime ) // we need to wait until the time is longer than the last pulse
+		{
+			meterWatts_global = powerCalculateWatts( timerReduce_ms, true );
+			timerPowerReductionNextTime += POWER_REDUCTION_RATE;
+			// flash the led to indicate power reduction by time mode
+			ledGoSetOn( 3 );
+			__delay_us( 250 );
+			ledGoSetOff( 3 );
+		}
 	}
 	else
 	{
-		meterWatts_global = meterWattsHF;
-		// TODO testing
-		ledGoSetOff( 3 );
+		// to prevent too much lag in showing power (watts) use the high frequency pulse when the
+		// pulse rate is slow
+		// switch to the low frequency pulse once within reasonable update time since it is more accurate
+		// the meterWattsLF and meterWattsHF are static variables, so they always have values, even if not triggered on this loop
+		if( timerLFout_ms < HF_TO_LF_TIME_MS_THRESHOLD )
+		{
+			meterWatts_global = meterWattsLF;
+			ledGoSetOn( 3 );
+		}
+		else
+		{
+			meterWatts_global = meterWattsHF;
+			ledGoSetOff( 3 );
+		}
 	}
-
-	// we need to reduce the power if there are no pulses
-	// this will update the meterWatts_global variable in the function if needed
-	powerReduction( timerHFoutLast_ms );
 
 	return;
 }
@@ -349,7 +382,7 @@ unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
 	// calc the meter watts here
 	// need to figure out the difference between HFout and LFout calculations
 	// ideally it is a simple multiplier, but maybe not
-	int calcWatts;
+	unsigned long calcWatts;
 
 	if( outHF == true )
 	{
@@ -364,30 +397,3 @@ unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
 
 	return calcWatts;
 }
-
-void powerReduction( unsigned long timerLast_ms )
-{
-	// if there are no pulses we need a way to reflect that the power is lower
-	// so, if the pulse time is > than the pulse time last used to calc the power
-	// then recalc the power using the current elapsed time since the last pulse
-
-#define POWER_REDUCTION_INTERVAL 1000  //ms (1000 = 1 second ))
-#define POWER_REDUCTION_MAX_TIME 90000 //ms time before we zero the power
-
-	unsigned long timerReduce_ms;
-	static int countReduce = 0;
-
-	timerReduce_ms = timerGetCount( 2 );
-
-	if( ( timerReduce_ms > POWER_REDUCTION_MAX_TIME ) || ( timerLast_ms == 0 ) )
-	{
-		meterWatts_global = 0;
-	}
-	else if( timerReduce_ms > timerLast_ms ) // we need to wait until the time is longer than the last pulse
-	{
-		meterWatts_global = powerCalculateWatts( timerReduce_ms, true );
-	}
-
-	return;
-}
-
