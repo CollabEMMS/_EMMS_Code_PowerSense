@@ -10,6 +10,15 @@ MPLAB X Project
 ### NEXT
 - none yet
 
+
+### v3.1.4
+March 29, 2022<br />
+Tom Austin
+#### Changes
+- Power reduction (when no power is used) was not working
+  - fixed
+  - added LED 3 flash to show that a pulse has not been received.
+
 ### v3.1.3
 March 26, 2022<br />
 Tom Austin
