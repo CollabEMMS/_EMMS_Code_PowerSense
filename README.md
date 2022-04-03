@@ -17,7 +17,7 @@ Tom Austin
 #### Changes
 - Power reduction (when no power is used) was not working
   - fixed
-  - added LED 3 flash to show that a pulse has not been received.
+  - added LED 3 flash to show that a pulse has not been received and power reduction is active
 
 ### v3.1.3
 March 26, 2022<br />
