@@ -213,15 +213,14 @@ void mcpUpdatePower( void )
 	// 0 is active
 	// time between transitions to 0
 
-	unsigned long timerHFout_ms;
-	unsigned long timerLFout_ms;
-	static int meterWattsHF = 0;
-	static unsigned long timerPowerReductionNextTime = 0;
-	static unsigned long timerHFoutLast_ms = 0;
-	static bool oneShotHFout = false;
+	unsigned long timerHFout_ms_static;
+	unsigned long timerLFout_ms_static;
+	static int meterWattsHF_static = 0;
+	static unsigned long timerPowerReductionNextTime_static = 0;
+	static bool oneShotHFout_static = false;
 
-	static int meterWattsLF = 0;
-	static bool oneShotLFout = false;
+	static int meterWattsLF_static = 0;
+	static bool oneShotLFout_static = false;
 
 	unsigned long timerReduce_ms;
 
@@ -268,26 +267,25 @@ void mcpUpdatePower( void )
 	if( MCP_HFOUT_READ == 0 )
 	{
 
-		if( oneShotHFout == false )
+		if( oneShotHFout_static == false )
 		{
 			// TODO testing
 			ledGoToggle( 1 );
 
-			oneShotHFout = true;
+			oneShotHFout_static = true;
 
-			timerHFout_ms = timerGetCount( 0 );
+			timerHFout_ms_static = timerGetCount( 0 );
 			timerResetCount( 0 );
 			timerResetCount( 2 ); // the power reduce counter
 
-			meterWattsHF = powerCalculateWatts( timerHFout_ms, true );
+			meterWattsHF_static = powerCalculateWatts( timerHFout_ms_static, true );
 
-			timerHFoutLast_ms = timerHFout_ms; // store the last time for a pulse - if we go longer than this without a pulse, calc a new power value
-			timerPowerReductionNextTime = timerHFout_ms + POWER_REDUCTION_RATE;
+			timerPowerReductionNextTime_static = timerHFout_ms_static + POWER_REDUCTION_RATE;
 		}
 	}
 	else
 	{
-		oneShotHFout = false;
+		oneShotHFout_static = false;
 	}
 
 	// get a power from the LF Output
@@ -297,20 +295,20 @@ void mcpUpdatePower( void )
 	//if( ( testPulseTriggerLF == true ) )
 	if( ( MCP_LFOUT0_READ == 0 ) || ( MCP_LFOUT1_READ == 0 ) )
 	{
-		if( oneShotLFout == false )
+		if( oneShotLFout_static == false )
 		{
 			// TODO testing
 			ledGoToggle( 2 );
 
-			oneShotLFout = true;
+			oneShotLFout_static = true;
 
 			//		unsigned long timerLFout_ms;
-			timerLFout_ms = timerGetCount( 1 );
+			timerLFout_ms_static = timerGetCount( 1 );
 			timerResetCount( 1 );
 			timerResetCount( 2 ); // the power reduce counter
 
 			// TODO verify calculation
-			meterWattsLF = powerCalculateWatts( timerLFout_ms, false );
+			meterWattsLF_static = powerCalculateWatts( timerLFout_ms_static, false );
 
 			// with every pulse we add to energy used
 			meterEnergyUsedPart_module += energyCalibration1_global * (unsigned long) 16;
@@ -323,7 +321,7 @@ void mcpUpdatePower( void )
 	}
 	else
 	{
-		oneShotLFout = false;
+		oneShotLFout_static = false;
 	}
 
 
@@ -339,16 +337,16 @@ void mcpUpdatePower( void )
 
 	timerReduce_ms = timerGetCount( 2 );
 
-	if( timerReduce_ms > timerHFout_ms )
+	if( timerReduce_ms > timerHFout_ms_static )
 	{
-		if( ( timerReduce_ms > POWER_REDUCTION_MAX_TIME ) || ( timerHFoutLast_ms == 0 ) )
+		if( ( timerReduce_ms > POWER_REDUCTION_MAX_TIME ) || ( timerHFout_ms_static == 0 ) )
 		{
 			meterWatts_global = 0;
 		}
-		else if( timerReduce_ms > timerPowerReductionNextTime ) // we need to wait until the time is longer than the last pulse
+		else if( timerReduce_ms > timerPowerReductionNextTime_static ) // we need to wait until the time is longer than the last pulse
 		{
 			meterWatts_global = powerCalculateWatts( timerReduce_ms, true );
-			timerPowerReductionNextTime += POWER_REDUCTION_RATE;
+			timerPowerReductionNextTime_static += POWER_REDUCTION_RATE;
 			// flash the led to indicate power reduction by time mode
 			ledGoSetOn( 3 );
 			__delay_us( 250 );
@@ -361,14 +359,14 @@ void mcpUpdatePower( void )
 		// pulse rate is slow
 		// switch to the low frequency pulse once within reasonable update time since it is more accurate
 		// the meterWattsLF and meterWattsHF are static variables, so they always have values, even if not triggered on this loop
-		if( timerLFout_ms < HF_TO_LF_TIME_MS_THRESHOLD )
+		if( timerLFout_ms_static < HF_TO_LF_TIME_MS_THRESHOLD )
 		{
-			meterWatts_global = meterWattsLF;
+			meterWatts_global = meterWattsLF_static;
 			ledGoSetOn( 3 );
 		}
 		else
 		{
-			meterWatts_global = meterWattsHF;
+			meterWatts_global = meterWattsHF_static;
 			ledGoSetOff( 3 );
 		}
 	}

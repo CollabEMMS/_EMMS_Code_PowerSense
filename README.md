@@ -10,6 +10,11 @@ MPLAB X Project
 ### NEXT
 - none yet
 
+- Pulse time variables, HF and LF, are now static (retain values)
+  - by not retaining values they would revert back to 0 and cause choosing between HF and LF to mess up.
+- Fixed typo where calibration 2 would write to calibration 1 eeprom slot
+- changed strtoul to explicitly use base 10 instead of self determination (0)
+  - made no difference in program operation, but ensured interpretation of the parameter as base 10 during debug session
 
 ### v3.1.4
 March 29, 2022<br />

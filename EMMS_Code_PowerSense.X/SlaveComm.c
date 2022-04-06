@@ -432,7 +432,7 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 		{
 			unsigned long temp;
 
-			temp = strtoul( parameters[2], NULL, 0 );
+			temp = strtoul( parameters[2], NULL, 10 );
 
 			// only save it is not zero and if it changed
 			if( ( temp > 0 ) && ( temp != energyCalibration1_global ) )
@@ -448,13 +448,13 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 		{
 			unsigned long temp;
 
-			temp = strtoul( parameters[2], NULL, 0 );
+			temp = strtoul( parameters[2], NULL, 10 );
 
 			// only save it is not zero and if it changed
 			if( ( temp > 0 ) && ( temp != energyCalibration2_global ) )
 			{
 				energyCalibration2_global = temp;
-				eepromCalibrate1Write( energyCalibration2_global );
+				eepromCalibrate2Write( energyCalibration2_global );
 			}
 
 			command_builder2( send_buffer, "Conf", "Cal2" );
