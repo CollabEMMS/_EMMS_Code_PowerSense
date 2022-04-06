@@ -10,6 +10,10 @@ MPLAB X Project
 ### NEXT
 - none yet
 
+### v3.1.5
+April 5, 2022<br />
+Tom Austin
+#### Changes
 - Pulse time variables, HF and LF, are now static (retain values)
   - by not retaining values they would revert back to 0 and cause choosing between HF and LF to mess up.
 - Fixed typo where calibration 2 would write to calibration 1 eeprom slot
