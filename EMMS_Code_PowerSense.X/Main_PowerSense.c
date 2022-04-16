@@ -50,29 +50,6 @@ void initInterruptsClear( void );
 
 void main( void )
 {
-//	unsigned char eepromAddress;
-//	volatile unsigned char x;
-//	volatile unsigned char y;
-//
-//	eepromAddress = 0xE5;
-//
-//	x = eepromReadMy( eepromAddress );
-//
-//
-//
-//	y = 19;
-//	eepromWriteMy( eepromAddress, y );
-//
-//	int a;
-//	a = 0;
-
-
-
-
-
-
-
-
 
 	initOSC( );
 	initIO( );
@@ -81,10 +58,7 @@ void main( void )
 	ledSetAllOff( );
 
 	initInterruptsClear( );
-	
-	energyCalibration1_global = eepromCalibrate1Read();
-	energyCalibration2_global = eepromCalibrate2Read();
-	
+		
 	timerInit( );
 
 	mcpInit( );
@@ -173,6 +147,9 @@ void initIO( void )
 	return;
 
 	// TODO verify this is taken care of elsewhere
+    // it is working with this commented
+    //  but unsure if these are defaults in the PIC or set elsewhere
+    //  so keep it for now
 	//    MCP_HFOUT_DIR = 1;
 	//    MCP_LFOUT_DIR = 1;
 	//    MCP_LFOUT_PASS_DIR = 0;

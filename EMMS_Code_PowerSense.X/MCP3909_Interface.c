@@ -269,7 +269,6 @@ void mcpUpdatePower( void )
 
 		if( oneShotHFout_static == false )
 		{
-			// TODO testing
 			ledGoToggle( 1 );
 
 			oneShotHFout_static = true;
@@ -297,7 +296,6 @@ void mcpUpdatePower( void )
 	{
 		if( oneShotLFout_static == false )
 		{
-			// TODO testing
 			ledGoToggle( 2 );
 
 			oneShotLFout_static = true;
