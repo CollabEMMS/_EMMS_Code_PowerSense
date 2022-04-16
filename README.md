@@ -10,6 +10,10 @@ MPLAB X Project
 ### NEXT
 - none yet
 
+### v3.1.6
+April 16, 2022<br />
+Tom Austin
+#### Changes
 - Calibration Factors now stored in Command Board
   - storing the calibration factor in the Power Sense made it difficult to read it back out
 - Code cleanup - removed high frequency ModInfo data set
