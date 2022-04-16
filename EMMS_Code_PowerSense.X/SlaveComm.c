@@ -215,9 +215,6 @@ void periodicMessage( struct buffer_struct *send_buffer )
 	static int messageCounterRateLow = 0;
 	static int messageCounterRateHigh = 0;
 
-	//TODO testing
-	ledTestToggle( 2 );
-
 	// set up command state machine
 	// each time the chip select goes active set up a new message
 	messageCounterMain++;
@@ -263,10 +260,6 @@ void periodicMessage( struct buffer_struct *send_buffer )
 				break;
 			case 2:
 				com_command_setEnergyUsed( send_buffer );
-				break;
-			case 3:
-				//TODO testing
-				sendModuleInfoThis( send_buffer );
 				break;
 
 			default:
@@ -438,7 +431,6 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 			if( ( temp > 0 ) && ( temp != energyCalibration1_global ) )
 			{
 				energyCalibration1_global = temp;
-				eepromCalibrate1Write( energyCalibration1_global );
 			}
 
 			command_builder2( send_buffer, "Conf", "Cal1" );
@@ -454,7 +446,6 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 			if( ( temp > 0 ) && ( temp != energyCalibration2_global ) )
 			{
 				energyCalibration2_global = temp;
-				eepromCalibrate2Write( energyCalibration2_global );
 			}
 
 			command_builder2( send_buffer, "Conf", "Cal2" );
@@ -883,12 +874,10 @@ void com_command_setModuleInfo( struct buffer_struct *send_buffer, int moduleInf
 	itoa( moduleInfoNumberBuf, moduleInfoNumber, 10 );
 
 
-
 	switch( moduleInfoNumber )
 	{
 		case 0:
 			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, MODULE_INFO_THIS_0 );
-			ledTestToggle( 3 );
 			break;
 		case 1:
 			command_builder5( send_buffer, "Set", "ModInfo", "-1", moduleInfoNumberBuf, MODULE_INFO_THIS_1 );

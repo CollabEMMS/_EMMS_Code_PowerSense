@@ -29,10 +29,10 @@
 // external and internal
 
 // external only
-unsigned long eepromCalibrate1Read( void );
-void eepromCalibrate1Write( unsigned long value );
-unsigned long eepromCalibrate2Read( void );
-void eepromCalibrate2Write( unsigned long value );
+//unsigned long eepromCalibrate1Read( void );
+//void eepromCalibrate1Write( unsigned long value );
+//unsigned long eepromCalibrate2Read( void );
+//void eepromCalibrate2Write( unsigned long value );
 
 
 
