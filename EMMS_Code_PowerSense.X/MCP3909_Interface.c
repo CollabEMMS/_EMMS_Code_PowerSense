@@ -277,7 +277,9 @@ void mcpUpdatePower( void )
 			timerResetCount( 0 );
 			timerResetCount( 2 ); // the power reduce counter
 
-			meterWattsHF_static = powerCalculateWatts( timerHFout_ms_static, true );
+            //TODO testing
+//			meterWattsHF_static = powerCalculateWatts( timerHFout_ms_static, true );
+			meterWattsHF_static = timerHFout_ms_static;
 
 			timerPowerReductionNextTime_static = timerHFout_ms_static + POWER_REDUCTION_RATE;
 		}
@@ -306,15 +308,16 @@ void mcpUpdatePower( void )
 			timerResetCount( 2 ); // the power reduce counter
 
 			// TODO verify calculation
-			meterWattsLF_static = powerCalculateWatts( timerLFout_ms_static, false );
+//			meterWattsLF_static = powerCalculateWatts( timerLFout_ms_static, false );
+			meterWattsLF_static = timerLFout_ms_static;
 
 			// with every pulse we add to energy used
-			meterEnergyUsedPart_module += energyCalibration1_global * (unsigned long) 16;
-			while( meterEnergyUsedPart_module > ENERGY_PER_PULSE_UNIT )
-			{
-				meterEnergyUsed_global++;
-				meterEnergyUsedPart_module -= ENERGY_PER_PULSE_UNIT;
-			}
+//			meterEnergyUsedPart_module += energyCalibration1_global * (unsigned long) 16;
+//			while( meterEnergyUsedPart_module > ENERGY_PER_PULSE_UNIT )
+//			{
+//				meterEnergyUsed_global++;
+//				meterEnergyUsedPart_module -= ENERGY_PER_PULSE_UNIT;
+//			}
 		}
 	}
 	else
@@ -335,39 +338,43 @@ void mcpUpdatePower( void )
 
 	timerReduce_ms = timerGetCount( 2 );
 
-	if( timerReduce_ms > timerHFout_ms_static )
-	{
-		if( ( timerReduce_ms > POWER_REDUCTION_MAX_TIME ) || ( timerHFout_ms_static == 0 ) )
-		{
-			meterWatts_global = 0;
-		}
-		else if( timerReduce_ms > timerPowerReductionNextTime_static ) // we need to wait until the time is longer than the last pulse
-		{
-			meterWatts_global = powerCalculateWatts( timerReduce_ms, true );
-			timerPowerReductionNextTime_static += POWER_REDUCTION_RATE;
-			// flash the led to indicate power reduction by time mode
-			ledGoSetOn( 3 );
-			__delay_us( 250 );
-			ledGoSetOff( 3 );
-		}
-	}
-	else
-	{
-		// to prevent too much lag in showing power (watts) use the high frequency pulse when the
-		// pulse rate is slow
-		// switch to the low frequency pulse once within reasonable update time since it is more accurate
-		// the meterWattsLF and meterWattsHF are static variables, so they always have values, even if not triggered on this loop
-		if( timerLFout_ms_static < HF_TO_LF_TIME_MS_THRESHOLD )
-		{
-			meterWatts_global = meterWattsLF_static;
-			ledGoSetOn( 3 );
-		}
-		else
-		{
-			meterWatts_global = meterWattsHF_static;
-			ledGoSetOff( 3 );
-		}
-	}
+    //TODO testing
+    meterWatts_global = meterWattsLF_static;
+    meterEnergyUsed_global = meterWattsHF_static;
+
+//	if( timerReduce_ms > timerHFout_ms_static )
+//	{
+//		if( ( timerReduce_ms > POWER_REDUCTION_MAX_TIME ) || ( timerHFout_ms_static == 0 ) )
+//		{
+//			meterWatts_global = 0;
+//		}
+//		else if( timerReduce_ms > timerPowerReductionNextTime_static ) // we need to wait until the time is longer than the last pulse
+//		{
+//			meterWatts_global = powerCalculateWatts( timerReduce_ms, true );
+//			timerPowerReductionNextTime_static += POWER_REDUCTION_RATE;
+//			// flash the led to indicate power reduction by time mode
+//			ledGoSetOn( 3 );
+//			__delay_us( 250 );
+//			ledGoSetOff( 3 );
+//		}
+//	}
+//	else
+//	{
+//		// to prevent too much lag in showing power (watts) use the high frequency pulse when the
+//		// pulse rate is slow
+//		// switch to the low frequency pulse once within reasonable update time since it is more accurate
+//		// the meterWattsLF and meterWattsHF are static variables, so they always have values, even if not triggered on this loop
+//   		if( timerLFout_ms_static < HF_TO_LF_TIME_MS_THRESHOLD )
+//		{
+//			meterWatts_global = meterWattsLF_static;
+//			ledGoSetOn( 3 );
+//		}
+//		else
+//		{
+//			meterWatts_global = meterWattsHF_static;
+//			ledGoSetOff( 3 );
+//		}
+//	}
 
 	return;
 }
