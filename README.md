@@ -10,6 +10,8 @@ MPLAB X Project
 ### NEXT
 - none yet
 
+- update power and energy calculations
+
 ### v3.1.6
 April 16, 2022<br />
 Tom Austin
