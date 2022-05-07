@@ -95,6 +95,8 @@
 #define MCP_MCLR_READ PORTCbits.RC6
 
 
+#define FACTOR_HOURS_TO_MS	3600000UL // (3600) * (1000) unsigned long
+
 
 // the below needs to be verified before it is used
 // these are for the SPI reading of the MCP3909 when we want to try to use it
@@ -117,8 +119,6 @@
 
 
 
-
-
 /****************
  VARIABLES
  these are the globals required by only this c file
@@ -131,7 +131,7 @@
 
 // internal only
 unsigned long meterEnergyUsedPart_module = 0; // this does not need to be global
-
+unsigned long meterPowerFactor_module = 0;
 
 /****************
  FUNCTION PROTOTYPES
@@ -143,7 +143,7 @@ unsigned long meterEnergyUsedPart_module = 0; // this does not need to be global
  *****************/
 
 void mcpInitF( void );
-unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF );
+unsigned long powerCalculateWatts( unsigned long factorPower, unsigned long timer_ms, bool outHF );
 
 /****************
  CODE
@@ -155,6 +155,7 @@ void mcpInit( void )
 	MCP_LFOUT1_DIR = 1;
 
 	meterEnergyUsedPart_module = 0;
+	meterPowerFactor_module = 0;
 
 	delayMS10( 100 );
 
@@ -199,14 +200,50 @@ void mcpInitF( void )
 	return;
 }
 
+void mcpUpdateCalibrationFactors( void )
+{
+	if( (energyCalibration1_global > 0) && ( energyCalibration2_global > 0 ) )
+	{
+		unsigned long timeBaseFactor;
+		unsigned long unitFactor;
+		
+		timeBaseFactor = FACTOR_HOURS_TO_MS;		// to convert hours to milliseconds
+		unitFactor = energyCalibration2_global;
+		
+		while( ( ( timeBaseFactor % 10 ) == 0 ) && ( unitFactor >= 10 ) )
+		{
+			timeBaseFactor /= 10;
+			unitFactor /= 10;
+		}
+		
+		meterPowerFactor_module = (energyCalibration1_global * timeBaseFactor ) / unitFactor;
+	}
+	
+	return;
+}
+
+
 void mcpUpdatePower( void )
 {
 
-	//#define ENERGY_PER_PULSE 22124 //(221.24 mWh per pulse) - NOW CALIBRATION FACTOR VARIABLE
-#define ENERGY_PER_PULSE_UNIT		100000UL // energy per pulse is divided by this to get Wh
+	// use the HF pulse to calculate power (watts)
+	// use the LF pulse to calculate energy (watt-hours)
+	
+		
+	unsigned long factorEnergy;
+	unsigned long factorEnergyUnits;
+	unsigned long factorPower;
+	
+	// bring calibration values into local variables
+	// this way if the meaning changes this code is easier to change
+	factorEnergy = energyCalibration1_global;
+	factorEnergyUnits = energyCalibration2_global;
+	factorPower = meterPowerFactor_module;
+	
 #define HF_TO_LF_TIME_MS_THRESHOLD	1000 // at what level do we switch from using HF to LF to show and calc watts
+#define POWER_REDUCTION_TIMEOUT		1000		// allow a bit of time beyond the last HF time before power reducing
 #define POWER_REDUCTION_RATE		250			// if no pulse, update the power based on timer every X ms
-#define POWER_REDUCTION_MAX_TIME	90000		//just zero the power after this much time without a pulse - no calcs needed
+#define POWER_REDUCTION_MAX_TIME	90000		// just zero the power after this much time without a pulse - no calcs needed since it is very close to 0 anyway
 
 	// check each of the pulse outputs from the MCP
 	// 1 = inactive
@@ -264,9 +301,8 @@ void mcpUpdatePower( void )
 
 	//	if( ( MCP_HFOUT_READ == 0 ) || ( testPulseTrigger == true ) )
 	//	if( ( testPulseTriggerHF == true ) )
-	if( MCP_HFOUT_READ == 0 )
+	if( MCP_HFOUT_READ == 0 )	// 0 is for a pulse
 	{
-
 		if( oneShotHFout_static == false )
 		{
 			ledGoToggle( 1 );
@@ -277,7 +313,7 @@ void mcpUpdatePower( void )
 			timerResetCount( 0 );
 			timerResetCount( 2 ); // the power reduce counter
 
-			meterWattsHF_static = powerCalculateWatts( timerHFout_ms_static, true );
+			meterWattsHF_static = powerCalculateWatts( factorPower, timerHFout_ms_static, true );
 
 			timerPowerReductionNextTime_static = timerHFout_ms_static + POWER_REDUCTION_RATE;
 		}
@@ -292,7 +328,7 @@ void mcpUpdatePower( void )
 
 	//	if( ( MCP_LFOUT0_READ == 0 ) || ( MCP_LFOUT1_READ == 0 ) || ( testPulseTriggerLF == true ) )
 	//if( ( testPulseTriggerLF == true ) )
-	if( ( MCP_LFOUT0_READ == 0 ) || ( MCP_LFOUT1_READ == 0 ) )
+	if( ( MCP_LFOUT0_READ == 0 ) || ( MCP_LFOUT1_READ == 0 ) )	// 0 is for a pulse - there are two outputs which alternate equally
 	{
 		if( oneShotLFout_static == false )
 		{
@@ -300,20 +336,18 @@ void mcpUpdatePower( void )
 
 			oneShotLFout_static = true;
 
-			//		unsigned long timerLFout_ms;
 			timerLFout_ms_static = timerGetCount( 1 );
 			timerResetCount( 1 );
 			timerResetCount( 2 ); // the power reduce counter
 
-			// TODO verify calculation
-			meterWattsLF_static = powerCalculateWatts( timerLFout_ms_static, false );
+			meterWattsLF_static = powerCalculateWatts( factorPower, timerLFout_ms_static, false );
 
-			// with every pulse we add to energy used
-			meterEnergyUsedPart_module += energyCalibration1_global * (unsigned long) 16;
-			while( meterEnergyUsedPart_module > ENERGY_PER_PULSE_UNIT )
+			// with every pulse we add to energy used accumulator then 
+			meterEnergyUsedPart_module += factorEnergy;
+			while( meterEnergyUsedPart_module > factorEnergyUnits )
 			{
 				meterEnergyUsed_global++;
-				meterEnergyUsedPart_module -= ENERGY_PER_PULSE_UNIT;
+				meterEnergyUsedPart_module -= factorEnergyUnits;
 			}
 		}
 	}
@@ -335,7 +369,7 @@ void mcpUpdatePower( void )
 
 	timerReduce_ms = timerGetCount( 2 );
 
-	if( timerReduce_ms > timerHFout_ms_static )
+	if( timerReduce_ms > ( timerHFout_ms_static + POWER_REDUCTION_TIMEOUT ) )	// we add a timeout to prevent nuisance 'tripping' of the power reduction
 	{
 		if( ( timerReduce_ms > POWER_REDUCTION_MAX_TIME ) || ( timerHFout_ms_static == 0 ) )
 		{
@@ -343,7 +377,7 @@ void mcpUpdatePower( void )
 		}
 		else if( timerReduce_ms > timerPowerReductionNextTime_static ) // we need to wait until the time is longer than the last pulse
 		{
-			meterWatts_global = powerCalculateWatts( timerReduce_ms, true );
+			meterWatts_global = powerCalculateWatts( factorPower, timerReduce_ms, true );
 			timerPowerReductionNextTime_static += POWER_REDUCTION_RATE;
 			// flash the led to indicate power reduction by time mode
 			ledGoSetOn( 3 );
@@ -372,7 +406,7 @@ void mcpUpdatePower( void )
 	return;
 }
 
-unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
+unsigned long powerCalculateWatts( unsigned long factorPower, unsigned long timer_ms, bool outHF )
 {
 
 	// calc the meter watts here
@@ -380,16 +414,24 @@ unsigned long powerCalculateWatts( unsigned long timer_ms, bool outHF )
 	// ideally it is a simple multiplier, but maybe not
 	unsigned long calcWatts;
 
+	calcWatts = factorPower / timer_ms;
+	
 	if( outHF == true )
 	{
-		// timer is from HFout
-		calcWatts = ( ( ( ( energyCalibration2_global * (unsigned long) 3600UL ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000UL ) ) ) * (unsigned long) 1UL ) / (unsigned long) timer_ms;
+		calcWatts = calcWatts / 8;
 	}
-	else
-	{
-		// timer is from LFout
-		calcWatts = ( ( ( ( energyCalibration1_global * (unsigned long) 3600UL ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000UL ) ) ) * (unsigned long) 1UL ) / (unsigned long) timer_ms;
-	}
+
+	//	
+//	if( outHF == true )
+//	{
+//		// timer is from HFout
+//		calcWatts = ( ( ( ( energyCalibration2_global * (unsigned long) 3600UL ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000UL ) ) ) * (unsigned long) 1UL ) / (unsigned long) timer_ms;
+//	}
+//	else
+//	{
+//		// timer is from LFout
+//		calcWatts = ( ( ( ( energyCalibration1_global * (unsigned long) 3600UL ) / ( (unsigned long) ENERGY_PER_PULSE_UNIT / (unsigned long) 1000UL ) ) ) * (unsigned long) 1UL ) / (unsigned long) timer_ms;
+//	}
 
 	return calcWatts;
 }
