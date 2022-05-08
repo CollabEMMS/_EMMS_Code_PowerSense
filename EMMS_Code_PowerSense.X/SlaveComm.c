@@ -460,7 +460,8 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 			// this likely means that the command board had a stored power used greater than we have here.
 			// this happens when the power is lost - current sense starts at 0, command board stores in EEPROM
 
-			meterEnergyUsed_global = atol( parameters[2] );
+//			meterEnergyUsed_global = atol( parameters[2] );
+			meterEnergyUsed_global = strtoul( parameters[2], NULL, 10 );
 			com_command_setEnergyUsed( send_buffer );
 
 		}
