@@ -11,6 +11,9 @@ MPLAB X Project
 - none yet
 
 - update power and energy calculations
+- fix some str to ul conversions for energy used
+  - some were using atol which could lead to problems
+
 
 ### v3.1.6
 April 16, 2022<br />
