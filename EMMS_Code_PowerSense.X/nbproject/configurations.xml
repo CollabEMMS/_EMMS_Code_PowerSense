@@ -44,7 +44,7 @@
         <targetDevice>PIC18F25K22</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>pk4hybrid</platformTool>
+        <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.45</languageToolchainVersion>
         <platform>3</platform>
@@ -1251,6 +1251,8 @@
         <property key="memories.programmemory.ranges" value="0-7fff"/>
         <property key="memories.rww" value="true"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="E:/Documents/Tom/Messiah_Collab/emms/code/_EMMS_Code_PowerSense/EMMS_Code_PowerSense.X/debug/default/Current Sense 2.2_ptg"/>
         <property key="programmerToGoImageName" value="Current Sense 2.2_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

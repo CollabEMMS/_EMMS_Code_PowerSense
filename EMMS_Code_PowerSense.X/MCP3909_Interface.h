@@ -29,6 +29,8 @@
 
 // external only
 void mcpInit( void );
+void mcpUpdateCalibrationFactors( void );
+
 void mcpUpdatePower( void );
 
 

@@ -8,6 +8,7 @@
 #include "Main_PowerSense.h"
 #include "LEDControl.h"
 #include "eeprom.h"
+#include "MCP3909_Interface.h"
 
 /****************
  MACROS
@@ -431,6 +432,7 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 			if( ( temp > 0 ) && ( temp != energyCalibration1_global ) )
 			{
 				energyCalibration1_global = temp;
+				mcpUpdateCalibrationFactors( );
 			}
 
 			command_builder2( send_buffer, "Conf", "Cal1" );
@@ -446,6 +448,7 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 			if( ( temp > 0 ) && ( temp != energyCalibration2_global ) )
 			{
 				energyCalibration2_global = temp;
+				mcpUpdateCalibrationFactors( );
 			}
 
 			command_builder2( send_buffer, "Conf", "Cal2" );
@@ -457,7 +460,8 @@ bool process_data_parameters( char parameters[PARAMETER_MAX_COUNT][PARAMETER_MAX
 			// this likely means that the command board had a stored power used greater than we have here.
 			// this happens when the power is lost - current sense starts at 0, command board stores in EEPROM
 
-			meterEnergyUsed_global = atol( parameters[2] );
+//			meterEnergyUsed_global = atol( parameters[2] );
+			meterEnergyUsed_global = strtoul( parameters[2], NULL, 10 );
 			com_command_setEnergyUsed( send_buffer );
 
 		}

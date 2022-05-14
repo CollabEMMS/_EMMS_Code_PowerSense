@@ -10,6 +10,14 @@ MPLAB X Project
 ### NEXT
 - none yet
 
+### v3.1.7
+May 14, 2022<br />
+Tom Austin
+#### Changes
+- update power and energy calculations
+- fix some str to ul conversions for energy used
+  - some were using atol which could lead to problems
+
 ### v3.1.6
 April 16, 2022<br />
 Tom Austin
