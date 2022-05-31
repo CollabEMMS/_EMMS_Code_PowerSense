@@ -410,8 +410,8 @@ void mcpUpdatePower( void )
 	
 	if( timerReduce_ms > PULSE_WATCHDOG_TIMEOUT_RESET_MS )
 	{
-		RESET();
-//		mcpInitF();
+//		RESET();
+		mcpInitF();
 	}
 	
 	return;
