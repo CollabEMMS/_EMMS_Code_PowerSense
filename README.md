@@ -10,6 +10,8 @@ MPLAB X Project
 ### NEXT
 - none yet
 
+- pulse watchdog timer to reset PIC
+
 ### v3.2.0
 May 14, 2022<br />
 Tom Austin
