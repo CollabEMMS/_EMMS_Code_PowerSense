@@ -411,7 +411,15 @@ void mcpUpdatePower( void )
 	if( timerReduce_ms > PULSE_WATCHDOG_TIMEOUT_RESET_MS )
 	{
 //		RESET();
+		for( int inx = 0; inx < 10; inx++)
+		{
+			ledGoSetAllOff();
+			__delay_ms(50);
+			ledGoSetAllOn();
+			__delay_ms(50);
+		}	
 		mcpInitF();
+		timerResetCount( 2 );
 	}
 	
 	return;
