@@ -244,7 +244,7 @@ void mcpUpdatePower( void )
 #define POWER_REDUCTION_TIMEOUT			1000		// allow a bit of time beyond the last HF time before power reducing
 #define POWER_REDUCTION_RATE			250			// if no pulse, update the power based on timer every X ms
 #define POWER_REDUCTION_MAX_TIME		90000		// just zero the power after this much time without a pulse - no calcs needed since it is very close to 0 anyway
-#define PULSE_WATCHDOG_TIMEOUT_RESET_MS	60000		// if we don't get pulses for this many ms, then reset the PIC because something might be wrong
+#define PULSE_WATCHDOG_TIMEOUT_RESET_MS	900000		// if we don't get pulses for this many ms, then reset the PIC because something might be wrong
 	
 	// check each of the pulse outputs from the MCP
 	// 1 = inactive
@@ -410,14 +410,6 @@ void mcpUpdatePower( void )
 	
 	if( timerReduce_ms > PULSE_WATCHDOG_TIMEOUT_RESET_MS )
 	{
-//		RESET();
-		for( int inx = 0; inx < 10; inx++)
-		{
-			ledGoSetAllOff();
-			__delay_ms(50);
-			ledGoSetAllOn();
-			__delay_ms(50);
-		}	
 		mcpInitF();
 		timerResetCount( 2 );
 	}
