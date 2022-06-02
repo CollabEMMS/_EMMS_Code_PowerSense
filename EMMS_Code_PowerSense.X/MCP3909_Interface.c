@@ -240,11 +240,12 @@ void mcpUpdatePower( void )
 	factorEnergyUnits = energyCalibration2_global;
 	factorPower = meterPowerFactor_module;
 	
-#define HF_TO_LF_TIME_MS_THRESHOLD	1000 // at what level do we switch from using HF to LF to show and calc watts
-#define POWER_REDUCTION_TIMEOUT		1000		// allow a bit of time beyond the last HF time before power reducing
-#define POWER_REDUCTION_RATE		250			// if no pulse, update the power based on timer every X ms
-#define POWER_REDUCTION_MAX_TIME	90000		// just zero the power after this much time without a pulse - no calcs needed since it is very close to 0 anyway
-
+#define HF_TO_LF_TIME_MS_THRESHOLD		1000		// at what level do we switch from using HF to LF to show and calc watts
+#define POWER_REDUCTION_TIMEOUT			1000		// allow a bit of time beyond the last HF time before power reducing
+#define POWER_REDUCTION_RATE			250			// if no pulse, update the power based on timer every X ms
+#define POWER_REDUCTION_MAX_TIME		90000		// just zero the power after this much time without a pulse - no calcs needed since it is very close to 0 anyway
+#define PULSE_WATCHDOG_TIMEOUT_RESET_MS	900000		// if we don't get pulses for this many ms, then reset the PIC because something might be wrong
+	
 	// check each of the pulse outputs from the MCP
 	// 1 = inactive
 	// 0 is active
@@ -403,6 +404,16 @@ void mcpUpdatePower( void )
 		}
 	}
 
+	// sometimes the Power Sense is not working right and we get no pulses when we expect them
+	// if this happens, reset the PIC (kludge fix for now)
+	// just use the    timerReduce_ms   since this contains the time since the last pulse
+	
+	if( timerReduce_ms > PULSE_WATCHDOG_TIMEOUT_RESET_MS )
+	{
+		mcpInitF();
+		timerResetCount( 2 );
+	}
+	
 	return;
 }
 
