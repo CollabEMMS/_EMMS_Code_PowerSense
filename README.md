@@ -10,8 +10,16 @@ MPLAB X Project
 ### NEXT
 - none yet
 
+### v3.2.3
+June 2, 2022<br />
+Tom Austin
+#### Changes
+- finalize watchdog
+  - remove flashing leds (dont need it to be annoying)
+  - set timeout to 900 seonds (900,000 ms)
+
 ### v3.2.2
-May 14, 2022<br />
+May 31, 2022<br />
 Tom Austin
 TEST VERSION
 #### Changes
